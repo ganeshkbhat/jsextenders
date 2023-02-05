@@ -16,10 +16,6 @@
 
 'use strict';
 
-/* eslint no-console: 0 */
-
-'use strict';
-
 function extend() {
 
     function append(item) { }
@@ -85,7 +81,7 @@ function extend() {
     function flatten() { }
 
 
-    function range(size = 0) { }
+    function range(start, stop, step) { }
 
 
     function enumerate(array = [], type = "object" /* object, array */) { }
