@@ -60,6 +60,9 @@ function diff() { }
 function equal() { }
 
 
+function similar() {}
+
+
 function unique() { }
 
 
@@ -76,6 +79,7 @@ function transpose() {}
 
 
 function immutable() {}
+
 
 function flatten() {}
 
@@ -95,6 +99,16 @@ function insert(index, array /* array or item */) {}
 function diction() {}
 
 
+function subset() {}
+
+
+function superset() {}
+
+
+function length() {}
+
+
+
 Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
 Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
 Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
@@ -108,6 +122,7 @@ Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: 
 Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
 Object.defineProperty(Array.prototype, 'diff', { value: diff, enumerable: true, });
 Object.defineProperty(Array.prototype, 'equal', { value: equal, enumerable: true, });
+Object.defineProperty(Array.prototype, 'similar', { value: similar, enumerable: true, });
 Object.defineProperty(Array.prototype, 'unique', { value: unique, enumerable: true, });
 Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
@@ -122,7 +137,10 @@ Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerab
 Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
 Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
 Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
-Object.defineProperty(Array.prototype, 'object', { value: diction, enumerable: true, });
+Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });
+Object.defineProperty(Array.prototype, 'subset', { value: subset, enumerable: true, });
+Object.defineProperty(Array.prototype, 'superset', { value: superset, enumerable: true, });
+Object.defineProperty(Array.prototype, 'length', { value: length, enumerable: true, });
 
 
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
