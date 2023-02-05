@@ -16,8 +16,7 @@
 
 'use strict';
 
-var freeze = require("./freeze");
-var extender = require("./extender");
+var { SubArrayExtender, Freeze } = require("./extenders");
 
 function extend() {
 

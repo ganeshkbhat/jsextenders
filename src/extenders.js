@@ -43,5 +43,10 @@ function SubObjectExtender() {
     return SubObject;
 }
 
+function Freeze(object) {
+    return Object.freeze(object);
+}
+
 module.exports.SubArrayExtender = SubArrayExtender;
 module.exports.SubObjectExtender = SubObjectExtender;
+module.exports.Freeze = Freeze;

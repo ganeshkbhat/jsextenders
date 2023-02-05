@@ -16,8 +16,11 @@
 
 'use strict';
 
+var { SubObjectExtender, Freeze } = require("./extenders");
 
 function extend() {
+
+    let SubObject = SubObjectExtender();
 
     function map() { }
 
@@ -67,7 +70,9 @@ function extend() {
     function get() { }
 
 
-    function items() { }
+    function items() {
+        console.log(100)
+    }
 
 
     function immutable() { }
@@ -87,34 +92,34 @@ function extend() {
     }
 
 
-    Object.defineProperty(Object.prototype, 'map', { value: map, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'sort', { value: sort, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'diff', { value: diff, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'diffBoth', { value: diffBoth, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'equal', { value: equal, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'similar', { value: similar, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'subset', { value: subset, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'superset', { value: superset, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'toArray', { value: toArray, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'length', { value: length, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'clear', { value: clear, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'copy', { value: copy, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'pop', { value: pop, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'popItem', { value: popItem, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'setDefault', { value: setDefault, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'get', { value: get, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'items', { value: items, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'immutable', { value: immutable, enumerable: true, configurable: true, writable: true });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-    // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'map', { value: map, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'sort', { value: sort, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'diff', { value: diff, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'diffBoth', { value: diffBoth, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'equal', { value: equal, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'similar', { value: similar, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'subset', { value: subset, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'superset', { value: superset, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'toArray', { value: toArray, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'length', { value: length, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'clear', { value: clear, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'copy', { value: copy, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'pop', { value: pop, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'popItem', { value: popItem, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'setDefault', { value: setDefault, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'get', { value: get, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'items', { value: items, enumerable: true, });
+    Object.defineProperty(SubObject.prototype, 'immutable', { value: immutable, enumerable: true, configurable: true, writable: true });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(SubObject.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
-    return Object
+    return SubObject
 }
 
 module.exports.ObjectExtended = extend();
-module.exports.extendObject = extend;
+
