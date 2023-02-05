@@ -105,7 +105,9 @@ function extend() {
     function length() { }
 
 
+    function extender() {}
 
+    
     Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
     Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
@@ -138,7 +140,6 @@ function extend() {
     Object.defineProperty(Array.prototype, 'subset', { value: subset, enumerable: true, });
     Object.defineProperty(Array.prototype, 'superset', { value: superset, enumerable: true, });
     Object.defineProperty(Array.prototype, 'length', { value: length, enumerable: true, });
-
 
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });

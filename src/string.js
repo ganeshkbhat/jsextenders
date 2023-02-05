@@ -22,6 +22,9 @@ function extend() {
     function map() { }
 
 
+    function extender() {}
+
+    
     // Object.defineProperty(Object.prototype, 'map', { value: map, enumerable: true, });
 
     return String;

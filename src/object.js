@@ -76,6 +76,9 @@ function extend() {
     // function itemsValue(key) { }
 
 
+    function extender() {}
+
+    
 
     Object.defineProperty(Object.prototype, 'map', { value: map, enumerable: true, });
     Object.defineProperty(Object.prototype, 'sort', { value: sort, enumerable: true, });
