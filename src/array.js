@@ -20,132 +20,138 @@
 
 'use strict';
 
+function extend() {
 
-function append(item) { }
-
-
-function extend(iterable) { }
+    function append(item) { }
 
 
-function insert(index, item) { }
+    function extend(iterable) { }
 
 
-function remove(item) { }
+    function insert(index, item) { }
 
 
-function pop(index) { }
+    function remove(item) { }
 
 
-function clear() { }
+    function pop(index) { }
 
 
-function index(item, start, end) { }
+    function clear() { }
 
 
-function count(item) { }
+    function index(item, start, end) { }
 
 
-function sort(key = None, reverse = False) { } // function sort(key=None, reverse=False) {}
+    function count(item) { }
 
 
-function reverse() { }
+    function sort(key = None, reverse = False) { } // function sort(key=None, reverse=False) {}
 
 
-function copy() { }
+    function reverse() { }
 
 
-function diff() { }
+    function copy() { }
 
 
-function equal() { }
+    function diff() { }
 
 
-function similar() {}
+    function equal() { }
 
 
-function unique() { }
+    function similar() { }
 
 
-function duplicates() { }
+    function unique() { }
 
 
-function enqueue() {}
+    function duplicates() { }
 
 
-function dequeue() {}
+    function enqueue() { }
 
 
-function transpose() {}
+    function dequeue() { }
 
 
-function immutable() {}
+    function transpose() { }
 
 
-function flatten() {}
+    function immutable() { }
 
 
-function range(size = 0) {}
+    function flatten() { }
 
 
-function enumerate(array = [], type = "object" /* object, array */) {}
+    function range(size = 0) { }
 
 
-function del(start, end) {}
+    function enumerate(array = [], type = "object" /* object, array */) { }
 
 
-function insert(index, array /* array or item */) {}
+    function del(start, end) { }
 
 
-function diction() {}
+    function insert(index, array /* array or item */) { }
 
 
-function subset() {}
+    function diction() { }
 
 
-function superset() {}
+    function subset() { }
 
 
-function length() {}
+    function superset() { }
+
+
+    function length() { }
 
 
 
-Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
-Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
-Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
-Object.defineProperty(Array.prototype, 'remove', { value: remove, enumerable: true, });
-Object.defineProperty(Array.prototype, 'pop', { value: pop, enumerable: true, });
-Object.defineProperty(Array.prototype, 'clear', { value: clear, enumerable: true, });
-Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
-Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
-Object.defineProperty(Array.prototype, 'sort', { value: sort, enumerable: true, });
-Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
-Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
-Object.defineProperty(Array.prototype, 'diff', { value: diff, enumerable: true, });
-Object.defineProperty(Array.prototype, 'equal', { value: equal, enumerable: true, });
-Object.defineProperty(Array.prototype, 'similar', { value: similar, enumerable: true, });
-Object.defineProperty(Array.prototype, 'unique', { value: unique, enumerable: true, });
-Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
-Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
-Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
-Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerable: true, });
-Object.defineProperty(Array.prototype, 'freeze', { value: immutable, enumerable: true, });
-Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
-Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
-Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
-Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
-Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
-Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
-Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
-Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });
-Object.defineProperty(Array.prototype, 'subset', { value: subset, enumerable: true, });
-Object.defineProperty(Array.prototype, 'superset', { value: superset, enumerable: true, });
-Object.defineProperty(Array.prototype, 'length', { value: length, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'remove', { value: remove, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'pop', { value: pop, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'clear', { value: clear, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sort', { value: sort, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'diff', { value: diff, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'equal', { value: equal, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'similar', { value: similar, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'unique', { value: unique, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'freeze', { value: immutable, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'subset', { value: subset, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'superset', { value: superset, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'length', { value: length, enumerable: true, });
 
 
-// Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-// Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-// Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
-// Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
-module.exports.ArrayExtended = Array;
+    return Array;
+}
+
+
+module.exports.ArrayExtended = extend();
+module.exports.extendArray = extend;
