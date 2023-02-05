@@ -29,4 +29,19 @@ function SubArrayExtender() {
     return SubArray;
 }
 
-module.exports = SubArrayExtender;
+
+function SubArrayExtender() {
+    var SubObject = function () {
+        var obj = new Object(...arguments);
+        Object.setPrototypeOf(obj, SubArray.prototype);
+        return obj;
+    };
+    SubObject.prototype = {
+        constructor: SubObject
+    };
+    Object.setPrototypeOf(SubObject.prototype, Object.prototype);
+    return SubObject;
+}
+
+module.exports.SubArrayExtender = SubArrayExtender;
+module.exports.SubObjectExtender = SubObjectExtender;
