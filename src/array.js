@@ -77,7 +77,6 @@ function transpose() {}
 
 function immutable() {}
 
-
 function flatten() {}
 
 
@@ -112,6 +111,8 @@ Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: 
 Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
 Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
 Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerable: true, });
+Object.defineProperty(Array.prototype, 'freeze', { value: immutable, enumerable: true, });
+Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
 Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
 Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
 Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
