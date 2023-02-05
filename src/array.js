@@ -87,6 +87,12 @@ function range(size = 0) {}
 function enumerate(array = [], type = "object" /* object, array */) {}
 
 
+function del(start, end) {}
+
+
+function insert(index, array /* array or item */) {}
+
+
 Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
 Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
 Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
@@ -109,6 +115,8 @@ Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerab
 Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
 Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
 Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
+Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
+Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
 
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
