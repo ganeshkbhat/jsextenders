@@ -66,6 +66,27 @@ function unique() { }
 function duplicates() { }
 
 
+function enqueue() {}
+
+
+function dequeue() {}
+
+
+function transpose() {}
+
+
+function immutable() {}
+
+
+function flatten() {}
+
+
+function range(size = 0) {}
+
+
+function enumerate(array = [], type = "object" /* object, array */) {}
+
+
 Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
 Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
 Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
@@ -81,8 +102,15 @@ Object.defineProperty(Array.prototype, 'diff', { value: diff, enumerable: true, 
 Object.defineProperty(Array.prototype, 'equal', { value: equal, enumerable: true, });
 Object.defineProperty(Array.prototype, 'unique', { value: unique, enumerable: true, });
 Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
+Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
+Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
+Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerable: true, });
+Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
+Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
+Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
 
-
+// Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
