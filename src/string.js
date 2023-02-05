@@ -22,7 +22,15 @@ function extend() {
     function map() { }
 
 
-    function extender() {}
+    function extender(func, object) {
+        if (typeof func !== "function") {
+            throw new Error("Error: func is not an function", func);
+        }
+        if (typeof func !== "object" && !object.prototype) {
+            throw new Error("Error: object is not an Object with prototype", object);
+        }
+        return Object.defineProperty(object.prototype, func.prototype.name, { value: func, enumerable: true, writable: true});
+    }
 
     
     // Object.defineProperty(Object.prototype, 'map', { value: map, enumerable: true, });

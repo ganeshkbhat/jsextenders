@@ -16,9 +16,9 @@
 
 'use strict';
 
-function extend() {
-
+function freeze(object) {
+    return Object.freeze(object)
 }
 
-module.exports.Freeze = extend;
+module.exports.Freeze = freeze;
 

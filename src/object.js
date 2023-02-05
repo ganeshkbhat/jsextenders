@@ -76,9 +76,16 @@ function extend() {
     // function itemsValue(key) { }
 
 
-    function extender() {}
+    function extender(func, object) {
+        if (typeof func !== "function") {
+            throw new Error("Error: func is not an function", func);
+        }
+        if (typeof func !== "object" && !object.prototype) {
+            throw new Error("Error: object is not an Object with prototype", object);
+        }
+        return Object.defineProperty(object.prototype, func.prototype.name, { value: func, enumerable: true, });
+    }
 
-    
 
     Object.defineProperty(Object.prototype, 'map', { value: map, enumerable: true, });
     Object.defineProperty(Object.prototype, 'sort', { value: sort, enumerable: true, });
@@ -97,7 +104,7 @@ function extend() {
     Object.defineProperty(Object.prototype, 'setDefault', { value: setDefault, enumerable: true, });
     Object.defineProperty(Object.prototype, 'get', { value: get, enumerable: true, });
     Object.defineProperty(Object.prototype, 'items', { value: items, enumerable: true, });
-    Object.defineProperty(Object.prototype, 'immutable', { value: immutable, enumerable: true, });
+    Object.defineProperty(Object.prototype, 'immutable', { value: immutable, enumerable: true, configurable: true, writable: true });
     // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
