@@ -92,6 +92,9 @@ function del(start, end) {}
 function insert(index, array /* array or item */) {}
 
 
+function diction() {}
+
+
 Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
 Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
 Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
@@ -118,6 +121,9 @@ Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true
 Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
 Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
 Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
+Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
+Object.defineProperty(Array.prototype, 'object', { value: diction, enumerable: true, });
+
 
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
