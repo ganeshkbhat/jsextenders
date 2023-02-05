@@ -1,11 +1,11 @@
 /**
  * 
- * Package: utils-object
+ * Package: extenders
  * Author: Ganesh B
  * Description: 
- * Install: npm i utils-object --save
- * Github: https://github.com/ganeshkbhat/utils-object
- * npmjs Link: https://www.npmjs.com/package/utils-object
+ * Install: npm i extenders --save
+ * Github: https://github.com/ganeshkbhat/jsextenders
+ * npmjs Link: https://www.npmjs.com/package/extenders
  * File: index.js
  * File Description: 
  * 
@@ -15,4 +15,3 @@
 /* eslint no-console: 0 */
 
 'use strict';
-
