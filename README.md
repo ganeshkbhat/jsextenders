@@ -10,10 +10,9 @@ Node module for Array, Object, String, Decorator extention Utils like for Python
 ###### JS
 
 ```
-var extendArray = require("extenders");
-extendArray();
+var ArrayExtended = require("extenders").ArrayExtended;
 
-let arr = [1,2,3,4,5,6];
+let arr = ArrayExtended([1,2,3,4,5,6]);
 console.log(arr);
 arr.clear();
 console.log(arr);
@@ -23,10 +22,9 @@ console.log(arr);
 ###### CJS
 
 ```
-var extendArray = import("extenders");
-extendArray();
+var ArrayExtended = import("extenders").ArrayExtended;
 
-let arr = [1,2,3,4,5,6];
+let arr = ArrayExtended([1,2,3,4,5,6]);
 console.log(arr);
 arr.clear();
 console.log(arr);
@@ -36,10 +34,9 @@ console.log(arr);
 ###### ESM
 
 ```
-import extendArray from "extenders";
-extendArray();
+import ArrayExtended from "extenders";
 
-let arr = [1,2,3,4,5,6];
+let arr = ArrayExtended([1,2,3,4,5,6]);
 console.log(arr);
 arr.clear();
 console.log(arr);
@@ -49,19 +46,9 @@ console.log(arr);
 ### Array - List
 
 ```
-var extendArray = require("extenders");
-extendArray();
+var ArrayExtended = require("extenders").ArrayExtended;
 
-let arr = [1,2,3,4,5,6];
-console.log(arr);
-arr.clear();
-console.log(arr);
-```
-
-```
-var ArrayExtended = require("extenders");
-
-let arr = new ArrayExtended([1,2,3,4,5,6]);
+let arr = ArrayExtended([1,2,3,4,5,6]);
 console.log(arr);
 arr.clear();
 console.log(arr);
@@ -71,19 +58,9 @@ console.log(arr);
 ### Object - Dictionary
 
 ```
-var extendObject = require("extenders");
-extendObject();
+var ObjectExtended = require("extenders").ObjectExtended;
 
-let obj = { "test" : "test", "tester" : "100" };
-console.log(obj);
-obj.clear();
-console.log(obj);
-```
-
-```
-var ObjectExtended = require("extenders");
-
-let obj = new ObjectExtended.create({ "test" : "test", "tester" : "100" });
+let obj = ObjectExtended.create({ "test" : "test", "tester" : "100" });
 console.log(obj);
 obj.clear();
 console.log(obj);
@@ -93,19 +70,9 @@ console.log(obj);
 ### String
 
 ```
-var extendString = require("extenders");
-extendString();
+var StringExtended = require("extenders").StringExtended;
 
-let str = "Tesing my modified String JS object functions";
-console.log(str);
-str.clear();
-console.log(str);
-```
-
-```
-var StringExtended = require("extenders");
-
-let str = new StringExtended("Tesing my extended String JS object and functions");
+let str = new StringExtended("Tesing my modified String JS object functions");
 console.log(str);
 str.clear();
 console.log(str);
