@@ -1,5 +1,5 @@
 # extenders
-Node module for Array, Object, String, Decorator Utils like Python and more for Node.js
+Node module for Array, Object, String, Decorator extention Utils like for Python and more for Node.js
 
 ### IN DEVELOPMENT - DO NOT INSTALL
 

@@ -1,7 +1,7 @@
 {
   "name": "extenders",
   "version": "0.0.1",
-  "description": "Node module for Array, Object, String, Decorator Utils like Python and more for Node.js",
+  "description": "Node module for Array, Object, String, Decorator extention Utils like for Python and more for Node.js",
   "main": "index.js",
   "directories": {
     "test": "test"
