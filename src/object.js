@@ -70,6 +70,9 @@ function extend() {
     function items() { }
 
 
+    function immutable() { }
+
+
     // function itemsValue(key) { }
 
 
@@ -91,6 +94,7 @@ function extend() {
     Object.defineProperty(Object.prototype, 'setDefault', { value: setDefault, enumerable: true, });
     Object.defineProperty(Object.prototype, 'get', { value: get, enumerable: true, });
     Object.defineProperty(Object.prototype, 'items', { value: items, enumerable: true, });
+    Object.defineProperty(Object.prototype, 'immutable', { value: immutable, enumerable: true, });
     // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     // Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
