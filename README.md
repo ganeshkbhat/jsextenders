@@ -118,3 +118,21 @@ console.log(str);
 
 ```
 
+
+# Current Status
+
+* In development 
+
+
+# Todo
+
+Check [.todo](./.todo) file for latest TODO list
+
+<!-- # References -->
+
+
+# License
+
+The MIT License (MIT) - See [LICENSE](./LICENSE) for further details
+
+Copyright © 2023 - till library works
