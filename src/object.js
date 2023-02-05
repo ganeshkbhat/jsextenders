@@ -16,7 +16,7 @@
 
 'use strict';
 
-var { SubObjectExtender, Freeze } = require("./extenders");
+var { SubObjectExtender, Freeze, extender } = require("./extenders");
 
 function extend() {
 
@@ -122,4 +122,3 @@ function extend() {
 }
 
 module.exports.ObjectExtended = extend();
-

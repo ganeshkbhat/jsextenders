@@ -16,7 +16,7 @@
 
 'use strict';
 
-var { SubArrayExtender, Freeze } = require("./extenders");
+var { SubArrayExtender, Freeze, extender } = require("./extenders");
 
 function extend() {
 
@@ -109,17 +109,6 @@ function extend() {
     function length() { }
 
 
-    function extender(func, object) {
-        if (typeof func !== "function") {
-            throw new Error("Error: func is not an function", func);
-        }
-        if (typeof func !== "object" && !object.prototype) {
-            throw new Error("Error: object is not an Object with prototype", object);
-        }
-        return Object.defineProperty(object.prototype, func.prototype.name, { value: func, enumerable: true, });
-    }
-
-
     Object.defineProperty(SubArray.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'extend', { value: extend, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'insert', { value: insert, enumerable: true, });
@@ -152,7 +141,7 @@ function extend() {
     Object.defineProperty(SubArray.prototype, 'subset', { value: subset, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'superset', { value: superset, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'length', { value: length, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'extender', { value: length, enumerable: true, configurable: true, writable: true });
+    Object.defineProperty(SubArray.prototype, 'extender', { value: extender, enumerable: true, configurable: true, writable: true });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
@@ -162,6 +151,5 @@ function extend() {
     return SubArray;
 }
 
-
 module.exports.ArrayExtended = extend();
-module.exports.extendArray = extend;
+

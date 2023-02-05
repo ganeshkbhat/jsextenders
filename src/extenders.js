@@ -47,6 +47,17 @@ function Freeze(object) {
     return Object.freeze(object);
 }
 
+function extender(func, object) {
+    if (typeof func !== "function") {
+        throw new Error("Error: func is not an function", func);
+    }
+    if (typeof func !== "object" && !object.prototype) {
+        throw new Error("Error: object is not an Object with prototype", object);
+    }
+    return Object.defineProperty(object.prototype, func.prototype.name, { value: func, enumerable: true, writable: true});
+}
+
 module.exports.SubArrayExtender = SubArrayExtender;
 module.exports.SubObjectExtender = SubObjectExtender;
 module.exports.Freeze = Freeze;
+module.exports.extender = extender;
