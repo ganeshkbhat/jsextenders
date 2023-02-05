@@ -1,9 +1,9 @@
 /**
  * 
- * Package: jsextender
+ * Package: extenders
  * Author: Ganesh B
  * Description: 
- * Install: npm i jsextender --save
+ * Install: npm i extenders --save
  * Github: https://github.com/ganeshkbhat/jsextender
  * npmjs Link: https://www.npmjs.com/package/jsextender
  * File: index.js
