@@ -105,7 +105,7 @@ console.log(str);
 ```
 var StringExtended = require("extenders");
 
-let arr = new StringExtended("Tesing my extended String JS object and functions");
+let str = new StringExtended("Tesing my extended String JS object and functions");
 console.log(str);
 str.clear();
 console.log(str);
