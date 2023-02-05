@@ -15,3 +15,17 @@
 /* eslint no-console: 0 */
 
 'use strict';
+
+
+function extend() {
+
+    function map() { }
+
+
+    // Object.defineProperty(Object.prototype, 'map', { value: map, enumerable: true, });
+
+    return String;
+}
+
+module.exports.StringExtended = extend();
+module.exports.extendObject = extend;

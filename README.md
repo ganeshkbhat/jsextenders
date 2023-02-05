@@ -7,7 +7,7 @@ Array, Object, Decorator Utils like Python and more for Node.js
 #### USAGE
 
 
-##### JS
+###### JS
 
 ```
 var extendArray = require("extenders");
@@ -20,7 +20,7 @@ console.log(arr);
 ```
 
 
-##### CJS
+###### CJS
 
 ```
 var extendArray = import("extenders");
@@ -33,7 +33,7 @@ console.log(arr);
 ```
 
 
-##### ESM
+###### ESM
 
 ```
 import extendArray from "./extenders";
@@ -46,7 +46,7 @@ console.log(arr);
 ```
 
 
-#### Array
+### Array - List
 
 ```
 var extendArray = require("extenders");
@@ -58,8 +58,17 @@ arr.clear();
 console.log(arr);
 ```
 
+```
+var ArrayExtended = require("extenders");
 
-#### Object - Dictionary
+let arr = new ArrayExtended([1,2,3,4,5,6]);
+console.log(arr);
+arr.clear();
+console.log(arr);
+```
+
+
+### Object - Dictionary
 
 ```
 var extendObject = require("extenders");
@@ -71,22 +80,39 @@ obj.clear();
 console.log(obj);
 ```
 
-
-#### String
-
 ```
+var ObjectExtended = require("extenders");
 
-```
-
-
-#### Freeze Object
-
-```
-
+let obj = new ObjectExtended.create({ "test" : "test", "tester" : "100" });
+console.log(obj);
+obj.clear();
+console.log(obj);
 ```
 
 
-#### Decorator
+### String
+
+```
+var extendString = require("extenders");
+extendString()
+
+let str = "Tesing my modified String JS object functions";
+console.log(str);
+str.clear();
+console.log(str);
+```
+
+```
+var StringExtended = require("extenders");
+
+let arr = new StringExtended("Tesing my extended String JS object and functions");
+console.log(str);
+str.clear();
+console.log(str);
+```
+
+
+### Decorator
 
 ```
 
