@@ -103,4 +103,4 @@ function extend() {
 }
 
 module.exports.ObjectExtended = extend();
-module.exports.ExtendObject = extent;
+module.exports.ExtendObject = extend;
