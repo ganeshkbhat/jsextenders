@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ganeshkbhat/jsextender.git"
+    "url": "git+https://github.com/ganeshkbhat/jsextenders.git"
   },
   "keywords": [],
   "author": "ganesh B",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ganeshkbhat/jsextender/issues"
+    "url": "https://github.com/ganeshkbhat/jsextenders/issues"
   },
-  "homepage": "https://github.com/ganeshkbhat/jsextender#readme",
+  "homepage": "https://github.com/ganeshkbhat/jsextenders#readme",
   "devDependencies": {
     "@types/node": "^18.11.3",
     "chai": "^4.3.6",
@@ -37,7 +37,5 @@
     "sinon": "^14.0.0",
     "unimported": "^1.22.0"
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
