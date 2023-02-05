@@ -50,7 +50,7 @@ console.log(arr);
 
 ```
 var extendArray = require("extenders");
-extendArray()
+extendArray();
 
 let arr = [1,2,3,4,5,6];
 console.log(arr);
@@ -72,7 +72,7 @@ console.log(arr);
 
 ```
 var extendObject = require("extenders");
-extendObject()
+extendObject();
 
 let obj = { "test" : "test", "tester" : "100" };
 console.log(obj);
@@ -94,7 +94,7 @@ console.log(obj);
 
 ```
 var extendString = require("extenders");
-extendString()
+extendString();
 
 let str = "Tesing my modified String JS object functions";
 console.log(str);
