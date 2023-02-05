@@ -36,7 +36,7 @@ console.log(arr);
 ###### ESM
 
 ```
-import extendArray from "./extenders";
+import extendArray from "extenders";
 extendArray();
 
 let arr = [1,2,3,4,5,6];
