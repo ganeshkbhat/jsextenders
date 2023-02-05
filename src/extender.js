@@ -33,7 +33,7 @@ function SubArrayExtender() {
 function SubObjectExtender() {
     var SubObject = function () {
         var obj = new Object(...arguments);
-        Object.setPrototypeOf(obj, SubArray.prototype);
+        Object.setPrototypeOf(obj, SubObject.prototype);
         return obj;
     };
     SubObject.prototype = {
