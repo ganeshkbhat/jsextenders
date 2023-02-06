@@ -46,6 +46,16 @@ console.log(arr);
 ### Array - List
 
 ```
+var extendArray = require("extenders").extendArray;
+extendArray();
+
+let arr = [1,2,3,4,5,6];
+console.log(arr);
+arr.clear();
+console.log(arr);
+```
+
+```
 var ArrayExtended = require("extenders").ArrayExtended;
 
 let arr = ArrayExtended([1,2,3,4,5,6]);
@@ -56,6 +66,16 @@ console.log(arr);
 
 
 ### Object - Dictionary
+
+```
+var extendArray = require("extenders").extendArray;
+extendArray();
+
+let arr = [1,2,3,4,5,6];
+console.log(arr);
+arr.clear();
+console.log(arr);
+```
 
 ```
 var ObjectExtended = require("extenders").ObjectExtended;

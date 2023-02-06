@@ -54,7 +54,7 @@ function extender(func, object) {
     if (typeof func !== "object" && !object.prototype) {
         throw new Error("Error: object is not an Object with prototype", object);
     }
-    return Object.defineProperty(object.prototype, func.prototype.name, { value: func, enumerable: true, writable: true});
+    return Object.defineProperty(object.prototype, func.prototype.name, { value: func, enumerable: true, writable: true });
 }
 
 module.exports.SubArrayExtender = SubArrayExtender;
