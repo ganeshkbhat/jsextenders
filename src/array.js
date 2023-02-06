@@ -18,27 +18,72 @@
 
 var { SubArrayExtender, Freeze, extender } = require("./extenders");
 
-function append(item) { }
+function extend(iterable) {
 
-function extend(iterable) { }
+}
 
-function insert(index, item) { }
+function append(item) {
+    this.push(item);
+}
 
-function remove(item) { }
+function isArray(arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+}
 
-function pop(index) { }
+function insert(index, item) {
+    this.splice(index, 0, item);
+}
 
-function clear() { }
+function insertAll(index, array /* array or item */) {
+    this.splice(index, 0, ...array);
+}
+
+function count(item) {
+    return [...this].filter((i) => i === item).length;
+}
+
+function replace(index, item) {
+    this.splice(index, 1, item);
+}
+
+function remove(item) {
+    let i = this.indexOf(item);
+    (i !== -1) ? this.splice(i, 1) : this;
+}
+
+function removeAll(item) { }
+
+function pop(index) {
+    this.splice(index, 1);
+}
+
+function clear() {
+    this.splice(0, this.length)
+}
 
 function index(item, start, end) { }
 
-function count(item) { }
+function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
 
-function sort(key = None, reverse = False) { } // sort(key=None, reverse=False) {}
+function reverse() {
+    this.reverse();
+}
 
-function reverse() { }
+function reverseCopy() {
+    return [...this].reverse();
+}
 
-function copy() { }
+function copy() {
+    return [...this];
+}
+
+function diction(mapFunction) {
+    return Object.assign({}, [1, 2, 3, 4, 5]);
+}
+
+function subset(iterable) { }
+
+function superset(iterable) { }
 
 function diff() { }
 
@@ -46,47 +91,67 @@ function equal() { }
 
 function similar() { }
 
-function unique() { }
+function uniques() {
+    return Array.from(new Set([...this]));
+}
 
-function duplicates() { }
+function duplicates() {
 
-function enqueue() { }
+}
 
-function dequeue() { }
+function enqueue(item) {
+    this.push(item);
+}
 
-function transpose() { }
+function dequeue() {
+    this.shift(item);
+}
 
-function immutable() { }
+function transpose() {
+    this.reverse();
+    this.map(function (item) {
+        (Array.isArray(item)) ? item.reverse() : item;
+    })
+}
 
-function flatten() { }
+function immutable() {
+    Object.freeze(this);
+}
 
-function range(start, stop, step) { }
+function flatten() {
+    this.flatMap(num => num);
+}
+
+function range(start, stop, step) {
+    let a = [];
+    for (let i = (!!stop) ? start : 0; i <= stop; i += (!!step) ? step : 1) { a[i] = i; }
+    return a;
+}
 
 function enumerate(array = [], type = "object" /* object, array */) { }
 
-function del(start, end) { }
-
-function insert(index, array /* array or item */) { }
-
-function diction() { }
-
-function subset() { }
-
-function superset() { }
+function del(start, end) {
+    this.splice(start, end - start);
+}
 
 function log() {
-    console.log(1000);
+    console.log(this);
 }
+
 
 function ArrayExtended() {
 
     let SubArray = SubArrayExtender();
 
-    Object.defineProperty(SubArray.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'extend', { value: extend, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'append', { value: append, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'isArray', { value: isArray, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'insertAll', { value: insertAll, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'insert', { value: insert, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'replace', { value: replace, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'remove', { value: remove, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'pop', { value: pop, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'removeAll', { value: removeAll, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'popIndex', { value: pop, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'count', { value: count, enumerable: true, });
@@ -96,7 +161,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'diff', { value: diff, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'equal', { value: equal, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'similar', { value: similar, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'unique', { value: unique, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'uniques', { value: uniques, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'dequeue', { value: dequeue, enumerable: true, });
@@ -108,7 +173,6 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enumerate', { value: enumerate, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'del', { value: del, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'insert', { value: insert, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'toObject', { value: diction, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'subset', { value: subset, enumerable: true, });
@@ -124,11 +188,15 @@ function ArrayExtended() {
 
 function extendArray() {
 
-    Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'isArray', { value: isArray, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'insertAll', { value: insertAll, enumerable: true, });
     Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'replace', { value: replace, enumerable: true, });
     Object.defineProperty(Array.prototype, 'remove', { value: remove, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'pop', { value: pop, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'removeAll', { value: removeAll, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'popIndex', { value: pop, enumerable: true, });
     Object.defineProperty(Array.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
@@ -138,7 +206,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'diff', { value: diff, enumerable: true, });
     Object.defineProperty(Array.prototype, 'equal', { value: equal, enumerable: true, });
     Object.defineProperty(Array.prototype, 'similar', { value: similar, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'unique', { value: unique, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'uniques', { value: uniques, enumerable: true, });
     Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
@@ -150,7 +218,6 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
     Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
     Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });
     Object.defineProperty(Array.prototype, 'subset', { value: subset, enumerable: true, });

@@ -6,7 +6,7 @@
  * Install: npm i extenders --save
  * Github: https://github.com/ganeshkbhat/jsextenders
  * npmjs Link: https://www.npmjs.com/package/extenders
- * File: src/array.js
+ * File: src/object.js
  * File Description: 
  * 
  * 
@@ -16,18 +16,6 @@
 
 'use strict';
 
-const expect = require('chai').expect;
 
-
-describe('demos.js::extenders: Test Suite for  function', function () {
-
-    it('demos.js::extenders: [Test A] Test Suite for ', function (done) {
-        
-        expect(0).to.equal(0);
-
-        done();
-    });
-
-
-});
-
+module.exports.NumbersExtended = {};
+module.exports.extendNumber = {};

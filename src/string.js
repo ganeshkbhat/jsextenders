@@ -28,3 +28,4 @@ function extend() {
 }
 
 module.exports.StringExtended = extend();
+module.exports.extendString = extend();

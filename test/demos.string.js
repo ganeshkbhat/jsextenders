@@ -19,9 +19,9 @@
 const expect = require('chai').expect;
 
 
-describe('demos.js::extenders: Test Suite for  function', function () {
+describe('demos.array.js::extenders: Test Suite for  function', function () {
 
-    it('demos.js::extenders: [Test A] Test Suite for ', function (done) {
+    it('demos.array.js::extenders: [Test A] Test Suite for ', function (done) {
         
         expect(0).to.equal(0);
 

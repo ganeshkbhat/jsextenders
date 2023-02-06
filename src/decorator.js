@@ -128,3 +128,5 @@
 // // Arguments for Demo: args
 // console.log(e);
 // 
+
+module.exports.decorate = {}

@@ -16,3 +16,23 @@
 
 'use strict';
 
+var { 
+    default,
+    ArrayExtended, extendArray, decorate , 
+    SubArrayExtender, SubObjectExtender, 
+    Freeze, extender, 
+    NumbersExtended, extendNumber, 
+    ObjectExtended, extendObject, 
+    StringExtended, extendString 
+} = require("./index.js");
+
+export default extenders;
+
+export {
+    ArrayExtended, extendArray, decorate , 
+    SubArrayExtender, SubObjectExtender, 
+    Freeze, extender, 
+    NumbersExtended, extendNumber, 
+    ObjectExtended, extendObject, 
+    StringExtended, extendString 
+};
