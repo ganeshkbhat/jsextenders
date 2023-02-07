@@ -68,8 +68,8 @@ console.log(arr);
 ### Object - Dictionary
 
 ```
-var extendArray = require("extenders").extendArray;
-extendArray();
+var extendObject = require("extenders").extendObject;
+extendObject();
 
 let arr = [1,2,3,4,5,6];
 console.log(arr);
@@ -106,7 +106,13 @@ console.log(str);
 ```
 
 
-### 
+### Array prototype extended function
+
+```
+var extendArray = require("extenders").extendArray;
+extendArray();
+
+```
 
 ##### extend 
 [1,2,3].extend()
