@@ -158,7 +158,7 @@ function copy() {
 }
 
 function diction(mapFunction, arg) {
-    if (!mapFunction || typeof mapFunction !== "function") { }
+    if (!mapFunction || typeof mapFunction !== "function") { throw new Error("Mapper function is not defined"); }
     if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
     return Object.assign({}, [...this]);
 }
