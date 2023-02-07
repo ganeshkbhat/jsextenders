@@ -29,7 +29,7 @@ function max(count) {
 
 function maxIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
-    return 
+    return
 }
 
 function min(count) {
@@ -353,6 +353,72 @@ function del(start, end) {
 function log() {
     console.log(this);
 }
+
+// function chunk() { }
+// function compact() { }
+// function concat() { }
+// function difference() { }
+// function differenceBy() { }
+// function differenceWith() { }
+// function drop() { }
+// function dropRight() { }
+// function dropRightWhile() { }
+// function dropWhile() { }
+// function fill() { }
+// function findIndex() { }
+// function findLastIndex() { }
+// function first -> head() { }
+// function flatten() { }
+// function flattenDeep() { }
+// function flattenDepth() { }
+// function fromPairs() { }
+// function head() { }
+// function indexOf() { }
+// function initial() { }
+// function intersection() { }
+// function intersectionBy() { }
+// function intersectionWith() { }
+// function join() { }
+// function last() { }
+// function lastIndexOf() { }
+// function nth() { }
+// function pull() { }
+// function pullAll() { }
+// function pullAllBy() { }
+// function pullAllWith() { }
+// function pullAt() { }
+// function remove() { }
+// function reverse() { }
+// function slice() { }
+// function sortedIndex() { }
+// function sortedIndexBy() { }
+// function sortedIndexOf() { }
+// function sortedLastIndex() { }
+// function sortedLastIndexBy() { }
+// function sortedLastIndexOf() { }
+// function sortedUniq() { }
+// function sortedUniqBy() { }
+// function tail() { }
+// function take() { }
+// function takeRight() { }
+// function takeRightWhile() { }
+// function takeWhile() { }
+// function union() { }
+// function unionBy() { }
+// function unionWith() { }
+// function uniq() { }
+// function uniqBy() { }
+// function uniqWith() { }
+// function unzip() { }
+// function unzipWith() { }
+// function without() { }
+// function xor() { }
+// function xorBy() { }
+// function xorWith() { }
+// function zip() { }
+// function zipObject() { }
+// function zipObjectDeep() { }
+// function zipWith() { }
 
 
 function ArrayExtended() {

@@ -22,6 +22,9 @@ var { SubArrayExtender, SubObjectExtender, Freeze, extender } = require("./exten
 var { NumbersExtended, extendNumber } = require("./numbers.js");
 var { ObjectExtended, extendObject } = require("./object.js");
 var { StringExtended, extendString } = require("./string.js");
+var utils = require("./utils.js");
+var math = require("./math.js");
+
 
 module.exports.decorate = decorate;
 module.exports.Freeze = Freeze;
@@ -30,24 +33,26 @@ module.exports.extender = extender;
 module.exports.ArrayExtended = ArrayExtended;
 module.exports.extendArray = extendArray;
 
-module.exports.SubArrayExtender = SubArrayExtender;
-module.exports.SubObjectExtender = SubObjectExtender;
+// module.exports.SubArrayExtender = SubArrayExtender;
+// module.exports.SubObjectExtender = SubObjectExtender;
 
-module.exports.NumbersExtended = NumbersExtended;
-module.exports.extendNumber = extendNumber;
+// module.exports.NumbersExtended = NumbersExtended;
+// module.exports.extendNumber = extendNumber;
 
-module.exports.ObjectExtended = ObjectExtended;
-module.exports.extendObject = extendObject;
+// module.exports.ObjectExtended = ObjectExtended;
+// module.exports.extendObject = extendObject;
 
-module.exports.StringExtended = StringExtended;
-module.exports.extendString = extendString;
+// module.exports.StringExtended = StringExtended;
+// module.exports.extendString = extendString;
 
 module.exports.default = {
     ArrayExtended, extendArray,
-    decorate,
-    SubArrayExtender, SubObjectExtender, Freeze, extender,
-    NumbersExtended, extendNumber,
-    ObjectExtended, extendObject,
-    StringExtended, extendString
+    // decorate,
+    SubArrayExtender, SubObjectExtender,
+    Freeze,
+    extender,
+    // NumbersExtended, extendNumber,
+    // ObjectExtended, extendObject,
+    // StringExtended, extendString
 }
 
