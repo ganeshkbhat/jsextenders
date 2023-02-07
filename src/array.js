@@ -258,7 +258,7 @@ function flattenCopy() {
 }
 
 function range(start, stop, step) {
-    if (!start) { throw new Error("Start is not defined"); }
+    if (!start) { throw new Error("Start [minimal range end number] is not defined"); }
     let a = [];
     for (let i = (!!stop) ? start : 0; i <= stop; i += (!!step) ? step : 1) { a[i] = i; }
     return a;
@@ -285,7 +285,7 @@ function enumerate(type = "object") {
 }
 
 function del(start, end) {
-    if (!start) { throw new Error("Start is not defined"); }
+    if (!start) { throw new Error("Start [minimal range end number] is not defined"); }
     if (!end) {
         start = 0;
         end = start;
