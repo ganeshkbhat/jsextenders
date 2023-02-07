@@ -127,7 +127,7 @@ function removeAll(item) {
 }
 
 function pop(index) {
-    if (!index) { }
+    if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 1);
 }
 
