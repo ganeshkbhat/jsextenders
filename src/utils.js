@@ -15,3 +15,6 @@
 /* eslint no-console: 0 */
 
 'use strict';
+
+
+module.exports.UtilFunctions = utils();

@@ -352,6 +352,9 @@ function log() {
     console.log(this);
 }
 
+// // _ lodash Functions
+// // Array
+
 // function chunk() { }
 // function compact() { }
 // function concat() { }
@@ -418,6 +421,38 @@ function log() {
 // function zipObjectDeep() { }
 // function zipWith() { }
 
+
+// // _ lodash Functions
+// // Collection
+
+// function countBy() { }
+// function each -> forEach() { }
+// function eachRight -> forEachRight() { }
+// function every() { }
+// function filter() { }
+// function find() { }
+// function findLast() { }
+// function flatMap() { }
+// function flatMapDeep() { }
+// function flatMapDepth() { }
+// function forEach() { }
+// function forEachRight() { }
+// function groupBy() { }
+// function includes() { }
+// function invokeMap() { }
+// function keyBy() { }
+// function map() { }
+// function orderBy() { }
+// function partition() { }
+// function reduce() { }
+// function reduceRight() { }
+// function reject() { }
+// function sample() { }
+// function sampleSize() { }
+// function shuffle() { }
+// function size() { }
+// function some() { }
+// function sortBy() { }
 
 function ArrayExtended() {
 

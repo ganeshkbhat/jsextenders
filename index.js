@@ -48,9 +48,8 @@ module.exports.extendArray = extendArray;
 module.exports.default = {
     ArrayExtended, extendArray,
     // decorate,
-    SubArrayExtender, SubObjectExtender,
-    Freeze,
-    extender,
+    SubArrayExtender, SubObjectExtender, SubStringExtender,
+    Freeze, extender,
     // NumbersExtended, extendNumber,
     // ObjectExtended, extendObject,
     // StringExtended, extendString

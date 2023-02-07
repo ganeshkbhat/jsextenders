@@ -43,6 +43,21 @@ function SubObjectExtender() {
     return SubObject;
 }
 
+
+function SubStringExtender() {
+    var SubString = function () {
+        var obj = new String(...arguments);
+        Object.setPrototypeOf(obj, SubObject.prototype);
+        return obj;
+    };
+    SubString.prototype = {
+        constructor: SubString
+    };
+    Object.setPrototypeOf(SubString.prototype, String.prototype);
+    return SubString;
+}
+
+
 function Freeze(object) {
     return Object.freeze(object);
 }
