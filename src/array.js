@@ -324,16 +324,33 @@ function similar(iterable) {
 }
 
 function uniques() {
+    let a = Array.from(new Set([...this]));
+    this.length = 0;
+    this.concat(a);
+}
+
+function uniquesCopy() {
     return Array.from(new Set([...this]));
 }
 
 function duplicates() {
-    let arr = [...this], noduplicatesarray = this.uniques();
+    let a = [...this], noduplicatesarray = this.uniquesCopy();
     for (let i = 0; i < noduplicatesarray.length; i++) {
-        let c = arr.indexOf(noduplicatesarray[i]);
-        arr[c] = (c !== -1) ? undefined : arr[c];
+        let c = a.indexOf(noduplicatesarray[i]);
+        a[c] = (c !== -1) ? undefined : a[c];
     }
-    return arr.filter((a) => a !== undefined);
+    a.filter((a) => a !== undefined);
+    this.length = 0;
+    this.concat(a);
+}
+
+function duplicatesCopy() {
+    let a = [...this], noduplicatesarray = this.uniques();
+    for (let i = 0; i < noduplicatesarray.length; i++) {
+        let c = a.indexOf(noduplicatesarray[i]);
+        a[c] = (c !== -1) ? undefined : a[c];
+    }
+    return a.filter((a) => a !== undefined);
 }
 
 function enqueue(item) {
@@ -549,6 +566,8 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'similar', { value: similar, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'uniques', { value: uniques, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'uniquesCopy', { value: uniquesCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'duplicatesCopy', { value: duplicatesCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'transpose', { value: transpose, enumerable: true, });
@@ -641,6 +660,8 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'similar', { value: similar, enumerable: true, });
     Object.defineProperty(Array.prototype, 'uniques', { value: uniques, enumerable: true, });
     Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'uniquesCopy', { value: uniquesCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'duplicatesCopy', { value: duplicatesCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
