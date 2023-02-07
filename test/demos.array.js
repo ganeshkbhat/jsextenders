@@ -25,6 +25,16 @@ describe('demos.array.js::extenders: Test Suite for  function', function () {
         
         expect(0).to.equal(0);
 
+        
+// console.log("false", subset(c, [1]))
+// console.log("true", superset(c, [1]))
+
+// console.log("false", subset(c, [5,6]))
+// console.log("false", superset(c, [5,6]))
+
+// console.log("true", subset(c, [1,2,3,4,5]))
+// console.log("false", superset(c, [1,2,3,4,5]))
+
         done();
     });
 

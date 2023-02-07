@@ -77,19 +77,59 @@ function copy() {
     return [...this];
 }
 
-function diction(mapFunction) {
-    return Object.assign({}, [1, 2, 3, 4, 5]);
+function diction(mapFunction, arg) {
+    if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
+    return Object.assign({}, [...this]);
 }
 
-function subset(iterable) { }
+function subset(iterable) {
+    let a = [], len = this.length;
+    for (let i = 0; i < len; i++) {
+        if (!iterable.includes(this[i])) return false;
+    }
+    return true;
+}
 
-function superset(iterable) { }
+function superset(iterable) {
+    let a = [], len = iterable.length;
+    for (let i = 0; i < len; i++) {
+        if (!this.includes(iterable[i])) return false;
+    }
+    return true;
+}
 
-function diff() { }
+function diffIterable(iterable) {
+    let a = [], len = iterable.length;
+    for (let i = 0; i < len; i++) {
+        (!this.includes(iterable[i])) ? a.push(iterable[i]) : a;
+    }
+    return a;
+}
 
-function equal() { }
+function diffSelf(iterable) {
+    let a = [], len = this.length;
+    for (let i = 0; i < len; i++) {
+        (!iterable.includes(this[i])) ? a.push(this[i]) : a;
+    }
+    return a;
+}
 
-function similar() { }
+function diffBoth(iterable) {
+    let a = { "self": [], "iterable": [] };
+    a["self"] = this.diffSelf(this, iterable);
+    a["iterable"] = this.diffIterable(this, iterable);
+    return a;
+}
+
+function equal() {
+    let a = [...this];
+    return JSON.stringify(a) === JSON.stringify(iterable);
+}
+
+function similar(iterable) {
+    let a = [...this];
+    return JSON.stringify(a.sort()) === JSON.stringify(iterable.sort());
+}
 
 function uniques() {
     return Array.from(new Set([...this]));
@@ -110,7 +150,7 @@ function dequeue() {
 function transpose() {
     this.reverse();
     this.map(function (item) {
-        (Array.isArray(item)) ? item.reverse() : item;
+        (isArray(item)) ? item.reverse() : item;
     })
 }
 
@@ -122,13 +162,29 @@ function flatten() {
     this.flatMap(num => num);
 }
 
+function flattenCopy() {
+    return [...this].flatMap(num => num);
+}
+
 function range(start, stop, step) {
     let a = [];
     for (let i = (!!stop) ? start : 0; i <= stop; i += (!!step) ? step : 1) { a[i] = i; }
     return a;
 }
 
-function enumerate(array = [], type = "object" /* object, array */) { }
+function enumerate(type = "object" /* object, array */) {
+    if (!["object", "array"].includes(type)) { throw new Error("Type not defined") };
+    let a = [], len = this.length;
+    for (let i = 0; i < len; i++) {
+        if (type === "object") {
+            a[i] = { "index": i, "value": this[i] };
+        }
+        if (type === "array") {
+            a[i] = [i, this[i]];
+        }
+    }
+    return a;
+}
 
 function del(start, end) {
     this.splice(start, end - start);
@@ -156,9 +212,12 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'count', { value: count, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sort', { value: sort, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'reverse', { value: reverse, enumerable: true, });
+    // Object.defineProperty(SubArray.prototype, 'reverse', { value: reverse, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'copy', { value: copy, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'diff', { value: diff, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'diffIterable', { value: diffIterable, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'diffSelf', { value: diffSelf, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'diffBoth', { value: diffBoth, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'equal', { value: equal, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'similar', { value: similar, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'uniques', { value: uniques, enumerable: true, });
@@ -170,6 +229,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'freeze', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'tuple', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'flatten', { value: flatten, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'flattenCopy', { value: flattenCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enumerate', { value: enumerate, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'del', { value: del, enumerable: true, });
@@ -201,9 +261,12 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sort', { value: sort, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'diff', { value: diff, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'diffIterable', { value: diffIterable, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'diffSelf', { value: diffSelf, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'diffBoth', { value: diffBoth, enumerable: true, });
     Object.defineProperty(Array.prototype, 'equal', { value: equal, enumerable: true, });
     Object.defineProperty(Array.prototype, 'similar', { value: similar, enumerable: true, });
     Object.defineProperty(Array.prototype, 'uniques', { value: uniques, enumerable: true, });
@@ -215,6 +278,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'freeze', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'flattenCopy', { value: flattenCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
     Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
