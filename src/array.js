@@ -53,6 +53,10 @@ function acosMap() {
     this.map((i) => { return Math.acos(i) });
 }
 
+function cosMap() {
+    this.map((i) => { return Math.cos(i) });
+}
+
 function sinMap() {
     this.map((i) => { return Math.sin(i) });
 }
@@ -65,12 +69,12 @@ function absMap() {
     this.map((i) => { return Math.abs(i) });
 }
 
-function cosMap() {
-    this.map((i) => { return Math.cos(i) });
-}
-
 function factorialMap() {
     return [...this].reduce((s, i) => { return s * i; });
+}
+
+function cosMapCopy() {
+    return [...this].map((i) => { return Math.cos(i) });
 }
 
 function acosMapCopy() {
@@ -89,10 +93,6 @@ function absMapCopy() {
     return [...this].map((i) => { return Math.abs(i) });
 }
 
-function cosMapCopy() {
-    return [...this].map((i) => { return Math.cos(i) });
-}
-
 function LN2Map() { }
 
 function LN10Map() { }
@@ -101,9 +101,13 @@ function LOG2EMap() { }
 
 function LOG10EMap() { }
 
-function sinMap() {
-    this.map((i) => { return Math.sin(i) });
-}
+function LN2MapCopy() { }
+
+function LN10MapCopy() { }
+
+function LOG2EMapCopy() { }
+
+function LOG10EMapCopy() { }
 
 function floorMap() {
     this.map((i) => { return Math.floor(i) });
@@ -115,6 +119,18 @@ function ceilMap() {
 
 function roundMap() {
     this.map((i) => { return Math.round(i) });
+}
+
+function floorMapCopy() {
+    [...this].map((i) => { return Math.floor(i) });
+}
+
+function ceilMapCopy() {
+    [...this].map((i) => { return Math.ceil(i) });
+}
+
+function roundMapCopy() {
+    [...this].map((i) => { return Math.round(i) });
 }
 
 function squareMap() {
@@ -132,10 +148,35 @@ function powMap(power) {
 
 function multiplyMap(multiplier) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
+    return this.map((i) => { return i * multiplier });
+}
+
+function squareMapCopy() {
+    [...this].map((i) => { return Math.pow(i, 2) });
+}
+
+function sqrtMapCopy() {
+    [...this].map((i) => { return Math.sqrt(i) });
+}
+
+function powMapCopy(power) {
+    if (!power) { throw new Error("Power is not defined"); }
+    [...this].map((i) => { return Math.pow(i, power) });
+}
+
+function multiplyMapCopy(multiplier) {
+    if (!multiplier) { throw new Error("Multiplier is not defined"); }
     return [...this].map((i) => { return i * multiplier });
 }
 
-function randomRange(start, end, step) { }
+function randomRange(count) {
+    if (!count) { throw new Error("Count [minimal range number] is not defined"); }
+    let a = [];
+    for (let i = 0; i < count; i++) {
+        a[i] = Math.random();
+    }
+    return a;
+}
 
 function append(item) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -313,9 +354,17 @@ function flattenCopy() {
 }
 
 function range(start, stop, step) {
-    if (!start) { throw new Error("Start [minimal range end number] is not defined"); }
+    if ((!start && !stop) || !start) { throw new Error("Start [minimal range end number] is not defined"); }
     let a = [];
-    for (let i = (!!stop) ? start : 0; i <= stop; i += (!!step) ? step : 1) { a[i] = i; }
+    if (!!start && !stop) {
+        for (let i = 0; i < start; i += (!!step) ? step : 1) {
+            a[i] = i;
+        }
+    } else if (!!start && !!stop) {
+        for (let i = start; i < stop; i += (!!step) ? step : 1) {
+            a[i] = i;
+        }
+    }
     return a;
 }
 
