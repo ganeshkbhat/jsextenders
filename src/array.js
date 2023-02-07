@@ -284,7 +284,7 @@ function enumerate(type = "object") {
 }
 
 function del(start, end) {
-    if (!start) { throw new Error("Start and/ or End is not defined"); }
+    if (!start) { throw new Error("Start is not defined"); }
     if (!end) {
         start = 0;
         end = start;
