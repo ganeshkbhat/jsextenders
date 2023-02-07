@@ -112,6 +112,8 @@ console.log(str);
 var extendArray = require("extenders").extendArray;
 extendArray();
 
+// Below find the usage of the extended functions
+
 ```
 
 ##### extend 
