@@ -418,19 +418,34 @@ console.log(str);
 <a name="numbers"></a>
 ### Numbers prototype extended function
 
+#### Numbers
+
+```
+
+```
 
 <a name="math"></a>
 ### Math prototype extended function
 
+#### Math
+
+```
+
+```
 
 <a name="utils"></a>
 ### Utils prototype extended function
 
+#### Utils
+
+```
+
+```
 
 <a name="decorators"></a>
 ### Decorators prototype extended function
 
-#### Decorator
+#### Decorators
 
 ```
 
@@ -440,6 +455,11 @@ console.log(str);
 <a name="extenders"></a>
 ### Extenders functions
 
+#### Extenders
+
+```
+
+```
 
 
 # Current Status
