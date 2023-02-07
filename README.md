@@ -43,7 +43,23 @@ console.log(arr);
 ```
 
 
-### Array - List
+### Different modules and functions
+
+
+- [Array](#array)
+- [Object](#object)
+- [String](#string)
+- [Numbers](#numbers)
+- [Math](#math)
+- [Utils](#utils)
+- [Decorators](#decorators)
+- [Extenders](#extenders)
+
+
+<a name="array"></a>
+### Array prototype extended function
+
+#### Array - List
 
 ```
 var extendArray = require("extenders").extendArray;
@@ -64,62 +80,6 @@ arr.clear();
 console.log(arr);
 ```
 
-
-### Object - Dictionary
-
-```
-var extendObject = require("extenders").extendObject;
-extendObject();
-
-let arr = [1,2,3,4,5,6];
-console.log(arr);
-arr.clear();
-console.log(arr);
-```
-
-```
-var ObjectExtended = require("extenders").ObjectExtended;
-
-let obj = ObjectExtended.create({ "test" : "test", "tester" : "100" });
-console.log(obj);
-obj.clear();
-console.log(obj);
-```
-
-
-### String
-
-```
-var StringExtended = require("extenders").StringExtended;
-
-let str = new StringExtended("Tesing my modified String JS object functions");
-console.log(str);
-str.clear();
-console.log(str);
-```
-
-
-### Decorator
-
-```
-
-```
-
-### Different modules and functions
-
-
-- [Array](#array)
-- [Object](#object)
-- [String](#string)
-- [Numbers](#numbers)
-- [Math](#math)
-- [Utils](#utils)
-- [Decorators](#decorators)
-- [Extenders](#extenders)
-
-
-<a name="array"></a>
-### Array prototype extended function
 
 ```
 var extendArray = require("extenders").extendArray;
@@ -408,9 +368,43 @@ extendArray();
 <a name="object"></a>
 ### Object prototype extended function
 
+#### Object - Dictionary
+
+```
+var extendObject = require("extenders").extendObject;
+extendObject();
+
+let arr = [1,2,3,4,5,6];
+console.log(arr);
+arr.clear();
+console.log(arr);
+```
+
+```
+var ObjectExtended = require("extenders").ObjectExtended;
+
+let obj = ObjectExtended.create({ "test" : "test", "tester" : "100" });
+console.log(obj);
+obj.clear();
+console.log(obj);
+```
+
+
+
 
 <a name="string"></a>
 ### String prototype extended function
+
+#### String
+
+```
+var StringExtended = require("extenders").StringExtended;
+
+let str = new StringExtended("Tesing my modified String JS object functions");
+console.log(str);
+str.clear();
+console.log(str);
+```
 
 
 <a name="numbers"></a>
@@ -427,6 +421,12 @@ extendArray();
 
 <a name="decorators"></a>
 ### Decorators prototype extended function
+
+#### Decorator
+
+```
+
+```
 
 
 <a name="extenders"></a>
