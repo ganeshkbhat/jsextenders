@@ -391,7 +391,6 @@ console.log(obj);
 
 
 
-
 <a name="string"></a>
 ### String prototype extended function
 
@@ -406,6 +405,15 @@ str.clear();
 console.log(str);
 ```
 
+```
+var extendString = require("extenders").extendString;
+extendString();
+
+let str = "Tesing my modified String JS object functions";
+console.log(str);
+str.clear();
+console.log(str);
+```
 
 <a name="numbers"></a>
 ### Numbers prototype extended function
