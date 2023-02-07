@@ -116,279 +116,279 @@ extendArray();
 
 ```
 
-##### extend 
+##### .extend 
 [1,2,3].extend()
 
 
-##### append 
+##### .append 
 [1,2,3].append()
 
 
-##### isArray 
+##### .isArray 
 [1,2,3].isArray()
 
 
-##### insertAll 
+##### .insertAll 
 [1,2,3].insertAll()
 
 
-##### insert 
+##### .insert 
 [1,2,3].insert()
 
 
-##### replace 
+##### .replace 
 [1,2,3].replace()
 
 
-##### remove 
+##### .remove 
 [1,2,3].remove()
 
 
-##### removeAll 
+##### .removeAll 
 [1,2,3].removeAll()
 
 
-##### popIndex 
+##### .popIndex 
 [1,2,3].popIndex()
 
 
-##### clear 
+##### .clear 
 [1,2,3].clear()
 
 
-##### index 
+##### .index 
 [1,2,3].index()
 
 
-##### count 
+##### .count 
 [1,2,3].count()
 
 
-##### sort 
+##### .sort 
 [1,2,3].sort()
 
 
-##### reverse 
+##### .reverse 
 [1,2,3].reverse()
 
 
-##### reverseCopy 
+##### .reverseCopy 
 [1,2,3].reverseCopy()
 
 
-##### copy 
+##### .copy 
 [1,2,3].copy()
 
 
-##### diffIterable 
+##### .diffIterable 
 [1,2,3].diffIterable()
 
 
-##### diffSelf 
+##### .diffSelf 
 [1,2,3].diffSelf()
 
 
-##### diffBoth 
+##### .diffBoth 
 [1,2,3].diffBoth()
 
 
-##### equal 
+##### .equal 
 [1,2,3].equal()
 
 
-##### similar 
+##### .similar 
 [1,2,3].similar()
 
 
-##### uniques 
+##### .uniques 
 [1,2,3].uniques()
 
 
-##### duplicates 
+##### .duplicates 
 [1,2,3].duplicates()
 
 
-##### enqueue 
+##### .enqueue 
 [1,2,3].enqueue()
 
 
-##### dequeue 
+##### .dequeue 
 [1,2,3].dequeue()
 
 
-##### transpose 
+##### .transpose 
 [1,2,3].transpose()
 
 
-##### immutable 
+##### .immutable 
 [1,2,3].immutable()
 
 
-##### freeze 
+##### .freeze 
 [1,2,3].immutable()
 
 
-##### tuple 
+##### .tuple 
 [1,2,3].immutable()
 
 
-##### flatten 
+##### .flatten 
 [1,2,3].flatten()
 
 
-##### flattenCopy 
+##### .flattenCopy 
 [1,2,3].flattenCopy()
 
 
-##### range 
+##### .range 
 [1,2,3].range()
 
 
-##### enumerate 
+##### .enumerate 
 [1,2,3].enumerate()
 
 
-##### del 
+##### .del 
 [1,2,3].del()
 
 
-##### diction 
+##### .diction 
 [1,2,3].diction()
 
 
-##### toObject 
+##### .toObject 
 [1,2,3].diction()
 
 
-##### subset 
+##### .subset 
 [1,2,3].subset()
 
 
-##### superset 
+##### .superset 
 [1,2,3].superset()
 
 
-##### extender 
+##### .extender 
 [1,2,3].extender()
 
 
-##### log 
+##### .log 
 [1,2,3].log()
 
 
-##### max 
+##### .max 
 [1,2,3].max()
 
 
-##### maxIndexes 
+##### .maxIndexes 
 [1,2,3].maxIndexes()
 
 
-##### min 
+##### .min 
 [1,2,3].min()
 
 
-##### minIndexes 
+##### .minIndexes 
 [1,2,3].minIndexes()
 
 
-##### average 
+##### .average 
 [1,2,3].average()
 
 
-##### sum 
+##### .sum 
 [1,2,3].sum()
 
 
-##### factorialMap 
+##### .factorialMap 
 [1,2,3].factorialMap()
 
 
-##### acosMap 
+##### .acosMap 
 [1,2,3].acosMap()
 
 
-##### sinMap 
+##### .sinMap 
 [1,2,3].sinMap()
 
 
-##### asinMap 
+##### .asinMap 
 [1,2,3].asinMap()
 
 
-##### absMap 
+##### .absMap 
 [1,2,3].absMap()
 
 
-##### cosMap 
+##### .cosMap 
 [1,2,3].cosMap()
 
 
-##### acosMapCopy 
+##### .acosMapCopy 
 [1,2,3].acosMapCopy()
 
 
-##### sinMapCopy 
+##### .sinMapCopy 
 [1,2,3].sinMapCopy()
 
 
-##### asinMapCopy 
+##### .asinMapCopy 
 [1,2,3].asinMapCopy()
 
 
-##### absMapCopy 
+##### .absMapCopy 
 [1,2,3].absMapCopy()
 
 
-##### cosMapCopy 
+##### .cosMapCopy 
 [1,2,3].cosMapCopy()
 
 <!-- 
-##### LN2Map 
+##### .LN2Map 
 [1,2,3].LN2Map()
 
 
-##### LN10Map 
+##### .LN10Map 
 [1,2,3].LN10Map()
 
 
-##### LOG2EMap 
+##### .LOG2EMap 
 [1,2,3].LOG2EMap()
 
 
-##### LOG10EMap 
+##### .LOG10EMap 
 [1,2,3].LOG10EMap()
  -->
 
-##### floorMap 
+##### .floorMap 
 [1,2,3].floorMap()
 
 
-##### ceilMap 
+##### .ceilMap 
 [1,2,3].ceilMap()
 
 
-##### roundMap 
+##### .roundMap 
 [1,2,3].roundMap()
 
 
-##### squareMap 
+##### .squareMap 
 [1,2,3].squareMap()
 
 
-##### sqrtMap 
+##### .sqrtMap 
 [1,2,3].sqrtMap()
 
 
-##### powMap 
+##### .powMap 
 [1,2,3].powMap()
 
 
-##### multiplyMap 
+##### .multiplyMap 
 [1,2,3].multiplyMap()
 
 
-##### randomRange 
+##### .randomRange 
 [1,2,3].randomRange()
 
 
