@@ -99,7 +99,7 @@ function insert(index, item) {
 
 function insertAll(index, array /* array or item */) {
     if (!item) { throw new Error("Item is not defined"); }
-    if (!array) { throw new Error("array is not defined"); }
+    if (!array) { throw new Error("Array is not defined"); }
     this.splice(index, 0, ...array);
 }
 
