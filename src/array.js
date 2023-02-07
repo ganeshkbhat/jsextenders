@@ -21,13 +21,16 @@ var { SubArrayExtender, Freeze, extender } = require("./extenders");
 function extend(iterable) { }
 
 function max(count) {
-    if (!count) { throw new Error("Count is not defined"); }
-    return Math.max(...this);
+    if (!count || count === 1) { return Math.max(...this); }
+    let a = [...this].sort();
+    return a.splice(this.length - count - 1, this.length - 1);
 }
 
 function maxIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
-    return
+    let a = [...this].map((i, idx) => { return { index: idx, value: i } });
+    a.sort((p, n) => { return p.v - n.v });
+    return a.splice(a.length - count - 1, a.length - 1);
 }
 
 function min(count) {
@@ -37,7 +40,9 @@ function min(count) {
 
 function minIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
-    return
+    let a = [...this].map((i, idx) => { return { index: idx, value: i } });
+    a.sort((p, n) => { return p.v - n.v });
+    return a.splice(0, count - 1);
 }
 
 function average() {
