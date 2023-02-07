@@ -87,8 +87,8 @@ function append(item) {
     this.push(item);
 }
 
-function isArray(arg) {
-    return Object.prototype.toString.call(arg) === '[object Array]';
+function isArray() {
+    return Object.prototype.toString.call(this) === '[object Array]';
 }
 
 function insert(index, item) {
@@ -241,8 +241,8 @@ function dequeue() {
 function transpose() {
     this.reverse();
     this.map(function (item) {
-        (isArray(item)) ? item.reverse() : item;
-    })
+        (Object.prototype.toString.call(item) === '[object Array]') ? item.reverse() : item;
+    });
 }
 
 function immutable() {
