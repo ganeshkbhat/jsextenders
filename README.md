@@ -105,7 +105,20 @@ console.log(str);
 
 ```
 
+### Different modules and functions
 
+
+- [Array](#array)
+- [Object](#object)
+- [String](#string)
+- [Numbers](#numbers)
+- [Math](#math)
+- [Utils](#utils)
+- [Decorators](#decorators)
+- [Extenders](#extenders)
+
+
+<a name="array"></a>
 ### Array prototype extended function
 
 ```
@@ -390,6 +403,34 @@ extendArray();
 
 ##### .randomRange 
 [1,2,3].randomRange()
+
+
+<a name="object"></a>
+### Object prototype extended function
+
+
+<a name="string"></a>
+### String prototype extended function
+
+
+<a name="numbers"></a>
+### Numbers prototype extended function
+
+
+<a name="math"></a>
+### Math prototype extended function
+
+
+<a name="utils"></a>
+### Utils prototype extended function
+
+
+<a name="decorators"></a>
+### Decorators prototype extended function
+
+
+<a name="extenders"></a>
+### Extenders functions
 
 
 
