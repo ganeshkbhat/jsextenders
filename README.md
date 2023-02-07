@@ -198,11 +198,11 @@ extendArray();
 
 
 ##### .freeze 
-`[1,2,3].immutable()`
+`[1,2,3].freeze()`
 
 
 ##### .tuple 
-`[1,2,3].immutable()`
+`[1,2,3].tuple()`
 
 
 ##### .flatten 
@@ -238,7 +238,7 @@ extendArray();
 
 
 ##### .toObject 
-`[1,2,3].diction()`
+`[1,2,3].toObject()`
 
 
 ##### .subset 
