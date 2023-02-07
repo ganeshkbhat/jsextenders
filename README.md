@@ -89,6 +89,10 @@ extendArray();
 
 ```
 
+##### .execute 
+`[1,2,3].execute(executeFunction)`
+
+
 ##### .extend 
 `[1,2,3].extend()`
 

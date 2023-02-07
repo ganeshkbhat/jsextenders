@@ -18,6 +18,10 @@
 
 var { SubArrayExtender, Freeze, extender } = require("./extenders");
 
+function execute(executeFunction) {
+    return executeFunction([...this]);
+}
+
 function extend(iterable) { }
 
 function max(count) {
@@ -543,6 +547,7 @@ function ArrayExtended() {
 
     let SubArray = SubArrayExtender();
 
+    Object.defineProperty(SubArray.prototype, 'execute', { value: execute, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'extend', { value: extend, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'isArray', { value: isArray, enumerable: true, });
@@ -637,6 +642,7 @@ function ArrayExtended() {
 
 function extendArray() {
 
+    Object.defineProperty(Array.prototype, 'execute', { value: execute, enumerable: true, });
     Object.defineProperty(Array.prototype, 'extend', { value: extend, enumerable: true, });
     Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(Array.prototype, 'isArray', { value: isArray, enumerable: true, });
