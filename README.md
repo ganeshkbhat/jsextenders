@@ -213,6 +213,14 @@ extendArray();
 [1,2,3].flattenCopy()
 
 
+##### .flattenDeep 
+[1,2,3].flattenDeep()
+
+
+##### .flattenDeepCopy 
+[1,2,3].flattenDeepCopy()
+
+
 ##### .range 
 [1,2,3].range()
 
@@ -273,6 +281,10 @@ extendArray();
 [1,2,3].sum()
 
 
+##### .range 
+[1,2,3].range()
+
+
 ##### .factorialMap 
 [1,2,3].factorialMap()
 
@@ -331,9 +343,24 @@ extendArray();
 
 ##### .LOG10EMap 
 [1,2,3].LOG10EMap()
+
+##### .LN2MapCopy 
+[1,2,3].LN2MapCopy()
+
+
+##### .LN10MapCopy 
+[1,2,3].LN10MapCopy()
+
+
+##### .LOG2EMapCopy 
+[1,2,3].LOG2EMapCopy()
+
+
+##### .LOG10EMapCopy 
+[1,2,3].LOG10EMapCopy()
  -->
 
-##### .floorMap 
+##### .floorMap
 [1,2,3].floorMap()
 
 
@@ -361,8 +388,40 @@ extendArray();
 [1,2,3].multiplyMap()
 
 
+##### .floorMapCopy
+[1,2,3].floorMapCopy()
+
+
+##### .ceilMapCopy 
+[1,2,3].ceilMapCopy()
+
+
+##### .roundMapCopy 
+[1,2,3].roundMapCopy()
+
+
+##### .squareMapCopy 
+[1,2,3].squareMapCopy()
+
+
+##### .sqrtMapCopy 
+[1,2,3].sqrtMapCopy()
+
+
+##### .powMapCopy 
+[1,2,3].powMapCopy()
+
+
+##### .multiplyMapCopy 
+[1,2,3].multiplyMapCopy()
+
+
 ##### .randomRange 
 [1,2,3].randomRange()
+
+
+##### .fillRandomRange 
+[1,2,3].fillRandomRange()
 
 
 <a name="object"></a>
