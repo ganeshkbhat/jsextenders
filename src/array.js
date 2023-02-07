@@ -71,7 +71,7 @@ function cosMap() {
     this.map((i) => { return Math.cos(i) });
 }
 
-function factorialMapCopy() {
+function factorialMap() {
     return [...this].reduce((s, i) => { return s * i; });
 }
 
@@ -411,7 +411,11 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'asinMap', { value: asinMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'absMap', { value: absMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'cosMap', { value: cosMap, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'acosMapCopy', { value: acosMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'sinMapCopy', { value: sinMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'asinMapCopy', { value: asinMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'absMapCopy', { value: absMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'cosMapCopy', { value: cosMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'LN2Map', { value: LN2Map, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'LN10Map', { value: LN10Map, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'LOG2EMap', { value: LOG2EMap, enumerable: true, });
@@ -485,7 +489,11 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'asinMap', { value: asinMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'absMap', { value: absMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'cosMap', { value: cosMap, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'acosMapCopy', { value: acosMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sinMapCopy', { value: sinMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'asinMapCopy', { value: asinMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'absMapCopy', { value: absMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'cosMapCopy', { value: cosMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'LN2Map', { value: LN2Map, enumerable: true, });
     Object.defineProperty(Array.prototype, 'LN10Map', { value: LN10Map, enumerable: true, });
     Object.defineProperty(Array.prototype, 'LOG2EMap', { value: LOG2EMap, enumerable: true, });
