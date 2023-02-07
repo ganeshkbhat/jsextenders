@@ -24,37 +24,76 @@ function extend(iterable) {
 
 function max(count) {
     if (!count) { throw new Error("Count is not defined"); }
+    return Math.max(...this);
 }
 
 function maxesIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
+    return 
 }
 
 function min(count) {
     if (!count) { throw new Error("Count is not defined"); }
+    return Math.min(...this);
 }
 
 function minsIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
+    return
 }
 
-function average() { }
+function average() {
+    let sum = [...this].reduce((s, i) => { return s + i; });
+    return (sum / this.length);
+}
 
-function sum() { }
+function sum() {
+    return [...this].reduce((s, i) => { return s + i; });
+}
 
-function factorialMap() { }
+function acosMap() {
+    this.map((i) => { return Math.acos(i) });
+}
 
-function acosMap() { }
+function sinMap() {
+    this.map((i) => { return Math.sin(i) });
+}
 
-function sinMap() { }
+function asinMap() {
+    this.map((i) => { return Math.asin(i) });
+}
 
-function asinMap() { }
+function absMap() {
+    this.map((i) => { return Math.abs(i) });
+}
 
-function absMap() { }
+function cosMap() {
+    this.map((i) => { return Math.cos(i) });
+}
 
-function cosMap() { }
+function factorialMapCopy() {
+    return [...this].reduce((s, i) => { return s * i; });
+}
 
-function factorialMap() { }
+function acosMapCopy() {
+    return [...this].map((i) => { return Math.acos(i) });
+}
+
+function sinMapCopy() {
+    return [...this].map((i) => { return Math.sin(i) });
+}
+
+function asinMapCopy() {
+    return [...this].map((i) => { return Math.asin(i) });
+}
+
+function absMapCopy() {
+    return [...this].map((i) => { return Math.abs(i) });
+}
+
+function cosMapCopy() {
+    return [...this].map((i) => { return Math.cos(i) });
+}
 
 function LN2Map() { }
 
@@ -64,21 +103,39 @@ function LOG2EMap() { }
 
 function LOG10EMap() { }
 
-function sinMap() { }
+function sinMap() {
+    this.map((i) => { return Math.sin(i) });
+}
 
-function floorMap() { }
+function floorMap() {
+    this.map((i) => { return Math.floor(i) });
+}
 
-function ceilMap() { }
+function ceilMap() {
+    this.map((i) => { return Math.ceil(i) });
+}
 
-function roundMap() { }
+function roundMap() {
+    this.map((i) => { return Math.round(i) });
+}
 
-function squareMap() { }
+function squareMap() {
+    this.map((i) => { return Math.pow(i, 2) });
+}
 
-function sqrtMap() { }
+function sqrtMap() {
+    this.map((i) => { return Math.sqrt(i) });
+}
 
-function powMap() { }
+function powMap(power) {
+    if (!power) { throw new Error("Power is not defined"); }
+    this.map((i) => { return Math.pow(i, power) });
+}
 
-function multiplyMap() { }
+function multiplyMap(multiplier) {
+    if (!multiplier) { throw new Error("Multiplier is not defined"); }
+    return [...this].map((i) => { return i * multiplier });
+}
 
 function randomRange(start, end, step) { }
 
