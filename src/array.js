@@ -230,7 +230,7 @@ function duplicates() {
 }
 
 function enqueue(item) {
-    if (!item) { }
+    if (!item) { throw new Error("Item is not defined"); }
     this.push(item);
 }
 
