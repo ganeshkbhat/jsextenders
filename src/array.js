@@ -178,6 +178,12 @@ function randomRange(count, multiplier) {
     return a;
 }
 
+function fillRandomRange(count, multiplier) {
+    if (!count) { throw new Error("Count [minimal range number] is not defined"); }
+    this.length = 0;
+    this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
+}
+
 function append(item) {
     if (!item) { throw new Error("Item is not defined"); }
     this.push(item);
@@ -346,7 +352,7 @@ function immutable() {
 }
 
 function flatten() {
-
+    return this.flatMap(num => num);
 }
 
 function flattenDeep() {
@@ -375,6 +381,7 @@ function range(start, stop, step) {
     }
     return a;
 }
+
 
 /**
  *
@@ -546,6 +553,8 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'tuple', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'flatten', { value: flatten, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'flattenCopy', { value: flattenCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'flattenDeep', { value: flattenDeep, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enumerate', { value: enumerate, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'del', { value: del, enumerable: true, });
@@ -572,10 +581,14 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'asinMapCopy', { value: asinMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'absMapCopy', { value: absMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'cosMapCopy', { value: cosMapCopy, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'LN2Map', { value: LN2Map, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'LN10Map', { value: LN10Map, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'LOG2EMap', { value: LOG2EMap, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'LOG10EMap', { value: LOG10EMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LN2MapCopy', { value: LN2MapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LN10MapCopy', { value: LN10MapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LOG2EMapCopy', { value: LOG2EMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LOG10EMapCopy', { value: LOG10EMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LN2MapCopy', { value: LN2MapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LN10MapCopy', { value: LN10MapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LOG2EMapCopy', { value: LOG2EMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LOG10EMapCopy', { value: LOG10EMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'floorMap', { value: floorMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'ceilMap', { value: ceilMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'roundMap', { value: roundMap, enumerable: true, });
@@ -583,7 +596,15 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'sqrtMap', { value: sqrtMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'powMap', { value: powMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'multiplyMap', { value: multiplyMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'floorMapCopy', { value: floorMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'ceilMapCopy', { value: ceilMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'roundMapCopy', { value: roundMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'squareMapCopy', { value: squareMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'sqrtMapCopy', { value: sqrtMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'powMapCopy', { value: powMapCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'multiplyMapCopy', { value: multiplyMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'randomRange', { value: randomRange, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
@@ -624,6 +645,8 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'flatten', { value: flatten, enumerable: true, });
     Object.defineProperty(Array.prototype, 'flattenCopy', { value: flattenCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'flattenDeep', { value: flattenDeep, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
     Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
@@ -650,10 +673,14 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'asinMapCopy', { value: asinMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'absMapCopy', { value: absMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'cosMapCopy', { value: cosMapCopy, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'LN2Map', { value: LN2Map, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'LN10Map', { value: LN10Map, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'LOG2EMap', { value: LOG2EMap, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'LOG10EMap', { value: LOG10EMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LN2MapCopy', { value: LN2MapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LN10MapCopy', { value: LN10MapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LOG2EMapCopy', { value: LOG2EMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LOG10EMapCopy', { value: LOG10EMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LN2MapCopy', { value: LN2MapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LN10MapCopy', { value: LN10MapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LOG2EMapCopy', { value: LOG2EMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LOG10EMapCopy', { value: LOG10EMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'floorMap', { value: floorMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'ceilMap', { value: ceilMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'roundMap', { value: roundMap, enumerable: true, });
@@ -661,7 +688,15 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'sqrtMap', { value: sqrtMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'powMap', { value: powMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'multiplyMap', { value: multiplyMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'floorMapCopy', { value: floorMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'ceilMapCopy', { value: ceilMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'roundMapCopy', { value: roundMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'squareMapCopy', { value: squareMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sqrtMapCopy', { value: sqrtMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'powMapCopy', { value: powMapCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'multiplyMapCopy', { value: multiplyMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
 
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
