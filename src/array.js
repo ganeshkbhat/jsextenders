@@ -18,9 +18,7 @@
 
 var { SubArrayExtender, Freeze, extender } = require("./extenders");
 
-function extend(iterable) {
-
-}
+function extend(iterable) { }
 
 function max(count) {
     if (!count) { throw new Error("Count is not defined"); }
