@@ -27,7 +27,7 @@ function max(count) {
     return Math.max(...this);
 }
 
-function maxesIndexes(count) {
+function maxIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
     return 
 }
@@ -37,7 +37,7 @@ function min(count) {
     return Math.min(...this);
 }
 
-function minsIndexes(count) {
+function minIndexes(count) {
     if (!count) { throw new Error("Count is not defined"); }
     return
 }
@@ -400,9 +400,9 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'extender', { value: extender, enumerable: true, configurable: true, writable: true });
     Object.defineProperty(SubArray.prototype, 'log', { value: log, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'max', { value: max, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'maxesIndexes', { value: maxesIndexes, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'maxIndexes', { value: maxIndexes, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'min', { value: min, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'minsIndexes', { value: minsIndexes, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sum', { value: sum, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
@@ -478,9 +478,9 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'extender', { value: extender, enumerable: true, configurable: true, writable: true });
     Object.defineProperty(Array.prototype, 'log', { value: log, enumerable: true, });
     Object.defineProperty(Array.prototype, 'max', { value: max, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'maxesIndexes', { value: maxesIndexes, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'maxIndexes', { value: maxIndexes, enumerable: true, });
     Object.defineProperty(Array.prototype, 'min', { value: min, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'minsIndexes', { value: minsIndexes, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(Array.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sum', { value: sum, enumerable: true, });
     Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
