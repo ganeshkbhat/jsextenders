@@ -442,6 +442,8 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'multiplyMap', { value: multiplyMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
 
+    // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+
 }
 
 module.exports.ArrayExtended = ArrayExtended();
