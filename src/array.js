@@ -22,6 +22,58 @@ function extend(iterable) {
 
 }
 
+function max(count) { }
+
+function maxesIndexes(count) { }
+
+function min(count) { }
+
+function minsIndexes(count) { }
+
+function average() { }
+
+function sum() { }
+
+function factorialMap() { }
+
+function acosMap() { }
+
+function sinMap() { }
+
+function asinMap() { }
+
+function absMap() { }
+
+function cosMap() { }
+
+function factorialMap() { }
+
+function LN2Map() { }
+
+function LN10Map() { }
+
+function LOG2EMap() { }
+
+function LOG10EMap() { }
+
+function sinMap() { }
+
+function floorMap() { }
+
+function ceilMap() { }
+
+function roundMap() { }
+
+function squareMap() { }
+
+function sqrtMap() { }
+
+function powMap() { }
+
+function multiplyMap() { }
+
+function randomRange(start, end, step) { }
+
 function append(item) {
     this.push(item);
 }
@@ -51,17 +103,25 @@ function remove(item) {
     (i !== -1) ? this.splice(i, 1) : this;
 }
 
-function removeAll(item) { }
+function removeAll(item) {
+    this.map((i) => { return (i === item) ? i : undefined });
+    this.filter((r) => { return r !== undefined });
+}
 
 function pop(index) {
     this.splice(index, 1);
 }
 
 function clear() {
-    this.splice(0, this.length)
+    this.splice(0, this.length);
 }
 
-function index(item, start, end) { }
+function index(item, start, end) {
+    if (!start && !end) { return this.indexOf(item) }
+    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item }); }
+    if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item }); }
+    return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item });
+}
 
 function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
 
@@ -248,6 +308,31 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'superset', { value: superset, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'extender', { value: extender, enumerable: true, configurable: true, writable: true });
     Object.defineProperty(SubArray.prototype, 'log', { value: log, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'max', { value: max, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'maxesIndexes', { value: maxesIndexes, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'min', { value: min, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'minsIndexes', { value: minsIndexes, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'average', { value: average, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'sum', { value: sum, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'acosMap', { value: acosMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'sinMap', { value: sinMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'asinMap', { value: asinMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'absMap', { value: absMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'cosMap', { value: cosMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LN2Map', { value: LN2Map, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LN10Map', { value: LN10Map, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LOG2EMap', { value: LOG2EMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'LOG10EMap', { value: LOG10EMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'floorMap', { value: floorMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'ceilMap', { value: ceilMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'roundMap', { value: roundMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'squareMap', { value: squareMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'sqrtMap', { value: sqrtMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'powMap', { value: powMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'multiplyMap', { value: multiplyMap, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'randomRange', { value: randomRange, enumerable: true, });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
@@ -297,10 +382,33 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'superset', { value: superset, enumerable: true, });
     Object.defineProperty(Array.prototype, 'extender', { value: extender, enumerable: true, configurable: true, writable: true });
     Object.defineProperty(Array.prototype, 'log', { value: log, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'max', { value: max, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'maxesIndexes', { value: maxesIndexes, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'min', { value: min, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'minsIndexes', { value: minsIndexes, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'average', { value: average, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sum', { value: sum, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'acosMap', { value: acosMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sinMap', { value: sinMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'asinMap', { value: asinMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'absMap', { value: absMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'cosMap', { value: cosMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LN2Map', { value: LN2Map, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LN10Map', { value: LN10Map, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LOG2EMap', { value: LOG2EMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'LOG10EMap', { value: LOG10EMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'floorMap', { value: floorMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'ceilMap', { value: ceilMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'roundMap', { value: roundMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'squareMap', { value: squareMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sqrtMap', { value: sqrtMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'powMap', { value: powMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'multiplyMap', { value: multiplyMap, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
 
-    // Object.defineProperty(Array.prototype, 'log', { value: log, enumerable: true, });
 }
-
 
 module.exports.ArrayExtended = ArrayExtended();
 module.exports.extendArray = extendArray;
