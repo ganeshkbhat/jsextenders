@@ -38,8 +38,9 @@ function maxIndexes(count) {
 }
 
 function min(count) {
-    if (!count) { Math.min(...this) }
-    return;
+    let a = [...this].sort();
+    if (!count || count === 1) { return a[0]; }
+    return a.splice(0, count - 1);
 }
 
 function minIndexes(count) {
