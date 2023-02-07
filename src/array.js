@@ -169,11 +169,11 @@ function multiplyMapCopy(multiplier) {
     return [...this].map((i) => { return i * multiplier });
 }
 
-function randomRange(count) {
+function randomRange(count, multiplier) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     let a = [];
     for (let i = 0; i < count; i++) {
-        a[i] = Math.random();
+        a[i] = Math.random() * (multiplier || 1);
     }
     return a;
 }
@@ -346,11 +346,19 @@ function immutable() {
 }
 
 function flatten() {
-    this.flatMap(num => num);
+
+}
+
+function flattenDeep() {
+    return this.flat(Infinity);
 }
 
 function flattenCopy() {
     return [...this].flatMap(num => num);
+}
+
+function flattenDeepCopy() {
+    return [...this].flat(Infinity);
 }
 
 function range(start, stop, step) {
