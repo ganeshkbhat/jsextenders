@@ -122,13 +122,11 @@ function diffBoth(iterable) {
 }
 
 function equal() {
-    let a = [...this];
-    return JSON.stringify(a) === JSON.stringify(iterable);
+    return JSON.stringify([...this]) === JSON.stringify(iterable);
 }
 
 function similar(iterable) {
-    let a = [...this];
-    return JSON.stringify(a.sort()) === JSON.stringify(iterable.sort());
+    return JSON.stringify([...this].sort()) === JSON.stringify(iterable.sort());
 }
 
 function uniques() {
@@ -136,7 +134,12 @@ function uniques() {
 }
 
 function duplicates() {
-
+    let arr = [...this], noduplicatesarray = this.uniques();
+    for (let i = 0; i < noduplicatesarray.length; i++) {
+        let c = arr.indexOf(noduplicatesarray[i]);
+        arr[c] = (c !== -1) ? undefined : arr[c];
+    }
+    return arr.filter((a) => a !== undefined);
 }
 
 function enqueue(item) {
@@ -172,7 +175,13 @@ function range(start, stop, step) {
     return a;
 }
 
-function enumerate(type = "object" /* object, array */) {
+/**
+ *
+ *
+ * @param {string} [type="object"] Options: object, array
+ * @return {*} 
+ */
+function enumerate(type = "object") {
     if (!["object", "array"].includes(type)) { throw new Error("Type not defined") };
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
