@@ -22,13 +22,21 @@ function extend(iterable) {
 
 }
 
-function max(count) { }
+function max(count) {
+    if (!count) { throw new Error("Count is not defined"); }
+}
 
-function maxesIndexes(count) { }
+function maxesIndexes(count) {
+    if (!count) { throw new Error("Count is not defined"); }
+}
 
-function min(count) { }
+function min(count) {
+    if (!count) { throw new Error("Count is not defined"); }
+}
 
-function minsIndexes(count) { }
+function minsIndexes(count) {
+    if (!count) { throw new Error("Count is not defined"); }
+}
 
 function average() { }
 
@@ -75,6 +83,7 @@ function multiplyMap() { }
 function randomRange(start, end, step) { }
 
 function append(item) {
+    if (!item) { throw new Error("Item is not defined"); }
     this.push(item);
 }
 
@@ -83,32 +92,42 @@ function isArray(arg) {
 }
 
 function insert(index, item) {
+    if (!item) { throw new Error("Item is not defined"); }
+    if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 0, item);
 }
 
 function insertAll(index, array /* array or item */) {
+    if (!item) { throw new Error("Item is not defined"); }
+    if (!array) { throw new Error("array is not defined"); }
     this.splice(index, 0, ...array);
 }
 
 function count(item) {
+    if (!item) { throw new Error("Item is not defined"); }
     return [...this].filter((i) => i === item).length;
 }
 
 function replace(index, item) {
+    if (!item) { throw new Error("Item is not defined"); }
+    if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 1, item);
 }
 
 function remove(item) {
+    if (!item) { throw new Error("Item is not defined"); }
     let i = this.indexOf(item);
     (i !== -1) ? this.splice(i, 1) : this;
 }
 
 function removeAll(item) {
+    if (!item) { throw new Error("Item is not defined"); }
     this.map((i) => { return (i === item) ? i : undefined });
     this.filter((r) => { return r !== undefined });
 }
 
 function pop(index) {
+    if (!index) { }
     this.splice(index, 1);
 }
 
@@ -117,10 +136,11 @@ function clear() {
 }
 
 function index(item, start, end) {
-    if (!start && !end) { return this.indexOf(item) }
-    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item }); }
-    if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item }); }
-    return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item });
+    if (!item) { throw new Error("Item is not defined"); }
+    if (!start && !end) { return this.indexOf(item); }
+    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
+    if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
+    return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item; });
 }
 
 function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
@@ -138,11 +158,13 @@ function copy() {
 }
 
 function diction(mapFunction, arg) {
+    if (!mapFunction || typeof mapFunction !== "function") { }
     if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
     return Object.assign({}, [...this]);
 }
 
 function subset(iterable) {
+    if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
         if (!iterable.includes(this[i])) return false;
@@ -151,6 +173,7 @@ function subset(iterable) {
 }
 
 function superset(iterable) {
+    if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
         if (!this.includes(iterable[i])) return false;
@@ -159,6 +182,7 @@ function superset(iterable) {
 }
 
 function diffIterable(iterable) {
+    if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
         (!this.includes(iterable[i])) ? a.push(iterable[i]) : a;
@@ -167,6 +191,7 @@ function diffIterable(iterable) {
 }
 
 function diffSelf(iterable) {
+    if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
         (!iterable.includes(this[i])) ? a.push(this[i]) : a;
@@ -175,6 +200,7 @@ function diffSelf(iterable) {
 }
 
 function diffBoth(iterable) {
+    if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = { "self": [], "iterable": [] };
     a["self"] = this.diffSelf(this, iterable);
     a["iterable"] = this.diffIterable(this, iterable);
@@ -186,6 +212,7 @@ function equal() {
 }
 
 function similar(iterable) {
+    if (!iterable) { throw new Error("Iterable is not defined"); }
     return JSON.stringify([...this].sort()) === JSON.stringify(iterable.sort());
 }
 
@@ -203,6 +230,7 @@ function duplicates() {
 }
 
 function enqueue(item) {
+    if (!item) { }
     this.push(item);
 }
 
@@ -242,7 +270,7 @@ function range(start, stop, step) {
  * @return {*} 
  */
 function enumerate(type = "object") {
-    if (!["object", "array"].includes(type)) { throw new Error("Type not defined") };
+    if (!["object", "array"].includes(type)) { throw new Error("Type not defined"); };
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
         if (type === "object") {
@@ -256,6 +284,11 @@ function enumerate(type = "object") {
 }
 
 function del(start, end) {
+    if (!start) { throw new Error("Start and/ or End is not defined"); }
+    if (!end) {
+        start = 0;
+        end = start;
+    }
     this.splice(start, end - start);
 }
 
