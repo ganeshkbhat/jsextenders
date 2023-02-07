@@ -17,4 +17,6 @@
 'use strict';
 
 
-module.exports.UtilFunctions = utils();
+function utils() { }
+
+module.exports.UtilFunctions = utils;

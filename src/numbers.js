@@ -17,5 +17,13 @@
 'use strict';
 
 
-module.exports.NumbersExtended = {};
-module.exports.extendNumber = {};
+function NumbersExtended() {
+
+}
+
+function extendNumber() {
+
+}
+
+module.exports.NumbersExtended = NumbersExtended;
+module.exports.extendNumber = extendNumber;

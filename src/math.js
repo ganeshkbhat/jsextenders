@@ -15,3 +15,16 @@
 /* eslint no-console: 0 */
 
 'use strict';
+
+
+function MathExtended() {
+
+}
+
+function extendMath() {
+
+}
+
+module.exports.MathExtended = MathExtended();
+module.exports.extendMath = extendMath;
+
