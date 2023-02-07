@@ -207,7 +207,7 @@ function diffBoth(iterable) {
     return a;
 }
 
-function equal() {
+function equal(iterable) {
     return JSON.stringify([...this]) === JSON.stringify(iterable);
 }
 
