@@ -235,7 +235,7 @@ function enqueue(item) {
 }
 
 function dequeue() {
-    this.shift(item);
+    this.shift();
 }
 
 function transpose() {
