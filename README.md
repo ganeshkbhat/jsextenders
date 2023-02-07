@@ -90,338 +90,338 @@ extendArray();
 ```
 
 ##### .extend 
-[1,2,3].extend()
+`[1,2,3].extend()`
 
 
 ##### .append 
-[1,2,3].append()
+`[1,2,3].append()`
 
 
 ##### .isArray 
-[1,2,3].isArray()
+`[1,2,3].isArray()`
 
 
 ##### .insertAll 
-[1,2,3].insertAll()
+`[1,2,3].insertAll()`
 
 
 ##### .insert 
-[1,2,3].insert()
+`[1,2,3].insert()`
 
 
 ##### .replace 
-[1,2,3].replace()
+`[1,2,3].replace()`
 
 
 ##### .remove 
-[1,2,3].remove()
+`[1,2,3].remove()`
 
 
 ##### .removeAll 
-[1,2,3].removeAll()
+`[1,2,3].removeAll()`
 
 
 ##### .popIndex 
-[1,2,3].popIndex()
+`[1,2,3].popIndex()`
 
 
 ##### .clear 
-[1,2,3].clear()
+`[1,2,3].clear()`
 
 
 ##### .index 
-[1,2,3].index()
+`[1,2,3].index()`
 
 
 ##### .count 
-[1,2,3].count()
+`[1,2,3].count()`
 
 
 ##### .sort 
-[1,2,3].sort()
+`[1,2,3].sort()`
 
 
 ##### .reverse 
-[1,2,3].reverse()
+`[1,2,3].reverse()`
 
 
 ##### .reverseCopy 
-[1,2,3].reverseCopy()
+`[1,2,3].reverseCopy()`
 
 
 ##### .copy 
-[1,2,3].copy()
+`[1,2,3].copy()`
 
 
 ##### .diffIterable 
-[1,2,3].diffIterable()
+`[1,2,3].diffIterable()`
 
 
 ##### .diffSelf 
-[1,2,3].diffSelf()
+`[1,2,3].diffSelf()`
 
 
 ##### .diffBoth 
-[1,2,3].diffBoth()
+`[1,2,3].diffBoth()`
 
 
 ##### .equal 
-[1,2,3].equal()
+`[1,2,3].equal()`
 
 
 ##### .similar 
-[1,2,3].similar()
+`[1,2,3].similar()`
 
 
 ##### .uniques 
-[1,2,3].uniques()
+`[1,2,3].uniques()`
 
 
 ##### .duplicates 
-[1,2,3].duplicates()
+`[1,2,3].duplicates()`
 
 
 ##### .enqueue 
-[1,2,3].enqueue()
+`[1,2,3].enqueue()`
 
 
 ##### .dequeue 
-[1,2,3].dequeue()
+`[1,2,3].dequeue()`
 
 
 ##### .transpose 
-[1,2,3].transpose()
+`[1,2,3].transpose()`
 
 
 ##### .immutable 
-[1,2,3].immutable()
+`[1,2,3].immutable()`
 
 
 ##### .freeze 
-[1,2,3].immutable()
+`[1,2,3].immutable()`
 
 
 ##### .tuple 
-[1,2,3].immutable()
+`[1,2,3].immutable()`
 
 
 ##### .flatten 
-[1,2,3].flatten()
+`[1,2,3].flatten()`
 
 
 ##### .flattenCopy 
-[1,2,3].flattenCopy()
+`[1,2,3].flattenCopy()`
 
 
 ##### .flattenDeep 
-[1,2,3].flattenDeep()
+`[1,2,3].flattenDeep()`
 
 
 ##### .flattenDeepCopy 
-[1,2,3].flattenDeepCopy()
+`[1,2,3].flattenDeepCopy()`
 
 
 ##### .range 
-[1,2,3].range()
+`[1,2,3].range()`
 
 
 ##### .enumerate 
-[1,2,3].enumerate()
+`[1,2,3].enumerate()`
 
 
 ##### .del 
-[1,2,3].del()
+`[1,2,3].del()`
 
 
 ##### .diction 
-[1,2,3].diction()
+`[1,2,3].diction()`
 
 
 ##### .toObject 
-[1,2,3].diction()
+`[1,2,3].diction()`
 
 
 ##### .subset 
-[1,2,3].subset()
+`[1,2,3].subset()`
 
 
 ##### .superset 
-[1,2,3].superset()
+`[1,2,3].superset()`
 
 
 ##### .extender 
-[1,2,3].extender()
+`[1,2,3].extender()`
 
 
 ##### .log 
-[1,2,3].log()
+`[1,2,3].log()`
 
 
 ##### .max 
-[1,2,3].max()
+`[1,2,3].max()`
 
 
 ##### .maxIndexes 
-[1,2,3].maxIndexes()
+`[1,2,3].maxIndexes()`
 
 
 ##### .min 
-[1,2,3].min()
+`[1,2,3].min()`
 
 
 ##### .minIndexes 
-[1,2,3].minIndexes()
+`[1,2,3].minIndexes()`
 
 
 ##### .average 
-[1,2,3].average()
+`[1,2,3].average()`
 
 
 ##### .sum 
-[1,2,3].sum()
+`[1,2,3].sum()`
 
 
 ##### .range 
-[1,2,3].range()
+`[1,2,3].range()`
 
 
 ##### .factorialMap 
-[1,2,3].factorialMap()
+`[1,2,3].factorialMap()`
 
 
 ##### .acosMap 
-[1,2,3].acosMap()
+`[1,2,3].acosMap()`
 
 
 ##### .sinMap 
-[1,2,3].sinMap()
+`[1,2,3].sinMap()`
 
 
 ##### .asinMap 
-[1,2,3].asinMap()
+`[1,2,3].asinMap()`
 
 
 ##### .absMap 
-[1,2,3].absMap()
+`[1,2,3].absMap()`
 
 
 ##### .cosMap 
-[1,2,3].cosMap()
+`[1,2,3].cosMap()`
 
 
 ##### .acosMapCopy 
-[1,2,3].acosMapCopy()
+`[1,2,3].acosMapCopy()`
 
 
 ##### .sinMapCopy 
-[1,2,3].sinMapCopy()
+`[1,2,3].sinMapCopy()`
 
 
 ##### .asinMapCopy 
-[1,2,3].asinMapCopy()
+`[1,2,3].asinMapCopy()`
 
 
 ##### .absMapCopy 
-[1,2,3].absMapCopy()
+`[1,2,3].absMapCopy()`
 
 
 ##### .cosMapCopy 
-[1,2,3].cosMapCopy()
+`[1,2,3].cosMapCopy()`
 
 <!-- 
 ##### .LN2Map 
-[1,2,3].LN2Map()
+`[1,2,3].LN2Map()`
 
 
 ##### .LN10Map 
-[1,2,3].LN10Map()
+`[1,2,3].LN10Map()`
 
 
 ##### .LOG2EMap 
-[1,2,3].LOG2EMap()
+`[1,2,3].LOG2EMap()`
 
 
 ##### .LOG10EMap 
-[1,2,3].LOG10EMap()
+`[1,2,3].LOG10EMap()`
 
 ##### .LN2MapCopy 
-[1,2,3].LN2MapCopy()
+`[1,2,3].LN2MapCopy()`
 
 
 ##### .LN10MapCopy 
-[1,2,3].LN10MapCopy()
+`[1,2,3].LN10MapCopy()`
 
 
 ##### .LOG2EMapCopy 
-[1,2,3].LOG2EMapCopy()
+`[1,2,3].LOG2EMapCopy()`
 
 
 ##### .LOG10EMapCopy 
-[1,2,3].LOG10EMapCopy()
+`[1,2,3].LOG10EMapCopy()`
  -->
 
 ##### .floorMap
-[1,2,3].floorMap()
+`[1,2,3].floorMap()`
 
 
 ##### .ceilMap 
-[1,2,3].ceilMap()
+`[1,2,3].ceilMap()`
 
 
 ##### .roundMap 
-[1,2,3].roundMap()
+`[1,2,3].roundMap()`
 
 
 ##### .squareMap 
-[1,2,3].squareMap()
+`[1,2,3].squareMap()`
 
 
 ##### .sqrtMap 
-[1,2,3].sqrtMap()
+`[1,2,3].sqrtMap()`
 
 
 ##### .powMap 
-[1,2,3].powMap()
+`[1,2,3].powMap()`
 
 
 ##### .multiplyMap 
-[1,2,3].multiplyMap()
+`[1,2,3].multiplyMap()`
 
 
 ##### .floorMapCopy
-[1,2,3].floorMapCopy()
+`[1,2,3].floorMapCopy()`
 
 
 ##### .ceilMapCopy 
-[1,2,3].ceilMapCopy()
+`[1,2,3].ceilMapCopy()`
 
 
 ##### .roundMapCopy 
-[1,2,3].roundMapCopy()
+`[1,2,3].roundMapCopy()`
 
 
 ##### .squareMapCopy 
-[1,2,3].squareMapCopy()
+`[1,2,3].squareMapCopy()`
 
 
 ##### .sqrtMapCopy 
-[1,2,3].sqrtMapCopy()
+`[1,2,3].sqrtMapCopy()`
 
 
 ##### .powMapCopy 
-[1,2,3].powMapCopy()
+`[1,2,3].powMapCopy()`
 
 
 ##### .multiplyMapCopy 
-[1,2,3].multiplyMapCopy()
+`[1,2,3].multiplyMapCopy()`
 
 
 ##### .randomRange 
-[1,2,3].randomRange()
+`[1,2,3].randomRange()`
 
 
 ##### .fillRandomRange 
-[1,2,3].fillRandomRange()
+`[1,2,3].fillRandomRange()`
 
 
 <a name="object"></a>
