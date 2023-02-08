@@ -78,7 +78,6 @@ function min(count, start, end) {
     return a.splice(0, count - 1);
 }
 
-
 /**
  *
  *
@@ -94,7 +93,6 @@ function minIndexes(count, start, end) {
     return a.splice(0, count - 1);
 }
 
-
 /**
  *
  *
@@ -105,7 +103,6 @@ function minIndexes(count, start, end) {
 function average(start, end) {
     return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; }) / this.length;
 }
-
 
 /**
  *
@@ -129,7 +126,6 @@ function acosMap(start, end, method = "replace") {
     this.map((i) => { return Math.acos(i) });
 }
 
-
 /**
  *
  *
@@ -141,7 +137,6 @@ function cosMap(start, end, method = "replace") {
     this.map((i) => { return Math.cos(i) });
 }
 
-
 /**
  *
  *
@@ -152,7 +147,6 @@ function cosMap(start, end, method = "replace") {
 function sinMap(start, end, method = "replace") {
     this.map((i) => { return Math.sin(i) });
 }
-
 
 /**
  *
@@ -643,7 +637,6 @@ function index(item, start, end) {
  * @param {boolean} [reverse=false]
  */
 function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
-
 
 /**
  *
