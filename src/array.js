@@ -35,7 +35,11 @@ function execute(executeFunction) {
  * @param {*} iterable
  * @param {*} index
  */
-function extend(iterable, index) { }
+function extend(iterable, index) {
+    let a = [...this];
+    this.length = 0;
+    this.concat([...a.splice(0, index - 1), ...iterable, ...a.splice(0, a.length - 1)]);
+}
 
 /**
  *
@@ -718,7 +722,7 @@ function index(item, start, end) {
  * @param {boolean} [reverse=false]
  * // sort(key=None, reverse=False) {}
  */
-function sort(key = null, reverse = false) { } 
+function sort(key = null, reverse = false) { }
 
 /**
  *
