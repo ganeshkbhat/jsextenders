@@ -492,9 +492,11 @@ function pop(index) {
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function clear() {
-    this.splice(0, this.length);
+function clear(start, end) {
+    this.splice((!!start) ? start : 0, (!!end) ? end : this.length);
 }
 
 /**
