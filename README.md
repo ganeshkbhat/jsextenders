@@ -97,8 +97,9 @@ Execute the function provided that takes the iterator as an argument of the func
 
 
 ###### .extend
+Extend or Contact the provided iterable at provided index. The default is last index of the array.
 
-`[1, 2, 3, 4].extend(iterable)`
+`[1, 2, 3, 4].extend(iterable, index)`
 
 
 ###### .max

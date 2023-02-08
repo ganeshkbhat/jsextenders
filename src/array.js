@@ -33,8 +33,9 @@ function execute(executeFunction) {
  *
  *
  * @param {*} iterable
+ * @param {*} index
  */
-function extend(iterable) { }
+function extend(iterable, index) { }
 
 /**
  *
