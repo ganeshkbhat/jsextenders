@@ -1007,12 +1007,15 @@ function del(start, end) {
     this.splice(start, end - start);
 }
 
+
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function log() {
-    console.log(this);
+function log(start, end) {
+    console.log([...this]);
 }
 
 // // _ lodash Functions
