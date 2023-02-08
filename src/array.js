@@ -123,7 +123,11 @@ function sum(start, end) {
  * @param {*} method // replace, inrange 
  */
 function acosMap(start, end, method = "replace") {
-    this.map((i) => { return Math.acos(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.acos(i) });
+    }
 }
 
 /**
@@ -134,7 +138,11 @@ function acosMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function cosMap(start, end, method = "replace") {
-    this.map((i) => { return Math.cos(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.cos(i) });
+    }
 }
 
 /**
@@ -145,7 +153,12 @@ function cosMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function sinMap(start, end, method = "replace") {
-    this.map((i) => { return Math.sin(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.sin(i) });
+    }
+
 }
 
 /**
@@ -156,7 +169,11 @@ function sinMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function asinMap(start, end, method = "replace") {
-    this.map((i) => { return Math.asin(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.asin(i) });
+    }
 }
 
 
@@ -168,7 +185,11 @@ function asinMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function absMap(start, end, method = "replace") {
-    this.map((i) => { return Math.abs(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.abs(i) });
+    }
 }
 
 /**
@@ -244,7 +265,13 @@ function absMapCopy(start, end) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LN2Map(start, end, method = "replace") { }
+function LN2Map(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+
+    }
+}
 
 /**
  *
@@ -253,7 +280,13 @@ function LN2Map(start, end, method = "replace") { }
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LN10Map(start, end, method = "replace") { }
+function LN10Map(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+
+    }
+}
 
 /**
  *
@@ -262,7 +295,13 @@ function LN10Map(start, end, method = "replace") { }
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LOG2EMap(start, end, method = "replace") { }
+function LOG2EMap(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+
+    }
+}
 
 /**
  *
@@ -271,7 +310,13 @@ function LOG2EMap(start, end, method = "replace") { }
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LOG10EMap(start, end, method = "replace") { }
+function LOG10EMap(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+
+    }
+}
 
 /**
  *
@@ -313,7 +358,11 @@ function LOG10EMapCopy(start, end) { }
  * @param {*} method // replace, inrange 
  */
 function floorMap(start, end, method = "replace") {
-    this.map((i) => { return Math.floor(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.floor(i) });
+    }
 }
 
 /**
@@ -324,7 +373,11 @@ function floorMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function ceilMap(start, end, method = "replace") {
-    this.map((i) => { return Math.ceil(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.ceil(i) });
+    }
 }
 
 /**
@@ -335,7 +388,11 @@ function ceilMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function roundMap(start, end, method = "replace") {
-    this.map((i) => { return Math.round(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.round(i) });
+    }
 }
 
 /**
@@ -379,7 +436,11 @@ function roundMapCopy(start, end) {
  * @param {*} method // replace, inrange 
  */
 function squareMap(start, end, method = "replace") {
-    this.map((i) => { return Math.pow(i, 2) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.pow(i, 2) });
+    }
 }
 
 /**
@@ -390,7 +451,11 @@ function squareMap(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function sqrtMap(start, end, method = "replace") {
-    this.map((i) => { return Math.sqrt(i) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.sqrt(i) });
+    }
 }
 
 /**
@@ -403,7 +468,11 @@ function sqrtMap(start, end, method = "replace") {
  */
 function powMap(power, start, end, method = "replace") {
     if (!power) { throw new Error("Power is not defined"); }
-    this.map((i) => { return Math.pow(i, power) });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return Math.pow(i, power) });
+    }
 }
 
 /**
@@ -416,7 +485,11 @@ function powMap(power, start, end, method = "replace") {
  */
 function multiplyMap(multiplier, start, end, method = "replace") {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    this.map((i) => { return i * multiplier });
+    if (method === "inrange") {
+
+    } else {
+        this.map((i) => { return i * multiplier });
+    }
 }
 
 /**
@@ -494,9 +567,13 @@ function randomRange(count, multiplier) {
  */
 function fillRandomRange(count, multiplier, start, end, method = "replace") {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    this.length = 0;
-    this.length = 10;
-    this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
+    if (method === "inrange") {
+
+    } else {
+        this.length = 0;
+        this.length = 10;
+        this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
+    }
 }
 
 /**
@@ -647,7 +724,11 @@ function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) 
  * @param {*} method // replace, inrange 
  */
 function reverse(start, end, method = "replace") {
-    this.reverse();
+    if (method === "inrange") {
+
+    } else {
+        this.reverse();
+    }
 }
 
 /**
@@ -805,8 +886,12 @@ function similar(iterable, start, end) {
  */
 function uniques(start, end, method = "replace") {
     let a = Array.from(new Set([...this]));
-    this.length = 0;
-    this.concat(a);
+    if (method === "inrange") {
+
+    } else {
+        this.length = 0;
+        this.concat(a);
+    }
 }
 
 /**
@@ -834,8 +919,12 @@ function duplicates(start, end, method = "replace") {
         a[c] = (c !== -1) ? undefined : a[c];
     }
     a.filter((a) => a !== undefined);
-    this.length = 0;
-    this.concat(a);
+    if (method === "inrange") {
+
+    } else {
+        this.length = 0;
+        this.concat(a);
+    }
 }
 
 /**
@@ -892,8 +981,14 @@ function transpose(iterator, start, end, method = "replace") {
         };
         return item;
     });
-    this.length = 0;
-    this.concat(iterator);
+
+    if (method === "inrange") {
+
+    } else {
+        this.length = 0;
+        this.concat(iterator);
+    }
+
 }
 
 /**
@@ -934,7 +1029,11 @@ function immutable() {
  * @param {*} method // replace, inrange 
  */
 function flatten(start, end, method = "replace") {
-    this.flatMap(num => num);
+    if (method === "inrange") {
+
+    } else {
+        this.flatMap(num => num);
+    }
 }
 
 /**
@@ -945,7 +1044,11 @@ function flatten(start, end, method = "replace") {
  * @param {*} method // replace, inrange 
  */
 function flattenDeep(start, end, method = "replace") {
-    this.flat(Infinity);
+    if (method === "inrange") {
+
+    } else {
+        this.flat(Infinity);
+    }
 }
 
 /**
@@ -1027,7 +1130,6 @@ function del(start, end) {
     }
     this.splice(start, end - start);
 }
-
 
 /**
  *
