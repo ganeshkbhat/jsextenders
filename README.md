@@ -304,26 +304,31 @@ Modifies the array with `multiplication` of all the array values from `start` in
 
 
 ###### .squareMapCopy
+Returns the array with `square` of all the array values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].squareMapCopy(start, end)`
 
 
 ###### .sqrtMapCopy
+Returns the array with `square root` of all the array values from `start` index to `end` index. Returns a new object and does not modify the array in place. 
 
 `[1, 2, 3, 4].sqrtMapCopy(start, end)`
 
 
 ###### .powMapCopy
+Returns the array with `power` of all the array values with provided power value from `start` index to `end` index. Returns a new object and does not modify the array in place. 
 
 `[1, 2, 3, 4].powMapCopy(power, start, end)`
 
 
 ###### .multiplyMapCopy
+Returns the array with `multiplication` of provided multiplier with all the array values from `start` index to `end` index. Returns a new object and does not modify the array in place. 
 
 `[1, 2, 3, 4].multiplyMapCopy(multiplier, start, end)`
 
 
 ###### .randomRange
+Returns the array with count number of array items with random values multiplied with the provided multiplier. Modifies the array in place.
 
 `[1, 2, 3, 4].randomRange(count, multiplier)`
 
