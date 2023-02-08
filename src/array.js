@@ -46,7 +46,7 @@ function extend(iterable) { }
 function max(count, start, end) {
     let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).sort();
     if (!count || count === 1) { return a[this.length - 1]; }
-    return a.splice(this.length - count - 1, this.length - 1);
+    return a.splice(this.length - count - 1, this.length);
 }
 
 /**
@@ -61,7 +61,7 @@ function maxIndexes(count, start, end) {
     let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
     if (!count) { a[this.length - 1]; }
-    return a.splice(this.length - count - 1, this.length - 1);
+    return a.splice(this.length - count - 1, this.length);
 }
 
 /**
@@ -610,8 +610,8 @@ function clear(start, end) {
 function index(item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!start && !end) { return this.indexOf(item); }
-    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
-    if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length - 1)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
+    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
+    if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
     return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item; });
 }
 
@@ -642,7 +642,7 @@ function reverse(start, end) {
  * @return {*} 
  */
 function reverseCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length - 1).reverse();
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reverse();
 }
 
 /**
@@ -653,7 +653,7 @@ function reverseCopy(start, end) {
  * @return {*} 
  */
 function copy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length - 1);
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
 }
 
 /**
