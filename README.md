@@ -57,9 +57,7 @@ console.log(arr);
 
 
 <a name="array"></a>
-### Array prototype extended function
-
-#### Array - List
+### Array Prototype extended functions
 
 ```
 var extendArray = require("extenders").extendArray;
@@ -89,343 +87,254 @@ extendArray();
 
 ```
 
-##### .execute 
-`[1,2,3].execute(executeFunction)`
+#### Array - API List
 
 
-##### .extend 
-`[1,2,3].extend()`
+###### .execute
+`[1, 2, 3, 4].execute(executeFunction)`
 
+###### .extend
+`[1, 2, 3, 4].extend(iterable)`
 
-##### .append 
-`[1,2,3].append()`
+###### .max
+`[1, 2, 3, 4].max(count, start, end)`
 
+###### .maxIndexes
+`[1, 2, 3, 4].maxIndexes(count, start, end)`
 
-##### .isArray 
-`[1,2,3].isArray()`
+###### .min
+`[1, 2, 3, 4].min(count, start, end)`
 
+###### .minIndexes
+`[1, 2, 3, 4].minIndexes(count, start, end)`
 
-##### .insertAll 
-`[1,2,3].insertAll()`
+###### .average
+`[1, 2, 3, 4].average(start, end)`
 
+###### .sum
+`[1, 2, 3, 4].sum(start, end)`
 
-##### .insert 
-`[1,2,3].insert()`
+###### .acosMap
+`[1, 2, 3, 4].acosMap(start, end, method = "replace")`
 
+###### .cosMap
+`[1, 2, 3, 4].cosMap(start, end, method = "replace")`
 
-##### .replace 
-`[1,2,3].replace()`
+###### .sinMap
+`[1, 2, 3, 4].sinMap(start, end, method = "replace")`
 
+###### .asinMap
+`[1, 2, 3, 4].asinMap(start, end, method = "replace")`
 
-##### .remove 
-`[1,2,3].remove()`
+###### .absMap
+`[1, 2, 3, 4].absMap(start, end, method = "replace")`
 
+###### .factorialMap
+`[1, 2, 3, 4].factorialMap(start, end)`
 
-##### .removeAll 
-`[1,2,3].removeAll()`
+###### .cosMapCopy
+`[1, 2, 3, 4].cosMapCopy(start, end)`
 
+###### .acosMapCopy
+`[1, 2, 3, 4].acosMapCopy(start, end)`
 
-##### .popIndex 
-`[1,2,3].popIndex()`
+###### .sinMapCopy
+`[1, 2, 3, 4].sinMapCopy(start, end)`
 
+###### .asinMapCopy
+`[1, 2, 3, 4].asinMapCopy(start, end)`
 
-##### .clear 
-`[1,2,3].clear()`
+###### .absMapCopy
+`[1, 2, 3, 4].absMapCopy(start, end)`
 
+###### .LN2Map
+`[1, 2, 3, 4].LN2Map(start, end, method = "replace")`
 
-##### .index 
-`[1,2,3].index()`
+###### .LN10Map
+`[1, 2, 3, 4].LN10Map(start, end, method = "replace")`
 
+###### .LOG2EMap
+`[1, 2, 3, 4].LOG2EMap(start, end, method = "replace")`
 
-##### .count 
-`[1,2,3].count()`
+###### .LOG10EMap
+`[1, 2, 3, 4].LOG10EMap(start, end, method = "replace")`
 
+###### .LN2MapCopy
+`[1, 2, 3, 4].LN2MapCopy(start, end)`
 
-##### .sort 
-`[1,2,3].sort()`
+###### .LN10MapCopy
+`[1, 2, 3, 4].LN10MapCopy(start, end)`
 
+###### .LOG2EMapCopy
+`[1, 2, 3, 4].LOG2EMapCopy(start, end)`
 
-##### .reverse 
-`[1,2,3].reverse()`
+###### .floorMap
+`[1, 2, 3, 4].floorMap(start, end, method = "replace")`
 
+###### .ceilMap
+`[1, 2, 3, 4].ceilMap(start, end, method = "replace")`
 
-##### .reverseCopy 
-`[1,2,3].reverseCopy()`
+###### .roundMap
+`[1, 2, 3, 4].roundMap(start, end, method = "replace")`
 
+###### .floorMapCopy
+`[1, 2, 3, 4].floorMapCopy(start, end)`
 
-##### .copy 
-`[1,2,3].copy()`
+###### .ceilMapCopy
+`[1, 2, 3, 4].ceilMapCopy(start, end)`
 
+###### .roundMapCopy
+`[1, 2, 3, 4].roundMapCopy(start, end)`
 
-##### .diffIterable 
-`[1,2,3].diffIterable()`
+###### .squareMap
+`[1, 2, 3, 4].squareMap(start, end, method = "replace")`
 
+###### .sqrtMap
+`[1, 2, 3, 4].sqrtMap(start, end, method = "replace")`
 
-##### .diffSelf 
-`[1,2,3].diffSelf()`
+###### .powMap
+`[1, 2, 3, 4].powMap(power, start, end, method = "replace")`
 
+###### .multiplyMap
+`[1, 2, 3, 4].multiplyMap(multiplier, start, end, method = "replace")`
 
-##### .diffBoth 
-`[1,2,3].diffBoth()`
+###### .squareMapCopy
+`[1, 2, 3, 4].squareMapCopy(start, end)`
 
+###### .sqrtMapCopy
+`[1, 2, 3, 4].sqrtMapCopy(start, end)`
 
-##### .equal 
-`[1,2,3].equal()`
+###### .powMapCopy
+`[1, 2, 3, 4].powMapCopy(power, start, end)`
 
+###### .multiplyMapCopy
+`[1, 2, 3, 4].multiplyMapCopy(multiplier, start, end)`
 
-##### .similar 
-`[1,2,3].similar()`
+###### .randomRange
+`[1, 2, 3, 4].randomRange(count, multiplier)`
 
+###### .fillRandomRange
+`[1, 2, 3, 4].fillRandomRange(count, multiplier, start, end, method = "replace")`
 
-##### .uniques 
-`[1,2,3].uniques()`
+###### .append
+`[1, 2, 3, 4].append(item)`
 
+###### .isArray
+`[1, 2, 3, 4].isArray(iterable)`
 
-##### .duplicates 
-`[1,2,3].duplicates()`
+###### .insert
+`[1, 2, 3, 4].insert(index, item)`
 
+###### .insertAll
+`[1, 2, 3, 4].insertAll(index, array /* array or item */)`
 
-##### .enqueue 
-`[1,2,3].enqueue()`
+###### .count
+`[1, 2, 3, 4].count(item, start, end)`
 
+###### .replace
+`[1, 2, 3, 4].replace(index, item, start, end)`
 
-##### .dequeue 
-`[1,2,3].dequeue()`
+###### .remove
+`[1, 2, 3, 4].remove(item)`
 
+###### .removeAll
+`[1, 2, 3, 4].removeAll(item, start, end)`
 
-##### .transpose 
-`[1,2,3].transpose()`
+###### .pop
+`[1, 2, 3, 4].pop(index)`
 
+###### .clear
+`[1, 2, 3, 4].clear(start, end)`
 
-##### .immutable 
-`[1,2,3].immutable()`
+###### .index
+`[1, 2, 3, 4].index(item, start, end)`
 
+###### .sort
+`[1, 2, 3, 4].sort(key = null, reverse = false)`
 
-##### .freeze 
-`[1,2,3].freeze()`
+###### .reverse
+`[1, 2, 3, 4].reverse(start, end, method = "replace")`
 
+###### .reverseCopy
+`[1, 2, 3, 4].reverseCopy(start, end)`
 
-##### .tuple 
-`[1,2,3].tuple()`
+###### .copy
+`[1, 2, 3, 4].copy(start, end)`
 
+###### .diction
+`[1, 2, 3, 4].diction(mapFunction, arg, start, end)`
 
-##### .flatten 
-`[1,2,3].flatten()`
+###### .subset
+`[1, 2, 3, 4].subset(iterable, start, end)`
 
+###### .superset
+`[1, 2, 3, 4].superset(iterable, start, end)`
 
-##### .flattenCopy 
-`[1,2,3].flattenCopy()`
+###### .diffIterable
+`[1, 2, 3, 4].diffIterable(iterable, start, end)`
 
+###### .diffSelf
+`[1, 2, 3, 4].diffSelf(iterable, start, end)`
 
-##### .flattenDeep 
-`[1,2,3].flattenDeep()`
+###### .diffBoth
+`[1, 2, 3, 4].diffBoth(iterable, start, end)`
 
+###### .equal
+`[1, 2, 3, 4].equal(iterable, start, end)`
 
-##### .flattenDeepCopy 
-`[1,2,3].flattenDeepCopy()`
+###### .similar
+`[1, 2, 3, 4].similar(iterable, start, end)`
 
+###### .uniques
+`[1, 2, 3, 4].uniques(start, end, method = "replace")`
 
-##### .range 
-`[1,2,3].range()`
+###### .uniquesCopy
+`[1, 2, 3, 4].uniquesCopy(start, end)`
 
+###### .duplicates
+`[1, 2, 3, 4].duplicates(start, end, method = "replace")`
 
-##### .enumerate 
-`[1,2,3].enumerate()`
+###### .duplicatesCopy
+`[1, 2, 3, 4].duplicatesCopy(start, end)`
 
+###### .enqueue
+`[1, 2, 3, 4].enqueue(item)`
 
-##### .del 
-`[1,2,3].del()`
+###### .dequeue
+`[1, 2, 3, 4].dequeue()`
 
+###### .transpose
+`[1, 2, 3, 4].transpose(iterator, start, end, method = "replace")`
 
-##### .diction 
-`[1,2,3].diction()`
+###### .transposeCopy
+`[1, 2, 3, 4].transposeCopy(iterator, start, end)`
 
+###### .immutable
+`[1, 2, 3, 4].immutable()`
 
-##### .toObject 
-`[1,2,3].toObject()`
+###### .flatten
+`[1, 2, 3, 4].flatten(start, end, method = "replace")`
 
+###### .flattenDeep
+`[1, 2, 3, 4].flattenDeep(start, end, method = "replace")`
 
-##### .subset 
-`[1,2,3].subset()`
+###### .flattenCopy
+`[1, 2, 3, 4].flattenCopy(start, end)`
 
+###### .flattenDeepCopy
+`[1, 2, 3, 4].flattenDeepCopy(start, end)`
 
-##### .superset 
-`[1,2,3].superset()`
+###### .range
+`[1, 2, 3, 4].range(start, stop, step)`
 
+###### .enumerate
+`[1, 2, 3, 4].enumerate(type = "object")`
 
-##### .extender 
-`[1,2,3].extender()`
+###### .del
+`[1, 2, 3, 4].del(start, end)`
 
-
-##### .log 
-`[1,2,3].log()`
-
-
-##### .max 
-`[1,2,3].max()`
-
-
-##### .maxIndexes 
-`[1,2,3].maxIndexes()`
-
-
-##### .min 
-`[1,2,3].min()`
-
-
-##### .minIndexes 
-`[1,2,3].minIndexes()`
-
-
-##### .average 
-`[1,2,3].average()`
-
-
-##### .sum 
-`[1,2,3].sum()`
-
-
-##### .range 
-`[1,2,3].range()`
-
-
-##### .factorialMap 
-`[1,2,3].factorialMap()`
-
-
-##### .acosMap 
-`[1,2,3].acosMap()`
-
-
-##### .sinMap 
-`[1,2,3].sinMap()`
-
-
-##### .asinMap 
-`[1,2,3].asinMap()`
-
-
-##### .absMap 
-`[1,2,3].absMap()`
-
-
-##### .cosMap 
-`[1,2,3].cosMap()`
-
-
-##### .acosMapCopy 
-`[1,2,3].acosMapCopy()`
-
-
-##### .sinMapCopy 
-`[1,2,3].sinMapCopy()`
-
-
-##### .asinMapCopy 
-`[1,2,3].asinMapCopy()`
-
-
-##### .absMapCopy 
-`[1,2,3].absMapCopy()`
-
-
-##### .cosMapCopy 
-`[1,2,3].cosMapCopy()`
-
-<!-- 
-##### .LN2Map 
-`[1,2,3].LN2Map()`
-
-
-##### .LN10Map 
-`[1,2,3].LN10Map()`
-
-
-##### .LOG2EMap 
-`[1,2,3].LOG2EMap()`
-
-
-##### .LOG10EMap 
-`[1,2,3].LOG10EMap()`
-
-##### .LN2MapCopy 
-`[1,2,3].LN2MapCopy()`
-
-
-##### .LN10MapCopy 
-`[1,2,3].LN10MapCopy()`
-
-
-##### .LOG2EMapCopy 
-`[1,2,3].LOG2EMapCopy()`
-
-
-##### .LOG10EMapCopy 
-`[1,2,3].LOG10EMapCopy()`
- -->
-
-##### .floorMap
-`[1,2,3].floorMap()`
-
-
-##### .ceilMap 
-`[1,2,3].ceilMap()`
-
-
-##### .roundMap 
-`[1,2,3].roundMap()`
-
-
-##### .squareMap 
-`[1,2,3].squareMap()`
-
-
-##### .sqrtMap 
-`[1,2,3].sqrtMap()`
-
-
-##### .powMap 
-`[1,2,3].powMap()`
-
-
-##### .multiplyMap 
-`[1,2,3].multiplyMap()`
-
-
-##### .floorMapCopy
-`[1,2,3].floorMapCopy()`
-
-
-##### .ceilMapCopy 
-`[1,2,3].ceilMapCopy()`
-
-
-##### .roundMapCopy 
-`[1,2,3].roundMapCopy()`
-
-
-##### .squareMapCopy 
-`[1,2,3].squareMapCopy()`
-
-
-##### .sqrtMapCopy 
-`[1,2,3].sqrtMapCopy()`
-
-
-##### .powMapCopy 
-`[1,2,3].powMapCopy()`
-
-
-##### .multiplyMapCopy 
-`[1,2,3].multiplyMapCopy()`
-
-
-##### .randomRange 
-`[1,2,3].randomRange()`
-
-
-##### .fillRandomRange 
-`[1,2,3].fillRandomRange()`
+###### .log
+`[1, 2, 3, 4].log(start, end)`
 
 
 <a name="object"></a>
@@ -453,11 +362,9 @@ console.log(obj);
 ```
 
 
-
 <a name="string"></a>
 ### String prototype extended function
 
-#### String
 
 ```
 var StringExtended = require("extenders").StringExtended;
@@ -478,6 +385,12 @@ str.clear();
 console.log(str);
 ```
 
+#### String - API List
+
+###### .clear
+`"Test string".clear(start, end)`
+
+
 <a name="numbers"></a>
 ### Numbers prototype extended function
 
@@ -486,6 +399,12 @@ console.log(str);
 ```
 
 ```
+
+#### Numbers - API List
+
+###### .clear
+`.clear(start, end)`
+
 
 <a name="math"></a>
 ### Math prototype extended function
@@ -496,6 +415,13 @@ console.log(str);
 
 ```
 
+
+#### Math - API List
+
+###### .clear
+`.clear(start, end)`
+
+
 <a name="utils"></a>
 ### Utils prototype extended function
 
@@ -504,6 +430,14 @@ console.log(str);
 ```
 
 ```
+
+
+#### Utils - API List
+
+###### .clear
+`.clear(start, end)`
+
+
 
 <a name="decorators"></a>
 ### Decorators prototype extended function
@@ -515,6 +449,13 @@ console.log(str);
 ```
 
 
+#### Decorators - API List
+
+###### .clear
+`.clear(start, end)`
+
+
+
 <a name="extenders"></a>
 ### Extenders functions
 
@@ -523,6 +464,10 @@ console.log(str);
 ```
 
 ```
+
+###### .clear
+`.clear(start, end)`
+
 
 
 # Current Status
