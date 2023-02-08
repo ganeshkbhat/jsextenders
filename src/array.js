@@ -84,10 +84,10 @@ function min(count, start, end) {
  *
  * @param {*} count
  * @param {*} start
- * @param {*} count
+ * @param {*} end
  * @return {*} 
  */
-function minIndexes(count, start, count) {
+function minIndexes(count, start, end) {
     let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
     if (!count) { a[0]; }
@@ -123,8 +123,9 @@ function sum(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function acosMap(start, end) {
+function acosMap(start, end, method = "replace") {
     this.map((i) => { return Math.acos(i) });
 }
 
@@ -134,8 +135,9 @@ function acosMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function cosMap(start, end) {
+function cosMap(start, end, method = "replace") {
     this.map((i) => { return Math.cos(i) });
 }
 
@@ -145,8 +147,9 @@ function cosMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function sinMap(start, end) {
+function sinMap(start, end, method = "replace") {
     this.map((i) => { return Math.sin(i) });
 }
 
@@ -156,8 +159,9 @@ function sinMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function asinMap(start, end) {
+function asinMap(start, end, method = "replace") {
     this.map((i) => { return Math.asin(i) });
 }
 
@@ -167,8 +171,9 @@ function asinMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function absMap(start, end) {
+function absMap(start, end, method = "replace") {
     this.map((i) => { return Math.abs(i) });
 }
 
@@ -243,32 +248,36 @@ function absMapCopy(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function LN2Map(start, end) { }
+function LN2Map(start, end, method = "replace") { }
 
 /**
  *
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function LN10Map(start, end) { }
+function LN10Map(start, end, method = "replace") { }
 
 /**
  *
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function LOG2EMap(start, end) { }
+function LOG2EMap(start, end, method = "replace") { }
 
 /**
  *
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function LOG10EMap(start, end) { }
+function LOG10EMap(start, end, method = "replace") { }
 
 /**
  *
@@ -307,8 +316,9 @@ function LOG10EMapCopy(start, end) { }
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function floorMap(start, end) {
+function floorMap(start, end, method = "replace") {
     this.map((i) => { return Math.floor(i) });
 }
 
@@ -317,8 +327,9 @@ function floorMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function ceilMap(start, end) {
+function ceilMap(start, end, method = "replace") {
     this.map((i) => { return Math.ceil(i) });
 }
 
@@ -327,8 +338,9 @@ function ceilMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function roundMap(start, end) {
+function roundMap(start, end, method = "replace") {
     this.map((i) => { return Math.round(i) });
 }
 
@@ -370,8 +382,9 @@ function roundMapCopy(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function squareMap(start, end) {
+function squareMap(start, end, method = "replace") {
     this.map((i) => { return Math.pow(i, 2) });
 }
 
@@ -380,8 +393,9 @@ function squareMap(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function sqrtMap(start, end) {
+function sqrtMap(start, end, method = "replace") {
     this.map((i) => { return Math.sqrt(i) });
 }
 
@@ -391,8 +405,9 @@ function sqrtMap(start, end) {
  * @param {*} power
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function powMap(power, start, end) {
+function powMap(power, start, end, method = "replace") {
     if (!power) { throw new Error("Power is not defined"); }
     this.map((i) => { return Math.pow(i, power) });
 }
@@ -403,8 +418,9 @@ function powMap(power, start, end) {
  * @param {*} multiplier
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function multiplyMap(multiplier, start, end) {
+function multiplyMap(multiplier, start, end, method = "replace") {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
     this.map((i) => { return i * multiplier });
 }
@@ -478,8 +494,11 @@ function randomRange(count, multiplier) {
  *
  * @param {*} count
  * @param {*} multiplier
+ * @param {*} start
+ * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function fillRandomRange(count, multiplier) {
+function fillRandomRange(count, multiplier, start, end, method = "replace") {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     // this.length = 0;
     // this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
@@ -544,19 +563,21 @@ function count(item, start, end) {
 }
 
 /**
- *
+ * TODO
  *
  * @param {*} index
  * @param {*} item
+ * @param {*} start
+ * @param {*} end
  */
-function replace(index, item) {
+function replace(index, item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 1, item);
 }
 
 /**
- *
+ * TODO
  *
  * @param {*} item
  */
@@ -567,7 +588,7 @@ function remove(item) {
 }
 
 /**
- *
+ * TODO
  *
  * @param {*} item
  * @param {*} start
@@ -580,7 +601,7 @@ function removeAll(item, start, end) {
 }
 
 /**
- *
+ * TODO
  *
  * @param {*} index
  */
@@ -590,7 +611,7 @@ function pop(index) {
 }
 
 /**
- *
+ * TODO
  *
  * @param {*} start
  * @param {*} end
@@ -629,8 +650,9 @@ function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) 
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function reverse(start, end) {
+function reverse(start, end, method = "replace") {
     this.reverse();
 }
 
@@ -785,8 +807,9 @@ function similar(iterable, start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function uniques(start, end) {
+function uniques(start, end, method = "replace") {
     let a = Array.from(new Set([...this]));
     this.length = 0;
     this.concat(a);
@@ -808,8 +831,9 @@ function uniquesCopy(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function duplicates(start, end) {
+function duplicates(start, end, method = "replace") {
     let a = [...this], noduplicatesarray = this.uniquesCopy();
     for (let i = 0; i < noduplicatesarray.length; i++) {
         let c = a.indexOf(noduplicatesarray[i]);
@@ -861,8 +885,9 @@ function dequeue() {
  * @param {*} iterator
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function transpose(iterator, start, end) {
+function transpose(iterator, start, end, method = "replace") {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverse();
     iterator.map((item) => {
@@ -912,8 +937,9 @@ function immutable() {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function flatten(start, end) {
+function flatten(start, end, method = "replace") {
     this.flatMap(num => num);
 }
 
@@ -922,8 +948,9 @@ function flatten(start, end) {
  *
  * @param {*} start
  * @param {*} end
+ * @param {*} method // replace, inrange 
  */
-function flattenDeep(start, end) {
+function flattenDeep(start, end, method = "replace") {
     this.flat(Infinity);
 }
 
