@@ -494,8 +494,9 @@ function randomRange(count, multiplier) {
  */
 function fillRandomRange(count, multiplier, start, end, method = "replace") {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    // this.length = 0;
-    // this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
+    this.length = 0;
+    this.length = 10;
+    this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
 }
 
 /**
