@@ -103,7 +103,7 @@ Extend or Concat the provided iterable at provided `index`. The default is last 
 
 
 ###### .max
-Returns the provided number (count) of minimal values in the array from `start` index to `end` index.
+Returns the provided number (count) of maximum values in the array from `start` index to `end` index.
 
 `[1, 2, 3, 4].max(count, start, end)`
 
