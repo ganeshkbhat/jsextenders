@@ -339,31 +339,37 @@ Returns the array with count number of array items with random values multiplied
 
 
 ###### .append
+Append the item to the array. Modifies the array in place.
 
 `[1, 2, 3, 4].append(item)`
 
 
 ###### .isArray
+Returns if the provided iterable is an array. Alternatively, if the iterable is not provided then it check if the object is an Array.
 
 `[1, 2, 3, 4].isArray(iterable)`
 
 
 ###### .insert
+Insert the item to the array at index provided. Modifies the array in place.
 
 `[1, 2, 3, 4].insert(index, item)`
 
 
 ###### .insertAll
+Insert the array or list of items to the array at index provided. Modifies the array in place.
 
-`[1, 2, 3, 4].insertAll(index, array /* array or item */)`
+`[1, 2, 3, 4].insertAll(index, array)`
 
 
 ###### .count
+Count the number of items in the array from `start` index to `end` index.
 
 `[1, 2, 3, 4].count(item, start, end)`
 
 
 ###### .replace
+Replace the item to the array at index provided from `start` index to `end` index. Modifies the array in place.
 
 `[1, 2, 3, 4].replace(index, item, start, end)`
 
