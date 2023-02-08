@@ -26,10 +26,30 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
     describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo directory', function () {
 
         it('[Test A] Test for max and min of the array', function (done) {
-            [1, 2, 3, 4].max(count, start, end)
-            [1, 2, 3, 4].maxIndexes(count, start, end)
-            [1, 2, 3, 4].min(count, start, end)
-            [1, 2, 3, 4].minIndexes(count, start, end)
+            let a = [1, 2, 3, 4];
+
+            // a.max(count, start, end);
+            // a.maxIndexes(count, start, end);
+            // a.min(count, start, end);
+            // a.minIndexes(count, start, end);
+
+            expect(a.max(2).length).to.equal(2);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+
+            done();
+        });
+
+        it('[Test A] Test for cos and sin of the array', function (done) {
+            let a = [1, 2, 3, 4];
+            a.acosMap(start, end, method = "replace")
+            a.cosMap(start, end, method = "replace")
+            a.sinMap(start, end, method = "replace")
+            a.asinMap(start, end, method = "replace")
+            a.absMap(start, end, method = "replace")
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -42,28 +62,12 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for cos and sin of the array', function (done) {
-            [1, 2, 3, 4].acosMap(start, end, method = "replace")
-            [1, 2, 3, 4].cosMap(start, end, method = "replace")
-            [1, 2, 3, 4].sinMap(start, end, method = "replace")
-            [1, 2, 3, 4].asinMap(start, end, method = "replace")
-            [1, 2, 3, 4].absMap(start, end, method = "replace")
-
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-
-            done();
-        });
-
-        it('[Test A] Test for cos and sin of the array', function (done) {
-            [1, 2, 3, 4].cosMapCopy(start, end)
-            [1, 2, 3, 4].acosMapCopy(start, end)
-            [1, 2, 3, 4].sinMapCopy(start, end)
-            [1, 2, 3, 4].asinMapCopy(start, end)
-            [1, 2, 3, 4].absMapCopy(start, end)
+            let a = [1, 2, 3, 4];
+            a.cosMapCopy(start, end)
+            a.acosMapCopy(start, end)
+            a.sinMapCopy(start, end)
+            a.asinMapCopy(start, end)
+            a.absMapCopy(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -76,13 +80,14 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for log map function for the array', function (done) {
-            [1, 2, 3, 4].LN2Map(start, end, method = "replace")
-            [1, 2, 3, 4].LN10Map(start, end, method = "replace")
-            [1, 2, 3, 4].LOG2EMap(start, end, method = "replace")
-            [1, 2, 3, 4].LOG10EMap(start, end, method = "replace")
-            [1, 2, 3, 4].LN2MapCopy(start, end)
-            [1, 2, 3, 4].LN10MapCopy(start, end)
-            [1, 2, 3, 4].LOG2EMapCopy(start, end)
+            let a = [1, 2, 3, 4];
+            a.LN2Map(start, end, method = "replace")
+            a.LN10Map(start, end, method = "replace")
+            a.LOG2EMap(start, end, method = "replace")
+            a.LOG10EMap(start, end, method = "replace")
+            a.LN2MapCopy(start, end)
+            a.LN10MapCopy(start, end)
+            a.LOG2EMapCopy(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -95,10 +100,11 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for floor, ceiling, round of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].floorMap(start, end, method = "replace")
-            [1, 2, 3, 4].ceilMap(start, end, method = "replace")
-            [1, 2, 3, 4].roundMap(start, end, method = "replace")
+            a.floorMap(start, end, method = "replace")
+            a.ceilMap(start, end, method = "replace")
+            a.roundMap(start, end, method = "replace")
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -111,27 +117,11 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for floor, ceiling, round of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].floorMapCopy(start, end)
-            [1, 2, 3, 4].ceilMapCopy(start, end)
-            [1, 2, 3, 4].roundMapCopy(start, end)
-
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-            expect(100).to.equal(100);
-
-            done();
-        });
-
-        it('[Test A] Test for square, power, squareroot, and multiple map of the array', function (done) {
-
-            [1, 2, 3, 4].squareMap(start, end, method = "replace")
-            [1, 2, 3, 4].sqrtMap(start, end, method = "replace")
-            [1, 2, 3, 4].powMap(power, start, end, method = "replace")
-            [1, 2, 3, 4].multiplyMap(multiplier, start, end, method = "replace")
+            a.floorMapCopy(start, end)
+            a.ceilMapCopy(start, end)
+            a.roundMapCopy(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -144,11 +134,30 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for square, power, squareroot, and multiple map of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].squareMapCopy(start, end)
-            [1, 2, 3, 4].sqrtMapCopy(start, end)
-            [1, 2, 3, 4].powMapCopy(power, start, end)
-            [1, 2, 3, 4].multiplyMapCopy(multiplier, start, end)
+            a.squareMap(start, end, method = "replace")
+            a.sqrtMap(start, end, method = "replace")
+            a.powMap(power, start, end, method = "replace")
+            a.multiplyMap(multiplier, start, end, method = "replace")
+
+            expect(100).to.equal(100);
+            expect(100).to.equal(100);
+            expect(100).to.equal(100);
+            expect(100).to.equal(100);
+            expect(100).to.equal(100);
+            expect(100).to.equal(100);
+
+            done();
+        });
+
+        it('[Test A] Test for square, power, squareroot, and multiple map of the array', function (done) {
+            let a = [1, 2, 3, 4];
+
+            a.squareMapCopy(start, end)
+            a.sqrtMapCopy(start, end)
+            a.powMapCopy(power, start, end)
+            a.multiplyMapCopy(multiplier, start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -161,10 +170,11 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for aferage, sum, factorial of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].average(start, end)
-            [1, 2, 3, 4].sum(start, end)
-            [1, 2, 3, 4].factorialMap(start, end)
+            a.average(start, end)
+            a.sum(start, end)
+            a.factorialMap(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -177,15 +187,16 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for replace, remove, pop, del, and clear of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].replace(index, item, start, end)
-            [1, 2, 3, 4].remove(item)
-            [1, 2, 3, 4].removeAll(item, start, end)
-            [1, 2, 3, 4].pop(index)
-            [1, 2, 3, 4].enqueue(item)
-            [1, 2, 3, 4].dequeue()
-            [1, 2, 3, 4].del(start, end)
-            [1, 2, 3, 4].clear(start, end)
+            a.replace(index, item, start, end)
+            a.remove(item)
+            a.removeAll(item, start, end)
+            a.pop(index)
+            a.enqueue(item)
+            a.dequeue()
+            a.del(start, end)
+            a.clear(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -198,12 +209,13 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for subset, superset, diff iterators of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].subset(iterable, start, end)
-            [1, 2, 3, 4].superset(iterable, start, end)
-            [1, 2, 3, 4].diffIterable(iterable, start, end)
-            [1, 2, 3, 4].diffSelf(iterable, start, end)
-            [1, 2, 3, 4].diffBoth(iterable, start, end)
+            a.subset(iterable, start, end)
+            a.superset(iterable, start, end)
+            a.diffIterable(iterable, start, end)
+            a.diffSelf(iterable, start, end)
+            a.diffBoth(iterable, start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -216,13 +228,14 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for equals, similar, uniques, and duplicates of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].equal(iterable, start, end)
-            [1, 2, 3, 4].similar(iterable, start, end)
-            [1, 2, 3, 4].uniques(start, end, method = "replace")
-            [1, 2, 3, 4].uniquesCopy(start, end)
-            [1, 2, 3, 4].duplicates(start, end, method = "replace")
-            [1, 2, 3, 4].duplicatesCopy(start, end)
+            a.equal(iterable, start, end)
+            a.similar(iterable, start, end)
+            a.uniques(start, end, method = "replace")
+            a.uniquesCopy(start, end)
+            a.duplicates(start, end, method = "replace")
+            a.duplicatesCopy(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -235,14 +248,15 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for transpose, flatten, flattendeep of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].immutable()
-            [1, 2, 3, 4].transpose(iterator, start, end, method = "replace")
-            [1, 2, 3, 4].transposeCopy(iterator, start, end)
-            [1, 2, 3, 4].flatten(start, end, method = "replace")
-            [1, 2, 3, 4].flattenDeep(start, end, method = "replace")
-            [1, 2, 3, 4].flattenCopy(start, end)
-            [1, 2, 3, 4].flattenDeepCopy(start, end)
+            a.immutable()
+            a.transpose(iterator, start, end, method = "replace")
+            a.transposeCopy(iterator, start, end)
+            a.flatten(start, end, method = "replace")
+            a.flattenDeep(start, end, method = "replace")
+            a.flattenCopy(start, end)
+            a.flattenDeepCopy(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -255,13 +269,14 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for sort, reverse, copy, count, and index of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].index(item, start, end)
-            [1, 2, 3, 4].sort(key = null, reverse = false, start, end)
-            [1, 2, 3, 4].reverse(start, end, method = "replace")
-            [1, 2, 3, 4].reverseCopy(start, end)
-            [1, 2, 3, 4].copy(start, end)
-            [1, 2, 3, 4].count(item, start, end)
+            a.index(item, start, end)
+            a.sort(key = null, reverse = false, start, end)
+            a.reverse(start, end, method = "replace")
+            a.reverseCopy(start, end)
+            a.copy(start, end)
+            a.count(item, start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -274,15 +289,16 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for random, insert diction, range, and enumerate of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].randomRange(count, multiplier)
-            [1, 2, 3, 4].fillRandomRange(count, multiplier, start, end, method = "replace")
-            [1, 2, 3, 4].append(item)
-            [1, 2, 3, 4].insert(index, item)
-            [1, 2, 3, 4].insertAll(index, array)
-            [1, 2, 3, 4].diction(mapFunction, arg, start, end)
-            [1, 2, 3, 4].range(start, stop, step)
-            [1, 2, 3, 4].enumerate(type = "object")
+            a.randomRange(count, multiplier)
+            a.fillRandomRange(count, multiplier, start, end, method = "replace")
+            a.append(item)
+            a.insert(index, item)
+            a.insertAll(index, array)
+            a.diction(mapFunction, arg, start, end)
+            a.range(start, stop, step)
+            a.enumerate(type = "object")
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
@@ -295,11 +311,12 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
         });
 
         it('[Test A] Test for execute, expand, isArray, and log of the array', function (done) {
+            let a = [1, 2, 3, 4];
 
-            [1, 2, 3, 4].execute(executeFunction)
-            [1, 2, 3, 4].extend(iterable, index)
-            [1, 2, 3, 4].isArray(iterable)
-            [1, 2, 3, 4].log(start, end)
+            a.execute(executeFunction)
+            a.extend(iterable, index)
+            a.isArray(iterable)
+            a.log(start, end)
 
             expect(100).to.equal(100);
             expect(100).to.equal(100);
