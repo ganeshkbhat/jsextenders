@@ -18,18 +18,41 @@
 
 var { SubArrayExtender, Freeze, extender } = require("./extenders");
 
+/**
+ *
+ *
+ * @param {*} executeFunction
+ * @return {*} 
+ */
 function execute(executeFunction) {
     return executeFunction([...this]);
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ */
 function extend(iterable) { }
 
+/**
+ *
+ *
+ * @param {*} count
+ * @return {*} 
+ */
 function max(count) {
     let a = [...this].sort();
     if (!count || count === 1) { return a[this.length - 1]; }
     return a.splice(this.length - count - 1, this.length - 1);
 }
 
+/**
+ *
+ *
+ * @param {*} count
+ * @return {*} 
+ */
 function maxIndexes(count) {
     let a = [...this].map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
@@ -37,12 +60,24 @@ function maxIndexes(count) {
     return a.splice(this.length - count - 1, this.length - 1);
 }
 
+/**
+ *
+ *
+ * @param {*} count
+ * @return {*} 
+ */
 function min(count) {
     let a = [...this].sort();
     if (!count || count === 1) { return a[0]; }
     return a.splice(0, count - 1);
 }
 
+/**
+ *
+ *
+ * @param {*} count
+ * @return {*} 
+ */
 function minIndexes(count) {
     let a = [...this].map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
@@ -50,50 +85,105 @@ function minIndexes(count) {
     return a.splice(0, count - 1);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function average() {
     return [...this].reduce((s, i) => { return s + i; }) / this.length;
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function sum() {
     return [...this].reduce((s, i) => { return s + i; });
 }
 
+/**
+ *
+ *
+ */
 function acosMap() {
     this.map((i) => { return Math.acos(i) });
 }
 
+/**
+ *
+ *
+ */
 function cosMap() {
     this.map((i) => { return Math.cos(i) });
 }
 
+/**
+ *
+ *
+ */
 function sinMap() {
     this.map((i) => { return Math.sin(i) });
 }
 
+/**
+ *
+ *
+ */
 function asinMap() {
     this.map((i) => { return Math.asin(i) });
 }
 
+/**
+ *
+ *
+ */
 function absMap() {
     this.map((i) => { return Math.abs(i) });
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function factorialMap() {
     return [...this].reduce((s, i) => { return s * i; });
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function cosMapCopy() {
     return [...this].map((i) => { return Math.cos(i) });
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function acosMapCopy() {
     return [...this].map((i) => { return Math.acos(i) });
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function sinMapCopy() {
     return [...this].map((i) => { return Math.sin(i) });
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function asinMapCopy() {
     return [...this].map((i) => { return Math.asin(i) });
 }
@@ -102,82 +192,183 @@ function absMapCopy() {
     return [...this].map((i) => { return Math.abs(i) });
 }
 
+/**
+ *
+ *
+ */
 function LN2Map() { }
 
+/**
+ *
+ *
+ */
 function LN10Map() { }
 
+/**
+ *
+ *
+ */
 function LOG2EMap() { }
 
+/**
+ *
+ *
+ */
 function LOG10EMap() { }
 
+/**
+ *
+ *
+ */
 function LN2MapCopy() { }
 
+/**
+ *
+ *
+ */
 function LN10MapCopy() { }
 
+/**
+ *
+ *
+ */
 function LOG2EMapCopy() { }
 
+/**
+ *
+ *
+ */
 function LOG10EMapCopy() { }
 
+/**
+ *
+ *
+ */
 function floorMap() {
     this.map((i) => { return Math.floor(i) });
 }
 
+/**
+ *
+ *
+ */
 function ceilMap() {
     this.map((i) => { return Math.ceil(i) });
 }
 
+/**
+ *
+ *
+ */
 function roundMap() {
     this.map((i) => { return Math.round(i) });
 }
 
+/**
+ *
+ *
+ */
 function floorMapCopy() {
     [...this].map((i) => { return Math.floor(i) });
 }
 
+/**
+ *
+ *
+ */
 function ceilMapCopy() {
     [...this].map((i) => { return Math.ceil(i) });
 }
 
+/**
+ *
+ *
+ */
 function roundMapCopy() {
     [...this].map((i) => { return Math.round(i) });
 }
 
+/**
+ *
+ *
+ */
 function squareMap() {
     this.map((i) => { return Math.pow(i, 2) });
 }
 
+/**
+ *
+ *
+ */
 function sqrtMap() {
     this.map((i) => { return Math.sqrt(i) });
 }
 
+/**
+ *
+ *
+ * @param {*} power
+ */
 function powMap(power) {
     if (!power) { throw new Error("Power is not defined"); }
     this.map((i) => { return Math.pow(i, power) });
 }
 
+/**
+ *
+ *
+ * @param {*} multiplier
+ * @return {*} 
+ */
 function multiplyMap(multiplier) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
     return this.map((i) => { return i * multiplier });
 }
 
+/**
+ *
+ *
+ */
 function squareMapCopy() {
     [...this].map((i) => { return Math.pow(i, 2) });
 }
 
+/**
+ *
+ *
+ */
 function sqrtMapCopy() {
     [...this].map((i) => { return Math.sqrt(i) });
 }
 
+/**
+ *
+ *
+ * @param {*} power
+ */
 function powMapCopy(power) {
     if (!power) { throw new Error("Power is not defined"); }
     [...this].map((i) => { return Math.pow(i, power) });
 }
 
+/**
+ *
+ *
+ * @param {*} multiplier
+ * @return {*} 
+ */
 function multiplyMapCopy(multiplier) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
     return [...this].map((i) => { return i * multiplier });
 }
 
+/**
+ *
+ *
+ * @param {*} count
+ * @param {*} multiplier
+ * @return {*} 
+ */
 function randomRange(count, multiplier) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     let a = [];
@@ -187,65 +378,133 @@ function randomRange(count, multiplier) {
     return a;
 }
 
+/**
+ *
+ *
+ * @param {*} count
+ * @param {*} multiplier
+ */
 function fillRandomRange(count, multiplier) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     this.length = 0;
     this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
 }
 
+/**
+ *
+ *
+ * @param {*} item
+ */
 function append(item) {
     if (!item) { throw new Error("Item is not defined"); }
     this.push(item);
 }
 
-function isArray() {
-    return Object.prototype.toString.call(this) === '[object Array]';
+/**
+ *
+ *
+ * @return {*} 
+ */
+function isArray(iterable) {
+    iterable = (!!iterable) ? iterable : this;
+    return Array.isArray(iterable);
 }
 
+/**
+ *
+ *
+ * @param {*} index
+ * @param {*} item
+ */
 function insert(index, item) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 0, item);
 }
 
+/**
+ *
+ *
+ * @param {*} index
+ * @param {*} array
+ */
 function insertAll(index, array /* array or item */) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
     this.splice(index, 0, ...array);
 }
 
+/**
+ *
+ *
+ * @param {*} item
+ * @return {*} 
+ */
 function count(item) {
     if (!item) { throw new Error("Item is not defined"); }
     return [...this].filter((i) => i === item).length;
 }
 
+/**
+ *
+ *
+ * @param {*} index
+ * @param {*} item
+ */
 function replace(index, item) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 1, item);
 }
 
+/**
+ *
+ *
+ * @param {*} item
+ */
 function remove(item) {
     if (!item) { throw new Error("Item is not defined"); }
     let i = this.indexOf(item);
     (i !== -1) ? this.splice(i, 1) : this;
 }
 
+/**
+ *
+ *
+ * @param {*} item
+ */
 function removeAll(item) {
     if (!item) { throw new Error("Item is not defined"); }
     this.map((i) => { return (i === item) ? i : undefined });
     this.filter((r) => { return r !== undefined });
 }
 
+/**
+ *
+ *
+ * @param {*} index
+ */
 function pop(index) {
     if (!index) { throw new Error("Index is not defined"); }
     this.splice(index, 1);
 }
 
+/**
+ *
+ *
+ */
 function clear() {
     this.splice(0, this.length);
 }
 
+/**
+ *
+ *
+ * @param {*} item
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
+ */
 function index(item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!start && !end) { return this.indexOf(item); }
@@ -254,26 +513,59 @@ function index(item, start, end) {
     return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item; });
 }
 
+/**
+ *
+ *
+ * @param {*} [key=null]
+ * @param {boolean} [reverse=false]
+ */
 function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
 
+/**
+ *
+ *
+ */
 function reverse() {
     this.reverse();
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function reverseCopy() {
     return [...this].reverse();
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function copy() {
     return [...this];
 }
 
+/**
+ *
+ *
+ * @param {*} mapFunction
+ * @param {*} arg
+ * @return {*} 
+ */
 function diction(mapFunction, arg) {
     if (!mapFunction || typeof mapFunction !== "function") { throw new Error("Mapper function is not defined"); }
     if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
     return Object.assign({}, [...this]);
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function subset(iterable) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
@@ -283,6 +575,12 @@ function subset(iterable) {
     return true;
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function superset(iterable) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
@@ -292,6 +590,12 @@ function superset(iterable) {
     return true;
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function diffIterable(iterable) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
@@ -301,6 +605,12 @@ function diffIterable(iterable) {
     return a;
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function diffSelf(iterable) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
@@ -310,6 +620,12 @@ function diffSelf(iterable) {
     return a;
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function diffBoth(iterable) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = { "self": [], "iterable": [] };
@@ -318,25 +634,50 @@ function diffBoth(iterable) {
     return a;
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function equal(iterable) {
     return JSON.stringify([...this]) === JSON.stringify(iterable);
 }
 
+/**
+ *
+ *
+ * @param {*} iterable
+ * @return {*} 
+ */
 function similar(iterable) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     return JSON.stringify([...this].sort()) === JSON.stringify(iterable.sort());
 }
 
+/**
+ *
+ *
+ */
 function uniques() {
     let a = Array.from(new Set([...this]));
     this.length = 0;
     this.concat(a);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function uniquesCopy() {
     return Array.from(new Set([...this]));
 }
 
+/**
+ *
+ *
+ */
 function duplicates() {
     let a = [...this], noduplicatesarray = this.uniquesCopy();
     for (let i = 0; i < noduplicatesarray.length; i++) {
@@ -348,6 +689,11 @@ function duplicates() {
     this.concat(a);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function duplicatesCopy() {
     let a = [...this], noduplicatesarray = this.uniques();
     for (let i = 0; i < noduplicatesarray.length; i++) {
@@ -357,15 +703,30 @@ function duplicatesCopy() {
     return a.filter((a) => a !== undefined);
 }
 
+/**
+ *
+ *
+ * @param {*} item
+ */
 function enqueue(item) {
     if (!item) { throw new Error("Item is not defined"); }
     this.push(item);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function dequeue() {
     return this.shift();
 }
 
+/**
+ *
+ *
+ * @param {*} iterator
+ */
 function transpose(iterator) {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverse();
@@ -381,7 +742,12 @@ function transpose(iterator) {
     this.concat(iterator);
 }
 
-
+/**
+ *
+ *
+ * @param {*} iterator
+ * @return {*} 
+ */
 function transposeCopy(iterator) {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverse();
@@ -396,26 +762,58 @@ function transposeCopy(iterator) {
     return iterator;
 }
 
+/**
+ *
+ *
+ */
 function immutable() {
     Object.freeze(this);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function flatten() {
     return this.flatMap(num => num);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function flattenDeep() {
     return this.flat(Infinity);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function flattenCopy() {
     return [...this].flatMap(num => num);
 }
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function flattenDeepCopy() {
     return [...this].flat(Infinity);
 }
 
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} stop
+ * @param {*} step
+ * @return {*} 
+ */
 function range(start, stop, step) {
     if ((!start && !stop) || !start) { throw new Error("Start [minimal range end number] is not defined"); }
     let a = [];
@@ -451,6 +849,12 @@ function enumerate(type = "object") {
     return a;
 }
 
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ */
 function del(start, end) {
     if (!start) { throw new Error("Start [minimal range end number] is not defined"); }
     if (!end) {
@@ -460,6 +864,10 @@ function del(start, end) {
     this.splice(start, end - start);
 }
 
+/**
+ *
+ *
+ */
 function log() {
     console.log(this);
 }
