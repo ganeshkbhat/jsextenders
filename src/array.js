@@ -366,11 +366,34 @@ function dequeue() {
     return this.shift();
 }
 
-function transpose() {
-    this.reverse();
-    this.map(function (item) {
-        (Object.prototype.toString.call(item) === '[object Array]') ? item.reverse() : item;
+function transpose(iterator) {
+    iterator = (!!iterator) ? iterator : [...this];
+    iterator.reverse();
+    iterator.map((item) => {
+        if (Array.isArray(item)) {
+            item = transpose(item);
+        } else {
+            item = item
+        };
+        return item;
     });
+    this.length = 0;
+    this.concat(iterator);
+}
+
+
+function transposeCopy(iterator) {
+    iterator = (!!iterator) ? iterator : [...this];
+    iterator.reverse();
+    iterator.map((item) => {
+        if (Array.isArray(item)) {
+            item = transpose(item);
+        } else {
+            item = item
+        };
+        return item;
+    });
+    return iterator;
 }
 
 function immutable() {
@@ -576,6 +599,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'transpose', { value: transpose, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'transposeCopy', { value: transposeCopy, enumerable: true, });
     // Object.defineProperty(SubArray.prototype, 'immutable', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'freeze', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'tuple', { value: immutable, enumerable: true, });
@@ -671,6 +695,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'transposeCopy', { value: transposeCopy, enumerable: true, });
     // Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'freeze', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
