@@ -615,8 +615,9 @@ function insert(index, item) {
  *
  * @param {*} index
  * @param {*} array
+ * array or item 
  */
-function insertAll(index, array /* array or item */) {
+function insertAll(index, array) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
     this.splice(index, 0, ...array);
@@ -714,8 +715,9 @@ function index(item, start, end) {
  *
  * @param {*} [key=null]
  * @param {boolean} [reverse=false]
+ * // sort(key=None, reverse=False) {}
  */
-function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
+function sort(key = null, reverse = false) { } 
 
 /**
  *
