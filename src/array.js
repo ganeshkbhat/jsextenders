@@ -39,10 +39,12 @@ function extend(iterable) { }
  *
  *
  * @param {*} count
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function max(count) {
-    let a = [...this].sort();
+function max(count, start, end) {
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).sort();
     if (!count || count === 1) { return a[this.length - 1]; }
     return a.splice(this.length - count - 1, this.length - 1);
 }
@@ -51,10 +53,12 @@ function max(count) {
  *
  *
  * @param {*} count
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function maxIndexes(count) {
-    let a = [...this].map((i, idx) => { return { index: idx, value: i } });
+function maxIndexes(count, start, end) {
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
     if (!count) { a[this.length - 1]; }
     return a.splice(this.length - count - 1, this.length - 1);
@@ -64,243 +68,320 @@ function maxIndexes(count) {
  *
  *
  * @param {*} count
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function min(count) {
-    let a = [...this].sort();
+function min(count, start, end) {
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).sort();
     if (!count || count === 1) { return a[0]; }
     return a.splice(0, count - 1);
 }
+
 
 /**
  *
  *
  * @param {*} count
+ * @param {*} start
+ * @param {*} count
  * @return {*} 
  */
-function minIndexes(count) {
-    let a = [...this].map((i, idx) => { return { index: idx, value: i } });
+function minIndexes(count, start, count) {
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
     if (!count) { a[0]; }
     return a.splice(0, count - 1);
 }
 
+
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function average() {
-    return [...this].reduce((s, i) => { return s + i; }) / this.length;
+function average(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; }) / this.length;
+}
+
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
+ */
+function sum(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; });
 }
 
 /**
  *
  *
- * @return {*} 
+ * @param {*} start
+ * @param {*} end
  */
-function sum() {
-    return [...this].reduce((s, i) => { return s + i; });
-}
-
-/**
- *
- *
- */
-function acosMap() {
+function acosMap(start, end) {
     this.map((i) => { return Math.acos(i) });
 }
 
+
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function cosMap() {
+function cosMap(start, end) {
     this.map((i) => { return Math.cos(i) });
 }
 
+
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function sinMap() {
+function sinMap(start, end) {
     this.map((i) => { return Math.sin(i) });
 }
 
-/**
- *
- *
- */
-function asinMap() {
-    this.map((i) => { return Math.asin(i) });
-}
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function absMap() {
+function asinMap(start, end) {
+    this.map((i) => { return Math.asin(i) });
+}
+
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ */
+function absMap(start, end) {
     this.map((i) => { return Math.abs(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function factorialMap() {
-    return [...this].reduce((s, i) => { return s * i; });
+function factorialMap(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s * i; });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function cosMapCopy() {
-    return [...this].map((i) => { return Math.cos(i) });
+function cosMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.cos(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function acosMapCopy() {
-    return [...this].map((i) => { return Math.acos(i) });
+function acosMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.acos(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function sinMapCopy() {
-    return [...this].map((i) => { return Math.sin(i) });
+function sinMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.sin(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function asinMapCopy() {
-    return [...this].map((i) => { return Math.asin(i) });
-}
-
-function absMapCopy() {
-    return [...this].map((i) => { return Math.abs(i) });
+function asinMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.asin(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
  */
-function LN2Map() { }
+function absMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.abs(i) });
+}
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LN10Map() { }
+function LN2Map(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LOG2EMap() { }
+function LN10Map(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LOG10EMap() { }
+function LOG2EMap(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LN2MapCopy() { }
+function LOG10EMap(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LN10MapCopy() { }
+function LN2MapCopy(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LOG2EMapCopy() { }
+function LN10MapCopy(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function LOG10EMapCopy() { }
+function LOG2EMapCopy(start, end) { }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function floorMap() {
+function LOG10EMapCopy(start, end) { }
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ */
+function floorMap(start, end) {
     this.map((i) => { return Math.floor(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function ceilMap() {
+function ceilMap(start, end) {
     this.map((i) => { return Math.ceil(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function roundMap() {
+function roundMap(start, end) {
     this.map((i) => { return Math.round(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
  */
-function floorMapCopy() {
-    [...this].map((i) => { return Math.floor(i) });
+function floorMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.floor(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
  */
-function ceilMapCopy() {
-    [...this].map((i) => { return Math.ceil(i) });
+function ceilMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.ceil(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
  */
-function roundMapCopy() {
-    [...this].map((i) => { return Math.round(i) });
+function roundMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.round(i) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function squareMap() {
+function squareMap(start, end) {
     this.map((i) => { return Math.pow(i, 2) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function sqrtMap() {
+function sqrtMap(start, end) {
     this.map((i) => { return Math.sqrt(i) });
 }
 
@@ -308,8 +389,10 @@ function sqrtMap() {
  *
  *
  * @param {*} power
+ * @param {*} start
+ * @param {*} end
  */
-function powMap(power) {
+function powMap(power, start, end) {
     if (!power) { throw new Error("Power is not defined"); }
     this.map((i) => { return Math.pow(i, power) });
 }
@@ -318,48 +401,60 @@ function powMap(power) {
  *
  *
  * @param {*} multiplier
+ * @param {*} start
+ * @param {*} end
+ */
+function multiplyMap(multiplier, start, end) {
+    if (!multiplier) { throw new Error("Multiplier is not defined"); }
+    this.map((i) => { return i * multiplier });
+}
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function multiplyMap(multiplier) {
-    if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    return this.map((i) => { return i * multiplier });
+function squareMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.pow(i, 2) });
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
  */
-function squareMapCopy() {
-    [...this].map((i) => { return Math.pow(i, 2) });
-}
-
-/**
- *
- *
- */
-function sqrtMapCopy() {
-    [...this].map((i) => { return Math.sqrt(i) });
+function sqrtMapCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.sqrt(i) });
 }
 
 /**
  *
  *
  * @param {*} power
+ * @param {*} start
+ * @param {*} end
+ * @return {*} 
  */
-function powMapCopy(power) {
+function powMapCopy(power, start, end) {
     if (!power) { throw new Error("Power is not defined"); }
-    [...this].map((i) => { return Math.pow(i, power) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.pow(i, power) });
 }
 
 /**
  *
  *
  * @param {*} multiplier
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function multiplyMapCopy(multiplier) {
+function multiplyMapCopy(multiplier, start, end) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    return [...this].map((i) => { return i * multiplier });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return i * multiplier });
 }
 
 /**
@@ -386,8 +481,8 @@ function randomRange(count, multiplier) {
  */
 function fillRandomRange(count, multiplier) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    this.length = 0;
-    this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
+    // this.length = 0;
+    // this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
 }
 
 /**
@@ -403,6 +498,7 @@ function append(item) {
 /**
  *
  *
+ * @param {*} iterable
  * @return {*} 
  */
 function isArray(iterable) {
@@ -438,11 +534,13 @@ function insertAll(index, array /* array or item */) {
  *
  *
  * @param {*} item
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function count(item) {
+function count(item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
-    return [...this].filter((i) => i === item).length;
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).filter((i) => i === item).length;
 }
 
 /**
@@ -472,8 +570,10 @@ function remove(item) {
  *
  *
  * @param {*} item
+ * @param {*} start
+ * @param {*} end
  */
-function removeAll(item) {
+function removeAll(item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
     this.map((i) => { return (i === item) ? i : undefined });
     this.filter((r) => { return r !== undefined });
@@ -523,30 +623,37 @@ function index(item, start, end) {
  */
 function sort(key = null, reverse = false) { } // sort(key=None, reverse=False) {}
 
+
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function reverse() {
+function reverse(start, end) {
     this.reverse();
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function reverseCopy() {
-    return [...this].reverse();
+function reverseCopy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length - 1).reverse();
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function copy() {
-    return [...this];
+function copy(start, end) {
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length - 1);
 }
 
 /**
@@ -554,9 +661,11 @@ function copy() {
  *
  * @param {*} mapFunction
  * @param {*} arg
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function diction(mapFunction, arg) {
+function diction(mapFunction, arg, start, end) {
     if (!mapFunction || typeof mapFunction !== "function") { throw new Error("Mapper function is not defined"); }
     if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
     return Object.assign({}, [...this]);
@@ -566,9 +675,11 @@ function diction(mapFunction, arg) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function subset(iterable) {
+function subset(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
@@ -581,9 +692,11 @@ function subset(iterable) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function superset(iterable) {
+function superset(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
@@ -596,9 +709,11 @@ function superset(iterable) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function diffIterable(iterable) {
+function diffIterable(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
@@ -611,9 +726,11 @@ function diffIterable(iterable) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function diffSelf(iterable) {
+function diffSelf(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
@@ -626,9 +743,11 @@ function diffSelf(iterable) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function diffBoth(iterable) {
+function diffBoth(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = { "self": [], "iterable": [] };
     a["self"] = this.diffSelf(this, iterable);
@@ -640,9 +759,11 @@ function diffBoth(iterable) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function equal(iterable) {
+function equal(iterable, start, end) {
     return JSON.stringify([...this]) === JSON.stringify(iterable);
 }
 
@@ -650,9 +771,11 @@ function equal(iterable) {
  *
  *
  * @param {*} iterable
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function similar(iterable) {
+function similar(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     return JSON.stringify([...this].sort()) === JSON.stringify(iterable.sort());
 }
@@ -660,8 +783,10 @@ function similar(iterable) {
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function uniques() {
+function uniques(start, end) {
     let a = Array.from(new Set([...this]));
     this.length = 0;
     this.concat(a);
@@ -670,17 +795,21 @@ function uniques() {
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function uniquesCopy() {
+function uniquesCopy(start, end) {
     return Array.from(new Set([...this]));
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  */
-function duplicates() {
+function duplicates(start, end) {
     let a = [...this], noduplicatesarray = this.uniquesCopy();
     for (let i = 0; i < noduplicatesarray.length; i++) {
         let c = a.indexOf(noduplicatesarray[i]);
@@ -694,9 +823,11 @@ function duplicates() {
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function duplicatesCopy() {
+function duplicatesCopy(start, end) {
     let a = [...this], noduplicatesarray = this.uniques();
     for (let i = 0; i < noduplicatesarray.length; i++) {
         let c = a.indexOf(noduplicatesarray[i]);
@@ -728,8 +859,10 @@ function dequeue() {
  *
  *
  * @param {*} iterator
+ * @param {*} start
+ * @param {*} end
  */
-function transpose(iterator) {
+function transpose(iterator, start, end) {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverse();
     iterator.map((item) => {
@@ -748,9 +881,11 @@ function transpose(iterator) {
  *
  *
  * @param {*} iterator
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function transposeCopy(iterator) {
+function transposeCopy(iterator, start, end) {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverse();
     iterator.map((item) => {
@@ -775,36 +910,42 @@ function immutable() {
 /**
  *
  *
- * @return {*} 
+ * @param {*} start
+ * @param {*} end
  */
-function flatten() {
-    return this.flatMap(num => num);
+function flatten(start, end) {
+    this.flatMap(num => num);
 }
 
 /**
  *
  *
- * @return {*} 
+ * @param {*} start
+ * @param {*} end
  */
-function flattenDeep() {
-    return this.flat(Infinity);
+function flattenDeep(start, end) {
+    this.flat(Infinity);
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function flattenCopy() {
+function flattenCopy(start, end) {
     return [...this].flatMap(num => num);
 }
 
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
  * @return {*} 
  */
-function flattenDeepCopy() {
+function flattenDeepCopy(start, end) {
     return [...this].flat(Infinity);
 }
 
@@ -834,7 +975,7 @@ function range(start, stop, step) {
 /**
  *
  *
- * @param {string} [type="object"] Options: object, array
+ * @param {string} [type="object"]
  * @return {*} 
  */
 function enumerate(type = "object") {
