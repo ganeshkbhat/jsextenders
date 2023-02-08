@@ -139,163 +139,166 @@ Returns the sum of all the number or decimal values in the array from `start` in
 
 
 ###### .acosMap
-Modifies the array with acos of all the values. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `acos` of all the values. Modifies the whole array in place. The method option has two options - `replace` (replace the whole array with these values) and `inrange` (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].acosMap(start, end, method = "replace")`
 
 
 ###### .cosMap
-Modifies the array with cos of all the values. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `cos` of all the values. Modifies the whole array in place. The method option has two options - `replace` (replace the whole array with these values) and `inrange` (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].cosMap(start, end, method = "replace")`
 
 
 ###### .sinMap
-Modifies the array with sin of all the values. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `sin` of all the values. Modifies the whole array in place. The method option has two options - `replace` (replace the whole array with these values) and `inrange` (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].sinMap(start, end, method = "replace")`
 
 
 ###### .asinMap
-Modifies the array with asin of all the values. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `asin` of all the values. Modifies the whole array in place. The method option has two options - `replace` (replace the whole array with these values) and `inrange` (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].asinMap(start, end, method = "replace")`
 
 
 ###### .absMap
-Modifies the array with absolute of all the values. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `absolute` of all the values. Modifies the whole array in place. The method option has two options - `replace` (replace the whole array with these values) and `inrange` (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].absMap(start, end, method = "replace")`
 
 
 ###### .factorialMap
-Returns the factorial value of all number values of the array from `start` index to `end` index.
+Returns the `factorial value` of all number values of the array from `start` index to `end` index.
 
 `[1, 2, 3, 4].factorialMap(start, end)`
 
 
 ###### .cosMapCopy
-Returns the array with cos of all the values of the array from `start` index to `end` index.
+Returns the array with `cos` of all the values of the array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].cosMapCopy(start, end)`
 
 
 ###### .acosMapCopy
-Returns the array with acos of all the values of the array from `start` index to `end` index.
+Returns the array with `acos` of all the values of the array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].acosMapCopy(start, end)`
 
 
 ###### .sinMapCopy
-Returns the array with sin of all the values of the array from `start` index to `end` index.
+Returns the array with `sin` of all the values of the array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].sinMapCopy(start, end)`
 
 
 ###### .asinMapCopy
-Returns the array with asin of all the values of the array from `start` index to `end` index.
+Returns the array with `asin` of all the values of the array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].asinMapCopy(start, end)`
 
 
 ###### .absMapCopy
-Returns the array with absMap of all the values of the array from `start` index to `end` index.
+Returns the array with `absMap` of all the values of the array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].absMapCopy(start, end)`
 
 
 ###### .LN2Map
-The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `LN2` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].LN2Map(start, end, method = "replace")`
 
 
 ###### .LN10Map
-The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `LN10` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].LN10Map(start, end, method = "replace")`
 
 
 ###### .LOG2EMap
-The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `Log2` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].LOG2EMap(start, end, method = "replace")`
 
 
 ###### .LOG10EMap
-The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `Log10` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].LOG10EMap(start, end, method = "replace")`
 
 
 ###### .LN2MapCopy
-
+Returns the copy array with `LN2` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 `[1, 2, 3, 4].LN2MapCopy(start, end)`
 
 
 ###### .LN10MapCopy
-
+Returns the copy array with `LN10` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 `[1, 2, 3, 4].LN10MapCopy(start, end)`
 
 
 ###### .LOG2EMapCopy
-
+Returns the copy array with `Log2E` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 `[1, 2, 3, 4].LOG2EMapCopy(start, end)`
 
 
 ###### .floorMap
-Modifies the array with floor of all the number values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `floor` of all the number values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].floorMap(start, end, method = "replace")`
 
 
 ###### .ceilMap
-Modifies the array with ceil of all the number values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `ceil` of all the number values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].ceilMap(start, end, method = "replace")`
 
 
 ###### .roundMap
-Modifies the array with round of all the number values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `round` of all the number values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
 `[1, 2, 3, 4].roundMap(start, end, method = "replace")`
 
 
 ###### .floorMapCopy
+Returns the copy of array with `floor` of all the number values from `start` index to `end` index. Returns a new object and does not modify the array in place. 
 
 `[1, 2, 3, 4].floorMapCopy(start, end)`
 
 
 ###### .ceilMapCopy
+Returns the copy of array with `ceil` of all the number values from `start` index to `end` index. Returns a new object and does not modify the array in place. 
 
 `[1, 2, 3, 4].ceilMapCopy(start, end)`
 
 
 ###### .roundMapCopy
+Returns the copy of array with `round` of all the number values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
 `[1, 2, 3, 4].roundMapCopy(start, end)`
 
 
 ###### .squareMap
-Modifies the array with square of all the array values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `square` of all the array values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].squareMap(start, end, method = "replace")`
 
 
 ###### .sqrtMap
-Modifies the array with squareroot of all the array values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `square root` of all the array values from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].sqrtMap(start, end, method = "replace")`
 
 
 ###### .powMap
-Modifies the array with power of all the array values with the provided power value from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `power` of all the array values with the provided power value from `start` index to `end` index. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].powMap(power, start, end, method = "replace")`
 
 
 ###### .multiplyMap
-Modifies the array with multiplication of all the array values from `start` index to `end` index with provided multiplier. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
+Modifies the array with `multiplication` of all the array values from `start` index to `end` index with provided multiplier. Modifies the whole array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place)
 
 `[1, 2, 3, 4].multiplyMap(multiplier, start, end, method = "replace")`
 
