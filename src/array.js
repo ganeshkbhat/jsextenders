@@ -866,7 +866,7 @@ function insertAll(index, array, thisValue) {
     this.push(...a);
 }
 
-function concatSelf(array, thisValue) {
+function concatMerge(array, thisValue) {
     let a = [(!!thisValue) ? [...thisValue] : [...this], ...array];
     this.length = 0;
     this.push(...a);
@@ -1697,8 +1697,8 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'isArray', { value: isArray, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'insertAll', { value: insertAll, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'concatSelf', { value: concatSelf, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'merge', { value: concatSelf, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'concatMerge', { value: concatMerge, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'merge', { value: concatMerge, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'insert', { value: insert, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'replace', { value: replace, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'remove', { value: remove, enumerable: true, });
@@ -1802,8 +1802,8 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'append', { value: append, enumerable: true, });
     Object.defineProperty(Array.prototype, 'isArray', { value: isArray, enumerable: true, });
     Object.defineProperty(Array.prototype, 'insertAll', { value: insertAll, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'concatSelf', { value: concatSelf, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'merge', { value: concatSelf, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'concatMerge', { value: concatMerge, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'merge', { value: concatMerge, enumerable: true, });
     Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
     Object.defineProperty(Array.prototype, 'replace', { value: replace, enumerable: true, });
     Object.defineProperty(Array.prototype, 'remove', { value: remove, enumerable: true, });
