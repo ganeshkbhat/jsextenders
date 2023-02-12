@@ -153,7 +153,7 @@ function sum(start, end, thisValue) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function acosMap(start, end, method = "replace") {
+function acosMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -177,7 +177,7 @@ function acosMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function cosMap(start, end, method = "replace") {
+function cosMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -198,7 +198,7 @@ function cosMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function sinMap(start, end, method = "replace") {
+function sinMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -219,7 +219,7 @@ function sinMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function asinMap(start, end, method = "replace") {
+function asinMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -240,7 +240,7 @@ function asinMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function absMap(start, end, method = "replace") {
+function absMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -261,7 +261,7 @@ function absMap(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function factorialMap(start, end, thisValue) {
+function factorialMap(start, end, thisValue, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
@@ -276,7 +276,7 @@ function factorialMap(start, end, thisValue) {
  * @param {*} end
  * @return {*} 
  */
-function cosMapCopy(start, end) {
+function cosMapCopy(start, end, thisValue) {
     let a = [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
@@ -291,7 +291,7 @@ function cosMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function acosMapCopy(start, end) {
+function acosMapCopy(start, end, thisValue) {
     let a = [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
@@ -306,7 +306,7 @@ function acosMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function sinMapCopy(start, end) {
+function sinMapCopy(start, end, thisValue) {
     let a = [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
@@ -321,7 +321,7 @@ function sinMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function asinMapCopy(start, end) {
+function asinMapCopy(start, end, thisValue) {
     let a = [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
@@ -336,7 +336,7 @@ function asinMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function absMapCopy(start, end) {
+function absMapCopy(start, end, thisValue) {
     let a = [...this];
     start = (!!start) ? start : 0
     end = (!!end) ? end : a.length;
@@ -351,7 +351,7 @@ function absMapCopy(start, end) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LN2Map(start, end, method = "replace") {
+function LN2Map(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -366,7 +366,7 @@ function LN2Map(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LN10Map(start, end, method = "replace") {
+function LN10Map(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -381,7 +381,7 @@ function LN10Map(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LOG2EMap(start, end, method = "replace") {
+function LOG2EMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -396,7 +396,7 @@ function LOG2EMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function LOG10EMap(start, end, method = "replace") {
+function LOG10EMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -410,7 +410,7 @@ function LOG10EMap(start, end, method = "replace") {
  * @param {*} start
  * @param {*} end
  */
-function LN2MapCopy(start, end) { }
+function LN2MapCopy(start, end, thisValue) { }
 
 /**
  *
@@ -418,7 +418,7 @@ function LN2MapCopy(start, end) { }
  * @param {*} start
  * @param {*} end
  */
-function LN10MapCopy(start, end) { }
+function LN10MapCopy(start, end, thisValue) { }
 
 /**
  *
@@ -426,7 +426,7 @@ function LN10MapCopy(start, end) { }
  * @param {*} start
  * @param {*} end
  */
-function LOG2EMapCopy(start, end) { }
+function LOG2EMapCopy(start, end, thisValue) { }
 
 /**
  *
@@ -434,7 +434,7 @@ function LOG2EMapCopy(start, end) { }
  * @param {*} start
  * @param {*} end
  */
-function LOG10EMapCopy(start, end) { }
+function LOG10EMapCopy(start, end, thisValue) { }
 
 /**
  *
@@ -443,7 +443,7 @@ function LOG10EMapCopy(start, end) { }
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function floorMap(start, end, method = "replace") {
+function floorMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -464,7 +464,7 @@ function floorMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function ceilMap(start, end, method = "replace") {
+function ceilMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -485,7 +485,7 @@ function ceilMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function roundMap(start, end, method = "replace") {
+function roundMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -506,7 +506,7 @@ function roundMap(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function floorMapCopy(start, end, method = "replace") {
+function floorMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -525,7 +525,7 @@ function floorMapCopy(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function ceilMapCopy(start, end, method = "replace") {
+function ceilMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -544,7 +544,7 @@ function ceilMapCopy(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function roundMapCopy(start, end, method = "replace") {
+function roundMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -563,7 +563,7 @@ function roundMapCopy(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function squareMap(start, end, method = "replace") {
+function squareMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -584,7 +584,7 @@ function squareMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function sqrtMap(start, end, method = "replace") {
+function sqrtMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -606,7 +606,7 @@ function sqrtMap(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function powMap(power, start, end, method = "replace") {
+function powMap(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
     if (method === "inrange") {
         var a = [];
@@ -629,7 +629,7 @@ function powMap(power, start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function multiplyMap(multiplier, start, end, method = "replace") {
+function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
     if (method === "inrange") {
 
@@ -651,7 +651,7 @@ function multiplyMap(multiplier, start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function squareMapCopy(start, end, method = "replace") {
+function squareMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -670,7 +670,7 @@ function squareMapCopy(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function sqrtMapCopy(start, end, method = "replace") {
+function sqrtMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -690,7 +690,7 @@ function sqrtMapCopy(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function powMapCopy(power, start, end, method = "replace") {
+function powMapCopy(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
     if (method === "inrange") {
 
@@ -714,7 +714,7 @@ function powMapCopy(power, start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function multiplyMapCopy(multiplier, start, end, method = "replace") {
+function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
     if (method === "inrange") {
 
@@ -752,7 +752,7 @@ function randomRange(count, multiplier) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function fillRandomRange(multiplier, start, end, method = "inrange") {
+function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     if (method === "inrange") {
         start = (!!start) ? start : 0
@@ -789,7 +789,7 @@ function fillRandomRange(multiplier, start, end, method = "inrange") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function fillRange(item, start, end, method = "inrange") {
+function fillRange(item, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     if (method === "inrange") {
         start = (!!start) ? start : 0
@@ -819,7 +819,7 @@ function fillRange(item, start, end, method = "inrange") {
  *
  * @param {*} item
  */
-function append(item) {
+function append(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     this.push(item);
 }
@@ -841,7 +841,7 @@ function isArray(iterable) {
  * @param {*} index
  * @param {*} item
  */
-function insert(index, item) {
+function insert(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     let a = [...this];
@@ -857,7 +857,7 @@ function insert(index, item) {
  * @param {*} array
  * array or item 
  */
-function insertAll(index, array) {
+function insertAll(index, array, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
     let a = [...this];
@@ -872,7 +872,7 @@ function insertAll(index, array) {
  * @param {*} index
  * @param {*} item
  */
-function insertCopy(index, item) {
+function insertCopy(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
 }
@@ -884,7 +884,7 @@ function insertCopy(index, item) {
  * @param {*} array
  * array or item 
  */
-function insertAllCopy(index, array) {
+function insertAllCopy(index, array, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
 }
@@ -897,7 +897,7 @@ function insertAllCopy(index, array) {
  * @param {*} end
  * @return {*} 
  */
-function count(item, start, end) {
+function count(item, start, end, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).filter((i) => i === item).length;
 }
@@ -908,7 +908,7 @@ function count(item, start, end) {
  * @param {*} index
  * @param {*} item
  */
-function replace(index, item) {
+function replace(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     let a = [...this];
@@ -926,7 +926,7 @@ function replace(index, item) {
  * @param {*} end
   * @param {*} method
  */
-function replaceAll(item, replaceValue, start, end, method = "replace") {
+function replaceAll(item, replaceValue, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -951,7 +951,7 @@ function replaceAll(item, replaceValue, start, end, method = "replace") {
  *
  * @param {*} item
  */
-function remove(item) {
+function remove(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     let i = this.indexOf(item);
     (i !== -1) ? this.splice(i, 1) : this;
@@ -965,7 +965,7 @@ function remove(item) {
  * @param {*} end
  * @param {*} method
  */
-function removeAll(item, start, end, method = "replace") {
+function removeAll(item, start, end, method = "replace", thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (method === "inrange") {
 
@@ -992,7 +992,7 @@ function removeAll(item, start, end, method = "replace") {
  * @param {*} index
  * @param {*} item
  */
-function replaceCopy(index, item) {
+function replaceCopy(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
 
@@ -1007,7 +1007,7 @@ function replaceCopy(index, item) {
  * @param {*} end
  * @param {*} method
  */
-function replaceAllCopy(item, replaceValue, start, end, method = "replace") {
+function replaceAllCopy(item, replaceValue, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -1020,7 +1020,7 @@ function replaceAllCopy(item, replaceValue, start, end, method = "replace") {
  *
  * @param {*} item
  */
-function removeCopy(item) {
+function removeCopy(item, thisValue) {
 
 }
 
@@ -1032,7 +1032,7 @@ function removeCopy(item) {
  * @param {*} end
  * @param {*} method
  */
-function removeAllCopy(item, start, end, method = "replace") {
+function removeAllCopy(item, start, end, method = "replace", thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (method === "inrange") {
 
@@ -1046,7 +1046,7 @@ function removeAllCopy(item, start, end, method = "replace") {
  *
  * @param {*} index
  */
-function pop(index) {
+function pop(index, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     return this.splice(index, 1)[0];
 }
@@ -1069,7 +1069,7 @@ function clear(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function index(item, start, end) {
+function index(item, start, end, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if ((!start && start !== 0) && !end) { return this.indexOf(item); }
     if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
@@ -1099,7 +1099,7 @@ function pysort(key = null, reverse = false) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function reverser(start, end, method = "replace") {
+function reverser(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -1120,7 +1120,7 @@ function reverser(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function reverseCopy(start, end) {
+function reverseCopy(start, end, thisValue) {
     return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reverse();
 }
 
@@ -1131,7 +1131,7 @@ function reverseCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function copy(start, end) {
+function copy(start, end, thisValue) {
     return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
 }
 
@@ -1144,7 +1144,7 @@ function copy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function diction(mapFunction, arg, start, end) {
+function diction(mapFunction, arg, start, end, thisValue) {
     if (!mapFunction || typeof mapFunction !== "function") { mapFunction = (i) => i; }
     if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
     return Object.assign({}, [...this]);
@@ -1158,7 +1158,7 @@ function diction(mapFunction, arg, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function subset(iterable, start, end) {
+function subset(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
@@ -1175,7 +1175,7 @@ function subset(iterable, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function superset(iterable, start, end) {
+function superset(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
@@ -1192,7 +1192,7 @@ function superset(iterable, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function diffIterable(iterable, start, end) {
+function diffIterable(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
@@ -1209,7 +1209,7 @@ function diffIterable(iterable, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function diffSelf(iterable, start, end) {
+function diffSelf(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
@@ -1226,7 +1226,7 @@ function diffSelf(iterable, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function diffBoth(iterable, start, end) {
+function diffBoth(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = { "self": [], "iterable": [] };
     a["self"] = this.diffSelf(iterable, start, end);
@@ -1242,7 +1242,7 @@ function diffBoth(iterable, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function equal(iterable, start, end) {
+function equal(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [...this];
     a.splice(0, (!!start) ? start : 0);
@@ -1260,7 +1260,7 @@ function equal(iterable, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function similar(iterable, start, end) {
+function similar(iterable, start, end, thisValue) {
     let a = [...this];
     a.splice(0, (!!start) ? start : 0);
     a.splice((!!end) ? end : [...this].length, [...this].length);
@@ -1278,7 +1278,7 @@ function similar(iterable, start, end) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function uniques(start, end, method = "replace") {
+function uniques(start, end, method = "replace", thisValue) {
     let a = [...this];
     let b = [...this];
     let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
@@ -1305,7 +1305,7 @@ function uniques(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function uniquesCopy(start, end, method = "replace") {
+function uniquesCopy(start, end, method = "replace", thisValue) {
     let a = [...this];
     let b = [...this];
     let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
@@ -1332,7 +1332,7 @@ function uniquesCopy(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function duplicates(start, end, method = "range") {
+function duplicates(start, end, method = "range", thisValue) {
     let a = [...this], noduplicatesarray = this.uniquesCopy(), c;
     for (let i = 0; i < noduplicatesarray.length; i++) {
         c = a.indexOf(noduplicatesarray[i]);
@@ -1355,7 +1355,7 @@ function duplicates(start, end, method = "range") {
  * @param {*} end
  * @return {*} 
  */
-function duplicatesCopy(start, end) {
+function duplicatesCopy(start, end, thisValue) {
     let a = [...this], noduplicatesarray = [...this]
     noduplicatesarray.uniques();
     for (let i = 0; i < noduplicatesarray.length; i++) {
@@ -1392,7 +1392,7 @@ function dequeue() {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function transpose(iterator, start, end, method = "replace") {
+function transpose(iterator, start, end, method = "replace", thisValue) {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverser();
     iterator.map((item) => {
@@ -1421,7 +1421,7 @@ function transpose(iterator, start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function transposeCopy(iterator, start, end) {
+function transposeCopy(iterator, start, end, thisValue) {
     iterator = (!!iterator) ? iterator : [...this];
     iterator.reverser();
     iterator.map((item) => {
@@ -1439,7 +1439,7 @@ function transposeCopy(iterator, start, end) {
  *
  *
  */
-function immutable() {
+function immutable(thisValue) {
     Object.freeze(this);
 }
 
@@ -1450,7 +1450,7 @@ function immutable() {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function flatten(start, end, method = "replace") {
+function flatten(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -1479,7 +1479,7 @@ function flatten(start, end, method = "replace") {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function flattenDeep(start, end, method = "replace") {
+function flattenDeep(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
@@ -1496,7 +1496,7 @@ function flattenDeep(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function flattenCopy(start, end) {
+function flattenCopy(start, end, thisValue) {
     return [...this].flatMap(num => num);
 }
 
@@ -1507,7 +1507,7 @@ function flattenCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function flattenDeepCopy(start, end) {
+function flattenDeepCopy(start, end, thisValue) {
     return [...this].flat(Infinity);
 }
 
@@ -1540,7 +1540,7 @@ function range(start, stop, step) {
  * @param {string} [type="object"]
  * @return {*} 
  */
-function enumerate(type = "object") {
+function enumerate(type = "object", thisValue) {
     if (!["object", "array"].includes(type)) { throw new Error("Type not defined"); };
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
@@ -1560,7 +1560,7 @@ function enumerate(type = "object") {
  * @param {*} start
  * @param {*} end
  */
-function del(start, end) {
+function del(start, end, thisValue) {
     if (!end) {
         end = (!!start) ? start : this.length;
         start = 0;
@@ -1574,7 +1574,7 @@ function del(start, end) {
  * @param {*} start
  * @param {*} end
  */
-function log(start, end, message = "", func = console.log) {
+function log(start, end, message = "", func = console.log, thisValue) {
     func(message + JSON.stringify([...this]));
 }
 
