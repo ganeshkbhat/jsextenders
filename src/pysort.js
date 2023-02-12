@@ -18,7 +18,11 @@ function merge_sort(array) {
     // return merge(
     //     left = merge_sort(array[: midpoint]),
     //     right = merge_sort(array[midpoint:]))
-    return merge(left = merge_sort(array.slice(0, midpoint), right = merge_sort(array.slice(midpoint, array.length))))
+
+    // == //
+    var left = merge_sort(array.slice(0, midpoint))
+    var right = merge_sort(array.slice(midpoint, array.length))
+    return merge(left, right);
 }
 
 
@@ -59,7 +63,10 @@ function timsort(array) {
             // merged_array = merge(
             //     left = array[start: midpoint + 1],
             //     right = array[midpoint + 1: end + 1])
-            merged_array = merge(left = array.slice(start, midpoint + 1), right = array.slice([midpoint + 1, end + 1]))
+
+            var left = array.slice(start, midpoint + 1)
+            var right = array.slice(midpoint + 1, end + 1)
+            merged_array = merge()
 
             // # Finally, put the merged array back into
             // # your array
