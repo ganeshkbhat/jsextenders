@@ -16,7 +16,7 @@ function merge_sort(array) {
     // return merge(
     //     left = merge_sort(array[: midpoint]),
     //     right = merge_sort(array[midpoint:]))
-    return merge(left = merge_sort(array.slice(0, midpoint), right = merge_sort(array.slice(midpoint, array.length))
+    return merge(left = merge_sort(array.slice(0, midpoint), right = merge_sort(array.slice(midpoint, array.length))))
 }
 
 
