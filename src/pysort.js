@@ -11,9 +11,11 @@ function merge_sort(array) {
     // # Sort the array by recursively splitting the input
     // # into two equal halves, sorting each half and merging them
     // # together into the final result
-    return merge(
-        left = merge_sort(array[: midpoint]),
-        right = merge_sort(array[midpoint:]))
+    // ==> //
+    // return merge(
+    //     left = merge_sort(array[: midpoint]),
+    //     right = merge_sort(array[midpoint:]))
+    return merge(left = merge_sort(array.slice(0, midpoint), right = merge_sort(array.slice(midpoint, array.length))
 }
 
 
@@ -48,13 +50,18 @@ function timsort(array) {
             // # The `left` array should go from `start` to
             // # `midpoint + 1`, while the `right` array should
             // # go from `midpoint + 1` to `end + 1`.
-            merged_array = merge(
-                left = array[start: midpoint + 1],
-                right = array[midpoint + 1: end + 1])
+            // == //
+            // merged_array = merge(
+            //     left = array[start: midpoint + 1],
+            //     right = array[midpoint + 1: end + 1])
+            merged_array = merge(left = array.slice(start, midpoint + 1), right = array.slice([midpoint + 1, end + 1]))
 
             // # Finally, put the merged array back into
             // # your array
-            array[start: start + len(merged_array)] = merged_array
+            // == //
+            // array[start: start + len(merged_array)] = merged_array
+
+            array = [...array.splice(0, start), ...merged_array, ...array.splice(start + len(merged_array), array.length)];
         }
 
     }
