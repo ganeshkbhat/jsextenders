@@ -874,17 +874,17 @@ function insertAll(index, array, thisValue) {
  * @param {*} arguments - list of multiple arguments
  */
 function concatMerge(array, thisValue) {
-    let argsList = [];
-    if (arguments.length > 2) {
-        for (let i = 2; i < arguments.length - 2; i++) {
-            if (!!this.isArray(arguments[i])) {
-                argsList = [...argsList, ...arguments[i]];
+    var argsList = [];
+    if (!!args.length) {
+        for (let i = 0; i < args.length; i++) {
+            if (!!Array.isArray(args[i])) {
+                argsList = [...argsList, ...args[i]];
             } else {
-                argsList = [...argsList, arguments[i]];
+                argsList = [...argsList, args[i]];
             }
         }
     }
-    thisValue = (!!thisValue) ? thisValue : this
+    thisValue = (!!thisValue) ? thisValue : [...this]
     let a = [...thisValue, ...array, ...argsList];
     this.length = 0;
     this.push(...a);
