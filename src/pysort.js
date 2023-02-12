@@ -48,7 +48,9 @@ function timsort(array) {
     while (size < n) {
         // # Determine the arrays that will
         // # be merged together
-        for (start in range(0, n, size * 2)) {
+        // 
+        let ar = [].range(0, n, size * 2);
+        for (start in ar) {
             // # Compute the `midpoint` (where the first array ends
             // # and the second starts) and the `endpoint` (where
             // # the second array ends)
@@ -96,7 +98,10 @@ function insertion_sort(array, left = 0, right = null) {
 
     // # Loop from the element indicated by
     // # `left` until the element indicated by `right`
-    for (i in range(left + 1, right + 1)) {
+    // == //
+    // for (i in range(left + 1, right + 1)) {
+    let ar = [].range(left + 1, right + 1);
+    for (i in ar) {
         // # This is the element we want to position in its
         // # correct place
         var key_item = array[i]
