@@ -755,7 +755,6 @@ function fillRandomRange(multiplier, start, end, method = "inrange") {
     if (method === "inrange") {
         start = (!!start) ? start : 0
         end = (!!end) ? end : this.length;
-        console.log(end, start);
         let a = new Array(end - start);
         multiplier = (!!multiplier) ? multiplier : 1.0;
         for (let i = 0; i < a.length; i++) {
@@ -768,7 +767,6 @@ function fillRandomRange(multiplier, start, end, method = "inrange") {
     } else {
         start = (!!start) ? start : 0
         end = (!!end) ? end : this.length;
-        console.log(end, start);
         let a = new Array(end - start);
         multiplier = (!!multiplier) ? multiplier : 1.0;
         for (let i = 0; i < a.length; i++) {
@@ -1165,7 +1163,6 @@ function uniques(start, end, method = "replace") {
     a.splice(0, (!!start) ? start : 0);
     a.splice((0, !!end) ? diff : a.length);
     let c = Array.from(new Set(a));
-
     if (method === "inrange") {
         if (!start && !end) {
             b = [...c];
@@ -1446,7 +1443,6 @@ function del(start, end) {
         end = (!!start) ? start : this.length;
         start = 0;
     }
-    console.log(start, end);
     this.splice(start, end - start);
 }
 
