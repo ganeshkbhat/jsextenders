@@ -1,7 +1,8 @@
 function merge_sort(array) {
     // # If the input array contains fewer than two elements,
     // # then return it as the result of the function
-    if (len(array) < 2) {
+    // if (len(array) < 2) {
+    if (array.length < 2) {
         return array
     }
 
@@ -22,7 +23,8 @@ function merge_sort(array) {
 
 function timsort(array) {
     var min_run = 32
-    var n = len(array)
+    // var n = len(array)
+    var n = array.length;
 
     // # Start by slicing and sorting small portions of the
     // # input array. The size of these slices is defined by
@@ -77,7 +79,8 @@ function timsort(array) {
 
 function insertion_sort(array, left = 0, right = null) {
     if (right === null) {
-        right = len(array) - 1
+        // right = len(array) - 1
+        right = array.length - 1
     }
 
 
