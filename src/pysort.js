@@ -5,8 +5,9 @@ function merge_sort(array) {
         return array
     }
 
-
-    var midpoint = len(array) // 2
+    // == //
+    // var midpoint = len(array) // 2
+    var midpoint = array.length
 
     // # Sort the array by recursively splitting the input
     // # into two equal halves, sorting each half and merging them
@@ -61,7 +62,7 @@ function timsort(array) {
             // == //
             // array[start: start + len(merged_array)] = merged_array
 
-            array = [...array.splice(0, start), ...merged_array, ...array.splice(start + len(merged_array), array.length)];
+            array = [...array.splice(0, start), ...merged_array, ...array.splice(start + merged_array.length, array.length)];
         }
 
     }
