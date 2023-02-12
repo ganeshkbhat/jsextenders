@@ -49,8 +49,8 @@ function extend(iterable, index) {
  * @param {*} end
  * @return {*} 
  */
-function max(count, start, end) {
-    let a = [...this];
+function max(count, start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice((!!start) ? start : 0, (!!end) ? end : this.length);
@@ -60,6 +60,7 @@ function max(count, start, end) {
     return a;
 }
 
+
 /**
  *
  *
@@ -68,8 +69,8 @@ function max(count, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function maxIndexes(count, start, end) {
-    let a = [...this];
+function maxIndexes(count, start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -88,8 +89,8 @@ function maxIndexes(count, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function min(count, start, end) {
-    let a = [...this];
+function min(count, start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -106,8 +107,8 @@ function min(count, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function minIndexes(count, start, end) {
-    let a = [...this];
+function minIndexes(count, start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -124,8 +125,8 @@ function minIndexes(count, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function average(start, end) {
-    let a = [...this];
+function average(start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -140,8 +141,9 @@ function average(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function sum(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; });
+function sum(start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    return a.splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; });
 }
 
 /**
@@ -259,8 +261,8 @@ function absMap(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function factorialMap(start, end) {
-    let a = [...this];
+function factorialMap(start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
