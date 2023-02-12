@@ -1518,9 +1518,9 @@ function flattenDeepCopy(start, end) {
  * @return {*} 
  */
 function range(start, stop, step) {
-    if ((!start && !stop) || !start) { throw new Error("Start [minimal range end number] is not defined"); }
+    if (((!start && !stop) || !start) && (start !== 0) && (stop !== 0)) { throw new Error("Start [minimal range end number] is not defined"); }
     let a = [];
-    if (!!start && !stop) {
+    if ((!!start && !stop) && stop !== 0) {
         for (let i = 0; i < start; i += (!!step) ? step : 1) {
             a[i] = i;
         }
