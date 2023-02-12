@@ -67,8 +67,8 @@ function max(count, start, end) {
  */
 function maxIndexes(count, start, end) {
     let a = [...this];
-    a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
-    a.map((i, idx) => { return { index: idx, value: i } });
+    a = a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
+    a = a.map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
     if (!count || count === 1) { a[a.length - 1]; };
     a.splice(0, a.length - count);
@@ -99,8 +99,10 @@ function min(count, start, end) {
  * @return {*} 
  */
 function minIndexes(count, start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
-    a.sort((p, n) => { return p.v - n.v });
+    let a = [...this];
+    a = a.splice((!!start) ? start : 0, (!!end) ? end : this.length);
+    a = a.map((i, idx) => { i = { index: idx, value: i }; return i; });
+    a.sort((p, n) => { return p.v - n.v; });
     if (!count || count === 1) { a[0]; }
     return a.splice(0, count);
 }
@@ -140,7 +142,13 @@ function acosMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.acos(i); } });
+        let a = [...this];
+        a = a.map((i, idx) => { 
+            if (idx >= (!!start) ? start : 0 && idx < (!!end) ? end : this.length) { i = Math.acos(i); }
+            return i;
+        });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -374,7 +382,9 @@ function floorMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.floor(i); } });
+        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.floor(i); } });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -389,7 +399,9 @@ function ceilMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.ceil(i); } });
+        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.ceil(i); } });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -404,7 +416,9 @@ function roundMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.round(i); } });
+        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.round(i); } });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -452,7 +466,9 @@ function squareMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.pow(i, 2); } });
+        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.pow(i, 2); } });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -467,7 +483,9 @@ function sqrtMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.sqrt(i); } });
+        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.sqrt(i); } });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -482,20 +500,19 @@ function sqrtMap(start, end, method = "replace") {
 function powMap(power, start, end, method = "replace") {
     if (!power) { throw new Error("Power is not defined"); }
     if (method === "inrange") {
-
+        var a = [];
     } else {
-        let a = [];
-        a.map((i, idx) => {
+        var a = [...this].map((i, idx) => {
             start = (!!start) ? start : 0
             end = (!!end) ? end : this.length;
-            if (idx > start && idx < end) {
-                return Math.pow(i, power);
+            if (idx >= start && idx < end) {
+                i = Math.pow(i, (!!power) ? power : 1);
             }
             return i;
         });
-        this.length = 0;
-        this.push(...a);
     }
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -511,7 +528,10 @@ function multiplyMap(multiplier, start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return i * multiplier; } });
+        let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
+        a = a.map((i, idx) => { if (idx >= start || idx < end) { i = i * ((!!multiplier) ? multiplier : 1); return i; } });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -523,7 +543,7 @@ function multiplyMap(multiplier, start, end, method = "replace") {
  * @return {*} 
  */
 function squareMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.pow(i, 2) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { i = Math.pow(i, 2); return i; });
 }
 
 /**
@@ -534,7 +554,8 @@ function squareMapCopy(start, end) {
  * @return {*} 
  */
 function sqrtMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.sqrt(i) });
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length)
+    return a.map((i) => { i = Math.sqrt(i); return i; });
 }
 
 /**
@@ -547,9 +568,7 @@ function sqrtMapCopy(start, end) {
  */
 function powMapCopy(power, start, end) {
     if (!power) { throw new Error("Power is not defined"); }
-    let a = [...this]
-    a.splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.pow(i, power); });
-    return a;
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { i = Math.pow(i, power); return i; });
 }
 
 /**
@@ -562,7 +581,7 @@ function powMapCopy(power, start, end) {
  */
 function multiplyMapCopy(multiplier, start, end) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return i * multiplier });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { i = i * multiplier; return i; });
 }
 
 /**
@@ -596,8 +615,7 @@ function fillRandomRange(count, multiplier, start, end, method = "replace") {
 
     } else {
         this.length = 0;
-        this.length = 10;
-        this.fill(Math.random() * (!!multiplier) ? multiplier : 1.0, 0, count);
+        this.push(...new Array(10).fill(Math.random() * (!!multiplier) ? multiplier : 1.0, 0, count));
     }
 }
 
@@ -716,7 +734,7 @@ function removeAll(item, start, end) {
 }
 
 /**
- * TODO
+ * 
  *
  * @param {*} index
  */
@@ -726,7 +744,7 @@ function pop(index) {
 }
 
 /**
- * TODO
+ * 
  *
  * @param {*} start
  * @param {*} end
@@ -759,7 +777,11 @@ function index(item, start, end) {
  * // sort(key=None, reverse=False) {}
  */
 function sort(key = null, reverse = false) {
-     
+    // if (!!key && typeof key === "function") { 
+    //     let a = [...this].sort(key);
+    // } else {
+    //     let a = [...this].sort((c, d) => { return c < b })
+    // }
 }
 
 /**
@@ -773,7 +795,9 @@ function reverse(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.reverse();
+        let a = [...this].reverse();
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -1123,7 +1147,15 @@ function flatten(start, end, method = "replace") {
         let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
         a.splice(0, start);
         a.splice(diff, a.length);
-        a.flatMap(num => num);
+        a = a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
+        let len = a.length;
+        for (let i = 0; i < len; i++) {
+            if (!!this.isArray(a[i])) {
+                let idlen = a[i].length;
+                a = [...a.splice(0, i), ...a[0], ...a.splice(1, a.length)];
+                i = i + idlen;
+            }
+        }
         this.length = 0;
         this.push(...a);
     }
@@ -1140,7 +1172,9 @@ function flattenDeep(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.flat(Infinity);
+        let a = [...this].flat(Infinity);
+        this.length = 0;
+        this.push(...a);
     }
 }
 
