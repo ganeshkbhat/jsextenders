@@ -41,8 +41,8 @@ function timsort(array) {
             // # Compute the `midpoint` (where the first array ends
             // # and the second starts) and the `endpoint` (where
             // # the second array ends)
-            midpoint = start + size - 1
-            end = min((start + size * 2 - 1), (n - 1))
+            var midpoint = start + size - 1
+            var end = min((start + size * 2 - 1), (n - 1))
 
             // # Merge the two subarrays.
             // # The `left` array should go from `start` to
@@ -78,7 +78,7 @@ function insertion_sort(array, left = 0, right = null) {
     for (i in range(left + 1, right + 1)) {
         // # This is the element we want to position in its
         // # correct place
-        key_item = array[i]
+        var key_item = array[i]
 
         // # Initialize the variable that will be used to
         // # find the correct position of the element referenced
