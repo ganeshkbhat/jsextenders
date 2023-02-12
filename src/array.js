@@ -261,7 +261,7 @@ function absMap(start, end, method = "replace", thisValue) {
  * @param {*} end
  * @return {*} 
  */
-function factorialMap(start, end, thisValue, thisValue) {
+function factorialMap(start, end, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
