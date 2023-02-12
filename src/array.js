@@ -50,7 +50,10 @@ function extend(iterable, index) {
  * @return {*} 
  */
 function max(count, start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice((!!start) ? start : 0, (!!end) ? end : this.length);
     a.sort();
     if (!count || count === 1) { return a[a.length - 1]; }
     a.splice(0, a.length - count);
@@ -67,7 +70,9 @@ function max(count, start, end) {
  */
 function maxIndexes(count, start, end) {
     let a = [...this];
-    a = a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
     a = a.map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
     if (!count || count === 1) { a[a.length - 1]; };
@@ -84,7 +89,10 @@ function maxIndexes(count, start, end) {
  * @return {*} 
  */
 function min(count, start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length)
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
     a.sort();
     if (!count || count === 1) { return a[0]; }
     return a.splice(0, count);
@@ -100,7 +108,9 @@ function min(count, start, end) {
  */
 function minIndexes(count, start, end) {
     let a = [...this];
-    a = a.splice((!!start) ? start : 0, (!!end) ? end : this.length);
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
     a = a.map((i, idx) => { i = { index: idx, value: i }; return i; });
     a.sort((p, n) => { return p.v - n.v; });
     if (!count || count === 1) { a[0]; }
@@ -115,7 +125,10 @@ function minIndexes(count, start, end) {
  * @return {*} 
  */
 function average(start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length)
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
     let s = a.reduce((s, i) => { return s + i; });
     return s / a.length;
 }
@@ -143,8 +156,11 @@ function acosMap(start, end, method = "replace") {
 
     } else {
         let a = [...this];
-        a = a.map((i, idx) => { 
-            if (idx >= (!!start) ? start : 0 && idx < (!!end) ? end : this.length) { i = Math.acos(i); }
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => {
+            i = Math.acos(i);
             return i;
         });
         this.length = 0;
@@ -163,7 +179,13 @@ function cosMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.cos(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { i = Math.cos(i); return i; });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -178,7 +200,13 @@ function sinMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.sin(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { i = Math.sin(i); return i; });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -193,10 +221,15 @@ function asinMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.asin(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return Math.asin(i); });
+        this.length = 0;
+        this.push(...a);
     }
 }
-
 
 /**
  *
@@ -209,7 +242,13 @@ function absMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.abs(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i) => { i = Math.abs(i); return i; })
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -221,7 +260,11 @@ function absMap(start, end, method = "replace") {
  * @return {*} 
  */
 function factorialMap(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s * i; });
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    return a.reduce((s, i) => { return s * i; });
 }
 
 /**
@@ -232,7 +275,11 @@ function factorialMap(start, end) {
  * @return {*} 
  */
 function cosMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.cos(i); } });
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    return a.map((i, idx) => { return Math.cos(i); });
 }
 
 /**
@@ -243,7 +290,11 @@ function cosMapCopy(start, end) {
  * @return {*} 
  */
 function acosMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.acos(i); } });
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    return a.map((i, idx) => { return Math.acos(i); });
 }
 
 /**
@@ -254,7 +305,11 @@ function acosMapCopy(start, end) {
  * @return {*} 
  */
 function sinMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.sin(i); } });
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    return a.map((i, idx) => { return Math.sin(i); });
 }
 
 /**
@@ -265,7 +320,11 @@ function sinMapCopy(start, end) {
  * @return {*} 
  */
 function asinMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.asin(i); } });
+    let a = [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    return a.map((i, idx) => { i = Math.asin(i); return i; });
 }
 
 /**
@@ -276,7 +335,11 @@ function asinMapCopy(start, end) {
  * @return {*} 
  */
 function absMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.abs(i); } });
+    let a = [...this];
+    start = (!!start) ? start : 0
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    return a.map((i) => { i = Math.abs(i); return i; })
 }
 
 /**
@@ -382,7 +445,11 @@ function floorMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.floor(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return Math.floor(i); });
         this.length = 0;
         this.push(...a);
     }
@@ -399,7 +466,11 @@ function ceilMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.ceil(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return Math.ceil(i); });
         this.length = 0;
         this.push(...a);
     }
@@ -416,7 +487,11 @@ function roundMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.round(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return Math.round(i); });
         this.length = 0;
         this.push(...a);
     }
@@ -429,8 +504,16 @@ function roundMap(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function floorMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.floor(i) });
+function floorMapCopy(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => { i = Math.floor(i); return i; });
+    }
 }
 
 /**
@@ -440,8 +523,16 @@ function floorMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function ceilMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.ceil(i) });
+function ceilMapCopy(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => { i = Math.ceil(i); return i; });
+    }
 }
 
 /**
@@ -451,8 +542,16 @@ function ceilMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function roundMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.round(i) });
+function roundMapCopy(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => { i = Math.round(i); return i; });
+    }
 }
 
 /**
@@ -466,7 +565,11 @@ function squareMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.pow(i, 2); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return i * i });
         this.length = 0;
         this.push(...a);
     }
@@ -483,7 +586,11 @@ function sqrtMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].map((i, idx) => { if (idx >= start || idx <= end) { return Math.sqrt(i); } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return Math.sqrt(i); });
         this.length = 0;
         this.push(...a);
     }
@@ -502,17 +609,14 @@ function powMap(power, start, end, method = "replace") {
     if (method === "inrange") {
         var a = [];
     } else {
-        var a = [...this].map((i, idx) => {
-            start = (!!start) ? start : 0
-            end = (!!end) ? end : this.length;
-            if (idx >= start && idx < end) {
-                i = Math.pow(i, (!!power) ? power : 1);
-            }
-            return i;
-        });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => { return Math.pow(i, power); });
+        this.length = 0;
+        this.push(...a);
     }
-    this.length = 0;
-    this.push(...a);
 }
 
 /**
@@ -528,8 +632,11 @@ function multiplyMap(multiplier, start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
-        a = a.map((i, idx) => { if (idx >= start || idx < end) { i = i * ((!!multiplier) ? multiplier : 1); return i; } });
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i) => { return (i * ((!!multiplier) ? multiplier : 1)); });
         this.length = 0;
         this.push(...a);
     }
@@ -542,8 +649,16 @@ function multiplyMap(multiplier, start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function squareMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { i = Math.pow(i, 2); return i; });
+function squareMapCopy(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => { i = Math.pow(i, 2); return i; });
+    }
 }
 
 /**
@@ -553,9 +668,16 @@ function squareMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function sqrtMapCopy(start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length)
-    return a.map((i) => { i = Math.sqrt(i); return i; });
+function sqrtMapCopy(start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => { i = Math.sqrt(i); return i; });
+    }
 }
 
 /**
@@ -566,9 +688,20 @@ function sqrtMapCopy(start, end) {
  * @param {*} end
  * @return {*} 
  */
-function powMapCopy(power, start, end) {
+function powMapCopy(power, start, end, method = "replace") {
     if (!power) { throw new Error("Power is not defined"); }
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { i = Math.pow(i, power); return i; });
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => {
+            i = Math.pow(i, power);
+            return i;
+        });
+    }
 }
 
 /**
@@ -579,9 +712,17 @@ function powMapCopy(power, start, end) {
  * @param {*} end
  * @return {*} 
  */
-function multiplyMapCopy(multiplier, start, end) {
+function multiplyMapCopy(multiplier, start, end, method = "replace") {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { i = i * multiplier; return i; });
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        return a.map((i) => { i = i * multiplier; return i; });
+    }
 }
 
 /**
@@ -609,13 +750,23 @@ function randomRange(count, multiplier) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function fillRandomRange(count, multiplier, start, end, method = "replace") {
+function fillRandomRange(multiplier, start, end, method = "replace") {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     if (method === "inrange") {
 
     } else {
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : this.length;
+        console.log(end, start);
+        let a = new Array(end - start);
+        multiplier = (!!multiplier) ? multiplier : 1.0;
+        for (let i = 0; i < a.length; i++) {
+            a[i] = Math.random() * multiplier
+        }
+        let b = [...this];
+        b = [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
         this.length = 0;
-        this.push(...new Array(10).fill(Math.random() * (!!multiplier) ? multiplier : 1.0, 0, count));
+        this.push(...b);
     }
 }
 
@@ -685,20 +836,46 @@ function count(item, start, end) {
 }
 
 /**
- * TODO
+ * 
  *
  * @param {*} index
  * @param {*} item
- * @param {*} start
- * @param {*} end
  */
-function replace(index, item, start, end) {
+function replace(index, item) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     let a = [...this];
     a[index] = item;
     this.length = 0;
     this.push(a);
+}
+
+/**
+ *
+ *
+ * @param {*} item
+ * @param {*} replaceValue
+ * @param {*} start
+ * @param {*} end
+ */
+function replaceAll(item, replaceValue, start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        while (!!a.includes(item)) {
+            let i = a.indexOf(item);
+            (i !== -1) ? (a[i] = replaceValue) : a[i];
+        }
+        let b = [...this];
+        b = [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
+        this.length = 0;
+        this.push(...b);
+    }
+
 }
 
 /**
@@ -719,18 +896,24 @@ function remove(item) {
  * @param {*} start
  * @param {*} end
  */
-function removeAll(item, start, end) {
+function removeAll(item, start, end, method = "replace") {
     if (!item) { throw new Error("Item is not defined"); }
-    // this.map((i) => { return (i !== item) ? i : undefined });
-    // this.filter((r) => { return r !== undefined });
-    let a = [...this];
-    a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
-    while (!!a.includes(item)) {
-        let i = a.indexOf(item);
-        (i !== -1) ? a.splice(i, 1) : a;
+    if (method === "inrange") {
+
+    } else {
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        while (!!a.includes(item)) {
+            let i = a.indexOf(item);
+            (i !== -1) ? a.splice(i, 1) : a;
+        }
+        let b = [...this];
+        b = [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
+        this.length = 0;
+        this.push(...b);
     }
-    this.length = 0;
-    this.push(...a);
 }
 
 /**
@@ -776,7 +959,7 @@ function index(item, start, end) {
  * @param {boolean} [reverse=false]
  * // sort(key=None, reverse=False) {}
  */
-function sort(key = null, reverse = false) {
+function sorter(key = null, reverse = false) {
     // if (!!key && typeof key === "function") { 
     //     let a = [...this].sort(key);
     // } else {
@@ -1387,7 +1570,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'count', { value: count, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'sort', { value: sort, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'sorter', { value: sorter, enumerable: true, });
     // Object.defineProperty(SubArray.prototype, 'reverse', { value: reverse, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'copy', { value: copy, enumerable: true, });
@@ -1461,6 +1644,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'multiplyMapCopy', { value: multiplyMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'replaceAll', { value: replaceAll, enumerable: true, });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
@@ -1483,7 +1667,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'sort', { value: sort, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'sorter', { value: sorter, enumerable: true, });
     // Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
     Object.defineProperty(Array.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
@@ -1557,6 +1741,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'multiplyMapCopy', { value: multiplyMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'replaceAll', { value: replaceAll, enumerable: true, });
 
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
