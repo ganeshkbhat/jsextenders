@@ -77,7 +77,7 @@ let e = [...a];
 // console.log("count :", e.count(2));
 // console.log("result", e);
 e = [...a];
-console.log("sort [Not Implemented]:", e.sorter());
+console.log("pysort [Not Implemented]:", e.pysort());
 console.log("result", e);
 // e = [...a];
 // console.log("reverse :", e.reverse());

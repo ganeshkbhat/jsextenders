@@ -959,7 +959,7 @@ function index(item, start, end) {
  * @param {boolean} [reverse=false]
  * // sort(key=None, reverse=False) {}
  */
-function sorter(key = null, reverse = false) {
+function pysort(key = null, reverse = false) {
     // if (!!key && typeof key === "function") { 
     //     let a = [...this].sort(key);
     // } else {
@@ -1570,7 +1570,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'count', { value: count, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'sorter', { value: sorter, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'pysort', { value: pysort, enumerable: true, });
     // Object.defineProperty(SubArray.prototype, 'reverse', { value: reverse, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'copy', { value: copy, enumerable: true, });
@@ -1667,7 +1667,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'sorter', { value: sorter, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'pysort', { value: pysort, enumerable: true, });
     // Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
     Object.defineProperty(Array.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
