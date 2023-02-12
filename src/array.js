@@ -777,6 +777,41 @@ function fillRandomRange(multiplier, start, end, method = "inrange") {
     }
 }
 
+
+/**
+ *
+ *
+ * @param {*} count
+ * @param {*} multiplier
+ * @param {*} start
+ * @param {*} end
+ * @param {*} method // replace, inrange 
+ */
+function fillRange(item, start, end, method = "inrange") {
+    if (!count) { throw new Error("Count [minimal range number] is not defined"); }
+    if (method === "inrange") {
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : this.length;
+        let a = new Array(end - start);
+        for (let i = 0; i < a.length; i++) {
+            a[i] = item
+        }
+        let b = [...this];
+        b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
+        this.length = 0;
+        this.push(...b);
+    } else {
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : this.length;
+        let a = new Array(end - start);
+        for (let i = 0; i < a.length; i++) {
+            a[i] = item
+        }
+        this.length = 0;
+        this.push(...a);
+    }
+}
+
 /**
  *
  *
@@ -1740,6 +1775,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'multiplyMapCopy', { value: multiplyMapCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'fillRange', { value: fillRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'replaceAll', { value: replaceAll, enumerable: true, });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
@@ -1842,6 +1878,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'multiplyMapCopy', { value: multiplyMapCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'fillRange', { value: fillRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'replaceAll', { value: replaceAll, enumerable: true, });
 
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
