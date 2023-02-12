@@ -867,7 +867,17 @@ function insertAll(index, array, thisValue) {
 }
 
 function concatMerge(array, thisValue) {
-    let a = [(!!thisValue) ? [...thisValue] : [...this], ...array];
+    let argsList = [];
+    if (arguments.length > 2){ 
+        for (let i = 2; i < arguments.length - 2; i++) {
+            if (!!this.isArray(arguments[i])) {
+                argsList = [...argsList, ...arguments[i]];
+            } else {
+                argsList = [...argsList, arguments[i]];
+            }
+        }
+    }
+    let a = [(!!thisValue) ? [...thisValue] : [...this], ...array, ...argsList];
     this.length = 0;
     this.push(...a);
 }
