@@ -750,11 +750,9 @@ function randomRange(count, multiplier) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function fillRandomRange(multiplier, start, end, method = "replace") {
+function fillRandomRange(multiplier, start, end, method = "inrange") {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
     if (method === "inrange") {
-
-    } else {
         start = (!!start) ? start : 0
         end = (!!end) ? end : this.length;
         console.log(end, start);
@@ -764,9 +762,20 @@ function fillRandomRange(multiplier, start, end, method = "replace") {
             a[i] = Math.random() * multiplier
         }
         let b = [...this];
-        b = [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
+        b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
         this.length = 0;
         this.push(...b);
+    } else {
+        start = (!!start) ? start : 0
+        end = (!!end) ? end : this.length;
+        console.log(end, start);
+        let a = new Array(end - start);
+        multiplier = (!!multiplier) ? multiplier : 1.0;
+        for (let i = 0; i < a.length; i++) {
+            a[i] = Math.random() * multiplier
+        }
+        this.length = 0;
+        this.push(...a);
     }
 }
 
