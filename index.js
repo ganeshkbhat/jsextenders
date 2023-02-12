@@ -16,14 +16,14 @@
 
 'use strict';
 
-var { ArrayExtended, extendArray } = require("./array.js");
-var { decorate } = require("./decorator.js");
-var { SubArrayExtender, SubObjectExtender, Freeze, extender } = require("./extenders.js");
-var { NumbersExtended, extendNumber } = require("./numbers.js");
-var { ObjectExtended, extendObject } = require("./object.js");
-var { StringExtended, extendString } = require("./string.js");
-var utils = require("./utils.js");
-var math = require("./math.js");
+var { ArrayExtended, extendArray } = require("./src/array.js");
+var { decorate } = require("./src/decorator.js");
+var { SubArrayExtender, SubObjectExtender, SubStringExtender, Freeze, extender } = require("./src/extenders.js");
+// var { NumbersExtended, extendNumber } = require("./src/numbers.js");
+// var { ObjectExtended, extendObject } = require("./src/object.js");
+// var { StringExtended, extendString } = require("./src/string.js");
+var utils = require("./src/utils.js");
+var math = require("./src/math.js");
 
 
 module.exports.decorate = decorate;
@@ -48,7 +48,7 @@ module.exports.extendArray = extendArray;
 module.exports.default = {
     ArrayExtended, extendArray,
     // decorate,
-    SubArrayExtender, SubObjectExtender, SubStringExtender,
+    // SubArrayExtender, SubObjectExtender, SubStringExtender,
     Freeze, extender,
     // NumbersExtended, extendNumber,
     // ObjectExtended, extendObject,

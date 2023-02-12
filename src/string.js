@@ -16,6 +16,9 @@
 
 'use strict';
 
+var { SubStringExtender, Freeze, extender } = require("./string.js");
+
+
 function map() { }
 
 

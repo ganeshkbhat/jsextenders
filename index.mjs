@@ -21,7 +21,7 @@ import {
     default as extenders,
     ArrayExtended, extendArray,
     // decorate,
-    SubArrayExtender, SubObjectExtender,
+    SubArrayExtender, SubObjectExtender, SubStringExtender,
     Freeze, extender,
     // NumbersExtended, extendNumber, 
     // ObjectExtended, extendObject, 
@@ -33,7 +33,7 @@ export default extenders;
 export {
     ArrayExtended, extendArray,
     // decorate,
-    SubArrayExtender, SubObjectExtender,
+    SubArrayExtender, SubObjectExtender, SubStringExtender,
     Freeze, extender,
     // NumbersExtended, extendNumber, 
     // ObjectExtended, extendObject, 

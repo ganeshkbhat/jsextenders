@@ -37,8 +37,8 @@ function execute(executeFunction) {
  */
 function extend(iterable, index) {
     let a = [...this];
-    this.length = 0;
-    this.concat([...a.splice(0, index - 1), ...iterable, ...a.splice(0, a.length - 1)]);
+    this.clear();
+    this.push(...[...a.splice(0, index), ...iterable, ...a]);
 }
 
 /**
@@ -50,9 +50,11 @@ function extend(iterable, index) {
  * @return {*} 
  */
 function max(count, start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).sort();
-    if (!count || count === 1) { return a[this.length - 1]; }
-    return a.splice(this.length - count - 1, this.length);
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
+    a.sort();
+    if (!count || count === 1) { return a[a.length - 1]; }
+    a.splice(0, a.length - count);
+    return a;
 }
 
 /**
@@ -64,10 +66,13 @@ function max(count, start, end) {
  * @return {*} 
  */
 function maxIndexes(count, start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
+    let a = [...this];
+    a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
+    a.map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
-    if (!count) { a[this.length - 1]; }
-    return a.splice(this.length - count - 1, this.length);
+    if (!count || count === 1) { a[a.length - 1]; };
+    a.splice(0, a.length - count);
+    return a;
 }
 
 /**
@@ -79,9 +84,10 @@ function maxIndexes(count, start, end) {
  * @return {*} 
  */
 function min(count, start, end) {
-    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).sort();
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length)
+    a.sort();
     if (!count || count === 1) { return a[0]; }
-    return a.splice(0, count - 1);
+    return a.splice(0, count);
 }
 
 /**
@@ -95,8 +101,8 @@ function min(count, start, end) {
 function minIndexes(count, start, end) {
     let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { return { index: idx, value: i } });
     a.sort((p, n) => { return p.v - n.v });
-    if (!count) { a[0]; }
-    return a.splice(0, count - 1);
+    if (!count || count === 1) { a[0]; }
+    return a.splice(0, count);
 }
 
 /**
@@ -107,7 +113,9 @@ function minIndexes(count, start, end) {
  * @return {*} 
  */
 function average(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; }) / this.length;
+    let a = [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length)
+    let s = a.reduce((s, i) => { return s + i; });
+    return s / a.length;
 }
 
 /**
@@ -132,7 +140,7 @@ function acosMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.acos(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.acos(i); } });
     }
 }
 
@@ -147,7 +155,7 @@ function cosMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.cos(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.cos(i); } });
     }
 }
 
@@ -162,9 +170,8 @@ function sinMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.sin(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.sin(i); } });
     }
-
 }
 
 /**
@@ -178,7 +185,7 @@ function asinMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.asin(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.asin(i); } });
     }
 }
 
@@ -194,7 +201,7 @@ function absMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.abs(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.abs(i); } });
     }
 }
 
@@ -210,14 +217,14 @@ function factorialMap(start, end) {
 }
 
 /**
- *
+ * st,en
  *
  * @param {*} start
  * @param {*} end
  * @return {*} 
  */
 function cosMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.cos(i) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.cos(i); } });
 }
 
 /**
@@ -228,7 +235,7 @@ function cosMapCopy(start, end) {
  * @return {*} 
  */
 function acosMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.acos(i) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.acos(i); } });
 }
 
 /**
@@ -239,7 +246,7 @@ function acosMapCopy(start, end) {
  * @return {*} 
  */
 function sinMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.sin(i) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.sin(i); } });
 }
 
 /**
@@ -250,7 +257,7 @@ function sinMapCopy(start, end) {
  * @return {*} 
  */
 function asinMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.asin(i) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.asin(i); } });
 }
 
 /**
@@ -261,7 +268,7 @@ function asinMapCopy(start, end) {
  * @return {*} 
  */
 function absMapCopy(start, end) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.abs(i) });
+    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return Math.abs(i); } });
 }
 
 /**
@@ -367,7 +374,7 @@ function floorMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.floor(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.floor(i); } });
     }
 }
 
@@ -382,7 +389,7 @@ function ceilMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.ceil(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.ceil(i); } });
     }
 }
 
@@ -397,7 +404,7 @@ function roundMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.round(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.round(i); } });
     }
 }
 
@@ -445,7 +452,7 @@ function squareMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.pow(i, 2) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.pow(i, 2); } });
     }
 }
 
@@ -460,7 +467,7 @@ function sqrtMap(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.sqrt(i) });
+        this.map((i, idx) => { if (idx >= start || idx <= end) { return Math.sqrt(i); } });
     }
 }
 
@@ -477,7 +484,17 @@ function powMap(power, start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return Math.pow(i, power) });
+        let a = [];
+        a.map((i, idx) => {
+            start = (!!start) ? start : 0
+            end = (!!end) ? end : this.length;
+            if (idx > start && idx < end) {
+                return Math.pow(i, power);
+            }
+            return i;
+        });
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -494,7 +511,7 @@ function multiplyMap(multiplier, start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.map((i) => { return i * multiplier });
+        this.splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i, idx) => { if (idx >= start || idx <= end) { return i * multiplier; } });
     }
 }
 
@@ -530,7 +547,9 @@ function sqrtMapCopy(start, end) {
  */
 function powMapCopy(power, start, end) {
     if (!power) { throw new Error("Power is not defined"); }
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.pow(i, power) });
+    let a = [...this]
+    a.splice((!!start) ? start : 0, (!!end) ? end : this.length).map((i) => { return Math.pow(i, power); });
+    return a;
 }
 
 /**
@@ -578,7 +597,7 @@ function fillRandomRange(count, multiplier, start, end, method = "replace") {
     } else {
         this.length = 0;
         this.length = 10;
-        this.fill(Math.random() * (!!multiplier) ? multiplier : 1, 0, count - 1);
+        this.fill(Math.random() * (!!multiplier) ? multiplier : 1.0, 0, count);
     }
 }
 
@@ -611,8 +630,11 @@ function isArray(iterable) {
  */
 function insert(index, item) {
     if (!item) { throw new Error("Item is not defined"); }
-    if (!index) { throw new Error("Index is not defined"); }
-    this.splice(index, 0, item);
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
+    let a = [...this];
+    a = [...a.splice(0, index - 1), item, ...a];
+    this.length = 0;
+    this.push(a);
 }
 
 /**
@@ -623,9 +645,12 @@ function insert(index, item) {
  * array or item 
  */
 function insertAll(index, array) {
-    if (!item) { throw new Error("Item is not defined"); }
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
-    this.splice(index, 0, ...array);
+    let a = [...this];
+    a = [...a.splice(0, index), ...array, ...a];
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -651,8 +676,11 @@ function count(item, start, end) {
  */
 function replace(index, item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
-    if (!index) { throw new Error("Index is not defined"); }
-    this.splice(index, 1, item);
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
+    let a = [...this];
+    a[index] = item;
+    this.length = 0;
+    this.push(a);
 }
 
 /**
@@ -675,8 +703,16 @@ function remove(item) {
  */
 function removeAll(item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
-    this.map((i) => { return (i === item) ? i : undefined });
-    this.filter((r) => { return r !== undefined });
+    // this.map((i) => { return (i !== item) ? i : undefined });
+    // this.filter((r) => { return r !== undefined });
+    let a = [...this];
+    a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
+    while (!!a.includes(item)) {
+        let i = a.indexOf(item);
+        (i !== -1) ? a.splice(i, 1) : a;
+    }
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -685,8 +721,8 @@ function removeAll(item, start, end) {
  * @param {*} index
  */
 function pop(index) {
-    if (!index) { throw new Error("Index is not defined"); }
-    this.splice(index, 1);
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
+    return this.splice(index, 1)[0];
 }
 
 /**
@@ -709,7 +745,7 @@ function clear(start, end) {
  */
 function index(item, start, end) {
     if (!item) { throw new Error("Item is not defined"); }
-    if (!start && !end) { return this.indexOf(item); }
+    if ((!start && start !== 0) && !end) { return this.indexOf(item); }
     if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
     if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
     return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item; });
@@ -722,7 +758,9 @@ function index(item, start, end) {
  * @param {boolean} [reverse=false]
  * // sort(key=None, reverse=False) {}
  */
-function sort(key = null, reverse = false) { }
+function sort(key = null, reverse = false) {
+    
+}
 
 /**
  *
@@ -771,7 +809,7 @@ function copy(start, end) {
  * @return {*} 
  */
 function diction(mapFunction, arg, start, end) {
-    if (!mapFunction || typeof mapFunction !== "function") { throw new Error("Mapper function is not defined"); }
+    if (!mapFunction || typeof mapFunction !== "function") { mapFunction = (i) => i; }
     if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
     return Object.assign({}, [...this]);
 }
@@ -822,7 +860,7 @@ function diffIterable(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = iterable.length;
     for (let i = 0; i < len; i++) {
-        (!this.includes(iterable[i])) ? a.push(iterable[i]) : a;
+        (!this.includes(iterable[i])) ? a.push({ index: i, value: iterable[i] }) : a;
     }
     return a;
 }
@@ -839,7 +877,7 @@ function diffSelf(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = [], len = this.length;
     for (let i = 0; i < len; i++) {
-        (!iterable.includes(this[i])) ? a.push(this[i]) : a;
+        (!this.includes(iterable[i])) ? a.push({ index: i, value: this[i] }) : a;
     }
     return a;
 }
@@ -855,8 +893,8 @@ function diffSelf(iterable, start, end) {
 function diffBoth(iterable, start, end) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
     let a = { "self": [], "iterable": [] };
-    a["self"] = this.diffSelf(this, iterable);
-    a["iterable"] = this.diffIterable(this, iterable);
+    a["self"] = this.diffSelf(iterable, start, end);
+    a["iterable"] = this.diffIterable(iterable, start, end);
     return a;
 }
 
@@ -869,7 +907,13 @@ function diffBoth(iterable, start, end) {
  * @return {*} 
  */
 function equal(iterable, start, end) {
-    return JSON.stringify([...this]) === JSON.stringify(iterable);
+    if (!iterable) { throw new Error("Iterable is not defined"); }
+    let a = [...this];
+    a.splice(0, (!!start) ? start : 0);
+    a.splice((!!end) ? end : [...this].length, [...this].length);
+    iterable.splice(0, (!!start) ? start : 0);
+    iterable.splice((!!end) ? end : iterable.length, iterable.length);
+    return JSON.stringify(a) === JSON.stringify(iterable);
 }
 
 /**
@@ -881,8 +925,14 @@ function equal(iterable, start, end) {
  * @return {*} 
  */
 function similar(iterable, start, end) {
-    if (!iterable) { throw new Error("Iterable is not defined"); }
-    return JSON.stringify([...this].sort()) === JSON.stringify(iterable.sort());
+    let a = [...this];
+    a.splice(0, (!!start) ? start : 0);
+    a.splice((!!end) ? end : [...this].length, [...this].length);
+    iterable.splice(0, (!!start) ? start : 0);
+    iterable.splice((!!end) ? end : iterable.length, iterable.length);
+    a.sort();
+    iterable.sort();
+    return JSON.stringify(a) === JSON.stringify(iterable);
 }
 
 /**
@@ -893,13 +943,24 @@ function similar(iterable, start, end) {
  * @param {*} method // replace, inrange 
  */
 function uniques(start, end, method = "replace") {
-    let a = Array.from(new Set([...this]));
-    if (method === "inrange") {
+    let a = [...this];
+    let b = [...this];
+    let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
+    a.splice(0, (!!start) ? start : 0);
+    a.splice((0, !!end) ? diff : a.length);
+    let c = Array.from(new Set(a));
 
+    if (method === "inrange") {
+        if (!start && !end) {
+            b = [...c];
+        } else {
+            b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
+        }
     } else {
         this.length = 0;
-        this.concat(a);
+        b = [...c];
     }
+    this.push(...b);
 }
 
 /**
@@ -909,8 +970,24 @@ function uniques(start, end, method = "replace") {
  * @param {*} end
  * @return {*} 
  */
-function uniquesCopy(start, end) {
-    return Array.from(new Set([...this]));
+function uniquesCopy(start, end, method = "replace") {
+    let a = [...this];
+    let b = [...this];
+    let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
+    a.splice(0, (!!start) ? start : 0);
+    a.splice((0, !!end) ? diff : a.length);
+    let c = Array.from(new Set(a));
+
+    if (method === "inrange") {
+        if (!start && !end) {
+            b = [...c];
+        } else {
+            b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
+        }
+    } else {
+        b = [...c];
+    }
+    return b;
 }
 
 /**
@@ -920,19 +997,20 @@ function uniquesCopy(start, end) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function duplicates(start, end, method = "replace") {
-    let a = [...this], noduplicatesarray = this.uniquesCopy();
+function duplicates(start, end, method = "range") {
+    let a = [...this], noduplicatesarray = this.uniquesCopy(), c;
     for (let i = 0; i < noduplicatesarray.length; i++) {
-        let c = a.indexOf(noduplicatesarray[i]);
-        a[c] = (c !== -1) ? undefined : a[c];
+        c = a.indexOf(noduplicatesarray[i]);
+        a[c] = (c >= 0) ? undefined : a[c];
     }
-    a.filter((a) => a !== undefined);
+    a = a.filter((a) => { return a !== undefined });
     if (method === "inrange") {
+        let b = [...this];
+        a = [...b.splice(0, start), ...a, ...b.splice(end, this.length)];
 
-    } else {
-        this.length = 0;
-        this.concat(a);
     }
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -943,7 +1021,8 @@ function duplicates(start, end, method = "replace") {
  * @return {*} 
  */
 function duplicatesCopy(start, end) {
-    let a = [...this], noduplicatesarray = this.uniques();
+    let a = [...this], noduplicatesarray = [...this]
+    noduplicatesarray.uniques();
     for (let i = 0; i < noduplicatesarray.length; i++) {
         let c = a.indexOf(noduplicatesarray[i]);
         a[c] = (c !== -1) ? undefined : a[c];
@@ -994,7 +1073,7 @@ function transpose(iterator, start, end, method = "replace") {
 
     } else {
         this.length = 0;
-        this.concat(iterator);
+        this.push(...iterator);
     }
 
 }
@@ -1040,7 +1119,13 @@ function flatten(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        this.flatMap(num => num);
+        let a = [...this];
+        let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
+        a.splice(0, start);
+        a.splice(diff, a.length);
+        a.flatMap(num => num);
+        this.length = 0;
+        this.push(...a);
     }
 }
 
@@ -1131,11 +1216,11 @@ function enumerate(type = "object") {
  * @param {*} end
  */
 function del(start, end) {
-    if (!start) { throw new Error("Start [minimal range end number] is not defined"); }
     if (!end) {
+        end = (!!start) ? start : this.length;
         start = 0;
-        end = start;
     }
+    console.log(start, end);
     this.splice(start, end - start);
 }
 
@@ -1145,8 +1230,8 @@ function del(start, end) {
  * @param {*} start
  * @param {*} end
  */
-function log(start, end) {
-    console.log([...this]);
+function log(start, end, message = "", func = console.log) {
+    func(message + JSON.stringify([...this]));
 }
 
 // // _ lodash Functions
