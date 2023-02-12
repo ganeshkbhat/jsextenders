@@ -866,6 +866,13 @@ function insertAll(index, array, thisValue) {
     this.push(...a);
 }
 
+function concatSelf(array, thisValue) {
+    let a = [(!!thisValue) ? [...thisValue] : [...this], ...array];
+    this.length = 0;
+    this.push(...a);
+}
+
+
 /**
  *
  *
