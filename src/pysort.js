@@ -35,7 +35,9 @@ function timsort(array) {
     // # Start by slicing and sorting small portions of the
     // # input array. The size of these slices is defined by
     // # your `min_run` size.
-    for (i in range(0, n, min_run)) {
+    // == //
+    let ar = [].range(0, n, min_run);
+    for (i in ar) {
         insertion_sort(array, i, min((i + min_run - 1), n - 1))
     }
 
