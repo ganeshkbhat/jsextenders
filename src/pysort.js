@@ -38,7 +38,7 @@ function timsort(array) {
     // == //
     let ar = [].range(0, n, min_run);
     for (i in ar) {
-        insertion_sort(array, i, min((i + min_run - 1), n - 1))
+        insertion_sort(array, i, [].min(1, 0, 2, [(i + min_run - 1), n - 1]))
     }
 
 
@@ -57,7 +57,7 @@ function timsort(array) {
             // # and the second starts) and the `endpoint` (where
             // # the second array ends)
             var midpoint = start + size - 1
-            var end = min((start + size * 2 - 1), (n - 1))
+            var end = [].min(1, 0, 2, [(start + size * 2 - 1), (n - 1)])
 
             // # Merge the two subarrays.
             // # The `left` array should go from `start` to
