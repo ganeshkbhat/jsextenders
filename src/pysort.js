@@ -73,7 +73,7 @@ function insertion_sort(array, left=0, right=None){
 
     // # Loop from the element indicated by
     // # `left` until the element indicated by `right`
-    for (i in range(left + 1, right + 1)) {  }
+    for (i in range(left + 1, right + 1)) { 
         // # This is the element we want to position in its
         // # correct place
         key_item = array[i]
@@ -99,6 +99,8 @@ function insertion_sort(array, left=0, right=None){
         // # When you finish shifting the elements, position
         // # the `key_item` in its correct location
         array[j + 1] = key_item
+     }
+        
 
     return array
 }
