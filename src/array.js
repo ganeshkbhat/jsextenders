@@ -877,7 +877,8 @@ function concatMerge(array, thisValue) {
             }
         }
     }
-    let a = [(!!thisValue) ? [...thisValue] : [...this], ...array, ...argsList];
+  thisValue = (!!thisValue) ? thisValue : this
+    let a = [...thisValue, ...array, ...argsList];
     this.length = 0;
     this.push(...a);
 }
