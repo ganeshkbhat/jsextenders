@@ -6,7 +6,7 @@ function merge_sort(array) {
     }
 
 
-    midpoint = len(array) // 2
+    var midpoint = len(array) // 2
 
     // # Sort the array by recursively splitting the input
     // # into two equal halves, sorting each half and merging them
@@ -18,8 +18,8 @@ function merge_sort(array) {
 
 
 function timsort(array) {
-    min_run = 32
-    n = len(array)
+    var min_run = 32
+    var n = len(array)
 
     // # Start by slicing and sorting small portions of the
     // # input array. The size of these slices is defined by
@@ -33,7 +33,7 @@ function timsort(array) {
     // # Start from `min_run`, doubling the size on
     // # each iteration until you surpass the length of
     // # the array.
-    size = min_run
+    var size = min_run
     while (size < n) {
         // # Determine the arrays that will
         // # be merged together
