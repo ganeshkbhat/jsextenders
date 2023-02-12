@@ -66,7 +66,7 @@ function timsort(array) {
 
             var left = array.slice(start, midpoint + 1)
             var right = array.slice(midpoint + 1, end + 1)
-            merged_array = merge()
+            merged_array = merge(left, right)
 
             // # Finally, put the merged array back into
             // # your array
