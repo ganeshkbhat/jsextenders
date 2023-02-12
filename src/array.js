@@ -832,6 +832,29 @@ function insertAll(index, array) {
 /**
  *
  *
+ * @param {*} index
+ * @param {*} item
+ */
+function insertCopy(index, item) {
+    if (!item) { throw new Error("Item is not defined"); }
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
+}
+
+/**
+ *
+ *
+ * @param {*} index
+ * @param {*} array
+ * array or item 
+ */
+function insertAllCopy(index, array) {
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
+    if (!array) { throw new Error("Array is not defined"); }
+}
+
+/**
+ *
+ *
  * @param {*} item
  * @param {*} start
  * @param {*} end
@@ -864,6 +887,7 @@ function replace(index, item) {
  * @param {*} replaceValue
  * @param {*} start
  * @param {*} end
+  * @param {*} method
  */
 function replaceAll(item, replaceValue, start, end, method = "replace") {
     if (method === "inrange") {
@@ -886,7 +910,7 @@ function replaceAll(item, replaceValue, start, end, method = "replace") {
 }
 
 /**
- * TODO
+ * 
  *
  * @param {*} item
  */
@@ -897,11 +921,12 @@ function remove(item) {
 }
 
 /**
- * TODO
+ * 
  *
  * @param {*} item
  * @param {*} start
  * @param {*} end
+ * @param {*} method
  */
 function removeAll(item, start, end, method = "replace") {
     if (!item) { throw new Error("Item is not defined"); }
@@ -920,6 +945,62 @@ function removeAll(item, start, end, method = "replace") {
         b = [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
         this.length = 0;
         this.push(...b);
+    }
+}
+
+
+/**
+ * 
+ *
+ * @param {*} index
+ * @param {*} item
+ */
+function replaceCopy(index, item) {
+    if (!item) { throw new Error("Item is not defined"); }
+    if (!index && index !== 0) { throw new Error("Index is not defined"); }
+
+}
+
+/**
+ *
+ *
+ * @param {*} item
+ * @param {*} replaceValue
+ * @param {*} start
+ * @param {*} end
+ * @param {*} method
+ */
+function replaceAllCopy(item, replaceValue, start, end, method = "replace") {
+    if (method === "inrange") {
+
+    } else {
+
+    }
+}
+
+/**
+ * 
+ *
+ * @param {*} item
+ */
+function removeCopy(item) {
+
+}
+
+/**
+ * 
+ *
+ * @param {*} item
+ * @param {*} start
+ * @param {*} end
+ * @param {*} method
+ */
+function removeAllCopy(item, start, end, method = "replace") {
+    if (!item) { throw new Error("Item is not defined"); }
+    if (method === "inrange") {
+
+    } else {
+
     }
 }
 
@@ -981,11 +1062,15 @@ function pysort(key = null, reverse = false) {
  * @param {*} end
  * @param {*} method // replace, inrange 
  */
-function reverse(start, end, method = "replace") {
+function reverser(start, end, method = "replace") {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].reverse();
+        let a = [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.reverse();
         this.length = 0;
         this.push(...a);
     }
@@ -1272,7 +1357,7 @@ function dequeue() {
  */
 function transpose(iterator, start, end, method = "replace") {
     iterator = (!!iterator) ? iterator : [...this];
-    iterator.reverse();
+    iterator.reverser();
     iterator.map((item) => {
         if (Array.isArray(item)) {
             item = transpose(item);
@@ -1301,7 +1386,7 @@ function transpose(iterator, start, end, method = "replace") {
  */
 function transposeCopy(iterator, start, end) {
     iterator = (!!iterator) ? iterator : [...this];
-    iterator.reverse();
+    iterator.reverser();
     iterator.map((item) => {
         if (Array.isArray(item)) {
             item = transpose(item);
@@ -1461,20 +1546,20 @@ function log(start, end, message = "", func = console.log) {
 
 // function chunk() { }
 // function compact() { }
-// function concat() { }
-// function difference() { }
-// function differenceBy() { }
-// function differenceWith() { }
-// function drop() { }
-// function dropRight() { }
+// concatInPlace // function concat() { }
+// diffBoth => // function difference() { }
+// diffSelf =>  // function differenceBy() { }
+// diff =>  // function differenceWith() { }
+// del, remove =>  // function drop() { }
+// del, remove =>  // function dropRight() { }
 // function dropRightWhile() { }
 // function dropWhile() { }
 // function fill() { }
 // function findIndex() { }
 // function findLastIndex() { }
 // function first -> head() { }
-// function flatten() { }
-// function flattenDeep() { }
+// flatten, flattenCopy => // function flatten() { }
+// flattenDeep, flattenDeepCopy => function flattenDeep() { }
 // function flattenDepth() { }
 // function fromPairs() { }
 // function head() { }
@@ -1492,9 +1577,10 @@ function log(start, end, message = "", func = console.log) {
 // function pullAllBy() { }
 // function pullAllWith() { }
 // function pullAt() { }
-// function remove() { }
+// remove => // function remove() { }
 // function reverse() { }
 // function slice() { }
+// pysort
 // function sortedIndex() { }
 // function sortedIndexBy() { }
 // function sortedIndexOf() { }
@@ -1511,7 +1597,7 @@ function log(start, end, message = "", func = console.log) {
 // function union() { }
 // function unionBy() { }
 // function unionWith() { }
-// function uniq() { }
+// unique, uniqueCopy => // function uniq() { }
 // function uniqBy() { }
 // function uniqWith() { }
 // function unzip() { }
@@ -1571,12 +1657,17 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'replace', { value: replace, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'remove', { value: remove, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'removeAll', { value: removeAll, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'insertAllCopy', { value: insertAllCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'insertCopy', { value: insertCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'replaceCopy', { value: replaceCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'removeCopy', { value: removeCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'removeAllCopy', { value: removeAllCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'popIndex', { value: pop, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'count', { value: count, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'pysort', { value: pysort, enumerable: true, });
-    // Object.defineProperty(SubArray.prototype, 'reverse', { value: reverse, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'reverser', { value: reverser, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'copy', { value: copy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'diffIterable', { value: diffIterable, enumerable: true, });
@@ -1668,12 +1759,17 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'replace', { value: replace, enumerable: true, });
     Object.defineProperty(Array.prototype, 'remove', { value: remove, enumerable: true, });
     Object.defineProperty(Array.prototype, 'removeAll', { value: removeAll, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'insertAllCopy', { value: insertAllCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'insertCopy', { value: insertCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'replaceCopy', { value: replaceCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'removeCopy', { value: removeCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'removeAllCopy', { value: removeAllCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'popIndex', { value: pop, enumerable: true, });
     Object.defineProperty(Array.prototype, 'clear', { value: clear, enumerable: true, });
     Object.defineProperty(Array.prototype, 'index', { value: index, enumerable: true, });
     Object.defineProperty(Array.prototype, 'count', { value: count, enumerable: true, });
     Object.defineProperty(Array.prototype, 'pysort', { value: pysort, enumerable: true, });
-    // Object.defineProperty(Array.prototype, 'reverse', { value: reverse, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'reverser', { value: reverser, enumerable: true, });
     Object.defineProperty(Array.prototype, 'reverseCopy', { value: reverseCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'copy', { value: copy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'diffIterable', { value: diffIterable, enumerable: true, });
