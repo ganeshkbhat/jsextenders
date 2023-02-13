@@ -207,7 +207,7 @@ Modifies the array with `LN2` of all the values from `start` index to `end` inde
 
 Modifies the array with `LN10` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
 
-`[1, 2, 3, 4].LN10Map(start, end,, method = "replace", thisValue)`
+`[1, 2, 3, 4].LN10Map(start, end, method = "replace", thisValue)`
 
 ###### .LOG2EMap
 
@@ -348,13 +348,25 @@ Returns if the provided iterable is an array. Alternatively, if the iterable is 
 
 Insert the item to the array at index provided. Modifies the array in place.
 
-`[1, 2, 3, 4].insert(index, item)`
+`[1, 2, 3, 4].insert(index, item, thisArray)`
 
 ###### .insertAll
 
 Insert the array or list of items to the array at index provided. Modifies the array in place.
 
-`[1, 2, 3, 4].insertAll(index, array)`
+`[1, 2, 3, 4].insertAll(index, array, thisArray)`
+
+###### .concatMerge
+
+Concat the array or list of items to the array at index provided. Modifies the array in place.
+
+`[1, 2, 3, 4].concatMerge(array, thisValue, ...args)`
+
+###### .merge
+
+Concat the array or list of items to the array at index provided. Modifies the array in place.
+
+`[1, 2, 3, 4].merge(array, thisValue, ...args)`
 
 ###### .count
 
