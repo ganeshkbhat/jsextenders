@@ -6,7 +6,7 @@
  * Install: npm i extenders --save
  * Github: https://github.com/ganeshkbhat/jsextenders
  * npmjs Link: https://www.npmjs.com/package/extenders
- * File: src/decorator.js
+ * File: src/math.js
  * File Description: 
  * 
  * 
