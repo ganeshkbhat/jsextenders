@@ -534,7 +534,9 @@ Transpose the array from `start` index to `end` index. Returns a new object and 
 
 Create an array into immutable array using the freeze method.
 
-`[1, 2, 3, 4].immutables()`
+`[1, 2, 3, 4].immutables(thisArray)`
+`[1, 2, 3, 4].freeze(thisArray)`
+`[1, 2, 3, 4].tuple(thisArray)`
 
 ###### .flatten
 
