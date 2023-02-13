@@ -1143,11 +1143,15 @@ function index(item, start, end, thisValue) {
  * // sort(key=None, reverse=False) {}
  */
 function pysort(key = null, reverse = false) {
-    // if (!!key && typeof key === "function") { 
-    //     let a = [...this].sort(key);
-    // } else {
-    //     let a = [...this].sort((c, d) => { return c < b })
-    // }
+    let a = [...this];
+    if (!!key && typeof key === "function") {
+        a = a.sort(key);
+    } else if (reverse === true) {
+        a = a.sort((c, d) => { return c < d });
+    } else {
+        a = a.sort((c, d) => { return c > d });
+    }
+    return a;
 }
 
 /**
@@ -1159,17 +1163,22 @@ function pysort(key = null, reverse = false) {
  * @param {*} thisValue
  */
 function reverser(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.reverse();
-        this.length = 0;
-        this.push(...a);
-    }
+    let a = (!!thisValue) ? thisValue : this;
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = MapperCopy("reverser", start, end, method, thisValue || this, (a, ...args) => { return a.reverse(); });
+    // if (method === "inrange") {
+    // } else {
+    //     let a = (!!thisValue) ? [...thisValue] : [...this];
+    //     start = (!!start) ? start : 0;
+    //     end = (!!end) ? end : a.length;
+    //     a = a.splice(start, end);
+    //     a = a.reverse();
+    //     this.length = 0;
+    //     this.push(...a);
+    // }
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
