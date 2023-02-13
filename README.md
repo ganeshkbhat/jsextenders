@@ -378,19 +378,49 @@ Count the number of items in the array from `start` index to `end` index.
 
 Replace the item to the array at index provided from `start` index to `end` index. Modifies the array in place.
 
-`[1, 2, 3, 4].replace(index, item, start, end, method = "replace", thisValue)`
+`[1, 2, 3, 4].replace(index, item, thisValue)`
+
+###### .replaceCopy
+
+Replace the item to the array at index provided from `start` index to `end` index. Returns an new modified array.
+
+`[1, 2, 3, 4].replaceCopy(index, item, thisValue)`
+
+###### .replaceAll
+
+Replace the item to the array at index provided from `start` index to `end` index. Modifies the array in place.
+
+`[1, 2, 3, 4].replaceAll(item, replaceValue, start, end, method = "replace", thisValue)`
+
+###### .replaceAllCopy
+
+Replace the item to the array at index provided from `start` index to `end` index. Returns an new modified array.
+
+`[1, 2, 3, 4].replaceAllCopy(item, replaceValue, start, end, method = "replace", thisValue)`
 
 ###### .remove
 
 Removes the first found equal item and Returns the removed item of array from `start` index to `end` index. Modifies the array in place.
 
-`[1, 2, 3, 4].remove(item)`
+`[1, 2, 3, 4].remove(item, thisArray)`
 
 ###### .removeAll
 
 Removes all items and Returns the removed items of array from `start` index to `end` index. Modifies the array in place.
 
 `[1, 2, 3, 4].removeAll(item, start, end, method = "replace", thisValue)`
+
+###### .removeCopy
+
+Removes the first found equal item and Returns the removed item of array from `start` index to `end` index. Returns a new modified array object.
+
+`[1, 2, 3, 4].removeCopy(item, thisArray)`
+
+###### .removeAllCopy
+
+Removes all items and Returns the removed items of array from `start` index to `end` index. Returns a new modified array object.
+
+`[1, 2, 3, 4].removeAllCopy(item, start, end, method = "replace", thisValue)`
 
 ###### .pop
 
@@ -408,7 +438,7 @@ Clears the array from `start` index to `end` index. Modifies the array in place.
 
 Returns the index of array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
-`[1, 2, 3, 4].index(item, start, end)`
+`[1, 2, 3, 4].index(item, start, end, thisArray)`
 
 ###### .sort
 
