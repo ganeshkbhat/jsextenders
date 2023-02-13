@@ -227,8 +227,17 @@ function mathswitch(i, fname, callback) {
         case "log1p":
             i = Math.log1p(i);
             break;
-        case "log2":
-            i = Math.log2(i);
+        case "log2e":
+            i = Math.LOG2E;
+            break;
+        case "log10e":
+            i = Math.LOG10E;
+            break;
+        case "ln2":
+            i = Math.LN2(i);
+            break;
+        case "ln10":
+            i = Math.LN10(i);
             break;
         case "max":
             i = Math.max(...i);
@@ -287,7 +296,7 @@ function mathswitch(i, fname, callback) {
  */
 function MapperCopy(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
     if (!callback) {
-        callback = (a, ...args) => { return a.map((i, idx) => { return mathswitch((!!args) ? [i, ...args] : i, type); }); }
+        callback = (a, ...args) => { return a.map((i, idx) => { return mathswitch((!!args && !!args.length) ? [i, ...args] : i, type); }); }
     }
     if (method === "inrange") {
         let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -295,6 +304,7 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
+        args = (!!args) ? args : [];
         a = callback(a, ...args);
         b = [...b.splice(0, start), ...a, ...b.splice(end - start + 1, b.length)];
         return b;
@@ -303,6 +313,7 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
+        args = (!!args) ? args : [];
         a = callback(a, ...args);
         return a;
     }
@@ -319,8 +330,6 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
  */
 function Mapper(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
     return MapperCopy(type, start, end, method, thisValue || this, callback, ...args);
-    // this.length = 0;
-    // this.push(...a);
 }
 
 /**
