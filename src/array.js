@@ -840,8 +840,10 @@ function fillRange(item, start, end, method = "inrange", thisValue) {
  */
 function append(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
-    if (!!thisValue) { return thisValue.push(item); }
-    this.push(item);
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    a.push(item);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
