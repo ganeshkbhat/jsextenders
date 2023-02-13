@@ -157,7 +157,7 @@ function sum(start, end, thisValue) {
  *
  * @param {*} i
  * @param {string} [fn="abs"]
- * @return {*} 
+ * @return {*} i // modified
  */
 function mathswitch(i, fn = "abs") {
 
