@@ -152,6 +152,13 @@ function sum(start, end, thisValue) {
     return a.splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; });
 }
 
+/**
+ *
+ *
+ * @param {*} i
+ * @param {string} [fn="abs"]
+ * @return {*} 
+ */
 function mathswitch(i, fn = "abs") {
 
     switch (expression) {
@@ -258,9 +265,16 @@ function mathswitch(i, fn = "abs") {
     return i;
 }
 
+/**
+ *
+ *
+ * @param {string} [type="abs"]
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="replace"]
+ * @param {*} thisValue
+ */
 function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
-
-
     if (method === "inrange") {
 
     } else {
