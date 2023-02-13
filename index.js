@@ -33,7 +33,7 @@ module.exports.extender = extender;
 module.exports.ArrayExtended = ArrayExtended;
 module.exports.extendArray = extendArray;
 
-// module.exports.SubArrayExtender = SubArrayExtender;
+module.exports.SubArrayExtender = SubArrayExtender;
 // module.exports.SubObjectExtender = SubObjectExtender;
 
 // module.exports.NumbersExtended = NumbersExtended;
@@ -42,13 +42,15 @@ module.exports.extendArray = extendArray;
 // module.exports.ObjectExtended = ObjectExtended;
 // module.exports.extendObject = extendObject;
 
-// module.exports.StringExtended = StringExtended;
+module.exports.StringExtended = StringExtended;
 // module.exports.extendString = extendString;
 
 module.exports.default = {
     ArrayExtended, extendArray,
     // decorate,
-    // SubArrayExtender, SubObjectExtender, SubStringExtender,
+    SubArrayExtender, 
+    // SubObjectExtender, 
+    SubStringExtender,
     Freeze, extender,
     // NumbersExtended, extendNumber,
     // ObjectExtended, extendObject,
