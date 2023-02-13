@@ -296,7 +296,7 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
         a = callback(a, ...args);
-        b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
+        b = [...b.splice(0, start), ...a, ...b.splice(end - start + 1, b.length)];
         return b;
     } else {
         let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -318,9 +318,9 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
  * @param {*} thisValue
  */
 function Mapper(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
-    let a = MapperCopy(type, start, end, method, thisValue || this, callback, ...args);
-    this.length = 0;
-    this.push(...a);
+    return MapperCopy(type, start, end, method, thisValue || this, callback, ...args);
+    // this.length = 0;
+    // this.push(...a);
 }
 
 /**
@@ -659,7 +659,7 @@ function roundMapCopy(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function squareMap(start, end, method = "replace", thisValue) {
-    let a = MapperCopy("square", start, end, method, thisValue || this);
+    let a = MapperCopy("pow", start, end, method, thisValue || this, null, 2);
     this.length = 0;
     this.push(...a);
 }
@@ -720,7 +720,7 @@ function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function squareMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("square", start, end, method, thisValue || this);
+    return MapperCopy("pow", start, end, method, thisValue || this, null, 2);
 }
 
 /**
@@ -806,27 +806,30 @@ function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) 
  */
 function fillRange(item, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    if (method === "inrange") {
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : this.length;
-        let a = new Array(end - start);
-        for (let i = 0; i < a.length; i++) {
-            a[i] = item
-        }
-        let b = (!!thisValue) ? [...thisValue] : [...this];
-        b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
-        this.length = 0;
-        this.push(...b);
-    } else {
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : this.length;
-        let a = new Array(end - start);
-        for (let i = 0; i < a.length; i++) {
-            a[i] = item
-        }
-        this.length = 0;
-        this.push(...a);
-    }
+    let a = Mapper("fillRange", start, end, method, this, (a, ...args) => { return a.map((i) => { return i * item }) });
+    this.length = 0;
+    this.push(...a);
+    // if (method === "inrange") {
+    //     start = (!!start) ? start : 0
+    //     end = (!!end) ? end : this.length;
+    //     let a = new Array(end - start + 1);
+    //     for (let i = 0; i < a.length; i++) {
+    //         a[i] = item
+    //     }
+    //     let b = (!!thisValue) ? [...thisValue] : [...this];
+    //     b = [...b.splice(0, start), ...a, ...b.splice(end - start + 1, b.length)];
+    //     this.length = 0;
+    //     this.push(...b);
+    // } else {
+    //     start = (!!start) ? start : 0
+    //     end = (!!end) ? end : this.length;
+    //     let a = new Array(end - start + 1);
+    //     for (let i = 0; i < a.length; i++) {
+    //         a[i] = item
+    //     }
+    //     this.length = 0;
+    //     this.push(...a);
+    // }
 }
 
 /**
@@ -1136,7 +1139,7 @@ function index(item, start, end, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     // let a = (!!thisValue) ? [...thisValue] : [...this];
     if ((!start && start !== 0) && !end) { return this.indexOf(item); }
-    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
+    if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start + 1 : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
     if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
     return [...this].map((i, idx) => { return { "item": i, "index": idx } }).filter((i) => { return i.item === item; });
 }
@@ -1363,7 +1366,9 @@ function similar(iterable, start, end, thisValue) {
 function uniques(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     let b = (!!thisValue) ? [...thisValue] : [...this];
-    a.MapperCopy("uniques", start, end, "replace", thisValue, (a, ...args) => { return Array.from(new Set(a)); });
+    a = a.MapperCopy("uniques", start, end, method, thisValue || this, (a, ...args) => { return Array.from(new Set(a)); });
+    this.length = 0;
+    this.push(...a);
     // let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
     // a.splice(0, (!!start) ? start : 0);
     // a.splice((0, !!end) ? diff : a.length);
@@ -1393,21 +1398,22 @@ function uniques(start, end, method = "replace", thisValue) {
 function uniquesCopy(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     let b = (!!thisValue) ? [...thisValue] : [...this];
-    let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
-    a.splice(0, (!!start) ? start : 0);
-    a.splice((0, !!end) ? diff : a.length);
-    let c = Array.from(new Set(a));
+    return a.MapperCopy("uniques", start, end, method, thisValue || this, (a, ...args) => { return Array.from(new Set(a)); });
+    // let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
+    // a.splice(0, (!!start) ? start : 0);
+    // a.splice((0, !!end) ? diff : a.length);
+    // let c = Array.from(new Set(a));
 
-    if (method === "inrange") {
-        if (!start && !end) {
-            b = [...c];
-        } else {
-            b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
-        }
-    } else {
-        b = [...c];
-    }
-    return b;
+    // if (method === "inrange") {
+    //     if (!start && !end) {
+    //         b = [...c];
+    //     } else {
+    //         b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
+    //     }
+    // } else {
+    //     b = [...c];
+    // }
+    // return b;
 }
 
 /**
@@ -1683,7 +1689,7 @@ function del(start, end, thisValue) {
         end = (!!start) ? start : a.length;
         start = 0;
     }
-    this.splice(start, end - start);
+    this.splice(start, end - start + 1);
 }
 
 /**
