@@ -156,111 +156,122 @@ function sum(start, end, thisValue) {
  *
  *
  * @param {*} i
- * @param {string} [fn="abs"]
+ * @param {string} [fn] Name of the Javascript Math function
  * @return {*} i // modified
  */
-function mathswitch(i, fn = "abs") {
-
-    switch (expression) {
-        case fn === "":
+function mathswitch(i, fname, callback) {
+    switch (fname) {
+        case "abs":
             i = Math.abs(i);
             break;
-        case fn === "":
+        case "acos":
             i = Math.acos(i);
             break;
-        case fn === "":
+        case "acosh":
             i = Math.acosh(i);
             break;
-        case fn === "":
+        case "asin":
             i = Math.asin(i);
             break;
-        case fn === "":
+        case "asinh":
             i = Math.asinh(i);
             break;
-        case fn === "":
+        case "atan":
             i = Math.atan(i);
             break;
-        case fn === "":
-            // Math.atan2(i);
+        case "atan2":
+            i = Math.atan2(...i);
+            break;
+        case "atanh":
             i = Math.atanh(i);
             break;
-        case fn === "":
+        case "cbrt":
             i = Math.cbrt(i);
             break;
-        case fn === "":
+        case "ceil":
             i = Math.ceil(i);
             break;
-        case fn === "":
+        case "clz32":
             i = Math.clz32(i);
             break;
-        case fn === "":
+        case "cos":
             i = Math.cos(i);
             break;
-        case fn === "":
+        case "cosh":
             i = Math.cosh(i);
             break;
-        case fn === "":
+        case "exp":
             i = Math.exp(i);
             break;
-        case fn === "":
+        case "expm1":
             i = Math.expm1(i);
             break;
-        case fn === "":
+        case "floor":
             i = Math.floor(i);
             break;
-        case fn === "":
+        case "fround":
             i = Math.fround(i);
             break;
-        case fn === "":
-            // Math.hypot(i);
-            // Math.imul(i);
+        case "log":
             i = Math.log(i);
             break;
-        case fn === "":
+        case "hypot":
+            i = Math.hypot(...i);
+            break;
+        case "imul":
+            i = Math.imul(...i);
+            break;
+        case "log10":
             i = Math.log10(i);
             break;
-        case fn === "":
+        case "log1p":
             i = Math.log1p(i);
             break;
-        case fn === "":
+        case "log2":
             i = Math.log2(i);
-            // Math.max(i);
-            // Math.min(i);
-            // Math.pow(i, power)
             break;
-        case fn === "":
-            i = Math.random()
+        case "max":
+            i = Math.max(...i);
             break;
-        case fn === "":
+        case "min":
+            i = Math.min(...i);
+            break;
+        case "pow":
+            i = Math.pow(...i);
+            // Math.pow(i, power);
+            break;
+        case "random":
+            i = Math.random();
+            break;
+        case "round":
             i = Math.round(i);
             break;
-        case fn === "":
+        case "sign":
             i = Math.sign(i);
             break;
-        case fn === "":
+        case "sin":
             i = Math.sin(i);
             break;
-        case fn === "":
+        case "sinh":
             i = Math.sinh(i);
             break;
-        case fn === "":
+        case "sqrt":
             i = Math.sqrt(i);
             break;
-        case fn === "":
+        case "tan":
             i = Math.tan(i);
             break;
-        case fn === "":
+        case "tanh":
             i = Math.tanh(i);
             break;
-        case fn === "":
+        case "trunc":
             i = Math.trunc(i);
             break;
-        case fn === "":
+        case "acos":
             i = Math.acos(i);
             break;
         default:
-            // code block
-            i = i;
+            i = ((!!callback) ? callback(i) : function (i) { return i; })(i);
     }
     return i;
 }
@@ -274,17 +285,60 @@ function mathswitch(i, fn = "abs") {
  * @param {string} [method="replace"]
  * @param {*} thisValue
  */
-function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
+function Mapper(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
+    if (!callback) {
+        callback = (a, ...args) => { return a.map((i, idx) => { return mathswitch((!!args) ? [i, ...args] : i, type); }) }
+    }
     if (method === "inrange") {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
+        let b = (!!thisValue) ? [...thisValue] : [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = callback(a, ...args);
+        b = [...b.splice(0, start), ...a, ...b.splice(end - start, ...b.length)];
+        this.length = 0;
+        this.push(...b);
     } else {
         let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
-        a = a.map((i, idx) => { return mathswitch(i, type); });
+        a = callback(a, ...args);
         this.length = 0;
         this.push(...a);
+    }
+}
+
+/**
+ *
+ *
+ * @param {string} [type="abs"]
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="replace"]
+ * @param {*} thisValue
+ */
+function MapperCopy(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
+    if (!callback) {
+        callback = (a, ...args) => { return a.map((i, idx) => { return mathswitch((!!args) ? [i, ...args] : i, type); }); }
+    }
+    if (method === "inrange") {
+        let a = (!!thisValue) ? [...thisValue] : [...this];
+        let b = (!!thisValue) ? [...thisValue] : [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = callback(a, ...args);
+        b = [...b.splice(0, start), ...a, ...b.splice(end - start, ...b.length)];
+        return b;
+    } else {
+        let a = (!!thisValue) ? [...thisValue] : [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = callback(a, ...args);
+        return a;
     }
 }
 
@@ -297,20 +351,7 @@ function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function acosMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => {
-            i = Math.acos(i);
-            return i;
-        });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("acos", start, end, method = method, thisValue);
 }
 
 /**
@@ -322,17 +363,7 @@ function acosMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function cosMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { i = Math.cos(i); return i; });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("cos", start, end, method = method, thisValue);
 }
 
 /**
@@ -344,17 +375,7 @@ function cosMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function sinMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { i = Math.sin(i); return i; });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("sin", start, end, method = method, thisValue);
 }
 
 /**
@@ -366,17 +387,7 @@ function sinMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function asinMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return Math.asin(i); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("asin", start, end, method = method, thisValue);
 }
 
 /**
@@ -388,17 +399,7 @@ function asinMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function absMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i) => { i = Math.abs(i); return i; })
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("abs", start, end, method = method, thisValue);
 }
 
 /**
@@ -425,12 +426,8 @@ function factorialMap(start, end, thisValue) {
  * @param {*} thisValue
  * @return {*} 
  */
-function cosMapCopy(start, end, thisValue) {
-    let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0;
-    end = (!!end) ? end : a.length;
-    a = a.splice(start, end);
-    return a.map((i, idx) => { return Math.cos(i); });
+function cosMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("cos", start, end, method = method, thisValue);
 }
 
 /**
@@ -441,29 +438,8 @@ function cosMapCopy(start, end, thisValue) {
  * @param {*} thisValue
  * @return {*} 
  */
-function acosMapCopy(start, end, thisValue) {
-    let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0;
-    end = (!!end) ? end : a.length;
-    a = a.splice(start, end);
-    return a.map((i, idx) => { return Math.acos(i); });
-}
-
-
-/**
- *
- *
- * @param {*} start
- * @param {*} end
- * @param {*} thisValue
- * @return {*} 
- */
-function sinMapCopy(start, end, thisValue) {
-    let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0;
-    end = (!!end) ? end : a.length;
-    a = a.splice(start, end);
-    return a.map((i, idx) => { return Math.sin(i); });
+function acosMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("acos", start, end, method = method, thisValue);
 }
 
 /**
@@ -474,12 +450,8 @@ function sinMapCopy(start, end, thisValue) {
  * @param {*} thisValue
  * @return {*} 
  */
-function asinMapCopy(start, end, thisValue) {
-    let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0;
-    end = (!!end) ? end : a.length;
-    a = a.splice(start, end);
-    return a.map((i, idx) => { i = Math.asin(i); return i; });
+function sinMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("sin", start, end, method = method, thisValue);
 }
 
 /**
@@ -490,12 +462,20 @@ function asinMapCopy(start, end, thisValue) {
  * @param {*} thisValue
  * @return {*} 
  */
-function absMapCopy(start, end, thisValue) {
-    let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0
-    end = (!!end) ? end : a.length;
-    a = a.splice(start, end);
-    return a.map((i) => { i = Math.abs(i); return i; })
+function asinMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("asin", start, end, method = method, thisValue);
+}
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function absMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("abs", start, end, method = method, thisValue);
 }
 
 /**
@@ -507,11 +487,7 @@ function absMapCopy(start, end, thisValue) {
  * @param {*} thisValue
  */
 function LN2Map(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-    }
+    Mapper("LN2", start, end, method = method, thisValue);
 }
 
 /**
@@ -523,11 +499,7 @@ function LN2Map(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LN10Map(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-    }
+    Mapper("LN10", start, end, method = method, thisValue);
 }
 
 /**
@@ -539,11 +511,7 @@ function LN10Map(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LOG2EMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-    }
+    Mapper("log2e", start, end, method = method, thisValue);
 }
 
 /**
@@ -555,11 +523,7 @@ function LOG2EMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LOG10EMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-    }
+    Mapper("log10e", start, end, method = method, thisValue);
 }
 
 /**
@@ -569,7 +533,9 @@ function LOG10EMap(start, end, method = "replace", thisValue) {
  * @param {*} end
  * @param {*} thisValue
  */
-function LN2MapCopy(start, end, thisValue) { }
+function LN2MapCopy(start, end, thisValue) {
+    return MapperCopy("LN2", start, end, method = method, thisValue);
+}
 
 /**
  *
@@ -578,7 +544,9 @@ function LN2MapCopy(start, end, thisValue) { }
  * @param {*} end
  * @param {*} thisValue
  */
-function LN10MapCopy(start, end, thisValue) { }
+function LN10MapCopy(start, end, thisValue) {
+    return MapperCopy("LN10", start, end, method = method, thisValue);
+}
 
 /**
  *
@@ -587,7 +555,9 @@ function LN10MapCopy(start, end, thisValue) { }
  * @param {*} end
  * @param {*} thisValue
  */
-function LOG2EMapCopy(start, end, thisValue) { }
+function LOG2EMapCopy(start, end, thisValue) {
+    return MapperCopy("log2e", start, end, method = method, thisValue);
+}
 
 /**
  *
@@ -596,7 +566,9 @@ function LOG2EMapCopy(start, end, thisValue) { }
  * @param {*} end
  * @param {*} thisValue
  */
-function LOG10EMapCopy(start, end, thisValue) { }
+function LOG10EMapCopy(start, end, thisValue) {
+    return MapperCopy("log10e", start, end, method = method, thisValue);
+}
 
 /**
  *
@@ -607,17 +579,7 @@ function LOG10EMapCopy(start, end, thisValue) { }
  * @param {*} thisValue
  */
 function floorMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return Math.floor(i); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("floor", start, end, method = method, thisValue);
 }
 
 /**
@@ -629,17 +591,7 @@ function floorMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function ceilMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return Math.ceil(i); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("ceil", start, end, method = method, thisValue);
 }
 
 /**
@@ -651,17 +603,7 @@ function ceilMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function roundMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return Math.round(i); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("round", start, end, method = method, thisValue);
 }
 
 /**
@@ -674,15 +616,7 @@ function roundMap(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function floorMapCopy(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => { i = Math.floor(i); return i; });
-    }
+    return MapperCopy("floor", start, end, method = method, thisValue);
 }
 
 /**
@@ -695,15 +629,7 @@ function floorMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function ceilMapCopy(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => { i = Math.ceil(i); return i; });
-    }
+    return MapperCopy("ceil", start, end, method = method, thisValue);
 }
 
 /**
@@ -716,15 +642,7 @@ function ceilMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function roundMapCopy(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => { i = Math.round(i); return i; });
-    }
+    return MapperCopy("round", start, end, method = method, thisValue);
 }
 
 /**
@@ -736,17 +654,7 @@ function roundMapCopy(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function squareMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return i * i });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("square", start, end, method = method, thisValue);
 }
 
 /**
@@ -758,17 +666,7 @@ function squareMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function sqrtMap(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return Math.sqrt(i); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("sqrt", start, end, method = method, thisValue);
 }
 
 /**
@@ -782,17 +680,7 @@ function sqrtMap(start, end, method = "replace", thisValue) {
  */
 function powMap(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
-    if (method === "inrange") {
-        var a = [];
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i, idx) => { return Math.pow(i, power); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("pow", start, end, method = method, thisValue, null, power);
 }
 
 /**
@@ -806,17 +694,7 @@ function powMap(power, start, end, method = "replace", thisValue) {
  */
 function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = a.map((i) => { return (i * ((!!multiplier) ? multiplier : 1)); });
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("pow", start, end, method = method, thisValue, null, multiplier);
 }
 
 /**
@@ -829,15 +707,7 @@ function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function squareMapCopy(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => { i = Math.pow(i, 2); return i; });
-    }
+    return MapperCopy("square", start, end, method = method, thisValue);
 }
 
 /**
@@ -850,15 +720,7 @@ function squareMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function sqrtMapCopy(start, end, method = "replace", thisValue) {
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => { i = Math.sqrt(i); return i; });
-    }
+    return MapperCopy("sqrt", start, end, method = method, thisValue);
 }
 
 /**
@@ -873,18 +735,7 @@ function sqrtMapCopy(start, end, method = "replace", thisValue) {
  */
 function powMapCopy(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => {
-            i = Math.pow(i, power);
-            return i;
-        });
-    }
+    return MapperCopy("pow", start, end, method = method, thisValue, null, power);
 }
 
 /**
@@ -899,15 +750,7 @@ function powMapCopy(power, start, end, method = "replace", thisValue) {
  */
 function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    if (method === "inrange") {
-
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        return a.map((i) => { i = i * multiplier; return i; });
-    }
+    return MapperCopy("pow", start, end, method = method, thisValue, null, multiplier);
 }
 
 /**
@@ -919,11 +762,7 @@ function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) 
  */
 function randomRange(count, multiplier) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    let a = [];
-    for (let i = 0; i < count; i++) {
-        a[i] = Math.random() * (multiplier || 1);
-    }
-    return a;
+    return MapperCopy("random", 0, count, "replace", thisValue, f, multiplier);
 }
 
 /**
@@ -937,29 +776,7 @@ function randomRange(count, multiplier) {
  */
 function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    if (method === "inrange") {
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : this.length;
-        let a = new Array(end - start);
-        multiplier = (!!multiplier) ? multiplier : 1.0;
-        for (let i = 0; i < a.length; i++) {
-            a[i] = Math.random() * multiplier
-        }
-        let b = (!!thisValue) ? [...thisValue] : [...this];
-        b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
-        this.length = 0;
-        this.push(...b);
-    } else {
-        start = (!!start) ? start : 0
-        end = (!!end) ? end : this.length;
-        let a = new Array(end - start);
-        multiplier = (!!multiplier) ? multiplier : 1.0;
-        for (let i = 0; i < a.length; i++) {
-            a[i] = Math.random() * multiplier
-        }
-        this.length = 0;
-        this.push(...a);
-    }
+    Mapper("fillrandom", start, end, method = method, thisValue, multiplier);
 }
 
 /**
@@ -1159,7 +976,6 @@ function replaceAll(item, replaceValue, start, end, method = "replace", thisValu
         this.length = 0;
         this.push(...b);
     }
-
 }
 
 /**
@@ -1531,21 +1347,22 @@ function similar(iterable, start, end, thisValue) {
 function uniques(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     let b = (!!thisValue) ? [...thisValue] : [...this];
-    let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
-    a.splice(0, (!!start) ? start : 0);
-    a.splice((0, !!end) ? diff : a.length);
-    let c = Array.from(new Set(a));
-    if (method === "inrange") {
-        if (!start && !end) {
-            b = [...c];
-        } else {
-            b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
-        }
-    } else {
-        this.length = 0;
-        b = [...c];
-    }
-    this.push(...b);
+    a.Mapper("uniques", start, end, "replace", thisValue, (a, ...args) => { return Array.from(new Set(a)); });
+    // let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
+    // a.splice(0, (!!start) ? start : 0);
+    // a.splice((0, !!end) ? diff : a.length);
+    // let c = Array.from(new Set(a));
+    // if (method === "inrange") {
+    //     if (!start && !end) {
+    //         b = [...c];
+    //     } else {
+    //         b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
+    //     }
+    // } else {
+    //     this.length = 0;
+    //     b = [...c];
+    // }
+    // this.push(...b);
 }
 
 /**
@@ -2083,6 +1900,8 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'fillRange', { value: fillRange, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'Mapper', { value: Mapper, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'MapperCopy', { value: MapperCopy, enumerable: true, });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
@@ -2197,6 +2016,9 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'fillRange', { value: fillRange, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'Mapper', { value: Mapper, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'MapperCopy', { value: MapperCopy, enumerable: true, });
+
 
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
