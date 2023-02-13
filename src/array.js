@@ -818,27 +818,6 @@ function fillRange(item, start, end, method = "inrange", thisValue) {
     let a = Mapper("fillRange", start, end, method, this, (a, ...args) => { return a.map((i) => { return i * item }) });
     this.length = 0;
     this.push(...a);
-    // if (method === "inrange") {
-    //     start = (!!start) ? start : 0
-    //     end = (!!end) ? end : this.length;
-    //     let a = new Array(end - start + 1);
-    //     for (let i = 0; i < a.length; i++) {
-    //         a[i] = item
-    //     }
-    //     let b = (!!thisValue) ? [...thisValue] : [...this];
-    //     b = [...b.splice(0, start), ...a, ...b.splice(end - start + 1, b.length)];
-    //     this.length = 0;
-    //     this.push(...b);
-    // } else {
-    //     start = (!!start) ? start : 0
-    //     end = (!!end) ? end : this.length;
-    //     let a = new Array(end - start + 1);
-    //     for (let i = 0; i < a.length; i++) {
-    //         a[i] = item
-    //     }
-    //     this.length = 0;
-    //     this.push(...a);
-    // }
 }
 
 /**
@@ -1381,21 +1360,6 @@ function uniques(start, end, method = "replace", thisValue) {
     a = a.MapperCopy("uniques", start, end, method, thisValue || this, (a, ...args) => { return Array.from(new Set(a)); });
     this.length = 0;
     this.push(...a);
-    // let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
-    // a.splice(0, (!!start) ? start : 0);
-    // a.splice((0, !!end) ? diff : a.length);
-    // let c = Array.from(new Set(a));
-    // if (method === "inrange") {
-    //     if (!start && !end) {
-    //         b = [...c];
-    //     } else {
-    //         b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
-    //     }
-    // } else {
-    //     this.length = 0;
-    //     b = [...c];
-    // }
-    // this.push(...b);
 }
 
 /**
@@ -1411,21 +1375,6 @@ function uniquesCopy(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     let b = (!!thisValue) ? [...thisValue] : [...this];
     return a.MapperCopy("uniques", start, end, method, thisValue || this, (a, ...args) => { return Array.from(new Set(a)); });
-    // let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
-    // a.splice(0, (!!start) ? start : 0);
-    // a.splice((0, !!end) ? diff : a.length);
-    // let c = Array.from(new Set(a));
-
-    // if (method === "inrange") {
-    //     if (!start && !end) {
-    //         b = [...c];
-    //     } else {
-    //         b = [...b.splice(0, start), ...c, ...b.splice(end, b.length)];
-    //     }
-    // } else {
-    //     b = [...c];
-    // }
-    // return b;
 }
 
 /**
@@ -1506,21 +1455,14 @@ function transpose(iterator, start, end, method = "replace", thisValue) {
     iterator = (!!iterator) ? iterator : a;
     iterator.reverser();
     iterator.map((item) => {
-        if (Array.isArray(item)) {
-            item = transpose(item);
-        } else {
-            item = item
-        };
-        return item;
+        return (Array.isArray(item)) ? transpose(item) : item;
     });
-
     if (method === "inrange") {
 
     } else {
         this.length = 0;
         this.push(...iterator);
     }
-
 }
 
 /**
