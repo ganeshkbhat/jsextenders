@@ -1163,10 +1163,7 @@ function pysort(key = null, reverse = false) {
  * @param {*} thisValue
  */
 function reverser(start, end, method = "replace", thisValue) {
-    let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0;
-    end = (!!end) ? end : a.length;
-    a = MapperCopy("reverser", start, end, method, thisValue || this, (a) => { return a.reverse(); });
+    let a = MapperCopy("reverser", start, end, method, thisValue || this, (a) => { return a.reverse(); });
     this.length = 0;
     this.push(...a);
 }
@@ -1182,8 +1179,6 @@ function reverser(start, end, method = "replace", thisValue) {
  */
 function reverseCopy(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
-    start = (!!start) ? start : 0;
-    end = (!!end) ? end : a.length;
     return MapperCopy("reverser", start, end, method, thisValue || this, (a) => { return a.reverse(); });
 }
 
@@ -1263,12 +1258,12 @@ function superset(iterable, start, end, thisValue) {
  */
 function diffIterable(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this], arr = [];
     let len = iterable.length;
     for (let i = 0; i < len; i++) {
-        (!a.includes(iterable[i])) ? a.push({ index: i, value: iterable[i] }) : a;
+        (!a.includes(iterable[i])) ? arr.push({ index: i, value: iterable[i] }) : arr;
     }
-    return a;
+    return arr;
 }
 
 /**
@@ -1282,12 +1277,12 @@ function diffIterable(iterable, start, end, thisValue) {
  */
 function diffSelf(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this], arr = [];
     let len = a.length;
     for (let i = 0; i < len; i++) {
-        (!a.includes(iterable[i])) ? a.push({ index: i, value: a[i] }) : a;
+        (!a.includes(iterable[i])) ? arr.push({ index: i, value: a[i] }) : arr;
     }
-    return a;
+    return arr;
 }
 
 /**
