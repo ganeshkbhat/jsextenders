@@ -25,8 +25,9 @@ var { SubArrayExtender, Freeze, extender } = require("./extenders");
  * @param {*} executeFunction
  * @return {*} 
  */
-function execute(executeFunction) {
-    return executeFunction([...this]);
+function execute(executeFunction, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    return executeFunction(a);
 }
 
 /**
@@ -35,8 +36,8 @@ function execute(executeFunction) {
  * @param {*} iterable
  * @param {*} index
  */
-function extend(iterable, index) {
-    let a = [...this];
+function extend(iterable, index, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     this.clear();
     this.push(...[...a.splice(0, index), ...iterable, ...a]);
 }
@@ -163,7 +164,7 @@ function acosMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -188,7 +189,7 @@ function cosMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -210,7 +211,7 @@ function sinMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -232,7 +233,7 @@ function asinMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -254,7 +255,7 @@ function absMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -289,7 +290,7 @@ function factorialMap(start, end, thisValue) {
  * @return {*} 
  */
 function cosMapCopy(start, end, thisValue) {
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -305,7 +306,7 @@ function cosMapCopy(start, end, thisValue) {
  * @return {*} 
  */
 function acosMapCopy(start, end, thisValue) {
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -322,7 +323,7 @@ function acosMapCopy(start, end, thisValue) {
  * @return {*} 
  */
 function sinMapCopy(start, end, thisValue) {
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -338,7 +339,7 @@ function sinMapCopy(start, end, thisValue) {
  * @return {*} 
  */
 function asinMapCopy(start, end, thisValue) {
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -354,7 +355,7 @@ function asinMapCopy(start, end, thisValue) {
  * @return {*} 
  */
 function absMapCopy(start, end, thisValue) {
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
@@ -373,7 +374,7 @@ function LN2Map(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
     }
 }
 
@@ -389,7 +390,7 @@ function LN10Map(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
     }
 }
 
@@ -405,7 +406,7 @@ function LOG2EMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
     }
 }
 
@@ -421,7 +422,7 @@ function LOG10EMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
     }
 }
 
@@ -473,7 +474,7 @@ function floorMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -495,7 +496,7 @@ function ceilMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -517,7 +518,7 @@ function roundMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -540,7 +541,7 @@ function floorMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -561,7 +562,7 @@ function ceilMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -582,7 +583,7 @@ function roundMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -602,7 +603,7 @@ function squareMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -624,7 +625,7 @@ function sqrtMap(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -648,7 +649,7 @@ function powMap(power, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
         var a = [];
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -672,7 +673,7 @@ function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -695,7 +696,7 @@ function squareMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -716,7 +717,7 @@ function sqrtMapCopy(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -739,7 +740,7 @@ function powMapCopy(power, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -765,7 +766,7 @@ function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) 
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -808,7 +809,7 @@ function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) 
         for (let i = 0; i < a.length; i++) {
             a[i] = Math.random() * multiplier
         }
-        let b = [...this];
+        let b = (!!thisValue) ? [...thisValue] : [...this];
         b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
         this.length = 0;
         this.push(...b);
@@ -843,7 +844,7 @@ function fillRange(item, start, end, method = "inrange", thisValue) {
         for (let i = 0; i < a.length; i++) {
             a[i] = item
         }
-        let b = [...this];
+        let b = (!!thisValue) ? [...thisValue] : [...this];
         b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
         this.length = 0;
         this.push(...b);
@@ -891,7 +892,7 @@ function isArray(iterable) {
 function insert(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     a = [...a.splice(0, index - 1), item, ...a];
     this.length = 0;
     this.push(a);
@@ -907,7 +908,7 @@ function insert(index, item, thisValue) {
 function insertAll(index, array, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     a = [...a.splice(0, index), ...array, ...a];
     this.length = 0;
     this.push(...a);
@@ -947,6 +948,7 @@ function concatMerge(array, thisValue, ...args) {
 function insertCopy(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
+    let a = (!!thisValue) ? [...thisValue] : [...this];
 }
 
 /**
@@ -959,6 +961,7 @@ function insertCopy(index, item, thisValue) {
 function insertAllCopy(index, array, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
     if (!array) { throw new Error("Array is not defined"); }
+    let a = (!!thisValue) ? [...thisValue] : [...this];
 }
 
 /**
@@ -972,7 +975,9 @@ function insertAllCopy(index, array, thisValue) {
  */
 function count(item, start, end, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).filter((i) => i === item).length;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    a = a.splice((!!start) ? start : 0, (!!end) ? end : this.length)
+    return a.filter((i) => i === item).length;
 }
 
 /**
@@ -985,7 +990,7 @@ function count(item, start, end, thisValue) {
 function replace(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     a[index] = item;
     this.length = 0;
     this.push(a);
@@ -1005,7 +1010,7 @@ function replaceAll(item, replaceValue, start, end, method = "replace", thisValu
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -1029,8 +1034,11 @@ function replaceAll(item, replaceValue, start, end, method = "replace", thisValu
  */
 function remove(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
-    let i = this.indexOf(item);
-    (i !== -1) ? this.splice(i, 1) : this;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let i = a.indexOf(item);
+    (i !== -1) ? a.splice(i, 1) : a;
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -1047,7 +1055,7 @@ function removeAll(item, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -1072,6 +1080,7 @@ function removeAll(item, start, end, method = "replace", thisValue) {
 function replaceCopy(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
+    let a = (!!thisValue) ? [...thisValue] : [...this];
 
 }
 
@@ -1089,7 +1098,7 @@ function replaceAllCopy(item, replaceValue, start, end, method = "replace", this
     if (method === "inrange") {
 
     } else {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
     }
 }
 
@@ -1100,7 +1109,7 @@ function replaceAllCopy(item, replaceValue, start, end, method = "replace", this
  * @param {*} thisValue
  */
 function removeCopy(item, thisValue) {
-
+    let a = (!!thisValue) ? [...thisValue] : [...this];
 }
 
 /**
@@ -1117,7 +1126,7 @@ function removeAllCopy(item, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-
+        let a = (!!thisValue) ? [...thisValue] : [...this];
     }
 }
 
@@ -1130,7 +1139,10 @@ function removeAllCopy(item, start, end, method = "replace", thisValue) {
  */
 function pop(index, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
-    return this.splice(index, 1)[0];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    a.splice(index, 1)[0];
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -1154,6 +1166,7 @@ function clear(start, end) {
  */
 function index(item, start, end, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
+    // let a = (!!thisValue) ? [...thisValue] : [...this];
     if ((!start && start !== 0) && !end) { return this.indexOf(item); }
     if (!!start && !!end) { return [...this.splice(start, (end < this.length) ? end - start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
     if (!!start && !end) { return [...this.splice(0, (start < this.length) ? start : this.length)].map((i, idx) => { return { "item": i, "index": idx }; }).filter((i) => { return i.item === item; }); }
@@ -1187,7 +1200,7 @@ function reverser(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
@@ -1207,7 +1220,8 @@ function reverser(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function reverseCopy(start, end, method = "replace", thisValue) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length).reverse();
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    return a.splice((!!start) ? start : 0, (!!end) ? end : a.length).reverse();
 }
 
 /**
@@ -1219,7 +1233,8 @@ function reverseCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function copy(start, end, thisValue) {
-    return [...this].splice((!!start) ? start : 0, (!!end) ? end : this.length);
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    return a.splice((!!start) ? start : 0, (!!end) ? end : a.length);
 }
 
 /**
@@ -1233,9 +1248,10 @@ function copy(start, end, thisValue) {
  * @return {*} 
  */
 function diction(mapFunction, arg, start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     if (!mapFunction || typeof mapFunction !== "function") { mapFunction = (i) => i; }
-    if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, [...this]), arg);
-    return Object.assign({}, [...this]);
+    if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, a), arg);
+    return Object.assign({}, a);
 }
 
 /**
@@ -1248,9 +1264,10 @@ function diction(mapFunction, arg, start, end, thisValue) {
  */
 function subset(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = [], len = this.length;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let len = a.length;
     for (let i = 0; i < len; i++) {
-        if (!iterable.includes(this[i])) return false;
+        if (!iterable.includes(a[i])) return false;
     }
     return true;
 }
@@ -1265,9 +1282,10 @@ function subset(iterable, start, end, thisValue) {
  */
 function superset(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = [], len = iterable.length;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let len = iterable.length;
     for (let i = 0; i < len; i++) {
-        if (!this.includes(iterable[i])) return false;
+        if (!a.includes(iterable[i])) return false;
     }
     return true;
 }
@@ -1282,9 +1300,10 @@ function superset(iterable, start, end, thisValue) {
  */
 function diffIterable(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = [], len = iterable.length;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let len = iterable.length;
     for (let i = 0; i < len; i++) {
-        (!this.includes(iterable[i])) ? a.push({ index: i, value: iterable[i] }) : a;
+        (!a.includes(iterable[i])) ? a.push({ index: i, value: iterable[i] }) : a;
     }
     return a;
 }
@@ -1300,9 +1319,10 @@ function diffIterable(iterable, start, end, thisValue) {
  */
 function diffSelf(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = [], len = this.length;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let len = a.length;
     for (let i = 0; i < len; i++) {
-        (!this.includes(iterable[i])) ? a.push({ index: i, value: this[i] }) : a;
+        (!a.includes(iterable[i])) ? a.push({ index: i, value: a[i] }) : a;
     }
     return a;
 }
@@ -1318,10 +1338,11 @@ function diffSelf(iterable, start, end, thisValue) {
  */
 function diffBoth(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = { "self": [], "iterable": [] };
-    a["self"] = this.diffSelf(iterable, start, end);
-    a["iterable"] = this.diffIterable(iterable, start, end);
-    return a;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let b = { "self": [], "iterable": [] };
+    b["self"] = a.diffSelf(iterable, start, end);
+    b["iterable"] = a.diffIterable(iterable, start, end);
+    return b;
 }
 
 /**
@@ -1335,9 +1356,9 @@ function diffBoth(iterable, start, end, thisValue) {
  */
 function equal(iterable, start, end, thisValue) {
     if (!iterable) { throw new Error("Iterable is not defined"); }
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     a.splice(0, (!!start) ? start : 0);
-    a.splice((!!end) ? end : [...this].length, [...this].length);
+    a.splice((!!end) ? end : a.length, a.length);
     iterable.splice(0, (!!start) ? start : 0);
     iterable.splice((!!end) ? end : iterable.length, iterable.length);
     return JSON.stringify(a) === JSON.stringify(iterable);
@@ -1353,9 +1374,9 @@ function equal(iterable, start, end, thisValue) {
  * @return {*} 
  */
 function similar(iterable, start, end, thisValue) {
-    let a = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     a.splice(0, (!!start) ? start : 0);
-    a.splice((!!end) ? end : [...this].length, [...this].length);
+    a.splice((!!end) ? end : a.length, a.length);
     iterable.splice(0, (!!start) ? start : 0);
     iterable.splice((!!end) ? end : iterable.length, iterable.length);
     a.sort();
@@ -1372,8 +1393,8 @@ function similar(iterable, start, end, thisValue) {
  * @param {*} thisValue
  */
 function uniques(start, end, method = "replace", thisValue) {
-    let a = [...this];
-    let b = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let b = (!!thisValue) ? [...thisValue] : [...this];
     let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
     a.splice(0, (!!start) ? start : 0);
     a.splice((0, !!end) ? diff : a.length);
@@ -1401,8 +1422,8 @@ function uniques(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function uniquesCopy(start, end, method = "replace", thisValue) {
-    let a = [...this];
-    let b = [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let b = (!!thisValue) ? [...thisValue] : [...this];
     let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
     a.splice(0, (!!start) ? start : 0);
     a.splice((0, !!end) ? diff : a.length);
@@ -1429,15 +1450,16 @@ function uniquesCopy(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function duplicates(start, end, method = "range", thisValue) {
-    let a = [...this], noduplicatesarray = this.uniquesCopy(), c;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let noduplicatesarray = a.uniquesCopy(), c;
     for (let i = 0; i < noduplicatesarray.length; i++) {
         c = a.indexOf(noduplicatesarray[i]);
         a[c] = (c >= 0) ? undefined : a[c];
     }
     a = a.filter((a) => { return a !== undefined });
     if (method === "inrange") {
-        let b = [...this];
-        a = [...b.splice(0, start), ...a, ...b.splice(end, this.length)];
+        let b = (!!thisValue) ? [...thisValue] : [...this];
+        a = [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
 
     }
     this.length = 0;
@@ -1454,7 +1476,8 @@ function duplicates(start, end, method = "range", thisValue) {
  * @return {*} 
  */
 function duplicatesCopy(start, end, method = "range", thisValue) {
-    let a = [...this], noduplicatesarray = [...this]
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let noduplicatesarray = (!!thisValue) ? [...thisValue] : [...this];
     noduplicatesarray.uniques();
     for (let i = 0; i < noduplicatesarray.length; i++) {
         let c = a.indexOf(noduplicatesarray[i]);
@@ -1492,7 +1515,8 @@ function dequeue() {
  * @param {*} thisValue
  */
 function transpose(iterator, start, end, method = "replace", thisValue) {
-    iterator = (!!iterator) ? iterator : [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    iterator = (!!iterator) ? iterator : a;
     iterator.reverser();
     iterator.map((item) => {
         if (Array.isArray(item)) {
@@ -1523,7 +1547,8 @@ function transpose(iterator, start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function transposeCopy(iterator, start, end, method = "replace", thisValue) {
-    iterator = (!!iterator) ? iterator : [...this];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    iterator = (!!iterator) ? iterator : a;
     iterator.reverser();
     iterator.map((item) => {
         if (Array.isArray(item)) {
@@ -1547,9 +1572,12 @@ function transposeCopy(iterator, start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function immutable(thisValue) {
-    Object.freeze(this);
+    if (!!thisValue) {
+        return Object.freeze([...thisValue])
+    } else  {
+        Object.freeze(this);
+    }
 }
-
 
 /**
  *
@@ -1563,7 +1591,7 @@ function flatten(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this];
+        let a = (!!thisValue) ? [...thisValue] : [...this];
         let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
         a.splice(0, start);
         a.splice(diff, a.length);
@@ -1593,7 +1621,8 @@ function flattenDeep(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
 
     } else {
-        let a = [...this].flat(Infinity);
+        let a = (!!thisValue) ? [...thisValue] : [...this];
+        a = a.flat(Infinity);
         this.length = 0;
         this.push(...a);
     }
@@ -1609,7 +1638,8 @@ function flattenDeep(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function flattenCopy(start, end, method = "replace", thisValue) {
-    return [...this].flatMap(num => num);
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    return a.flatMap(num => num);
 }
 
 /**
@@ -1622,7 +1652,8 @@ function flattenCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function flattenDeepCopy(start, end, method = "replace", thisValue) {
-    return [...this].flat(Infinity);
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    return a.flat(Infinity);
 }
 
 /**
@@ -1657,16 +1688,17 @@ function range(start, stop, step) {
  */
 function enumerate(type = "object", thisValue) {
     if (!["object", "array"].includes(type)) { throw new Error("Type not defined"); };
-    let a = [], len = this.length;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let b = [], len = a.length;
     for (let i = 0; i < len; i++) {
         if (type === "object") {
-            a[i] = { "index": i, "value": this[i] };
+            b[i] = { "index": i, "value": a[i] };
         }
         if (type === "array") {
-            a[i] = [i, this[i]];
+            b[i] = [i, a[i]];
         }
     }
-    return a;
+    return b;
 }
 
 /**
@@ -1677,8 +1709,9 @@ function enumerate(type = "object", thisValue) {
  * @param {*} thisValue
  */
 function del(start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     if (!end) {
-        end = (!!start) ? start : this.length;
+        end = (!!start) ? start : a.length;
         start = 0;
     }
     this.splice(start, end - start);
@@ -1694,7 +1727,8 @@ function del(start, end, thisValue) {
  * @param {*} thisValue
  */
 function log(start, end, message = "", func = console.log, thisValue) {
-    func(message + JSON.stringify([...this]));
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    func(message + JSON.stringify(a));
 }
 
 // // _ lodash Functions
@@ -1817,6 +1851,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'merge', { value: concatMerge, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'insert', { value: insert, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'replace', { value: replace, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'replaceAllCopy', { value: replaceAllCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'remove', { value: remove, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'removeAll', { value: removeAll, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'insertAllCopy', { value: insertAllCopy, enumerable: true, });
@@ -1851,7 +1886,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'transpose', { value: transpose, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'transposeCopy', { value: transposeCopy, enumerable: true, });
-    // Object.defineProperty(SubArray.prototype, 'immutable', { value: immutable, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'immutables', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'freeze', { value: immutable, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'tuple', { value: immutable, enumerable: true, });
     // flatten, flattenCopy => // function flatten() { }
@@ -1930,6 +1965,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'merge', { value: concatMerge, enumerable: true, });
     Object.defineProperty(Array.prototype, 'insert', { value: insert, enumerable: true, });
     Object.defineProperty(Array.prototype, 'replace', { value: replace, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'replaceAllCopy', { value: replaceAllCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'remove', { value: remove, enumerable: true, });
     Object.defineProperty(Array.prototype, 'removeAll', { value: removeAll, enumerable: true, });
     Object.defineProperty(Array.prototype, 'insertAllCopy', { value: insertAllCopy, enumerable: true, });
@@ -1964,7 +2000,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
     Object.defineProperty(Array.prototype, 'transposeCopy', { value: transposeCopy, enumerable: true, });
-    // Object.defineProperty(Array.prototype, 'immutable', { value: immutable, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'immutables', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'freeze', { value: immutable, enumerable: true, });
     Object.defineProperty(Array.prototype, 'tuple', { value: immutable, enumerable: true, });
     // flatten, flattenCopy => // function flatten() { }
