@@ -152,6 +152,123 @@ function sum(start, end, thisValue) {
     return a.splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; });
 }
 
+function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
+    if (method === "inrange") {
+
+    } else {
+        let a = (!!thisValue) ? [...thisValue] : [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        a = a.map((i, idx) => {
+            switch (expression) {
+                case x:
+                    i = Math.abs(i)
+                    break;
+                case y:
+                    i = Math.acos(i)
+                    break;
+                case x:
+                    i = Math.acosh(i)
+                    break;
+                case y:
+                    i = Math.asin(i)
+                    break;
+                case x:
+                    i = Math.asinh(i)
+                    break;
+                case y:
+                    i = Math.atan(i)
+                    break;
+                case x:
+                    // Math.atan2(i)
+                    i = Math.atanh(i)
+                    break;
+                case y:
+                    i = Math.cbrt(i)
+                    break;
+                case x:
+                    i = Math.ceil(i)
+                    break;
+                case y:
+                    i = Math.clz32(i)
+                    break;
+                case x:
+                    i = Math.cos(i)
+                    break;
+                case y:
+                    i = Math.cosh(i)
+                    break;
+                case x:
+                    i = Math.exp(i)
+                    break;
+                case y:
+                    i = Math.expm1(i)
+                    break;
+                case x:
+                    i = Math.floor(i)
+                    break;
+                case y:
+                    i = Math.fround(i)
+                    break;
+                case x:
+                    // Math.hypot(i)
+                    // Math.imul(i)
+                    i = Math.log(i)
+                    break;
+                case y:
+                    i = Math.log10(i)
+                    break;
+                case x:
+                    i = Math.log1p(i)
+                    break;
+                case y:
+                    i = Math.log2(i)
+                    // Math.max(i)
+                    // Math.min(i)
+                    // Math.pow(i, power)
+                    break;
+                case x:
+                    i = Math.random()
+                    break;
+                case y:
+                    i = Math.round(i)
+                    break;
+                case x:
+                    i = Math.sign(i)
+                    break;
+                case y:
+                    i = Math.sin(i)
+                    break;
+                case y:
+                    i = Math.sinh(i)
+                    break;
+                case y:
+                    i = Math.sqrt(i)
+                    break;
+                case y:
+                    i = Math.tan(i)
+                    break;
+                case y:
+                    i = Math.tanh(i)
+                    break;
+                case y:
+                    i = Math.trunc(i)
+                    break;
+                case y:
+                    i = Math.acos(i);
+                    break;
+                default:
+                    // code block
+                    i = i;
+            }
+            return i;
+        });
+        this.length = 0;
+        this.push(...a);
+    }
+}
+
 /**
  *
  *
@@ -1574,7 +1691,7 @@ function transposeCopy(iterator, start, end, method = "replace", thisValue) {
 function immutable(array) {
     if (!!array) {
         return Object.freeze([...array])
-    } else  {
+    } else {
         Object.freeze(this);
     }
 }

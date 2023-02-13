@@ -730,9 +730,9 @@ console.log(str);
 
 #### Decorators - API List
 
-###### .clear
+###### .decorate
 
-`.clear(start, end)`
+`.decorate()`
 
 <a name="extenders"></a>
 
