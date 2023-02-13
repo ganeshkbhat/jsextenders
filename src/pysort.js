@@ -1,3 +1,21 @@
+/**
+ * 
+ * Package: extenders
+ * Author: Ganesh B
+ * Description: 
+ * Install: npm i extenders --save
+ * Github: https://github.com/ganeshkbhat/jsextenders
+ * npmjs Link: https://www.npmjs.com/package/extenders
+ * File: index.js
+ * File Description: 
+ * 
+ * 
+*/
+
+/* eslint no-console: 0 */
+
+'use strict';
+
 function merge_sort(array) {
     // # If the input array contains fewer than two elements,
     // # then return it as the result of the function
