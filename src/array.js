@@ -1240,17 +1240,17 @@ function copy(start, end, thisValue) {
 /**
  *
  *
- * @param {*} mapFunction
+ * @param {*} mapperFunction
  * @param {*} arg
  * @param {*} start
  * @param {*} end
  * @param {*} thisValue
  * @return {*} 
  */
-function diction(mapFunction, arg, start, end, thisValue) {
+function diction(mapperFunction, arg, start, end, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
-    if (!mapFunction || typeof mapFunction !== "function") { mapFunction = (i) => i; }
-    if (!!mapFunction && typeof mapFunction === "function") return mapFunction(Object.assign({}, a), arg);
+    if (!mapperFunction || typeof mapperFunction !== "function") { mapperFunction = (i) => i; }
+    if (!!mapperFunction && typeof mapperFunction === "function") return mapperFunction(Object.assign({}, a), arg);
     return Object.assign({}, a);
 }
 
@@ -1723,12 +1723,12 @@ function del(start, end, thisValue) {
  * @param {*} start
  * @param {*} end
  * @param {string} [message=""]
- * @param {*} [func=console.log]
+ * @param {*} [callback=console.log]
  * @param {*} thisValue
  */
-function log(start, end, message = "", func = console.log, thisValue) {
+function log(start, end, message = "", callback = console.log, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
-    func(message + JSON.stringify(a));
+    callback(message + JSON.stringify(a));
 }
 
 // // _ lodash Functions
