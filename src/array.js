@@ -152,113 +152,115 @@ function sum(start, end, thisValue) {
     return a.splice((!!start) ? start : 0, (!!end) ? end : this.length).reduce((s, i) => { return s + i; });
 }
 
-function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
-    function mathswitch(i, fn = "abs") {
+function mathswitch(i, fn = "abs") {
 
-        switch (expression) {
-            case fn === "":
-                i = Math.abs(i)
-                break;
-            case fn === "":
-                i = Math.acos(i)
-                break;
-            case fn === "":
-                i = Math.acosh(i)
-                break;
-            case fn === "":
-                i = Math.asin(i)
-                break;
-            case fn === "":
-                i = Math.asinh(i)
-                break;
-            case fn === "":
-                i = Math.atan(i)
-                break;
-            case fn === "":
-                // Math.atan2(i)
-                i = Math.atanh(i)
-                break;
-            case fn === "":
-                i = Math.cbrt(i)
-                break;
-            case fn === "":
-                i = Math.ceil(i)
-                break;
-            case fn === "":
-                i = Math.clz32(i)
-                break;
-            case fn === "":
-                i = Math.cos(i)
-                break;
-            case fn === "":
-                i = Math.cosh(i)
-                break;
-            case fn === "":
-                i = Math.exp(i)
-                break;
-            case fn === "":
-                i = Math.expm1(i)
-                break;
-            case fn === "":
-                i = Math.floor(i)
-                break;
-            case fn === "":
-                i = Math.fround(i)
-                break;
-            case fn === "":
-                // Math.hypot(i)
-                // Math.imul(i)
-                i = Math.log(i)
-                break;
-            case fn === "":
-                i = Math.log10(i)
-                break;
-            case fn === "":
-                i = Math.log1p(i)
-                break;
-            case fn === "":
-                i = Math.log2(i)
-                // Math.max(i)
-                // Math.min(i)
-                // Math.pow(i, power)
-                break;
-            case fn === "":
-                i = Math.random()
-                break;
-            case fn === "":
-                i = Math.round(i)
-                break;
-            case fn === "":
-                i = Math.sign(i)
-                break;
-            case fn === "":
-                i = Math.sin(i)
-                break;
-            case fn === "":
-                i = Math.sinh(i)
-                break;
-            case fn === "":
-                i = Math.sqrt(i)
-                break;
-            case fn === "":
-                i = Math.tan(i)
-                break;
-            case fn === "":
-                i = Math.tanh(i)
-                break;
-            case fn === "":
-                i = Math.trunc(i)
-                break;
-            case fn === "":
-                i = Math.acos(i);
-                break;
-            default:
-                // code block
-                i = i;
-        }
-        return i;
+    switch (expression) {
+        case fn === "":
+            i = Math.abs(i);
+            break;
+        case fn === "":
+            i = Math.acos(i);
+            break;
+        case fn === "":
+            i = Math.acosh(i);
+            break;
+        case fn === "":
+            i = Math.asin(i);
+            break;
+        case fn === "":
+            i = Math.asinh(i);
+            break;
+        case fn === "":
+            i = Math.atan(i);
+            break;
+        case fn === "":
+            // Math.atan2(i);
+            i = Math.atanh(i);
+            break;
+        case fn === "":
+            i = Math.cbrt(i);
+            break;
+        case fn === "":
+            i = Math.ceil(i);
+            break;
+        case fn === "":
+            i = Math.clz32(i);
+            break;
+        case fn === "":
+            i = Math.cos(i);
+            break;
+        case fn === "":
+            i = Math.cosh(i);
+            break;
+        case fn === "":
+            i = Math.exp(i);
+            break;
+        case fn === "":
+            i = Math.expm1(i);
+            break;
+        case fn === "":
+            i = Math.floor(i);
+            break;
+        case fn === "":
+            i = Math.fround(i);
+            break;
+        case fn === "":
+            // Math.hypot(i);
+            // Math.imul(i);
+            i = Math.log(i);
+            break;
+        case fn === "":
+            i = Math.log10(i);
+            break;
+        case fn === "":
+            i = Math.log1p(i);
+            break;
+        case fn === "":
+            i = Math.log2(i);
+            // Math.max(i);
+            // Math.min(i);
+            // Math.pow(i, power)
+            break;
+        case fn === "":
+            i = Math.random()
+            break;
+        case fn === "":
+            i = Math.round(i);
+            break;
+        case fn === "":
+            i = Math.sign(i);
+            break;
+        case fn === "":
+            i = Math.sin(i);
+            break;
+        case fn === "":
+            i = Math.sinh(i);
+            break;
+        case fn === "":
+            i = Math.sqrt(i);
+            break;
+        case fn === "":
+            i = Math.tan(i);
+            break;
+        case fn === "":
+            i = Math.tanh(i);
+            break;
+        case fn === "":
+            i = Math.trunc(i);
+            break;
+        case fn === "":
+            i = Math.acos(i);
+            break;
+        default:
+            // code block
+            i = i;
     }
-    
+    return i;
+}
+
+function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
+
+
     if (method === "inrange") {
 
     } else {
@@ -266,10 +268,7 @@ function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
         start = (!!start) ? start : 0;
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
-        a = a.map((i, idx) => {
-            
-            return i;
-        });
+        a = a.map((i, idx) => { return mathswitch(i, type); });
         this.length = 0;
         this.push(...a);
     }
