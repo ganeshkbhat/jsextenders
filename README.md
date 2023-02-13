@@ -532,11 +532,11 @@ Transpose the array from `start` index to `end` index. Returns a new object and 
 
 ###### .immutable, .freeze, .tuple
 
-Create an array into immutable array using the freeze method.
+Create an array into immutable array using the `freeze` method. Modifies the array in place unless an `array` is provided. `array` option provided returns a frozen object as if `.freeze` is a frozen array object creator.
 
-`[1, 2, 3, 4].immutables(thisArray)`
-`[1, 2, 3, 4].freeze(thisArray)`
-`[1, 2, 3, 4].tuple(thisArray)`
+`[1, 2, 3, 4].immutables(array)`
+`[1, 2, 3, 4].freeze(array)`
+`[1, 2, 3, 4].tuple(array)`
 
 ###### .flatten
 

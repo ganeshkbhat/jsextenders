@@ -1569,11 +1569,11 @@ function transposeCopy(iterator, start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} thisValue
+ * @param {*} array
  */
-function immutable(thisValue) {
-    if (!!thisValue) {
-        return Object.freeze([...thisValue])
+function immutable(array) {
+    if (!!array) {
+        return Object.freeze([...array])
     } else  {
         Object.freeze(this);
     }
