@@ -1163,20 +1163,10 @@ function pysort(key = null, reverse = false) {
  * @param {*} thisValue
  */
 function reverser(start, end, method = "replace", thisValue) {
-    let a = (!!thisValue) ? thisValue : this;
+    let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
-    a = MapperCopy("reverser", start, end, method, thisValue || this, (a, ...args) => { return a.reverse(); });
-    // if (method === "inrange") {
-    // } else {
-    //     let a = (!!thisValue) ? [...thisValue] : [...this];
-    //     start = (!!start) ? start : 0;
-    //     end = (!!end) ? end : a.length;
-    //     a = a.splice(start, end);
-    //     a = a.reverse();
-    //     this.length = 0;
-    //     this.push(...a);
-    // }
+    a = MapperCopy("reverser", start, end, method, thisValue || this, (a) => { return a.reverse(); });
     this.length = 0;
     this.push(...a);
 }
@@ -1192,7 +1182,9 @@ function reverser(start, end, method = "replace", thisValue) {
  */
 function reverseCopy(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
-    return a.splice((!!start) ? start : 0, (!!end) ? end : a.length).reverse();
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    return MapperCopy("reverser", start, end, method, thisValue || this, (a) => { return a.reverse(); });
 }
 
 /**
