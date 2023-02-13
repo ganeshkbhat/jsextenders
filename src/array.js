@@ -153,7 +153,7 @@ function sum(start, end, thisValue) {
 }
 
 function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
-    function mathswitch(fn = "abs", i) {
+    function mathswitch(i, fn = "abs") {
 
         switch (expression) {
             case fn === "":
