@@ -258,6 +258,7 @@ function MathMapper(type = "abs", start, end, method = "replace", thisValue) {
         }
         return i;
     }
+    
     if (method === "inrange") {
 
     } else {
