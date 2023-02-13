@@ -1947,7 +1947,6 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'fillRange', { value: fillRange, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'replaceAll', { value: replaceAll, enumerable: true, });
 
     // Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
@@ -2062,7 +2061,6 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'randomRange', { value: randomRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'fillRandomRange', { value: fillRandomRange, enumerable: true, });
     Object.defineProperty(Array.prototype, 'fillRange', { value: fillRange, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'replaceAll', { value: replaceAll, enumerable: true, });
 
     // Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
 
