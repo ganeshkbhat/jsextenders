@@ -285,40 +285,6 @@ function mathswitch(i, fname, callback) {
  * @param {string} [method="replace"]
  * @param {*} thisValue
  */
-function Mapper(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
-    if (!callback) {
-        callback = (a, ...args) => { return a.map((i, idx) => { return mathswitch((!!args) ? [i, ...args] : i, type); }) }
-    }
-    if (method === "inrange") {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        let b = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = callback(a, ...args);
-        b = [...b.splice(0, start), ...a, ...b.splice(end - start, ...b.length)];
-        this.length = 0;
-        this.push(...b);
-    } else {
-        let a = (!!thisValue) ? [...thisValue] : [...this];
-        start = (!!start) ? start : 0;
-        end = (!!end) ? end : a.length;
-        a = a.splice(start, end);
-        a = callback(a, ...args);
-        this.length = 0;
-        this.push(...a);
-    }
-}
-
-/**
- *
- *
- * @param {string} [type="abs"]
- * @param {*} start
- * @param {*} end
- * @param {string} [method="replace"]
- * @param {*} thisValue
- */
 function MapperCopy(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
     if (!callback) {
         callback = (a, ...args) => { return a.map((i, idx) => { return mathswitch((!!args) ? [i, ...args] : i, type); }); }
@@ -330,7 +296,7 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
         end = (!!end) ? end : a.length;
         a = a.splice(start, end);
         a = callback(a, ...args);
-        b = [...b.splice(0, start), ...a, ...b.splice(end - start, ...b.length)];
+        b = [...b.splice(0, start), ...a, ...b.splice(end - start, b.length)];
         return b;
     } else {
         let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -345,13 +311,30 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
 /**
  *
  *
+ * @param {string} [type="abs"]
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="replace"]
+ * @param {*} thisValue
+ */
+function Mapper(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
+    let a = MapperCopy(type, start, end, method, thisValue || this, callback, ...args);
+    this.length = 0;
+    this.push(...a);
+}
+
+/**
+ *
+ *
  * @param {*} start
  * @param {*} end
  * @param {string} [method="replace"] // replace, inrange
  * @param {*} thisValue
  */
 function acosMap(start, end, method = "replace", thisValue) {
-    Mapper("acos", start, end, method = method, thisValue);
+    let a = MapperCopy("acos", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -363,7 +346,9 @@ function acosMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function cosMap(start, end, method = "replace", thisValue) {
-    Mapper("cos", start, end, method = method, thisValue);
+    let a = MapperCopy("cos", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -375,7 +360,9 @@ function cosMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function sinMap(start, end, method = "replace", thisValue) {
-    Mapper("sin", start, end, method = method, thisValue);
+    let a = MapperCopy("sin", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -387,7 +374,9 @@ function sinMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function asinMap(start, end, method = "replace", thisValue) {
-    Mapper("asin", start, end, method = method, thisValue);
+    let a = MapperCopy("asin", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -399,7 +388,9 @@ function asinMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function absMap(start, end, method = "replace", thisValue) {
-    Mapper("abs", start, end, method = method, thisValue);
+    let a = MapperCopy("abs", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -427,7 +418,7 @@ function factorialMap(start, end, thisValue) {
  * @return {*} 
  */
 function cosMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("cos", start, end, method = method, thisValue);
+    return MapperCopy("cos", start, end, method, thisValue || this);
 }
 
 /**
@@ -439,7 +430,7 @@ function cosMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function acosMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("acos", start, end, method = method, thisValue);
+    return MapperCopy("acos", start, end, method, thisValue || this);
 }
 
 /**
@@ -451,7 +442,7 @@ function acosMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function sinMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("sin", start, end, method = method, thisValue);
+    return MapperCopy("sin", start, end, method, thisValue || this);
 }
 
 /**
@@ -463,7 +454,7 @@ function sinMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function asinMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("asin", start, end, method = method, thisValue);
+    return MapperCopy("asin", start, end, method, thisValue || this);
 }
 
 /**
@@ -475,7 +466,7 @@ function asinMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function absMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("abs", start, end, method = method, thisValue);
+    return MapperCopy("abs", start, end, method, thisValue || this);
 }
 
 /**
@@ -487,7 +478,9 @@ function absMapCopy(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LN2Map(start, end, method = "replace", thisValue) {
-    Mapper("LN2", start, end, method = method, thisValue);
+    let a = MapperCopy("LN2", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -499,7 +492,9 @@ function LN2Map(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LN10Map(start, end, method = "replace", thisValue) {
-    Mapper("LN10", start, end, method = method, thisValue);
+    let a = MapperCopy("LN10", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -511,7 +506,9 @@ function LN10Map(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LOG2EMap(start, end, method = "replace", thisValue) {
-    Mapper("log2e", start, end, method = method, thisValue);
+    let a = MapperCopy("log2e", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -523,7 +520,9 @@ function LOG2EMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function LOG10EMap(start, end, method = "replace", thisValue) {
-    Mapper("log10e", start, end, method = method, thisValue);
+    let a = MapperCopy("log10e", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -533,8 +532,8 @@ function LOG10EMap(start, end, method = "replace", thisValue) {
  * @param {*} end
  * @param {*} thisValue
  */
-function LN2MapCopy(start, end, thisValue) {
-    return MapperCopy("LN2", start, end, method = method, thisValue);
+function LN2MapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("LN2", start, end, method, thisValue || this);
 }
 
 /**
@@ -544,8 +543,8 @@ function LN2MapCopy(start, end, thisValue) {
  * @param {*} end
  * @param {*} thisValue
  */
-function LN10MapCopy(start, end, thisValue) {
-    return MapperCopy("LN10", start, end, method = method, thisValue);
+function LN10MapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("LN10", start, end, method, thisValue || this);
 }
 
 /**
@@ -555,8 +554,8 @@ function LN10MapCopy(start, end, thisValue) {
  * @param {*} end
  * @param {*} thisValue
  */
-function LOG2EMapCopy(start, end, thisValue) {
-    return MapperCopy("log2e", start, end, method = method, thisValue);
+function LOG2EMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("log2e", start, end, method, thisValue || this);
 }
 
 /**
@@ -566,8 +565,8 @@ function LOG2EMapCopy(start, end, thisValue) {
  * @param {*} end
  * @param {*} thisValue
  */
-function LOG10EMapCopy(start, end, thisValue) {
-    return MapperCopy("log10e", start, end, method = method, thisValue);
+function LOG10EMapCopy(start, end, method = "replace", thisValue) {
+    return MapperCopy("log10e", start, end, method, thisValue || this);
 }
 
 /**
@@ -579,7 +578,9 @@ function LOG10EMapCopy(start, end, thisValue) {
  * @param {*} thisValue
  */
 function floorMap(start, end, method = "replace", thisValue) {
-    Mapper("floor", start, end, method = method, thisValue);
+    let a = MapperCopy("floor", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -591,7 +592,9 @@ function floorMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function ceilMap(start, end, method = "replace", thisValue) {
-    Mapper("ceil", start, end, method = method, thisValue);
+    let a = MapperCopy("ceil", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -603,7 +606,9 @@ function ceilMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function roundMap(start, end, method = "replace", thisValue) {
-    Mapper("round", start, end, method = method, thisValue);
+    let a = MapperCopy("round", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -616,7 +621,7 @@ function roundMap(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function floorMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("floor", start, end, method = method, thisValue);
+    return MapperCopy("floor", start, end, method, thisValue || this);
 }
 
 /**
@@ -629,7 +634,7 @@ function floorMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function ceilMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("ceil", start, end, method = method, thisValue);
+    return MapperCopy("ceil", start, end, method, thisValue || this);
 }
 
 /**
@@ -642,7 +647,7 @@ function ceilMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function roundMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("round", start, end, method = method, thisValue);
+    return MapperCopy("round", start, end, method, thisValue || this);
 }
 
 /**
@@ -654,7 +659,9 @@ function roundMapCopy(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function squareMap(start, end, method = "replace", thisValue) {
-    Mapper("square", start, end, method = method, thisValue);
+    let a = MapperCopy("square", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -666,7 +673,9 @@ function squareMap(start, end, method = "replace", thisValue) {
  * @param {*} thisValue
  */
 function sqrtMap(start, end, method = "replace", thisValue) {
-    Mapper("sqrt", start, end, method = method, thisValue);
+    let a = MapperCopy("sqrt", start, end, method, thisValue || this);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -680,7 +689,9 @@ function sqrtMap(start, end, method = "replace", thisValue) {
  */
 function powMap(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
-    Mapper("pow", start, end, method = method, thisValue, null, power);
+    let a = MapperCopy("pow", start, end, method, thisValue || this, null, power);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -694,7 +705,9 @@ function powMap(power, start, end, method = "replace", thisValue) {
  */
 function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    Mapper("pow", start, end, method = method, thisValue, null, multiplier);
+    let a = MapperCopy("pow", start, end, method, thisValue || this, null, multiplier);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -707,7 +720,7 @@ function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function squareMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("square", start, end, method = method, thisValue);
+    return MapperCopy("square", start, end, method, thisValue || this);
 }
 
 /**
@@ -720,7 +733,7 @@ function squareMapCopy(start, end, method = "replace", thisValue) {
  * @return {*} 
  */
 function sqrtMapCopy(start, end, method = "replace", thisValue) {
-    return MapperCopy("sqrt", start, end, method = method, thisValue);
+    return MapperCopy("sqrt", start, end, method, thisValue || this);
 }
 
 /**
@@ -735,7 +748,7 @@ function sqrtMapCopy(start, end, method = "replace", thisValue) {
  */
 function powMapCopy(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
-    return MapperCopy("pow", start, end, method = method, thisValue, null, power);
+    return MapperCopy("pow", start, end, method, thisValue || this, null, power);
 }
 
 /**
@@ -750,7 +763,7 @@ function powMapCopy(power, start, end, method = "replace", thisValue) {
  */
 function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
-    return MapperCopy("pow", start, end, method = method, thisValue, null, multiplier);
+    return MapperCopy("pow", start, end, method, thisValue || this, null, multiplier);
 }
 
 /**
@@ -762,7 +775,8 @@ function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) 
  */
 function randomRange(count, multiplier) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    return MapperCopy("random", 0, count, "replace", thisValue, f, multiplier);
+    let a = MapperCopy("random", 0, count, "replace", this, null, multiplier);
+    return a;
 }
 
 /**
@@ -776,7 +790,9 @@ function randomRange(count, multiplier) {
  */
 function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    Mapper("fillrandom", start, end, method = method, thisValue, multiplier);
+    let a = MapperCopy("fillrandom", start, end, method, thisValue || this, (a, ...args) => { return a.map((i, idx) => { return i * factorialMap(0, args.length, args) }) }, multiplier);
+    this.length = 0;
+    this.push(...a);
 }
 
 /**
@@ -1347,7 +1363,7 @@ function similar(iterable, start, end, thisValue) {
 function uniques(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     let b = (!!thisValue) ? [...thisValue] : [...this];
-    a.Mapper("uniques", start, end, "replace", thisValue, (a, ...args) => { return Array.from(new Set(a)); });
+    a.MapperCopy("uniques", start, end, "replace", thisValue, (a, ...args) => { return Array.from(new Set(a)); });
     // let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
     // a.splice(0, (!!start) ? start : 0);
     // a.splice((0, !!end) ? diff : a.length);
