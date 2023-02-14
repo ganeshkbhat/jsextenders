@@ -620,7 +620,7 @@ Log items of an array from `start` index to `end` index to console.
 
 ### Object prototype extended function
 
-#### Object - Dictionary
+#### Object - Dictionary [TODO]
 
 ```
 var extendObject = require("extenders").extendObject;
@@ -641,9 +641,16 @@ obj.clear();
 console.log(obj);
 ```
 
+#### Object - API List [TODO]
+
+###### .clear [TODO]
+
+
 <a name="string"></a>
 
 ### String prototype extended function
+
+#### String [TODO]
 
 ```
 var StringExtended = require("extenders").StringExtended;
@@ -664,7 +671,7 @@ str.clear();
 console.log(str);
 ```
 
-#### String - API List
+#### String - API List [TODO]
 
 ###### .clear
 
@@ -674,45 +681,66 @@ console.log(str);
 
 ### Numbers prototype extended function
 
-#### Numbers
+#### Numbers [TODO]
 
+```
+var NumberExtended = require("extenders").NumberExtended;
+
+let str = new NumberExtended("Tesing my modified String JS object functions");
+console.log(str);
+str.clear();
+console.log(str);
 ```
 
 ```
+var extendNumber = require("extenders").extendNumber;
+extendNumber();
 
-#### Numbers - API List
+let str = "Tesing my modified String JS object functions";
+console.log(str);
+str.clear();
+console.log(str);
+```
 
-###### .clear
+#### Numbers - API List [TODO]
 
-`.clear(start, end)`
+###### .imul
+
+`.imul(...args)`
 
 <a name="math"></a>
 
 ### Math prototype extended function
 
-#### Math
+#### Math [TODO]
 
 ```
+var extendMath = require("extenders").extendMath;
+extendMath();
 
+let arr = [1,2,3,4,5,6,7,8,9];
+console.log(arr);
+arr.imul();
+console.log(arr);
 ```
 
-#### Math - API List
+#### Math - API List [TODO]
 
-###### .clear
+###### .imul
 
-`.clear(start, end)`
+`.imul(...args)`
 
 <a name="utils"></a>
 
 ### Utils prototype extended function
 
-#### Utils
+#### Utils [TODO]
 
 ```
 
 ```
 
-#### Utils - API List
+#### Utils - API List [TODO]
 
 ###### .clear
 
@@ -722,13 +750,13 @@ console.log(str);
 
 ### Decorators prototype extended function
 
-#### Decorators
+#### Decorators [TODO]
 
 ```
 
 ```
 
-#### Decorators - API List
+#### Decorators - API List [TODO]
 
 ###### .decorate
 
@@ -738,7 +766,7 @@ console.log(str);
 
 ### Extenders functions
 
-#### Extenders
+#### Extenders [TODO]
 
 ```
 
@@ -746,7 +774,7 @@ console.log(str);
 
 ###### .clear
 
-`.clear(start, end)`
+`.clear()`
 
 # Current Status
 
