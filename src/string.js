@@ -57,6 +57,114 @@ function replace() { }
 function split() { }
 function words() { }
 
+
+// // _ lodash Functions
+// // Array
+
+// function chunk() { }
+// function compact() { }
+
+// // concatMerge // function concat() { }
+// // diffBoth => // function difference() { }
+// // diffSelf =>  // function differenceBy() { }
+// // diff =>  // function differenceWith() { }
+
+// del, remove =>  // function drop() { }
+// del, remove =>  // function dropRight() { }
+// function dropRightWhile() { }
+// function dropWhile() { }
+// function fill() { }
+// function findIndex() { }
+// function findLastIndex() { }
+// function first -> head() { }
+
+// // flatten, flattenCopy => // function flatten() { }
+// // flattenDeep, flattenDeepCopy => function flattenDeep() { }
+// function flattenDepth() { }
+// function fromPairs() { }
+// function head() { }
+// function indexOf() { }
+// function initial() { }
+// function intersection() { }
+// function intersectionBy() { }
+// function intersectionWith() { }
+// function join() { }
+// function last() { }
+// function lastIndexOf() { }
+// function nth() { }
+// function pull() { }
+// function pullAll() { }
+// function pullAllBy() { }
+// function pullAllWith() { }
+// function pullAt() { }
+// remove => // function remove() { }
+// function reverse() { }
+// function slice() { }
+// pysort
+// function sortedIndex() { }
+// function sortedIndexBy() { }
+// function sortedIndexOf() { }
+// function sortedLastIndex() { }
+// function sortedLastIndexBy() { }
+// function sortedLastIndexOf() { }
+// function sortedUniq() { }
+// function sortedUniqBy() { }
+// function tail() { }
+// function take() { }
+// function takeRight() { }
+// function takeRightWhile() { }
+// function takeWhile() { }
+// function union() { }
+// function unionBy() { }
+// function unionWith() { }
+// unique, uniqueCopy => // function uniq() { }
+// function uniqBy() { }
+// function uniqWith() { }
+// function unzip() { }
+// function unzipWith() { }
+// function without() { }
+// function xor() { }
+// function xorBy() { }
+// function xorWith() { }
+// function zip() { }
+// function zipObject() { }
+// function zipObjectDeep() { }
+// function zipWith() { }
+
+
+// // _ lodash Functions
+// // Collection
+
+// function countBy() { }
+// function each -> forEach() { }
+// function eachRight -> forEachRight() { }
+// function every() { }
+// function filter() { }
+// function find() { }
+// function findLast() { }
+// function flatMap() { }
+// function flatMapDeep() { }
+// function flatMapDepth() { }
+// function forEach() { }
+// function forEachRight() { }
+// function groupBy() { }
+// function includes() { }
+// function invokeMap() { }
+// function keyBy() { }
+// function map() { }
+// function orderBy() { }
+// function partition() { }
+// function reduce() { }
+// function reduceRight() { }
+// function reject() { }
+// function sample() { }
+// function sampleSize() { }
+// function shuffle() { }
+// function size() { }
+// function some() { }
+// function sortBy() { }
+
+
 /**
  *
  *
