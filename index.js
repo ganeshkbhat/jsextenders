@@ -49,7 +49,7 @@ module.exports.StringExtended = StringExtended;
 module.exports.default = {
     ArrayExtended, extendArray,
     // decorate,
-    SubArrayExtender, 
+    SubArrayExtender,
     // SubObjectExtender, 
     SubStringExtender,
     Freeze, extender,
