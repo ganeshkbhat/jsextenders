@@ -32,9 +32,8 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
             let d = [1, 2, 3, 4, 5, [1, 2, 3], 6, 7, [1, 2, 3, 4, [1, 2, 3], 5, 6], 8, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], 9];
             let f = [1.2, 2.5, 3.6, 4.3, 5.8, 6.1, 7.1, 8.6, 9.0];
 
-
             let e = [...a];
-            expect(e.execute((iterable) => JSON.stringify(iterable)).to.equal(200);
+            expect(e.execute((iterable) => JSON.stringify(iterable))).to.equal(200);
             expect(e).to.equal(200);
             e = [...a];
             expect(e.extend(b, 3)).to.equal(200);
@@ -381,47 +380,47 @@ describe('test-.mjs::extenders: Test Suite for extenders Files', function () {
             expect(e.fillRange(5, 2, 7)).to.equal(200);
             expect(e).to.equal(200);
             e = [...a];
-            expecte.fillRange(5, 0, e.length, "inrange")).to.equal(200);
-        expect(e).to.equal(200);
-        e = [...a];
-        expect(e.fillRange(5, 2, 5, "inrange")).to.equal(200);
-        expect(e).to.equal(200);
-        e = [...a];
-        expect(e.fillRange(5, 0, e.length, "replace")).to.equal(200);
-        expect(e).to.equal(200);
-        e = [...a];
-        expect(e.fillRange(5, 2, 5, "replace")).to.equal(200);
-        expect(e).to.equal(200);
-        // e = [...a];
-        // expect(e.pysort()).to.equal(200);
-        // expect(e).to.equal(200);
-        // e = [...a];
-        // expect(e.pysort(null, true)).to.equal(200);
-        // expect(e).to.equal(200);
-        // e = [...a];
-        // expect( e.pysort(null, false)).to.equal(200);
-        // expect(e).to.equal(200);
-        e = [...a];
-        expect(e.Mapper("sqrt", 0, e.length, "replace")).to.equal(200);
-        expect(e).to.equal(200);
-        e = [...a];
-        expect(e.MapperCopy("sqrt", 0, e.length, "replace")).to.equal(200);
-        expect(e).to.equal(200);
-        // a.max(count, start, end).to.equal(200);
-        // a.maxIndexes(count, start, end).to.equal(200);
-        // a.min(count, start, end).to.equal(200);
-        // a.minIndexes(count, start, end).to.equal(200);
+            expect(e.fillRange(5, 0, e.length, "inrange")).to.equal(200);
+            expect(e).to.equal(200);
+            e = [...a];
+            expect(e.fillRange(5, 2, 5, "inrange")).to.equal(200);
+            expect(e).to.equal(200);
+            e = [...a];
+            expect(e.fillRange(5, 0, e.length, "replace")).to.equal(200);
+            expect(e).to.equal(200);
+            e = [...a];
+            expect(e.fillRange(5, 2, 5, "replace")).to.equal(200);
+            expect(e).to.equal(200);
+            // e = [...a];
+            // expect(e.pysort()).to.equal(200);
+            // expect(e).to.equal(200);
+            // e = [...a];
+            // expect(e.pysort(null, true)).to.equal(200);
+            // expect(e).to.equal(200);
+            // e = [...a];
+            // expect( e.pysort(null, false)).to.equal(200);
+            // expect(e).to.equal(200);
+            e = [...a];
+            expect(e.Mapper("sqrt", 0, e.length, "replace")).to.equal(200);
+            expect(e).to.equal(200);
+            e = [...a];
+            expect(e.MapperCopy("sqrt", 0, e.length, "replace")).to.equal(200);
+            expect(e).to.equal(200);
+            // a.max(count, start, end).to.equal(200);
+            // a.maxIndexes(count, start, end).to.equal(200);
+            // a.min(count, start, end).to.equal(200);
+            // a.minIndexes(count, start, end).to.equal(200);
 
-        expect(a.max(2).length).to.equal(2);
-        expect(JSON.stringify(a.max(2))).to.equal(JSON.stringify([3, 4]));
+            expect(a.max(2).length).to.equal(2);
+            expect(JSON.stringify(a.max(2))).to.equal(JSON.stringify([3, 4]));
 
-        // expect(100).to.equal(100);
-        // expect(100).to.equal(100);
-        // expect(100).to.equal(100);
-        // expect(100).to.equal(100);
-        // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
+            // expect(100).to.equal(100);
 
-        done();
+            done();
+        });
+
     });
-
-});
