@@ -221,7 +221,7 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         expect(e, a).to.equal(200);
         e = [...a];
         expect(e.extender(function namertest() { console.log("namertest", JSON.stringify([...this])) }, Array)).to.equal(200);
-        expect(JSON.stringify(e.namertest())).to.equal(JSON.stringify([1,2,3,4,5,6,7,8,9]));
+        expect(JSON.stringify(e.namertest())).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         e = [...a];
         expect(e.log()).to.equal(200);
@@ -538,10 +538,10 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
 // extender: Object(0) [
 //   execute: [Function: execute], extend: [Function: extend], append: [Function: append], isArray: [Function: isArray],
 //   insertAll: [Function: insertAll], concatMerge: [Function: concatMerge],
-//   merge: [Function: concatMerge], insert: [Function: insert], 
-//   replace: [Function: replace], replaceCopy: [Function: replaceCopy], 
-//   replaceAll: [Function: replaceAll], replaceAllCopy: [Function: replaceAllCopy], 
-//   remove: [Function: remove], removeAll: [Function: removeAll], 
+//   merge: [Function: concatMerge], insert: [Function: insert],
+//   replace: [Function: replace], replaceCopy: [Function: replaceCopy],
+//   replaceAll: [Function: replaceAll], replaceAllCopy: [Function: replaceAllCopy],
+//   remove: [Function: remove], removeAll: [Function: removeAll],
 //   insertAllCopy: [Function: insertAllCopy], insertCopy: [Function: insertCopy],
 //   removeCopy: [Function: removeCopy], removeAllCopy: [Function: removeAllCopy],
 //   popIndex: [Function: pop], clear: [Function: clear], index: [Function: index],
