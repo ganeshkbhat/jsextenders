@@ -21,7 +21,7 @@ var { decorate } = require("./src/decorator.js");
 var { SubArrayExtender, SubObjectExtender, SubStringExtender, Freeze, extender } = require("./src/extenders.js");
 // var { NumbersExtended, extendNumber } = require("./src/numbers.js");
 // var { ObjectExtended, extendObject } = require("./src/object.js");
-// var { StringExtended, extendString } = require("./src/string.js");
+var { StringExtended, extendString } = require("./src/string.js");
 var utils = require("./src/utils.js");
 var math = require("./src/math.js");
 
@@ -35,6 +35,7 @@ module.exports.extendArray = extendArray;
 
 module.exports.SubArrayExtender = SubArrayExtender;
 // module.exports.SubObjectExtender = SubObjectExtender;
+module.exports.SubStringExtender = SubStringExtender;
 
 // module.exports.NumbersExtended = NumbersExtended;
 // module.exports.extendNumber = extendNumber;

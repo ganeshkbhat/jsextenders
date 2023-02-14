@@ -30,14 +30,14 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         let f = [1.2, 2.5, 3.6, 4.3, 5.8, 6.1, 7.1, 8.6, 9.0];
 
         let e = [...a];
-        expect(e.execute((iterable) => JSON.stringify(iterable))).to.equal(200);
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(e.execute((iterable) => JSON.stringify(iterable))).to.equal(JSON.stringify([1,2,3,4,5,6,7,8,9]));
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]));
         e = [...a];
-        expect(e.extend(b, 3)).to.equal(200);
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(e.extend(b, 3)).to.equal(undefined);
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 4, 5, 6, 7, 8, 9 ]));
         e = [...a];
-        expect(e.append(b)).to.equal(200);
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(e.append(b)).to.equal(undefined);
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 4, 5, 6, 7, 8, 9, [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]));
         e = [...a];
         expect(e.isArray()).to.equal(true);
         expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]));
@@ -422,7 +422,12 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
 
 });
 
-
+// execute : [1,2,3,4,5,6,7,8,9]
+// result [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+// extend : undefined
+// result [ 1, 2, 3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 4, 5, 6, 7, 8, 9 ]
+// append : undefined
+// result [ 1, 2, 3, 4, 5, 6, 7, 8, 9, [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
 // isArray : true
 // result :[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 // isArray : true

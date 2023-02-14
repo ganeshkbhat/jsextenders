@@ -47,7 +47,7 @@ function SubObjectExtender() {
 function SubStringExtender() {
     var SubString = function () {
         var obj = new String(...arguments);
-        Object.setPrototypeOf(obj, SubObject.prototype);
+        Object.setPrototypeOf(obj, SubString.prototype);
         return obj;
     };
     SubString.prototype = {

@@ -25,7 +25,7 @@ import {
     Freeze, extender,
     // NumbersExtended, extendNumber, 
     // ObjectExtended, extendObject, 
-    // StringExtended, extendString 
+    StringExtended, extendString 
 } from "./index.js";
 
 export default extenders;
