@@ -162,7 +162,7 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         expect(e.transpose()).to.equal(undefined);
         expect(JSON.stringify(e)).to.equal(JSON.stringify([9, 8, 7, 6, 5, 4, 3, 2, 1]));
         e = [...a];
-        expect(e.transposeCopy()).to.equal(JSON.stringify([9, 8, 7, 6, 5, 4, 3, 2, 1]));
+        expect(JSON.stringify(e.transposeCopy())).to.equal(JSON.stringify([9, 8, 7, 6, 5, 4, 3, 2, 1]));
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         // e = [...a];
         // expect(e.immutables()).to.equal(200);
@@ -177,21 +177,21 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         // expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]));
         // e[2] = 12;
         // expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]));
-        e = [...c];
+        e = [...c]; // check
         expect(e.flatten()).to.equal(undefined);  // check
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5, [1, 2, 3], 1, 2, 3, 4, [1, 2, 3], 5, 6, 2, 3, 4, 5, 6, 7, 8, 9]));
-        e = [...c];
+        e = [...c]; // check
         expect(e.flatten(2, 7)).to.equal(undefined);  // check
         expect(JSON.stringify(e)).to.equal(JSON.stringify([2, 3, 4]));
-        e = [...c];
+        e = [...c]; // check
         expect(JSON.stringify(e.flattenCopy())).to.equal(JSON.stringify([1, 1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5, 1, 2, 3, 1, 2, 3, 4, [1, 2, 3], 5, 6, 2, 3, 4, 5, 6, 7, 8, 9]));
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5, 1, 2, 3, 1, 2, 3, 4, [1, 2, 3], 5, 6, 2, 3, 4, 5, 6, 7, 8, 9]));
-        e = [...c];
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], [1, 2, 3], [1, 2, 3, 4, [1, 2, 3], 5, 6], 2, 3, 4, 5, 6, 7, 8, 9]));
+        e = [...c]; // check
         expect(e.flattenDeep()).to.equal(undefined);
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 1, 2, 1, 2, 1, 2, 3, 3, 4, 5, 3, 4, 5, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 5, 6, 2, 3, 4, 5, 6, 7, 8, 9]));
-        e = [...c];
+        e = [...c]; // check
         expect(JSON.stringify(e.flattenDeepCopy())).to.equal(JSON.stringify([1, 1, 2, 1, 2, 1, 2, 3, 3, 4, 5, 3, 4, 5, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 5, 6, 2, 3, 4, 5, 6, 7, 8, 9]));
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 1, 2, 1, 2, 1, 2, 3, 3, 4, 5, 3, 4, 5, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 5, 6, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], [1, 2, 3], [1, 2, 3, 4, [1, 2, 3], 5, 6], 2, 3, 4, 5, 6, 7, 8, 9]));
         e = [...a];
         expect(JSON.stringify(e.range(15))).to.equal(JSON.stringify([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]));
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
@@ -215,14 +215,14 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         e = [...c];
         expect(e.subset(a)).to.equal(false);  // check
-        expect(e).to.equal(200);
-        expect(a).to.equal(200);
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], [1, 2, 3], [1, 2, 3, 4, [1, 2, 3], 5, 6], 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(JSON.stringify(a)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         e = [...c];
         expect(e.superset(a)).to.equal(true);  // check
-        expect(e).to.equal(200);
-        expect(a).to.equal(200);
-        e = [...a];
-        expect(e.extender(function namertest() { console.log("namertest", JSON.stringify([...this])) }, Array)).to.equal(200);
+        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], [1, 2, 3], [1, 2, 3, 4, [1, 2, 3], 5, 6], 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(JSON.stringify(a)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        e = [...a];  // check
+        expect(e.extender(function namertest() { console.log("namertest", JSON.stringify([...this])) }, Array)).to.equal(Array);
         expect(JSON.stringify(e.namertest())).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         e = [...a];
