@@ -215,10 +215,12 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         expect(JSON.stringify(e)).to.equal(JSON.stringify([ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]));
         e = [...c];
         expect(e.subset(a)).to.equal(false);  // check
-        expect("result e, a", e, a).to.equal(200);
+        expect(e).to.equal(200);
+        expect(a).to.equal(200);
         e = [...c];
         expect(e.superset(a)).to.equal(true);  // check
-        expect(e, a).to.equal(200);
+        expect(e).to.equal(200);
+        expect(a).to.equal(200);
         e = [...a];
         expect(e.extender(function namertest() { console.log("namertest", JSON.stringify([...this])) }, Array)).to.equal(200);
         expect(JSON.stringify(e.namertest())).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
