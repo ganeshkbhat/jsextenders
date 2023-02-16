@@ -858,7 +858,7 @@ function insert(index, item, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     a = [...a.splice(0, index - 1), item, ...a];
     this.length = 0;
-    this.push(a);
+    this.push(...a);
 }
 
 /**
@@ -956,7 +956,7 @@ function replace(index, item, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
     a[index] = item;
     this.length = 0;
-    this.push(a);
+    this.push(...a);
 }
 
 /**
@@ -1061,6 +1061,15 @@ function replaceAllCopy(item, replaceValue, start, end, method = "replace", this
 
     } else {
         let a = (!!thisValue) ? [...thisValue] : [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        while (!!a.includes(item)) {
+            let i = a.indexOf(item);
+            (i !== -1) ? (a[i] = replaceValue) : a[i];
+        }
+        let b = [...this];
+        return [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
     }
 }
 
@@ -1071,7 +1080,11 @@ function replaceAllCopy(item, replaceValue, start, end, method = "replace", this
  * @param {*} thisValue
  */
 function removeCopy(item, thisValue) {
+    if (!item) { throw new Error("Item is not defined"); }
     let a = (!!thisValue) ? [...thisValue] : [...this];
+    let i = a.indexOf(item);
+    (i !== -1) ? a.splice(i, 1) : a;
+    return a;
 }
 
 /**
@@ -1089,6 +1102,15 @@ function removeAllCopy(item, start, end, method = "replace", thisValue) {
 
     } else {
         let a = (!!thisValue) ? [...thisValue] : [...this];
+        start = (!!start) ? start : 0;
+        end = (!!end) ? end : a.length;
+        a = a.splice(start, end);
+        while (!!a.includes(item)) {
+            let i = a.indexOf(item);
+            (i !== -1) ? a.splice(i, 1) : a;
+        }
+        let b = [...this];
+        return [...b.splice(0, start), ...a, ...b.splice(end, b.length)];
     }
 }
 
