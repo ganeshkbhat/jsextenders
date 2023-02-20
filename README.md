@@ -224,16 +224,19 @@ Modifies the array with `Log10` of all the values from `start` index to `end` in
 ###### .LN2MapCopy
 
 Returns the copy array with `LN2` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
+
 `[1, 2, 3, 4].LN2MapCopy(start, end, method = "replace", thisValue)`
 
 ###### .LN10MapCopy
 
 Returns the copy array with `LN10` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
+
 `[1, 2, 3, 4].LN10MapCopy(start, end, method = "replace", thisValue)`
 
 ###### .LOG2EMapCopy
 
 Returns the copy array with `Log2E` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
+
 `[1, 2, 3, 4].LOG2EMapCopy(start, end, method = "replace", thisValue)`
 
 ###### .floorMap
