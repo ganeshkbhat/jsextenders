@@ -17,6 +17,8 @@
 'use strict';
 
 
+function Mapper() {}
+
 
 function MathExtended() {
 
@@ -24,6 +26,10 @@ function MathExtended() {
 
 function extendMath() {
 
+    Object.defineProperty(Math.prototype, 'Mapper', { value: Mapper, enumerable: true, });
+    // Object.defineProperty(Math.prototype, '', { value: , enumerable: true, });
+
+    return Math;
 }
 
 module.exports.MathExtended = MathExtended();

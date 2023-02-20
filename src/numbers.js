@@ -16,13 +16,17 @@
 
 'use strict';
 
+function Mapper() {}
 
 function NumbersExtended() {
 
 }
 
 function extendNumber() {
+    Object.defineProperty(Number.prototype, 'Mapper', { value: Mapper, enumerable: true, });
+    // Object.defineProperty(Number.prototype, '', { value: , enumerable: true, });
 
+    return Number;
 }
 
 module.exports.NumbersExtended = NumbersExtended;
