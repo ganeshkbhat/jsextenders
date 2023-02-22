@@ -2,7 +2,6 @@
 
 Node module for Array, Object, String, Decorator extention Utils like for Python and more for Node.js
 
-### IN DEVELOPMENT - DO NOT INSTALL
 
 #### USAGE
 
@@ -633,7 +632,7 @@ Log items of an array from `start` index to `end` index to console.
 
 ### Object prototype extended function
 
-#### Object - Dictionary [TODO]
+#### Object - Dictionary [TODO <sub>indevelopment</sub>]
 
 ```
 var extendObject = require("extenders").extendObject;
@@ -654,16 +653,16 @@ obj.clear();
 console.log(obj);
 ```
 
-#### Object - API List [TODO]
+#### Object - API List [TODO <sub>indevelopment</sub>]
 
-###### .clear [TODO]
+###### .clear [TODO <sub>indevelopment</sub>]
 
 
 <a name="string"></a>
 
 ### String prototype extended function
 
-#### String [TODO]
+#### String [TODO <sub>indevelopment</sub>]
 
 ```
 var StringExtended = require("extenders").StringExtended;
@@ -684,7 +683,7 @@ str.clear();
 console.log(str);
 ```
 
-#### String - API List [TODO]
+#### String - API List [TODO <sub>indevelopment</sub>]
 
 ###### .clear
 
@@ -694,7 +693,7 @@ console.log(str);
 
 ### Numbers prototype extended function
 
-#### Numbers [TODO]
+#### Numbers [TODO <sub>indevelopment</sub>]
 
 ```
 var NumberExtended = require("extenders").NumberExtended;
@@ -715,7 +714,7 @@ str.clear();
 console.log(str);
 ```
 
-#### Numbers - API List [TODO]
+#### Numbers - API List [TODO <sub>indevelopment</sub>]
 
 ###### .imul
 
@@ -725,7 +724,7 @@ console.log(str);
 
 ### Math prototype extended function
 
-#### Math [TODO]
+#### Math [TODO <sub>indevelopment</sub>]
 
 ```
 var extendMath = require("extenders").extendMath;
@@ -737,7 +736,7 @@ arr.imul();
 console.log(arr);
 ```
 
-#### Math - API List [TODO]
+#### Math - API List [TODO <sub>indevelopment</sub>]
 
 ###### .imul
 
@@ -747,13 +746,13 @@ console.log(arr);
 
 ### Utils prototype extended function
 
-#### Utils [TODO]
+#### Utils [TODO <sub>indevelopment</sub>]
 
 ```
 
 ```
 
-#### Utils - API List [TODO]
+#### Utils - API List [TODO <sub>indevelopment</sub>]
 
 ###### .clear
 
@@ -763,13 +762,13 @@ console.log(arr);
 
 ### Decorators prototype extended function
 
-#### Decorators [TODO]
+#### Decorators [TODO <sub>indevelopment</sub>]
 
 ```
 
 ```
 
-#### Decorators - API List [TODO]
+#### Decorators - API List [TODO <sub>indevelopment</sub>]
 
 ###### .decorate
 
@@ -779,7 +778,7 @@ console.log(arr);
 
 ### Extenders functions
 
-#### Extenders [TODO]
+#### Extenders [TODO <sub>indevelopment</sub>]
 
 ```
 

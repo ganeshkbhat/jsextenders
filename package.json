@@ -1,6 +1,6 @@
 {
   "name": "extenders",
-  "version": "0.0.2-beta",
+  "version": "0.0.2",
   "description": "node package for Array, Object, String, Decorator extention Utils like for Python and more for Node.js",
   "main": "index.js",
   "directories": {
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/ganeshkbhat/jsextenders.git"
   },
   "keywords": [],
-  "author": "ganesh B",
+  "author": "Ganesh B",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ganeshkbhat/jsextenders/issues"
