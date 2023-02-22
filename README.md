@@ -790,7 +790,7 @@ console.log(arr);
 
 # Current Status
 
-- In development
+- In development for Object, String, Decorator, Math, Numbers.
 
 # Todo
 
