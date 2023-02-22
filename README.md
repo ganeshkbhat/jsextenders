@@ -2,8 +2,13 @@
 
 Node module for Array, Object, String, Decorator extention Utils like for Python and more for Node.js
 
+Find the demos in the [demos folder](./demos)
+
+
 
 #### USAGE
+
+
 
 ###### JS
 
@@ -16,6 +21,8 @@ arr.clear();
 console.log(arr);
 ```
 
+
+
 ###### CJS
 
 ```
@@ -26,6 +33,8 @@ console.log(arr);
 arr.clear();
 console.log(arr);
 ```
+
+
 
 ###### ESM
 
@@ -38,6 +47,8 @@ arr.clear();
 console.log(arr);
 ```
 
+
+
 ### Different modules and functions
 
 - [Array](#array)
@@ -48,6 +59,8 @@ console.log(arr);
 - [Utils](#utils)
 - [Decorators](#decorators)
 - [Extenders](#extenders)
+
+
 
 <a name="array"></a>
 
@@ -628,11 +641,15 @@ Log items of an array from `start` index to `end` index to console.
 
 `[1, 2, 3, 4].log(start, end, message = "", callback = console.log, thisValue)`
 
+
+
 <a name="object"></a>
 
 ### Object prototype extended function
 
+
 #### Object - Dictionary [TODO <sub>indevelopment</sub>]
+
 
 ```
 var extendObject = require("extenders").extendObject;
@@ -653,16 +670,22 @@ obj.clear();
 console.log(obj);
 ```
 
+
 #### Object - API List [TODO <sub>indevelopment</sub>]
 
+
 ###### .clear [TODO <sub>indevelopment</sub>]
+
 
 
 <a name="string"></a>
 
 ### String prototype extended function
 
+
 #### String [TODO <sub>indevelopment</sub>]
+
+
 
 ```
 var StringExtended = require("extenders").StringExtended;
@@ -683,17 +706,23 @@ str.clear();
 console.log(str);
 ```
 
+
 #### String - API List [TODO <sub>indevelopment</sub>]
+
 
 ###### .clear
 
 `"Test string".clear(start, end)`
 
+
+
 <a name="numbers"></a>
 
 ### Numbers prototype extended function
 
+
 #### Numbers [TODO <sub>indevelopment</sub>]
+
 
 ```
 var NumberExtended = require("extenders").NumberExtended;
@@ -714,17 +743,24 @@ str.clear();
 console.log(str);
 ```
 
+
+
 #### Numbers - API List [TODO <sub>indevelopment</sub>]
+
 
 ###### .imul
 
 `.imul(...args)`
 
+
+
 <a name="math"></a>
 
 ### Math prototype extended function
 
+
 #### Math [TODO <sub>indevelopment</sub>]
+
 
 ```
 var extendMath = require("extenders").extendMath;
@@ -736,57 +772,81 @@ arr.imul();
 console.log(arr);
 ```
 
+
 #### Math - API List [TODO <sub>indevelopment</sub>]
+
 
 ###### .imul
 
 `.imul(...args)`
 
+
+
 <a name="utils"></a>
 
 ### Utils prototype extended function
 
+
 #### Utils [TODO <sub>indevelopment</sub>]
 
+
 ```
 
 ```
+
 
 #### Utils - API List [TODO <sub>indevelopment</sub>]
+
 
 ###### .clear
 
 `.clear(start, end)`
 
+
+
 <a name="decorators"></a>
 
 ### Decorators prototype extended function
 
+
 #### Decorators [TODO <sub>indevelopment</sub>]
 
+
 ```
 
 ```
+
 
 #### Decorators - API List [TODO <sub>indevelopment</sub>]
+
 
 ###### .decorate
 
 `.decorate()`
 
+
+
 <a name="extenders"></a>
 
 ### Extenders functions
 
+
 #### Extenders [TODO <sub>indevelopment</sub>]
 
+
 ```
 
 ```
+
+
+#### Extenders - API List [TODO <sub>indevelopment</sub>]
+
 
 ###### .clear
 
 `.clear()`
+
+
 
 # Current Status
 
