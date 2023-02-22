@@ -197,6 +197,7 @@ Returns the array with `absMap` of all the values of the array from `start` inde
 
 `[1, 2, 3, 4].absMapCopy(start, end, method = "replace", thisValue)`
 
+<!-- 
 ###### .LN2Map
 
 Modifies the array with `LN2` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
@@ -237,7 +238,8 @@ Returns the copy array with `LN10` of all the values from `start` index to `end`
 
 Returns the copy array with `Log2E` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
-`[1, 2, 3, 4].LOG2EMapCopy(start, end, method = "replace", thisValue)`
+`[1, 2, 3, 4].LOG2EMapCopy(start, end, method = "replace", thisValue)` 
+-->
 
 ###### .floorMap
 
