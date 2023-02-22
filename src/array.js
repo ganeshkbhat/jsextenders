@@ -813,15 +813,15 @@ function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) 
 /**
  *
  *
- * @param {*} item
+ * @param {*} multiplier
  * @param {*} start
  * @param {*} end
  * @param {string} [method="inrange"] // replace, inrange
  * @param {*} thisValue
  */
-function fillRange(item, start, end, method = "inrange", thisValue) {
+function fillRange(multiplier, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
-    let a = Mapper("fillRange", start, end, method, this, (a, ...args) => { return a.map((i) => { return i * item }) });
+    let a = Mapper("fillRange", start, end, method, this, (a, ...args) => { return a.map((i) => { return i * multiplier }) });
     this.length = 0;
     this.push(...a);
 }

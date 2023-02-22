@@ -331,11 +331,19 @@ Returns the array with count number of array items with random values multiplied
 
 `[1, 2, 3, 4].randomRange(count, multiplier)`
 
+<!-- 
 ###### .fillRandomRange
 
 Modifies the array with array items with random values multiplied with the provided multiplier from `start` index to `end` index. Modifies the array in place.
 
-`[1, 2, 3, 4].fillRandomRange(count, multiplier, start, end, method = "replace", thisValue)`
+`[1, 2, 3, 4].fillRandomRange(count, multiplier, start, end, method = "replace", thisValue)` 
+-->
+
+###### .fillRange
+
+Modifies the array with array items with random values multiplied with the provided multiplier from `start` index to `end` index. Modifies the array in place.
+
+`[1, 2, 3, 4].fillRange(item, start, end, method = "inrange", thisValue)`
 
 ###### .append
 
