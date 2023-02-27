@@ -115,20 +115,13 @@ Object.defineProperty(NumericalArray.prototype, 'linspace', { value: linspace, e
 Object.defineProperty(NumericalArray.prototype, 'logspace', { value: logspace, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'mgrid', { value: mgrid, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'ogrid', { value: ogrid, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'reshape', { value: reshape, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'ravel', { value: ravel, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'repeat', { value: repeat, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'resize', { value: resize, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'flatten', { value: flatten, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'c_', { value: c_, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'r_', { value: r_, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'column_stack', { value: column_stack, enumerable: true });
-Object.defineProperty(NumericalArray.prototype, 'row_stack', { value: row_stack, enumerable: true });
 
 Object.defineProperty(NumericalArray.prototype, 'eye', { value: eye, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'memmap', { value: memmap, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'fromfile', { value: fromfile, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'fromfunction', { value: fromfunction, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'identity', { value: identity, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'flatten', { value: flatten, enumerable: true });
 
 /**
 
@@ -137,6 +130,11 @@ Manipulations: ravel, repeat, reshape, resize, squeeze, swapaxes, take, transpos
 
 */
 
+Object.defineProperty(NumericalArray.prototype, 'item', { value: item, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'c_', { value: c_, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'r_', { value: r_, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'column_stack', { value: column_stack, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'row_stack', { value: row_stack, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'array_split', { value: array_split, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'concatenate', { value: concatenate, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'diagonal', { value: diagonal, enumerable: true });
@@ -147,7 +145,14 @@ Object.defineProperty(NumericalArray.prototype, 'vstack', { value: vstack, enume
 Object.defineProperty(NumericalArray.prototype, 'dsplit', { value: dsplit, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'hsplit', { value: hsplit, enumerable: true });
 Object.defineProperty(NumericalArray.prototype, 'vsplit', { value: vsplit, enumerable: true });
-
+Object.defineProperty(NumericalArray.prototype, 'reshape', { value: reshape, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'ravel', { value: ravel, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'repeat', { value: repeat, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'resize', { value: resize, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'squeeze', { value: squeeze, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'swapaxis', { value: swapaxis, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'take', { value: take, enumerable: true });
+Object.defineProperty(NumericalArray.prototype, 'transpose', { value: transpose, enumerable: true });
 
 /**
 

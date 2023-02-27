@@ -16,6 +16,11 @@
 
 'use strict';
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function SubArrayExtender() {
     var SubArray = function () {
         var arr = new Array(...arguments);
@@ -29,7 +34,11 @@ function SubArrayExtender() {
     return SubArray;
 }
 
-
+/**
+ *
+ *
+ * @return {*} 
+ */
 function SubObjectExtender() {
     var SubObject = function () {
         var obj = new Object(...arguments);
@@ -43,7 +52,11 @@ function SubObjectExtender() {
     return SubObject;
 }
 
-
+/**
+ *
+ *
+ * @return {*} 
+ */
 function SubStringExtender() {
     var SubString = function () {
         var obj = new String(...arguments);
@@ -57,11 +70,23 @@ function SubStringExtender() {
     return SubString;
 }
 
-
+/**
+ *
+ *
+ * @param {*} object
+ * @return {*} 
+ */
 function Freeze(object) {
     return Object.freeze(object);
 }
 
+/**
+ *
+ *
+ * @param {*} func
+ * @param {*} object
+ * @return {*} 
+ */
 function extender(func, object) {
     if (typeof func !== "function") {
         throw new Error("Error: func is not an function", func);
