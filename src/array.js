@@ -1678,6 +1678,21 @@ function enumerate(type = "object", thisValue) {
 /**
  *
  *
+ * @param {string} [type="object"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function enumerateGenerator(type = "object", thisValue) {
+    if (!["object", "array"].includes(type)) { throw new Error("Type not defined"); };
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let b = [], len = a.length;
+    
+    return b;
+}
+
+/**
+ *
+ *
  * @param {*} start
  * @param {*} end
  * @param {*} thisValue
@@ -2024,6 +2039,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enumerate', { value: enumerate, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'enumerateGenerator', { value: enumerateGenerator, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'del', { value: del, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'toObject', { value: diction, enumerable: true, });
@@ -2140,6 +2156,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'enumerateGenerator', { value: enumerateGenerator, enumerable: true, });
     Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
     Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });
