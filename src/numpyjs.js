@@ -9,6 +9,9 @@
  * File: src/numpyjs.js
  * File Description: 
  * 
+ * References:
+ * https://numpy.org/doc/1.23/numpy-user.pdf
+ * https://numpy.org/doc/1.23/numpy-ref.pdf
  * 
 */
 
