@@ -848,6 +848,50 @@ console.log(arr);
 
 
 
+<a name="numpyjs"></a>
+
+### Numpyjs functions
+
+
+#### Numpyjs [TODO <sub>considering</sub>]
+
+
+```
+
+```
+
+
+#### Numpyjs - API List [TODO <sub>considering</sub>]
+
+
+###### .clear
+
+`.clear()`
+
+
+
+<a name="pandas"></a>
+
+### Pandas functions
+
+
+#### Pandas [TODO <sub>considering</sub>]
+
+
+```
+
+```
+
+
+#### Pandas - API List [TODO <sub>considering</sub>]
+
+
+###### .clear
+
+`.clear()`
+
+
+
 # Current Status
 
 - In development for Object, String, Decorator, Math, Numbers.
