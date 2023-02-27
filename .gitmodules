@@ -1,6 +1,0 @@
-[submodule "pickler"]
-	path = pickler
-	url = https://github.com/ganeshkbhat/pickler.git
-[submodule "numericalarrays"]
-	path = numericalarrays
-	url = https://github.com/ganeshkbhat/numericalarrays.git
