@@ -601,6 +601,10 @@ Create an array into immutable array using the `freeze` method. Modifies the arr
 `[1, 2, 3, 4].freeze(array)`
 `[1, 2, 3, 4].tuple(array)`
 
+`[1, 2, 3, 4].immutables()`
+`[1, 2, 3, 4].freeze()`
+`[1, 2, 3, 4].tuple()`
+
 ###### .flatten
 
 Flatten the array from `start` index to `end` index . Modify's the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
