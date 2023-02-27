@@ -1,0 +1,39 @@
+[TODO]
+
+* Done - D
+* Inprogress - I 
+* Todo - T 
+* Consider - C
+
+[FEATURES]
+
+- [D] Array
+- [I] String
+- [I] Math
+- [I] Numbers
+- [I] Object
+- [I] Utils
+- [I] Extenders
+- [C] Pandas
+- [C] Numpyjs
+
+[DETAILED TODO]
+
+- [] Array
+    - [] Incorporate Python list and tuple functions
+        - 
+    - [] Incorporate _ functions missing in list and tuple
+        - 
+    - [] Incorporate basic or common array math functions
+        - 
+    - [] Incorporate basic or common other array modifiers not in _, list, and tuple
+        - 
+- [] String
+- [] Math
+- [] Numbers
+- [] Object
+- [] Utils
+- [] Extenders
+- [] Pandas
+- [] Numpyjs
+
