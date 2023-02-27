@@ -641,6 +641,12 @@ Enumerate an array into an iteratable array of objects with structure `{index, v
 
 `[1, 2, 3, 4].enumerate(type = "object", thisValue)`
 
+###### .enumerateGenerator
+
+EnumerateGenerator a function that converts/returns a generator function from an array in an iteratable generator function with its values of objects with structure `{index, value}`.
+
+`[1, 2, 3, 4].enumerate(type = "object", thisValue)`
+
 ###### .del
 
 Delete items of an array from start index to end index.
