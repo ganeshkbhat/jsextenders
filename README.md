@@ -637,15 +637,15 @@ Create a range of numbers from `start` index to `end` index with a increment of 
 
 ###### .enumerate
 
-Enumerate an array into an iteratable array of objects with structure `{index, value}` in each item.
+Enumerate an array into an iteratable array of objects with structure `{index, value}` or `[index, value]` in each item. Type can be object or array.
 
 `[1, 2, 3, 4].enumerate(type = "object", thisValue)`
 
-###### .enumerateGenerator
+###### .generator
 
-EnumerateGenerator is a function that returns a generator function from an array into a iteratable generator function with its values of objects with structure `{index, value}`.
+Generator is a function that returns a generator function from an array into a iteratable generator function with its values of objects with structure `{index, value}` or `[index, value]`. Type can be object or array.
 
-`[1, 2, 3, 4].enumerateGenerator(type = "object", thisValue)`
+`[1, 2, 3, 4].generator(type = "object", thisValue)`
 
 ###### .del
 
