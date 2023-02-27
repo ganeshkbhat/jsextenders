@@ -68,9 +68,9 @@ console.log(arr);
 ### Array Prototype extended functions
 
 The extenders library's array extended functions tries to add many common use cases of array modifiers and functions missing or used constantly in projects. This library tries to provide/ incorporate all (or atleast most)
-    - python list/ tuple functions
-    - common use cases of Math, and other array like functions
-    - _ (underscore) functions missing from python list, tuple, common functions
+    1. python list/ tuple functions
+    2. common use cases of Math, and other array like functions
+    3. _ (underscore) functions missing from python list, tuple, common functions
 
 
 ```
