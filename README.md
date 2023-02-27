@@ -1,6 +1,6 @@
 # extenders
 
-Node module for Array, Object, String, Decorator, Numpyjs, Pandas extention Utils like for Python and more for Node.js
+Node module for Array, Object, String, Decorator, extention Utils like for Python and more for Node.js
 
 Find the demos in the [demos folder](./demos)
 
