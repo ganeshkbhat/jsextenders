@@ -645,7 +645,7 @@ Enumerate an array into an iteratable array of objects with structure `{index, v
 
 EnumerateGenerator is a function that returns a generator function from an array into a iteratable generator function with its values of objects with structure `{index, value}`.
 
-`[1, 2, 3, 4].enumerate(type = "object", thisValue)`
+`[1, 2, 3, 4].enumerateGenerator(type = "object", thisValue)`
 
 ###### .del
 
