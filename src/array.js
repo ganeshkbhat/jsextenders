@@ -1725,6 +1725,32 @@ function log(start, end, message = "", callback = console.log, thisValue) {
     callback(message + JSON.stringify(a));
 }
 
+/**
+ * Numpy needed functions
+ * https://github.com/numpy/numpy/blob/main/numpy/core/defchararray.py 
+ * https://github.com/numpy/numpy/blob/main/numpy/core/einsumfunc.py
+ * https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
+ * https://github.com/numpy/numpy/blob/main/numpy/core/function_base.py
+ * https://github.com/numpy/numpy/blob/main/numpy/core/umath.py
+ * 
+ */
+
+/**
+ *
+ *
+ * @param {*} a
+ * @param {*} indices
+ * @param {*} [axis=None]
+ * @param {*} [out=None]
+ * @param {string} [mode='raise']
+ */
+function take(a, indices, axis=None, out=None, mode='raise') {
+    // https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
+}
+
+function choose() {
+    // https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
+}
 
 // // _ lodash Functions
 // // Array

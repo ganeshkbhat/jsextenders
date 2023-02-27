@@ -44,6 +44,7 @@ function NumericalArray() {
 
 }
 
+
 /**
 
 Array Creation: arange, array, copy, empty, empty_like, eye, fromfile, fromfunction, identity, 
@@ -187,3 +188,149 @@ module.exports.NumArray = NumericalArray;
 // module.exports.Numjs = NumericalArray;
 // module.exports.Numpy = NumericalArray;
 module.exports.NumericalArray = NumericalArray;
+
+
+/** 
+ * numerictypes: Define the numeric type objects
+ * 
+
+This module is designed so "from numerictypes import \\*" is safe.
+Exported symbols include:
+  Dictionary with all registered number types (including aliases):
+    sctypeDict
+  Type objects (not all will be available, depends on platform):
+      see variable sctypes for which ones you have
+    Bit-width names
+    int8 int16 int32 int64 int128
+    uint8 uint16 uint32 uint64 uint128
+    float16 float32 float64 float96 float128 float256
+    complex32 complex64 complex128 complex192 complex256 complex512
+    datetime64 timedelta64
+    c-based names
+    bool_
+    object_
+    void, str_, unicode_
+    byte, ubyte,
+    short, ushort
+    intc, uintc,
+    intp, uintp,
+    int_, uint,
+    longlong, ulonglong,
+    single, csingle,
+    float_, complex_,
+    longfloat, clongfloat,
+   As part of the type-hierarchy:    xx -- is bit-width
+   generic
+     +-> bool_                                  (kind=b)
+     +-> number
+     |   +-> integer
+     |   |   +-> signedinteger     (intxx)      (kind=i)
+     |   |   |     byte
+     |   |   |     short
+     |   |   |     intc
+     |   |   |     intp
+     |   |   |     int_
+     |   |   |     longlong
+     |   |   \\-> unsignedinteger  (uintxx)     (kind=u)
+     |   |         ubyte
+     |   |         ushort
+     |   |         uintc
+     |   |         uintp
+     |   |         uint_
+     |   |         ulonglong
+     |   +-> inexact
+     |       +-> floating          (floatxx)    (kind=f)
+     |       |     half
+     |       |     single
+     |       |     float_          (double)
+     |       |     longfloat
+     |       \\-> complexfloating  (complexxx)  (kind=c)
+     |             csingle         (singlecomplex)
+     |             complex_        (cfloat, cdouble)
+     |             clongfloat      (longcomplex)
+     +-> flexible
+     |   +-> character
+     |   |     str_     (string_, bytes_)       (kind=S)    [Python 2]
+     |   |     unicode_                         (kind=U)    [Python 2]
+     |   |
+     |   |     bytes_   (string_)               (kind=S)    [Python 3]
+     |   |     str_     (unicode_)              (kind=U)    [Python 3]
+     |   |
+     |   \\-> void                              (kind=V)
+     \\-> object_ (not used much)               (kind=O)
+
+ * 
+ */
+
+     
+/**
+ * Numpy needed functions: https://github.com/numpy/numpy/tree/main/numpy/core , https://github.com/numpy/numpy/tree/main/numpy/lib
+
+https://github.com/numpy/numpy/blob/main/numpy/core/numeric.py
+// https://github.com/numpy/numpy/blob/main/numpy/core/numerictypes.py
+https://github.com/numpy/numpy/blob/main/numpy/core/getlimits.py
+https://github.com/numpy/numpy/blob/main/numpy/core/defchararray.py 
+https://github.com/numpy/numpy/blob/main/numpy/core/einsumfunc.py
+https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
+https://github.com/numpy/numpy/blob/main/numpy/core/function_base.py
+https://github.com/numpy/numpy/blob/main/numpy/matrixlib/defmatrix.py
+// Array API : https://github.com/numpy/numpy/tree/main/numpy/array_api
+// Types and Limits References: https://github.com/numpy/numpy/blob/main/numpy/core/getlimits.py
+// Records and Format Parsers References: https://github.com/numpy/numpy/blob/main/numpy/core/records.py
+// Shape Functions References: https://github.com/numpy/numpy/blob/main/numpy/core/shape_base.py
+// Consider memmap: https://github.com/numpy/numpy/blob/main/numpy/core/memmap.py - memory-map to an array stored in a *binary* file on disk
+// Consider Pickle feature or something similar
+// Linspace, logspace, geospace References: https://github.com/numpy/numpy/blob/main/numpy/core/function_base.py
+// Array item pickers: https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
+
+ */
+
+
+// https://github.com/numpy/numpy/blob/main/numpy/core/numerictypes.py
+// https://github.com/numpy/numpy/blob/main/numpy/core/shape_base.py
+// https://github.com/numpy/numpy/blob/main/numpy/core/records.py
+// https://github.com/numpy/numpy/blob/main/numpy/core/umath.py
+// https://github.com/numpy/numpy/blob/main/numpy/matrixlib/defmatrix.py
+// def _convert_from_string(data)
+// def asmatrix(data, dtype=None)
+// class matrix(N.ndarray)
+// def _from_string(str, gdict, ldict)
+// def bmat(obj, ldict=None, gdict=None)
+
+// https://github.com/numpy/numpy/blob/main/numpy/compat/py3k.py
+// def asunicode(s):
+// def asbytes(s):
+// def asstr(s):
+// def isfileobj(f):
+// def open_latin1(filename, mode='r'):
+// def sixu(s):
+// def getexception():
+// def asbytes_nested(x):
+// def asunicode_nested(x):
+// def is_pathlib_path(obj):
+// class contextlib_nullcontext:
+// def npy_load_module(name, fn, info=None):
+
+// Math functions Needs:
+// https://github.com/numpy/numpy/blob/main/numpy/core/umath.py
+
+// '_UFUNC_API', 'ERR_CALL', 'ERR_DEFAULT', 'ERR_IGNORE', 'ERR_LOG',
+// 'ERR_PRINT', 'ERR_RAISE', 'ERR_WARN', 'FLOATING_POINT_SUPPORT',
+// 'FPE_DIVIDEBYZERO', 'FPE_INVALID', 'FPE_OVERFLOW', 'FPE_UNDERFLOW', 'NAN',
+// 'NINF', 'NZERO', 'PINF', 'PZERO', 'SHIFT_DIVIDEBYZERO', 'SHIFT_INVALID',
+// 'SHIFT_OVERFLOW', 'SHIFT_UNDERFLOW', 'UFUNC_BUFSIZE_DEFAULT',
+// 'UFUNC_PYVALS_NAME', '_add_newdoc_ufunc', 'absolute', 'add',
+// 'arccos', 'arccosh', 'arcsin', 'arcsinh', 'arctan', 'arctan2', 'arctanh',
+// 'bitwise_and', 'bitwise_or', 'bitwise_xor', 'cbrt', 'ceil', 'conj',
+// 'conjugate', 'copysign', 'cos', 'cosh', 'deg2rad', 'degrees', 'divide',
+// 'divmod', 'e', 'equal', 'euler_gamma', 'exp', 'exp2', 'expm1', 'fabs',
+// 'floor', 'floor_divide', 'float_power', 'fmax', 'fmin', 'fmod', 'frexp',
+// 'frompyfunc', 'gcd', 'geterrobj', 'greater', 'greater_equal', 'heaviside',
+// 'hypot', 'invert', 'isfinite', 'isinf', 'isnan', 'isnat', 'lcm', 'ldexp',
+// 'left_shift', 'less', 'less_equal', 'log', 'log10', 'log1p', 'log2',
+// 'logaddexp', 'logaddexp2', 'logical_and', 'logical_not', 'logical_or',
+// 'logical_xor', 'maximum', 'minimum', 'mod', 'modf', 'multiply', 'negative',
+// 'nextafter', 'not_equal', 'pi', 'positive', 'power', 'rad2deg', 'radians',
+// 'reciprocal', 'remainder', 'right_shift', 'rint', 'seterrobj', 'sign',
+// 'signbit', 'sin', 'sinh', 'spacing', 'sqrt', 'square', 'subtract', 'tan',
+// 'tanh', 'true_divide', 'trunc'
