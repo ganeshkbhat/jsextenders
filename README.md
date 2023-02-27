@@ -1,6 +1,6 @@
 # extenders
 
-Node module for Array, Object, String, Decorator extention Utils like for Python and more for Node.js
+Node module for Array, Object, String, Decorator, Numpyjs, Pandas extention Utils like for Python and more for Node.js
 
 Find the demos in the [demos folder](./demos)
 
@@ -67,6 +67,12 @@ console.log(arr);
 
 ### Array Prototype extended functions
 
+The extenders library's array extended functions tries to add many common use cases of array modifiers and functions missing or used constantly in projects. This library tries to provide/ incorporate all (or atleast most)
+    - python list/ tuple functions
+    - common use cases of Math, and other array like functions
+    - _ (underscore) functions missing from python list, tuple, common functions
+
+
 ```
 var extendArray = require("extenders").extendArray;
 extendArray();
@@ -93,6 +99,7 @@ extendArray();
 // Below find the usage of the extended functions
 
 ```
+
 
 #### Array - API List
 
@@ -649,6 +656,7 @@ Log items of an array from `start` index to `end` index to console.
 ### Object prototype extended function
 
 
+
 #### Object - Dictionary [TODO <sub>indevelopment</sub>]
 
 
@@ -682,6 +690,7 @@ console.log(obj);
 <a name="string"></a>
 
 ### String prototype extended function
+
 
 
 #### String [TODO <sub>indevelopment</sub>]
@@ -722,6 +731,7 @@ console.log(str);
 ### Numbers prototype extended function
 
 
+
 #### Numbers [TODO <sub>indevelopment</sub>]
 
 
@@ -745,7 +755,6 @@ console.log(str);
 ```
 
 
-
 #### Numbers - API List [TODO <sub>indevelopment</sub>]
 
 
@@ -758,6 +767,7 @@ console.log(str);
 <a name="math"></a>
 
 ### Math prototype extended function
+
 
 
 #### Math [TODO <sub>indevelopment</sub>]
@@ -788,6 +798,7 @@ console.log(arr);
 ### Utils prototype extended function
 
 
+
 #### Utils [TODO <sub>indevelopment</sub>]
 
 
@@ -808,6 +819,7 @@ console.log(arr);
 <a name="decorators"></a>
 
 ### Decorators prototype extended function
+
 
 
 #### Decorators [TODO <sub>indevelopment</sub>]
@@ -832,6 +844,7 @@ console.log(arr);
 ### Extenders functions
 
 
+
 #### Extenders [TODO <sub>indevelopment</sub>]
 
 
@@ -854,6 +867,7 @@ console.log(arr);
 ### Numpyjs functions
 
 
+
 #### Numpyjs [TODO <sub>considering</sub>]
 
 
@@ -874,6 +888,7 @@ console.log(arr);
 <a name="pandas"></a>
 
 ### Pandas functions
+
 
 
 #### Pandas [TODO <sub>considering</sub>]
