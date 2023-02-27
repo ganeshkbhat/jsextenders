@@ -59,7 +59,8 @@ console.log(arr);
 - [Utils](#utils)
 - [Decorators](#decorators)
 - [Extenders](#extenders)
-
+- [Numpyjs](#numpyjs)
+- [Pandas](#pandas)
 
 
 <a name="array"></a>
