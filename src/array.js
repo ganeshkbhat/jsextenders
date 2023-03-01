@@ -1247,13 +1247,16 @@ function copy(start, end, thisValue) {
  * @param {*} keyconvertor [default="index"] Options: [index, value]
  * @return {*} 
  */
-function diction(mapperFunction, arg, start, end, keyconvertor = "index", thisValue) {
+function diction(mapperFunction, arg, start, end, keyconvertor = "index", thisValue, keyArrayValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this], aO = {};
     if (!mapperFunction || typeof mapperFunction !== "function") { mapperFunction = (i) => i; }
     if (keyconvertor === "value") {
         aO = a.reduce((a, c, i) => { return { ...a, ...{ [c]: c } } }, aO);
     } else if (keyconvertor === "index") {
         aO = Object.assign(aO, a);
+    } else if (keyconvertor === "array") {
+        if (a.length < keyArrayValue.length) throw new Error("[ERROR:] keyArrayValue array length less than array length");
+        aO = a.reduce((a, c, i) => { return { ...a, ...{ [keyArrayValue[i]]: c } } }, aO);
     }
     if (!!mapperFunction && typeof mapperFunction === "function") return mapperFunction(aO, arg);
     return aO;
