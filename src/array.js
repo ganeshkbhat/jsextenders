@@ -1650,8 +1650,8 @@ function flattenDeepCopy(start, end, method = "replace", thisValue) {
  *
  *
  * @param {number} start (The start index of the array)
- * @param {*} stop
- * @param {*} step
+ * @param {number} stop (The end index of the array)
+ * @param {number} step (The increment value to use)
  * @return {*} 
  */
 function range(start, stop, step) {
@@ -1672,7 +1672,7 @@ function range(start, stop, step) {
 /**
  *
  *
- * @param {string} [type="object"]
+ * @param {string} type [default="object"]
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
@@ -1694,7 +1694,7 @@ function enumerate(type = "object", thisValue) {
 /**
  *
  *
- * @param {string} [type="object"]
+ * @param {string} type [default="object"]
  * @param {* []} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
@@ -1727,7 +1727,7 @@ function del(start, end, thisValue) {
  *
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
- * @param {string} [message=""]
+ * @param {string} message [default=""]
  * @param {*} [callback=console.log]
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
@@ -1742,14 +1742,14 @@ function log(start, end, message = "", callback = console.log, thisValue) {
 }
 
 
-function toObject(keyconvertor = "value") {
-    let c = [...this], aO = {};
-    if (keyconvertor === "value") {
-        return c.reduce((a, c, i) => { return { ...a, ...{ [c]: c } } }, aO);
-    } else if (keyconvertor === "index") {
-        return Object.assign(aO, c);
-    }
-}
+// function toObject(keyconvertor = "value") {
+//     let c = [...this], aO = {};
+//     if (keyconvertor === "value") {
+//         return c.reduce((a, c, i) => { return { ...a, ...{ [c]: c } } }, aO);
+//     } else if (keyconvertor === "index") {
+//         return Object.assign(aO, c);
+//     }
+// }
 
 
 /**
@@ -1762,18 +1762,20 @@ function toObject(keyconvertor = "value") {
  * 
  */
 
+
 /**
  *
  *
  * @param {*} a
  * @param {*} indices
- * @param {*} [axis=None]
- * @param {*} [out=None]
+ * @param {*} [axis=null]
+ * @param {*} [out=null]
  * @param {string} [mode='raise']
  */
-function take(a, indices, axis = None, out = None, mode = 'raise') {
+function take(a, indices, axis = null, out = null, mode = 'raise') {
     // https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
 }
+
 
 function choose() {
     // https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
