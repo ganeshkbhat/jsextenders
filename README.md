@@ -501,7 +501,7 @@ Returns a deep copy of the array from `start` index to `end` index. Returns a ne
 
 Returns the converted dictionary from the array from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
-`[1, 2, 3, 4].diction(mapFunction, arg, start, end, thisValue)`
+`[1, 2, 3, 4].diction(mapperFunction, arg, start, end, keyconvertor, thisValue, keyArrayValue)`
 
 ###### .subset
 
