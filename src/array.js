@@ -33,7 +33,7 @@ function execute(executeFunction, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {*} index (The index value for the function)
  */
 function extend(iterable, index, thisValue) {
@@ -853,7 +853,7 @@ function append(item, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @return {*} 
  */
 function isArray(iterable) {
@@ -1265,7 +1265,7 @@ function diction(mapperFunction, arg, start, end, keyconvertor = "index", thisVa
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @return {*} 
@@ -1283,7 +1283,7 @@ function subset(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @return {*} 
@@ -1301,7 +1301,7 @@ function superset(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @return {*} 
@@ -1319,7 +1319,7 @@ function diffIterable(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
@@ -1338,7 +1338,7 @@ function diffSelf(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
@@ -1356,7 +1356,7 @@ function diffBoth(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
@@ -1375,7 +1375,7 @@ function equal(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} iterable (The new external iterable for the function)
+ * @param {*[]} iterable (The new external iterable for the function)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
