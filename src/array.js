@@ -46,9 +46,9 @@ function extend(iterable, index, thisValue) {
  *
  *
  * @param {*} count (The count number of items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function max(count, start, end, thisValue) {
@@ -66,9 +66,9 @@ function max(count, start, end, thisValue) {
  *
  *
  * @param {*} count (The count number of items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function maxIndexes(count, start, end, thisValue) {
@@ -87,9 +87,9 @@ function maxIndexes(count, start, end, thisValue) {
  *
  *
  * @param {*} count (The count number of items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function min(count, start, end, thisValue) {
@@ -106,9 +106,9 @@ function min(count, start, end, thisValue) {
  *
  *
  * @param {*} count (The count number of items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function minIndexes(count, start, end, thisValue) {
@@ -126,9 +126,9 @@ function minIndexes(count, start, end, thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function average(start, end, thisValue) {
@@ -143,9 +143,9 @@ function average(start, end, thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function sum(start, end, thisValue) {
@@ -300,10 +300,10 @@ function mathswitchOptions() {
  *
  *
  * @param {string} type [default="abs"] Options: [mathswitchOptions()]
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function MapperCopy(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
     if (!callback) {
@@ -334,10 +334,10 @@ function MapperCopy(type = "abs", start, end, method = "replace", thisValue, cal
  *
  *
  * @param {string} type [default="abs"] Options: [mathswitchOptions()]
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function Mapper(type = "abs", start, end, method = "replace", thisValue, callback, ...args) {
     return MapperCopy(type, start, end, method, thisValue || this, callback, ...args);
@@ -346,10 +346,10 @@ function Mapper(type = "abs", start, end, method = "replace", thisValue, callbac
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function acosMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("acos", start, end, method, thisValue || this);
@@ -360,10 +360,10 @@ function acosMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function cosMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("cos", start, end, method, thisValue || this);
@@ -374,10 +374,10 @@ function cosMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function sinMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("sin", start, end, method, thisValue || this);
@@ -388,10 +388,10 @@ function sinMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function asinMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("asin", start, end, method, thisValue || this);
@@ -402,10 +402,10 @@ function asinMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function absMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("abs", start, end, method, thisValue || this);
@@ -416,9 +416,9 @@ function absMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function factorialMap(start, end, thisValue) {
@@ -432,9 +432,9 @@ function factorialMap(start, end, thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function cosMapCopy(start, end, method = "replace", thisValue) {
@@ -444,9 +444,9 @@ function cosMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function acosMapCopy(start, end, method = "replace", thisValue) {
@@ -456,9 +456,9 @@ function acosMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function sinMapCopy(start, end, method = "replace", thisValue) {
@@ -468,9 +468,9 @@ function sinMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function asinMapCopy(start, end, method = "replace", thisValue) {
@@ -480,9 +480,9 @@ function asinMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function absMapCopy(start, end, method = "replace", thisValue) {
@@ -492,10 +492,10 @@ function absMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LN2Map(start, end, method = "replace", thisValue) {
     let a = MapperCopy("LN2", start, end, method, thisValue || this);
@@ -506,10 +506,10 @@ function LN2Map(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LN10Map(start, end, method = "replace", thisValue) {
     let a = MapperCopy("LN10", start, end, method, thisValue || this);
@@ -520,10 +520,10 @@ function LN10Map(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LOG2EMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("log2e", start, end, method, thisValue || this);
@@ -534,10 +534,10 @@ function LOG2EMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LOG10EMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("log10e", start, end, method, thisValue || this);
@@ -548,9 +548,9 @@ function LOG10EMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LN2MapCopy(start, end, method = "replace", thisValue) {
     return MapperCopy("LN2", start, end, method, thisValue || this);
@@ -559,9 +559,9 @@ function LN2MapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LN10MapCopy(start, end, method = "replace", thisValue) {
     return MapperCopy("LN10", start, end, method, thisValue || this);
@@ -570,9 +570,9 @@ function LN10MapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LOG2EMapCopy(start, end, method = "replace", thisValue) {
     return MapperCopy("log2e", start, end, method, thisValue || this);
@@ -581,9 +581,9 @@ function LOG2EMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function LOG10EMapCopy(start, end, method = "replace", thisValue) {
     return MapperCopy("log10e", start, end, method, thisValue || this);
@@ -592,10 +592,10 @@ function LOG10EMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function floorMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("floor", start, end, method, thisValue || this);
@@ -606,10 +606,10 @@ function floorMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function ceilMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("ceil", start, end, method, thisValue || this);
@@ -620,10 +620,10 @@ function ceilMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function roundMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("round", start, end, method, thisValue || this);
@@ -634,10 +634,10 @@ function roundMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function floorMapCopy(start, end, method = "replace", thisValue) {
@@ -647,10 +647,10 @@ function floorMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function ceilMapCopy(start, end, method = "replace", thisValue) {
@@ -660,10 +660,10 @@ function ceilMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function roundMapCopy(start, end, method = "replace", thisValue) {
@@ -673,10 +673,10 @@ function roundMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function squareMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("pow", start, end, method, thisValue || this, null, 2);
@@ -687,10 +687,10 @@ function squareMap(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function sqrtMap(start, end, method = "replace", thisValue) {
     let a = MapperCopy("sqrt", start, end, method, thisValue || this);
@@ -702,10 +702,10 @@ function sqrtMap(start, end, method = "replace", thisValue) {
  *
  *
  * @param {*} power (The power value for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function powMap(power, start, end, method = "replace", thisValue) {
     if (!power) { throw new Error("Power is not defined"); }
@@ -718,10 +718,10 @@ function powMap(power, start, end, method = "replace", thisValue) {
  *
  *
  * @param {*} multiplier (The mutiplier for each of the array items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
     if (!multiplier) { throw new Error("Multiplier is not defined"); }
@@ -733,10 +733,10 @@ function multiplyMap(multiplier, start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array) 
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array) 
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function squareMapCopy(start, end, method = "replace", thisValue) {
@@ -746,10 +746,10 @@ function squareMapCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function sqrtMapCopy(start, end, method = "replace", thisValue) {
@@ -760,10 +760,10 @@ function sqrtMapCopy(start, end, method = "replace", thisValue) {
  *
  *
  * @param {*} power (The power value for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function powMapCopy(power, start, end, method = "replace", thisValue) {
@@ -775,10 +775,10 @@ function powMapCopy(power, start, end, method = "replace", thisValue) {
  *
  *
  * @param {*} multiplier (The mutiplier for each of the array items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function multiplyMapCopy(multiplier, start, end, method = "replace", thisValue) {
@@ -803,10 +803,10 @@ function randomRange(count, multiplier) {
  *
  *
  * @param {*} multiplier (The mutiplier for each of the array items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} [method="inrange"] // replace, inrange
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) {
     // if (!end) {
@@ -824,10 +824,10 @@ function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) 
  *
  *
  * @param {*} multiplier (The mutiplier for each of the array items)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} [method="inrange"] // replace, inrange
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function fillRange(multiplier, start, end, method = "inrange", thisValue) {
     if (!count) { throw new Error("Count [minimal range number] is not defined"); }
@@ -840,7 +840,7 @@ function fillRange(multiplier, start, end, method = "inrange", thisValue) {
  *
  *
  * @param {*} item (The item value for the function) 
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function append(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -866,7 +866,7 @@ function isArray(iterable) {
  *
  * @param {*} index (The index value for the function)
  * @param {*} item (The item value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function insert(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -882,7 +882,7 @@ function insert(index, item, thisValue) {
  *
  * @param {*} index (The index value for the function)
  * @param {*} array (The iterable array or item value for the function) // array or item
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function insertAll(index, array, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
@@ -897,7 +897,7 @@ function insertAll(index, array, thisValue) {
  *
  *
  * @param {*} array (The iterable array value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @param {*} args - list of multiple arguments
  */
 function concatMerge(array, thisValue, ...args) {
@@ -922,7 +922,7 @@ function concatMerge(array, thisValue, ...args) {
  *
  * @param {*} index (The index value for the function)
  * @param {*} item (The item value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function insertCopy(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -936,7 +936,7 @@ function insertCopy(index, item, thisValue) {
  *
  * @param {*} index (The index value for the function)
  * @param {*} array (The iterable array or item value for the function) // array or item
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function insertAllCopy(index, array, thisValue) {
     if (!index && index !== 0) { throw new Error("Index is not defined"); }
@@ -949,9 +949,9 @@ function insertAllCopy(index, array, thisValue) {
  *
  *
  * @param {*} item (The item value for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function count(item, start, end, thisValue) {
@@ -966,7 +966,7 @@ function count(item, start, end, thisValue) {
  *
  * @param {*} index (The index value for the function)
  * @param {*} item (The item value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function replace(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -982,10 +982,10 @@ function replace(index, item, thisValue) {
  *
  * @param {*} item (The item value for the function)
  * @param {*} replaceValue
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function replaceAll(item, replaceValue, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
@@ -1010,7 +1010,7 @@ function replaceAll(item, replaceValue, start, end, method = "replace", thisValu
  *
  *
  * @param {*} item (The item value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function remove(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -1025,10 +1025,10 @@ function remove(item, thisValue) {
  *
  *
  * @param {*} item (The item value for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function removeAll(item, start, end, method = "replace", thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -1055,7 +1055,7 @@ function removeAll(item, start, end, method = "replace", thisValue) {
  *
  * @param {*} index (The index value for the function)
  * @param {*} item (The item value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function replaceCopy(index, item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -1070,10 +1070,10 @@ function replaceCopy(index, item, thisValue) {
  *
  * @param {*} item (The item value for the function)
  * @param {*} replaceValue
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function replaceAllCopy(item, replaceValue, start, end, method = "replace", thisValue) {
     if (method === "inrange") {
@@ -1096,7 +1096,7 @@ function replaceAllCopy(item, replaceValue, start, end, method = "replace", this
  *
  *
  * @param {*} item (The item value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function removeCopy(item, thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -1110,10 +1110,10 @@ function removeCopy(item, thisValue) {
  *
  *
  * @param {*} item (The item value for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function removeAllCopy(item, start, end, method = "replace", thisValue) {
     if (!item) { throw new Error("Item is not defined"); }
@@ -1137,7 +1137,7 @@ function removeAllCopy(item, start, end, method = "replace", thisValue) {
  *
  *
  * @param {*} index (The index value for the function)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function pop(index, thisValue) {
@@ -1151,8 +1151,8 @@ function pop(index, thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  */
 function clear(start, end) {
     this.splice((!!start) ? start : 0, (!!end) ? end : this.length);
@@ -1162,9 +1162,9 @@ function clear(start, end) {
  *
  *
  * @param {*} item (The item value for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function index(item, start, end, thisValue) {
@@ -1198,10 +1198,10 @@ function pysort(key = null, reverse = false) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function reverser(start, end, method = "replace", thisValue) {
     let a = MapperCopy("reverser", start, end, method, thisValue || this, (a) => { return a.reverse(); });
@@ -1212,10 +1212,10 @@ function reverser(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function reverseCopy(start, end, method = "replace", thisValue) {
@@ -1226,9 +1226,9 @@ function reverseCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function copy(start, end, thisValue) {
@@ -1241,9 +1241,9 @@ function copy(start, end, thisValue) {
  *
  * @param {*} mapperFunction
  * @param {*} arg
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @param {*} keyconvertor [default="index"] Options: [index, value]
  * @return {*} 
  */
@@ -1263,8 +1263,8 @@ function diction(mapperFunction, arg, start, end, keyconvertor = "index", thisVa
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @return {*} 
  */
 function subset(iterable, start, end, thisValue) {
@@ -1281,8 +1281,8 @@ function subset(iterable, start, end, thisValue) {
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @return {*} 
  */
 function superset(iterable, start, end, thisValue) {
@@ -1299,8 +1299,8 @@ function superset(iterable, start, end, thisValue) {
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @return {*} 
  */
 function diffIterable(iterable, start, end, thisValue) {
@@ -1317,9 +1317,9 @@ function diffIterable(iterable, start, end, thisValue) {
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function diffSelf(iterable, start, end, thisValue) {
@@ -1336,9 +1336,9 @@ function diffSelf(iterable, start, end, thisValue) {
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function diffBoth(iterable, start, end, thisValue) {
@@ -1354,9 +1354,9 @@ function diffBoth(iterable, start, end, thisValue) {
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function equal(iterable, start, end, thisValue) {
@@ -1373,9 +1373,9 @@ function equal(iterable, start, end, thisValue) {
  *
  *
  * @param {*} iterable (The new external iterable for the function)
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function similar(iterable, start, end, thisValue) {
@@ -1392,10 +1392,10 @@ function similar(iterable, start, end, thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function uniques(start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -1408,10 +1408,10 @@ function uniques(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function uniquesCopy(start, end, method = "replace", thisValue) {
@@ -1423,10 +1423,10 @@ function uniquesCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} [method="range"] // replace, inrange
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function duplicates(start, end, method = "range", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -1448,10 +1448,10 @@ function duplicates(start, end, method = "range", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} [method="range"] // replace, inrange
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function duplicatesCopy(start, end, method = "range", thisValue) {
@@ -1488,10 +1488,10 @@ function dequeue() {
  *
  *
  * @param {*} iterator
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function transpose(iterator, start, end, method = "replace", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -1512,10 +1512,10 @@ function transpose(iterator, start, end, method = "replace", thisValue) {
  *
  *
  * @param {*} iterator
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function transposeCopy(iterator, start, end, method = "replace", thisValue) {
@@ -1554,10 +1554,10 @@ function immutable(array) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used) 
+ * @param {*[]} thisValue (The start array value instead of the original array to be used) 
  */
 function flatten(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
@@ -1584,10 +1584,10 @@ function flatten(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function flattenDeep(start, end, method = "replace", thisValue) {
     if (method === "inrange") {
@@ -1603,10 +1603,10 @@ function flattenDeep(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function flattenCopy(start, end, method = "replace", thisValue) {
@@ -1635,10 +1635,10 @@ function flattenCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} method [default="replace"] Options: [replace, inrange]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function flattenDeepCopy(start, end, method = "replace", thisValue) {
@@ -1649,7 +1649,7 @@ function flattenDeepCopy(start, end, method = "replace", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
+ * @param {number} start (The start index of the array)
  * @param {*} stop
  * @param {*} step
  * @return {*} 
@@ -1673,7 +1673,7 @@ function range(start, stop, step) {
  *
  *
  * @param {string} [type="object"]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function enumerate(type = "object", thisValue) {
@@ -1695,7 +1695,7 @@ function enumerate(type = "object", thisValue) {
  *
  *
  * @param {string} [type="object"]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {* []} thisValue (The start array value instead of the original array to be used)
  * @return {*} 
  */
 function enumerateGenerator(type = "object", thisValue) {
@@ -1709,9 +1709,9 @@ function enumerateGenerator(type = "object", thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function del(start, end, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
@@ -1725,11 +1725,11 @@ function del(start, end, thisValue) {
 /**
  *
  *
- * @param {*} start (The start index of the array)
- * @param {*} end (The end index of the array)
+ * @param {number} start (The start index of the array)
+ * @param {number} end (The end index of the array)
  * @param {string} [message=""]
  * @param {*} [callback=console.log]
- * @param {*} thisValue (The start array value instead of the original array to be used)
+ * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function log(start, end, message = "", callback = console.log, thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
