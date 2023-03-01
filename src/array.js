@@ -805,7 +805,7 @@ function randomRange(count, multiplier) {
  * @param {*} multiplier (The mutiplier for each of the array items)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
- * @param {string} [method="inrange"] // replace, inrange
+ * @param {string} method [default="inrange"] Options: [replace, inrange]
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) {
@@ -826,7 +826,7 @@ function fillRandomRange(multiplier, start, end, method = "inrange", thisValue) 
  * @param {*} multiplier (The mutiplier for each of the array items)
  * @param {number} start (The start index of the array)
  * @param {number} end (The end index of the array)
- * @param {string} [method="inrange"] // replace, inrange
+ * @param {string} method [default="inrange"] Options: [replace, inrange]
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
  */
 function fillRange(multiplier, start, end, method = "inrange", thisValue) {
