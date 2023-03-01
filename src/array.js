@@ -898,7 +898,7 @@ function insertAll(index, array, thisValue) {
  *
  * @param {*} array (The iterable array value for the function)
  * @param {*[]} thisValue (The start array value instead of the original array to be used)
- * @param {*} args - list of multiple arguments
+ * @param {*[]} args - list of multiple arguments
  */
 function concatMerge(array, thisValue, ...args) {
     var argsList = [];
