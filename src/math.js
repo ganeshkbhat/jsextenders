@@ -17,25 +17,25 @@
 'use strict';
 
 
-function Mapper() {}
+function Mapper() { }
 
 
-function BigMultiply(nu) {}
+function BigMultiply(n) { }
 
 
-function BigDivide() {}
+function BigDivide(n) { }
 
 
-function BigModulus() {}
+function BigModulus(n) { }
 
 
-function BigPercent() {}
+function BigPercent(n) { }
 
 
-function BigAdd() {}
+function BigAdd(n) { }
 
 
-function BigSubtract() {}
+function BigSubtract(n) { }
 
 
 function MathExtended() {
