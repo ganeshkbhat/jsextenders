@@ -26,6 +26,9 @@ function BigMultiply(nu) {}
 function BigDivide() {}
 
 
+function BigModulus() {}
+
+
 function BigPercent() {}
 
 
