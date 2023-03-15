@@ -20,6 +20,21 @@
 function Mapper() {}
 
 
+function BigMultiply(nu) {}
+
+
+function BigDivide() {}
+
+
+function BigPercent() {}
+
+
+function BigAdd() {}
+
+
+function BigSubtract() {}
+
+
 function MathExtended() {
 
 }
