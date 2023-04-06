@@ -156,6 +156,59 @@ function sum(start, end, thisValue) {
 /**
  *
  *
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="replace"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function permutator(start, end, method = "replace", thisValue) {
+    var results = [];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    function permute(arr, memo) {
+        var cur, memo = memo || [];
+        for (var i = 0; i < arr.length; i++) {
+            cur = arr.splice(i, 1);
+            if (arr.length === 0) {
+                results.push(memo.concat(cur));
+            }
+            permute(arr.slice(), memo.concat(cur));
+            arr.splice(i, 0, cur[0]);
+        }
+        return results;
+    }
+    return permute(a);
+}
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="replace"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function permutationSubsets(start, end, method = "replace", thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+    let dataset = [];
+    for (let i = 0; i < a.length; i++) {
+        dataset.push((i === 0) ? [a.slice(0, i + 1)] : a.slice(0, i + 1));
+    }
+    return dataset.reduce((p, c, i, []) => {
+        return [...p, ...permutator(0, c.length, "replace", c)];
+    });
+}
+
+/**
+ *
+ *
  * @param {*} i
  * @param {string} [fn] Name of the Javascript Math function
  * @return {*} i // modified
@@ -2111,6 +2164,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sum', { value: sum, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'acosMap', { value: acosMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sinMap', { value: sinMap, enumerable: true, });
@@ -2228,6 +2282,8 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(Array.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sum', { value: sum, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'permutor', { value: permutor, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
     Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'acosMap', { value: acosMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sinMap', { value: sinMap, enumerable: true, });
