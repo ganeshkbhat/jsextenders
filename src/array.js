@@ -2164,6 +2164,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sum', { value: sum, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'permutator', { value: permutator, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'acosMap', { value: acosMap, enumerable: true, });
@@ -2282,7 +2283,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(Array.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sum', { value: sum, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'permutor', { value: permutor, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'permutator', { value: permutator, enumerable: true, });
     Object.defineProperty(Array.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
     Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'acosMap', { value: acosMap, enumerable: true, });
