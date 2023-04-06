@@ -154,7 +154,48 @@ function sum(start, end, thisValue) {
 }
 
 /**
+ * permutator: OLD Alternative
+ * Reiterative function withing while loop (multiple loops not noticable)
  *
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="replace"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function permutator(start, end, method = "replace", thisValue) {
+    var result = [];
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    start = (!!start) ? start : 0;
+    end = (!!end) ? end : a.length;
+    a = a.splice(start, end);
+
+    let length = a.length,
+        result = [a.slice()],
+        c = new Array(length).fill(0),
+        i = 1, k, p;
+
+    while (i < length) {
+        if (c[i] < i) {
+            k = i % 2 && c[i];
+            p = a[i];
+            a[i] = a[k];
+            a[k] = p;
+            ++c[i];
+            i = 1;
+            result.push(a.slice());
+        } else {
+            c[i] = 0;
+            ++i;
+        }
+    }
+    return result;
+}
+
+
+/**
+ * permutator
+ * Reiterative function
  *
  * @param {*} start
  * @param {*} end
@@ -182,6 +223,7 @@ function permutator(start, end, method = "replace", thisValue) {
     }
     return permute(a);
 }
+
 
 /**
  *
