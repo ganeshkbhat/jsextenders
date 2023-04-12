@@ -828,25 +828,68 @@ console.log(arr);
 
 <a name="decorators"></a>
 
-### Decorators prototype extended function
+### Decorators - functions
 
 
 
-#### Decorators [TODO <sub>indevelopment</sub>]
+#### Decorators - API List
+
+
+
+###### .createClassDecorator
+
+`.createClassDecorator(decoratorFunction)`
 
 
 ```
 
+const createClassDecorator = require('./src/decorator').createClassDecorator;
+
+
+function addLogMethod(target, prefix = "") {
+    target.prototype.log = function (msg) {
+        console.log(`[${prefix}${this.constructor.name}] ${msg}`);
+    };
+}
+
+const loggable = createClassDecorator(addLogMethod);
+@loggable("Prefix ")
+class Example {
+    constructor(name) {
+        this.name = name;
+    }
+}
+const exloggable = new Example("example");
+exloggable.log("Hello, world!"); // logs "[Prefix Example] Hello, world!"
+
 ```
 
 
-#### Decorators - API List [TODO <sub>indevelopment</sub>]
+###### .createMethodDecorator
+
+`.createMethodDecorator(decoratorFunction)`
 
 
-###### .decorate
+```
 
-`.decorate()`
+const createMethodDecorator = require('./src/decorator').createMethodDecorator;
 
+
+// Method
+const addPrefix = createMethodDecorator((result, prefix) => {
+    return `${prefix}: ${result}`;
+});
+class Example {
+    @addPrefix("Result")
+    add(a, b) {
+        return a + b;
+    }
+}
+
+const exaddPrefix = new Example();
+console.log(exaddPrefix.add(2, 3)); // logs "Result: 5"
+
+```
 
 
 <a name="extenders"></a>

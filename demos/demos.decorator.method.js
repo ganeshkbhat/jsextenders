@@ -32,6 +32,6 @@ class Example {
 }
 
 const exaddPrefix = new Example();
-console.log(ex.add(2, 3)); // logs "Result: 5"
+console.log(exaddPrefix.add(2, 3)); // logs "Result: 5"
 
 

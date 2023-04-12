@@ -33,4 +33,4 @@ class Example {
     }
 }
 const exloggable = new Example("example");
-ex.log("Hello, world!"); // logs "[Prefix Example] Hello, world!"
+exloggable.log("Hello, world!"); // logs "[Prefix Example] Hello, world!"
