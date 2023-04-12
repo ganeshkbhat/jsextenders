@@ -24,6 +24,8 @@ let b = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let c = [1, 2, 3, 4, 5, [1, 2, 3], 6, 7, [1, 2, 3, 4, [1, 2, 3], 5, 6], 8, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], 9];
 let d = [1, 2, 3, 4, 5, [1, 2, 3], 6, 7, [1, 2, 3, 4, [1, 2, 3], 5, 6], 8, [1, 2, [1, 2, [1, 2, 3], 3, 4, 5], 3, 4, 5], 9];
 let f = [1.2, 2.5, 3.6, 4.3, 5.8, 6.1, 7.1, 8.6, 9.0];
+let myArray = [1, 2, 3, 2, 4, 5, 5, 6, 7, 7];
+
 
 let e = [...a];
 console.log("execute :", e.execute((iterable) => JSON.stringify(iterable)));
@@ -429,6 +431,18 @@ console.log("result", e);
 e = [...a];
 console.log("fillRange start end replace:", e.fillRange(5, 2, 5, "replace"));
 console.log("result", e);
+e = [...myArray];
+console.log(e.findDuplicateCounts()); // outputs: [{ element: '2', count: 2 }, { element: '5', count: 2 }, { element: '7', count: 2 }]
+console.log("result", e);
+// e = [...myArray];
+// console.log(e.findDuplicates()); // outputs: [2, 5, 7]
+e = [...a];
+console.log(e.getPermutations()); // outputs: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+e = [...a];
+console.log(e.getCombinations()); // outputs: [[],[1],[1,2],[1,2,3],[1,3],[2],[2,3],[3]]
+e = [...a];
+console.log(e.getPermutationsOfCombinations()); // outputs: [[],[1],[2],[3],[1,2],[2,1],[1,3],[3,1],[2,3],[3,2],[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
 // // e = [...a];
 // // console.log("pysort:", e.pysort());
 // // console.log("result", e);

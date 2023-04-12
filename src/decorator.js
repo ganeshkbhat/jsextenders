@@ -17,7 +17,33 @@
 'use strict';
 
 
-// Object.defineProperty(Object.prototype, 'duplicates', { value: duplicates, enumerable: true, });
+function createMethodDecorator(decoratorFn) {
+    return function (...args) {
+        return function (target, name, descriptor) {
+            const originalFn = descriptor.value;
+
+            descriptor.value = function (...fnArgs) {
+                const result = originalFn.apply(this, fnArgs);
+                return decoratorFn(result, ...args);
+            };
+
+            return descriptor;
+        }
+    }
+}
+
+
+function createClassDecorator(decoratorFn) {
+    return function (...args) {
+        return function (target) {
+            decoratorFn(target, ...args);
+            return target;
+        }
+    }
+}
+
+module.exports.createMethodDecorator = createMethodDecorator;
+module.exports.createClassDecorator = createClassDecorator;
 
 
 // https://www.geeksforgeeks.org/what-are-decorators-and-how-are-they-used-in-javascript/
@@ -129,4 +155,4 @@
 // console.log(e);
 // 
 
-module.exports.decorate = {}
+

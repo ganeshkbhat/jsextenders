@@ -1554,6 +1554,8 @@ function duplicates(start, end, method = "range", thisValue) {
  */
 function duplicatesCopy(start, end, method = "range", thisValue) {
     let a = (!!thisValue) ? [...thisValue] : [...this];
+    a.splice(0, (!!start) ? start : 0);
+    a.splice((!!end) ? end : a.length, a.length);
     let noduplicatesarray = (!!thisValue) ? [...thisValue] : [...this];
     noduplicatesarray.uniques();
     for (let i = 0; i < noduplicatesarray.length; i++) {
@@ -1562,6 +1564,88 @@ function duplicatesCopy(start, end, method = "range", thisValue) {
     }
     return a.filter((a) => a !== undefined);
 }
+
+function findDuplicateCounts(start, end, method = "range", thisValue) {
+    let arr = (!!thisValue) ? [...thisValue] : [...this];
+    arr.splice(0, (!!start) ? start : 0);
+    arr.splice((!!end) ? end : arr.length, arr.length);
+    let counts = {};
+    let duplicates = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (counts[arr[i]] === undefined) {
+            counts[arr[i]] = 1;
+        } else {
+            counts[arr[i]]++;
+        }
+    }
+
+    for (let key in counts) {
+        if (counts[key] > 1) {
+            duplicates.push({ element: key, count: counts[key] });
+        }
+    }
+
+    return duplicates;
+}
+
+// function findDuplicates(arr) {
+//     let duplicates = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
+//                 duplicates.push(arr[i]);
+//             }
+//         }
+//     }
+//     return duplicates;
+// }
+
+function getPermutations(arr) {
+    const result = [];
+
+    function permute(arr, permutation = []) {
+        if (arr.length === 0) {
+            result.push(permutation);
+        } else {
+            for (let i = 0; i < arr.length; i++) {
+                const remaining = arr.slice(0, i).concat(arr.slice(i + 1));
+                permute(remaining, permutation.concat(arr[i]));
+            }
+        }
+    }
+
+    permute(arr);
+    return result;
+}
+
+
+function getCombinations(arr) {
+    const result = [];
+
+    function combine(arr, combination = [], start = 0) {
+        result.push(combination);
+        for (let i = start; i < arr.length; i++) {
+            combine(arr, combination.concat(arr[i]), i + 1);
+        }
+    }
+
+    combine(arr);
+    return result;
+}
+
+function getPermutationsOfCombinations(arr) {
+    const combinations = getCombinations(arr);
+    const permutations = [];
+  
+    for (let i = 0; i < combinations.length; i++) {
+      const combination = combinations[i];
+      const combinationPermutations = getPermutations(combination);
+      permutations.push(combinationPermutations);
+    }
+  
+    return permutations.flat();
+  }
 
 /**
  *
