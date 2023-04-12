@@ -1601,7 +1601,19 @@ function findDuplicateCounts(start, end, method = "range", thisValue) {
 //     return duplicates;
 // }
 
-function getPermutations(arr) {
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="range"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function getPermutations(start, end, method = "replace", thisValue) {
+    let arr = (!!thisValue) ? [...thisValue] : [...this];
+    arr.splice(0, (!!start) ? start : 0);
+    arr.splice((!!end) ? end : arr.length, arr.length);
     const result = [];
 
     function permute(arr, permutation = []) {
@@ -1619,8 +1631,19 @@ function getPermutations(arr) {
     return result;
 }
 
-
-function getCombinations(arr) {
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="range"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function getCombinations(start, end, method = "replace", thisValue) {
+    let arr = (!!thisValue) ? [...thisValue] : [...this];
+    arr.splice(0, (!!start) ? start : 0);
+    arr.splice((!!end) ? end : arr.length, arr.length);
     const result = [];
 
     function combine(arr, combination = [], start = 0) {
@@ -1634,7 +1657,20 @@ function getCombinations(arr) {
     return result;
 }
 
-function getPermutationsOfCombinations(arr) {
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @param {string} [method="range"]
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function getPermutationsOfCombinations(start, end, method = "replace", thisValue) {
+    let arr = (!!thisValue) ? [...thisValue] : [...this];
+    arr.splice(0, (!!start) ? start : 0);
+    arr.splice((!!end) ? end : arr.length, arr.length);
+
     const combinations = getCombinations(arr);
     const permutations = [];
   
@@ -2261,6 +2297,8 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'uniquesCopy', { value: uniquesCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'duplicatesCopy', { value: duplicatesCopy, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'findDuplicateCounts', { value: findDuplicateCounts, enumerable: true, });
+    
     Object.defineProperty(SubArray.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'transpose', { value: transpose, enumerable: true, });
@@ -2290,8 +2328,12 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sum', { value: sum, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'permutator', { value: permutator, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
+    // Object.defineProperty(SubArray.prototype, 'permutator', { value: permutator, enumerable: true, });
+    // Object.defineProperty(SubArray.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
+
+    Object.defineProperty(SubArray.prototype, 'getPermutations', { value: getPermutations, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'getCombinations', { value: getCombinations, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'getPermutationsOfCombinations', { value: getPermutationsOfCombinations, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'acosMap', { value: acosMap, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'sinMap', { value: sinMap, enumerable: true, });
@@ -2380,6 +2422,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'duplicates', { value: duplicates, enumerable: true, });
     Object.defineProperty(Array.prototype, 'uniquesCopy', { value: uniquesCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'duplicatesCopy', { value: duplicatesCopy, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'findDuplicateCounts', { value: findDuplicateCounts, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(Array.prototype, 'transpose', { value: transpose, enumerable: true, });
@@ -2409,8 +2452,13 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'minIndexes', { value: minIndexes, enumerable: true, });
     Object.defineProperty(Array.prototype, 'average', { value: average, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sum', { value: sum, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'permutator', { value: permutator, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
+
+    // Object.defineProperty(Array.prototype, 'permutator', { value: permutator, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'permutationSubsets', { value: permutationSubsets, enumerable: true, });
+
+    Object.defineProperty(Array.prototype, 'getPermutations', { value: getPermutations, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'getCombinations', { value: getCombinations, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'getPermutationsOfCombinations', { value: getPermutationsOfCombinations, enumerable: true, });
     Object.defineProperty(Array.prototype, 'factorialMap', { value: factorialMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'acosMap', { value: acosMap, enumerable: true, });
     Object.defineProperty(Array.prototype, 'sinMap', { value: sinMap, enumerable: true, });
