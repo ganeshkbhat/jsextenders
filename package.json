@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha --reporter spec --recursive  --timeout 60000",
+    "test": "mocha --require @babel/register --require @babel/polyfill --reporter spec --recursive  --timeout 60000",
     "testconfig": "mocha --reporter spec --recursive --config ./mocha.test.config.js --experimental-loader=./loader.mjs --timeout 60000"
   },
   "exports": {
@@ -26,6 +26,11 @@
   },
   "homepage": "https://github.com/ganeshkbhat/jsextenders#readme",
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-proposal-decorators": "^7.21.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/register": "^7.21.0",
     "@types/node": "^18.11.3",
     "chai": "^4.3.6",
     "hpp": "^0.2.3",
@@ -34,6 +39,5 @@
     "safe-regex": "^2.1.1",
     "sinon": "^14.0.0",
     "unimported": "^1.22.0"
-  },
-  "dependencies": {}
+  }
 }

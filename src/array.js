@@ -163,15 +163,15 @@ function sum(start, end, thisValue) {
  * @param {*} thisValue
  * @return {*} 
  */
-function permutator(start, end, method = "replace", thisValue) {
+function permutators(start, end, method = "replace", thisValue) {
     var result = [];
     let a = (!!thisValue) ? [...thisValue] : [...this];
     start = (!!start) ? start : 0;
     end = (!!end) ? end : a.length;
     a = a.splice(start, end);
 
-    let length = a.length,
-        result = [a.slice()],
+    let length = a.length;
+    result = [...a.slice()];
         c = new Array(length).fill(0),
         i = 1, k, p;
 
@@ -2314,7 +2314,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enumerate', { value: enumerate, enumerable: true, });
-    Object.defineProperty(SubArray.prototype, 'generator', { value: generator, enumerable: true, });
+    // Object.defineProperty(SubArray.prototype, 'generator', { value: generator, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'del', { value: del, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'toObject', { value: diction, enumerable: true, });
@@ -2438,7 +2438,7 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
-    Object.defineProperty(Array.prototype, 'generator', { value: generator, enumerable: true, });
+    // Object.defineProperty(Array.prototype, 'generator', { value: generator, enumerable: true, });
     Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
     Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });
