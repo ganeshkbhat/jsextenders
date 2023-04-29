@@ -172,7 +172,7 @@ function permutators(start, end, method = "replace", thisValue) {
 
     let length = a.length;
     result = [...a.slice()];
-        c = new Array(length).fill(0),
+    c = new Array(length).fill(0),
         i = 1, k, p;
 
     while (i < length) {
@@ -1673,15 +1673,15 @@ function getPermutationsOfCombinations(start, end, method = "replace", thisValue
 
     const combinations = getCombinations(arr);
     const permutations = [];
-  
+
     for (let i = 0; i < combinations.length; i++) {
-      const combination = combinations[i];
-      const combinationPermutations = getPermutations(combination);
-      permutations.push(combinationPermutations);
+        const combination = combinations[i];
+        const combinationPermutations = getPermutations(combination);
+        permutations.push(combinationPermutations);
     }
-  
+
     return permutations.flat();
-  }
+}
 
 /**
  *
@@ -1922,6 +1922,28 @@ function enumerateGenerator(type = "object", thisValue) {
     let b = [], len = a.length;
 
     return b;
+}
+
+/**
+ *
+ *
+ * @param {*} start
+ * @param {*} end
+ * @param {*} thisValue
+ * @return {*} 
+ */
+function generator(start, end, thisValue) {
+    let a = (!!thisValue) ? [...thisValue] : [...this];
+    let diff = ((!!end) ? end : a.length) - ((!!start) ? start : 0);
+    a.splice(0, start);
+    a.splice(diff, a.length);
+
+    function* arrayGenerator(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            yield arr[i];
+        }
+    }
+    return arrayGenerator(a);
 }
 
 /**
@@ -2298,7 +2320,7 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'uniquesCopy', { value: uniquesCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'duplicatesCopy', { value: duplicatesCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'findDuplicateCounts', { value: findDuplicateCounts, enumerable: true, });
-    
+
     Object.defineProperty(SubArray.prototype, 'enqueue', { value: enqueue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'dequeue', { value: dequeue, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'transpose', { value: transpose, enumerable: true, });
@@ -2314,7 +2336,8 @@ function ArrayExtended() {
     Object.defineProperty(SubArray.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'enumerate', { value: enumerate, enumerable: true, });
-    // Object.defineProperty(SubArray.prototype, 'generator', { value: generator, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'enumerateGenerator', { value: enumerateGenerator, enumerable: true, });
+    Object.defineProperty(SubArray.prototype, 'generator', { value: generator, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'del', { value: del, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(SubArray.prototype, 'toObject', { value: diction, enumerable: true, });
@@ -2438,7 +2461,8 @@ function extendArray() {
     Object.defineProperty(Array.prototype, 'flattenDeepCopy', { value: flattenDeepCopy, enumerable: true, });
     Object.defineProperty(Array.prototype, 'range', { value: range, enumerable: true, });
     Object.defineProperty(Array.prototype, 'enumerate', { value: enumerate, enumerable: true, });
-    // Object.defineProperty(Array.prototype, 'generator', { value: generator, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'enumerateGenerator', { value: enumerateGenerator, enumerable: true, });
+    Object.defineProperty(Array.prototype, 'generator', { value: generator, enumerable: true, });
     Object.defineProperty(Array.prototype, 'del', { value: del, enumerable: true, });
     Object.defineProperty(Array.prototype, 'diction', { value: diction, enumerable: true, });
     Object.defineProperty(Array.prototype, 'toObject', { value: diction, enumerable: true, });

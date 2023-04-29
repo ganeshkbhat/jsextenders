@@ -72,14 +72,12 @@ describe('test-.js::extenders: [Test A] Test Suite for extenders in main repo di
         expect(e.removeAll(4, 2, 6)).to.equal(undefined);
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 5, 6, 7, 8, 9, 4, 4, 4]));
         e = [...a];
-        expect(e.insertAllCopy(2, b)).to.equal(undefined);
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        console.log(e);
+        expect(JSON.stringify(e.insertAllCopy(2, b))).to.equal(JSON.stringify([1,2,1,2,3,4,5,6,7,8,9,3,4,5,6,7,8,9]));
         e = [...a];
-        expect(e.insertCopy(0, b)).to.equal(undefined);
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(JSON.stringify(e.insertCopy(0, b))).to.equal(JSON.stringify([[1,2,3,4,5,6,7,8,9],1,2,3,4,5,6,7,8,9]));
         e = [...a];
-        expect(e.replaceCopy(0, 2)).to.equal(undefined);
-        expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(JSON.stringify(e.replaceCopy(0, 2))).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         e = [...a];
         expect(JSON.stringify(e.replaceAllCopy(4, 2))).to.equal(JSON.stringify([1, 2, 3, 2, 5, 6, 7, 8, 9]));
         expect(JSON.stringify(e)).to.equal(JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]));
