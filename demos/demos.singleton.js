@@ -15,3 +15,15 @@
 /* eslint no-console: 0 */
 
 'use strict';
+
+
+var singleton = require("extenders").singleton;
+
+let key = "somename";
+let object = { "test": "value" };
+let replace = true;
+let freeze = true;
+
+let inst = singleton(key, object, replace, freeze);
+console.log(inst);
+

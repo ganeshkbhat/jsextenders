@@ -4,11 +4,7 @@ Node module for Array, Object, String, Decorator, extention Utils like for Pytho
 
 Find the demos in the [demos folder](./demos)
 
-
-
 #### USAGE
-
-
 
 ###### JS
 
@@ -21,8 +17,6 @@ arr.clear();
 console.log(arr);
 ```
 
-
-
 ###### CJS
 
 ```
@@ -33,8 +27,6 @@ console.log(arr);
 arr.clear();
 console.log(arr);
 ```
-
-
 
 ###### ESM
 
@@ -47,8 +39,6 @@ arr.clear();
 console.log(arr);
 ```
 
-
-
 ### Different modules and functions
 
 - [Array](#array)
@@ -58,20 +48,16 @@ console.log(arr);
 - [Math](#math)
 - [Utils](#utils)
 - [Decorators](#decorators)
+- [Singleton](#singleton)
 - [Extenders](#extenders)
 - [Numpyjs](#numpyjs)
 - [Pandas](#pandas)
-
 
 <a name="array"></a>
 
 ### Array Prototype extended functions
 
-The extenders library's array extended functions tries to add many common use cases of array modifiers and functions missing or used constantly in projects. This library tries to provide/ incorporate all (or atleast most)
-    1. python list/ tuple functions
-    2. common use cases of Math, and other array like functions
-    3. _ (underscore) functions missing from python list, tuple, common functions
-
+The extenders library's array extended functions tries to add many common use cases of array modifiers and functions missing or used constantly in projects. This library tries to provide/ incorporate all (or atleast most) 1. python list/ tuple functions 2. common use cases of Math, and other array like functions 3. \_ (underscore) functions missing from python list, tuple, common functions
 
 ```
 var extendArray = require("extenders").extendArray;
@@ -99,7 +85,6 @@ extendArray();
 // Below find the usage of the extended functions
 
 ```
-
 
 #### Array - API List
 
@@ -217,7 +202,7 @@ Returns the array with `absMap` of all the values of the array from `start` inde
 
 `[1, 2, 3, 4].absMapCopy(start, end, method = "replace", thisValue)`
 
-<!-- 
+<!--
 ###### .LN2Map
 
 Modifies the array with `LN2` of all the values from `start` index to `end` index. Modifies the array in place. The method option has two options - replace (replace the whole array with these values) and inrange (just replace the range of items with the new array values keeping the left and right array items in place).
@@ -258,7 +243,7 @@ Returns the copy array with `LN10` of all the values from `start` index to `end`
 
 Returns the copy array with `Log2E` of all the values from `start` index to `end` index. Returns a new object and does not modify the array in place.
 
-`[1, 2, 3, 4].LOG2EMapCopy(start, end, method = "replace", thisValue)` 
+`[1, 2, 3, 4].LOG2EMapCopy(start, end, method = "replace", thisValue)`
 -->
 
 ###### .floorMap
@@ -351,12 +336,12 @@ Returns the array with count number of array items with random values multiplied
 
 `[1, 2, 3, 4].randomRange(count, multiplier)`
 
-<!-- 
+<!--
 ###### .fillRandomRange
 
 Modifies the array with array items with random values multiplied with the provided multiplier from `start` index to `end` index. Modifies the array in place.
 
-`[1, 2, 3, 4].fillRandomRange(count, multiplier, start, end, method = "replace", thisValue)` 
+`[1, 2, 3, 4].fillRandomRange(count, multiplier, start, end, method = "replace", thisValue)`
 -->
 
 ###### .fillRange
@@ -659,16 +644,11 @@ Log items of an array from `start` index to `end` index to console.
 
 `[1, 2, 3, 4].log(start, end, message = "", callback = console.log, thisValue)`
 
-
-
 <a name="object"></a>
 
 ### Object prototype extended function
 
-
-
 #### Object - Dictionary [TODO <sub>indevelopment</sub>]
-
 
 ```
 var extendObject = require("extenders").extendObject;
@@ -689,23 +669,15 @@ obj.clear();
 console.log(obj);
 ```
 
-
 #### Object - API List [TODO <sub>indevelopment</sub>]
 
-
 ###### .clear [TODO <sub>indevelopment</sub>]
-
-
 
 <a name="string"></a>
 
 ### String prototype extended function
 
-
-
 #### String [TODO <sub>indevelopment</sub>]
-
-
 
 ```
 var StringExtended = require("extenders").StringExtended;
@@ -726,24 +698,17 @@ str.clear();
 console.log(str);
 ```
 
-
 #### String - API List [TODO <sub>indevelopment</sub>]
-
 
 ###### .clear
 
 `"Test string".clear(start, end)`
 
-
-
 <a name="numbers"></a>
 
 ### Numbers prototype extended function
 
-
-
 #### Numbers [TODO <sub>indevelopment</sub>]
-
 
 ```
 var NumberExtended = require("extenders").NumberExtended;
@@ -764,24 +729,17 @@ str.clear();
 console.log(str);
 ```
 
-
 #### Numbers - API List [TODO <sub>indevelopment</sub>]
-
 
 ###### .imul
 
 `.imul(...args)`
 
-
-
 <a name="math"></a>
 
 ### Math prototype extended function
 
-
-
 #### Math [TODO <sub>indevelopment</sub>]
-
 
 ```
 var extendMath = require("extenders").extendMath;
@@ -793,53 +751,59 @@ arr.imul();
 console.log(arr);
 ```
 
-
 #### Math - API List [TODO <sub>indevelopment</sub>]
-
 
 ###### .imul
 
 `.imul(...args)`
 
-
-
 <a name="utils"></a>
 
 ### Utils prototype extended function
 
-
-
 #### Utils [TODO <sub>indevelopment</sub>]
 
-
 ```
 
 ```
-
 
 #### Utils - API List [TODO <sub>indevelopment</sub>]
-
 
 ###### .clear
 
 `.clear(start, end)`
 
-
-
 <a name="decorators"></a>
 
 ### Decorators - functions
 
-
-
 #### Decorators - API List
 
+<a name="singleton"></a>
 
+### Singleton
+
+`singleton(key, object, replace, freeze)`
+
+#### Singleton - API List
+
+```
+
+var singleton = require("extenders").singleton;
+
+let key = "somename";
+let object = { "test": "value" };
+let replace = true;
+let freeze = true;
+
+let inst = singleton(key, object, replace, freeze);
+console.log(inst);
+
+```
 
 ###### .createClassDecorator
 
 `.createClassDecorator(decoratorFunction)`
-
 
 ```
 
@@ -864,11 +828,9 @@ exloggable.log("Hello, world!"); // logs "[Prefix Example] Hello, world!"
 
 ```
 
-
 ###### .createMethodDecorator
 
 `.createMethodDecorator(decoratorFunction)`
-
 
 ```
 
@@ -891,75 +853,53 @@ console.log(exaddPrefix.add(2, 3)); // logs "Result: 5"
 
 ```
 
-
 <a name="extenders"></a>
 
 ### Extenders functions
 
-
-
 #### Extenders [TODO <sub>indevelopment</sub>]
 
-
 ```
 
 ```
-
 
 #### Extenders - API List [TODO <sub>indevelopment</sub>]
-
 
 ###### .clear
 
 `.clear()`
-
-
 
 <a name="numpyjs"></a>
 
 ### Numpyjs functions
 
-
-
 #### Numpyjs [TODO <sub>considering</sub>]
 
-
 ```
 
 ```
-
 
 #### Numpyjs - API List [TODO <sub>considering</sub>]
-
 
 ###### .clear
 
 `.clear()`
-
-
 
 <a name="pandas"></a>
 
 ### Pandas functions
 
-
-
 #### Pandas [TODO <sub>considering</sub>]
 
-
 ```
 
 ```
-
 
 #### Pandas - API List [TODO <sub>considering</sub>]
-
 
 ###### .clear
 
 `.clear()`
-
-
 
 # Current Status
 
