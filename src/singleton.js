@@ -38,4 +38,5 @@ var singleton = function (key, object, replace, freeze) {
     return global[key];
 }
 
-exports.singleton = singleton;
+module.exports.singleton = singleton;
+

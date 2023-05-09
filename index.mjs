@@ -25,7 +25,8 @@ import {
     Freeze, extender,
     // NumbersExtended, extendNumber, 
     // ObjectExtended, extendObject, 
-    StringExtended, extendString 
+    StringExtended, extendString, 
+    singleton
 } from "./index.js";
 
 export default extenders;
@@ -35,6 +36,7 @@ export {
     // decorate,
     SubArrayExtender, SubObjectExtender, SubStringExtender,
     Freeze, extender,
+    singleton,
     // NumbersExtended, extendNumber, 
     // ObjectExtended, extendObject, 
     // StringExtended, extendString 

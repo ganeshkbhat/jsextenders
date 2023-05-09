@@ -22,6 +22,7 @@ var { SubArrayExtender, SubObjectExtender, SubStringExtender, Freeze, extender }
 // var { NumbersExtended, extendNumber } = require("./src/numbers.js");
 // var { ObjectExtended, extendObject } = require("./src/object.js");
 var { StringExtended, extendString } = require("./src/string.js");
+var { singleton } = require("./src/singleton.js");
 var utils = require("./src/utils.js");
 var math = require("./src/math.js");
 
@@ -32,6 +33,7 @@ module.exports.extender = extender;
 
 module.exports.ArrayExtended = ArrayExtended;
 module.exports.extendArray = extendArray;
+module.exports.singleton = singleton;
 
 module.exports.SubArrayExtender = SubArrayExtender;
 // module.exports.SubObjectExtender = SubObjectExtender;
@@ -53,6 +55,7 @@ module.exports.default = {
     // SubObjectExtender, 
     SubStringExtender,
     Freeze, extender,
+    singleton,
     // NumbersExtended, extendNumber,
     // ObjectExtended, extendObject,
     // StringExtended, extendString
