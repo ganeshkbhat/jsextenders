@@ -62,7 +62,7 @@
  * @returns {ChangeRecord|undefined}
  */
 
-Object.observe || (function(O, A, root, _undefined) {
+module.exports = Object.observe || (function(O, A, root, _undefined) {
     "use strict";
 
         /**
@@ -740,4 +740,3 @@ Object.observe || (function(O, A, root, _undefined) {
 
 })(Object, Array, this);
 
-module.exports = Object.observe;
