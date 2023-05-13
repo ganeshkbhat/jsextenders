@@ -15,8 +15,41 @@
 /* eslint no-console: 0 */
 
 'use strict';
- 
 
-function utils() { }
+
+function isIP(ipaddress) {
+    const net = require("net");
+    // net.isIP('127.0.0.1'); // returns 4
+    // net.isIP('127.000.000.001'); // returns 0
+    // net.isIP('127.0.0.1/24'); // returns 0
+    // net.isIP('fhqwhgads'); // returns 0 
+    // net.isIP('::1'); // returns 6
+    return net.isIP(ipaddress);
+}
+
+function isIPv4(ipaddress) {
+    const net = require("net");
+    // net.isIPv4('127.0.0.1'); // returns true
+    // net.isIPv4('127.000.000.001'); // returns false
+    // net.isIPv4('127.0.0.1/24'); // returns false
+    // net.isIPv4('fhqwhgads'); // returns false 
+    return net.isIPv4(ipaddress);
+}
+
+function isIPv6(ipaddress) {
+    const net = require("net");
+    // net.isIPv6('::1'); // returns true
+    // net.isIPv6('fhqwhgads'); // returns false
+    return net.isIPv6(ipaddress);
+}
+
+function utils() {
+    let utils = {};
+    Object.defineProperty(utils.prototype, 'isIP', { value: isIP, enumerable: true, });
+    Object.defineProperty(utils.prototype, 'isIPv4', { value: isIPv4, enumerable: true, });
+    Object.defineProperty(utils.prototype, 'isIPv6', { value: isIPv6, enumerable: true, });
+    return utils;
+}
+
 
 module.exports.UtilFunctions = utils;
