@@ -21,40 +21,106 @@ var { SubStringExtender, Freeze, extender } = require("./extenders.js");
 
 function map() { }
 
-
-
 // // _ lodash Functions
 // // 
 
 function endsWith() { }
+
 function escaper() { }
 function escapeRegExp() { }
 function deburr() { }
-function camelCase() { }
-function capitalize() { }
-function kebabCase() { }
-function upperCase() { }
-function lowerCase() { }
-function snakeCase() { }
-function upperFirst() { }
-function lowerFirst() { }
-function toLower() { }
-function toUpper() { }
-function startCase() { }
-function startsWith() { }
-function template() { }
-function trim() { }
-function trimEnd() { }
-function trimStart() { }
-function truncate() { }
-function unescaper() { }
-function pad() { }
-function padEnd() { }
-function padStart() { }
-function parseInt() { }
-function repeat() { }
-function replace() { }
-function split() { }
+
+function camelCase(thisValue) {
+    // "this is a camel case" => "thisIsACamelCase"
+    thisValue = thisValue || this;
+    const arr = thisValue.split(" ");
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+    thisValue = arr.join("");
+    return thisValue;
+}
+
+function capitalize(thisValue) {
+    // "This is capitalised"
+    thisValue = thisValue || this;
+    return thisValue.charAt(0).toUpperCase() + thisValue.slice(1);
+}
+
+function capitalizeAllWords(thisValue) {
+    // "This Is All Captitals"
+    thisValue = thisValue || this;
+    const arr = thisValue.split(" ");
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+    thisValue = arr.join(" ");
+    return thisValue;
+}
+
+function kebabCase(thisValue) {
+    // this-is-kebab-case
+    thisValue = thisValue || this;
+    const arr = thisValue.toLowerCase().split(" ");
+    thisValue = arr.join("-");
+    return thisValue;
+}
+
+function snakeCase(thisValue) {
+    // THIS_IS_SNAKE_CASE
+    thisValue = thisValue || this;
+    const arr = thisValue.toUpperCase().split(" ");
+    thisValue = arr.join("_");
+    return thisValue;
+}
+
+function pascalCase(thisValue) {
+    // "this is a pascal case" => "ThisIsAPascalCase"
+    thisValue = thisValue || this;
+    const arr = thisValue.split(" ");
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+    thisValue = arr.join("");
+    return thisValue;
+}
+
+
+function upperCase(thisValue) {
+    thisValue = thisValue || this;
+    return thisValue.toUpperCase();
+}
+
+function lowerCase(thisValue) {
+    thisValue = thisValue || this;
+    return thisValue.toLowerCase();
+}
+
+function upperFirst(thisValue) { }
+
+function lowerFirst(thisValue) { }
+
+function toLower(thisValue) { }
+
+function toUpper(thisValue) { }
+
+function startCase(thisValue) { }
+
+function startsWith(thisValue) { }
+
+function template(thisValue) { }
+function trim(thisValue) { }
+function trimEnd(thisValue) { }
+function trimStart(thisValue) { }
+function truncate(thisValue) { }
+function unescaper(thisValue) { }
+function pad(thisValue) { }
+function padEnd(thisValue) { }
+function padStart(thisValue) { }
+function parseInt(thisValue) { }
+function repeat(thisValue) { }
+function replace(thisValue) { }
+function split(thisValue) { }
 function words() { }
 
 
@@ -355,7 +421,7 @@ function StringExtended() {
     Object.defineProperty(SubString.prototype, 'trimStart', { value: trimStart, enumerable: true, });
     Object.defineProperty(SubString.prototype, 'truncate', { value: truncate, enumerable: true, });
     Object.defineProperty(SubString.prototype, 'unescape', { value: unescaper, enumerable: true, });
-    
+
     // Object.defineProperty(SubString.prototype, '', { value: , enumerable: true, });
 
     return SubString;
