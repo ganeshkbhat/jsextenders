@@ -16,7 +16,12 @@
 
 'use strict';
 
-
+/**
+ *
+ *
+ * @param {*} decoratorFn
+ * @return {*} 
+ */
 function createMethodDecorator(decoratorFn) {
     return function (...args) {
         return function (target, name, descriptor) {
@@ -32,7 +37,12 @@ function createMethodDecorator(decoratorFn) {
     }
 }
 
-
+/**
+ *
+ *
+ * @param {*} decoratorFn
+ * @return {*} 
+ */
 function createClassDecorator(decoratorFn) {
     return function (...args) {
         return function (target) {

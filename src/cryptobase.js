@@ -18,26 +18,62 @@
 
 const cryptor = require("hasher-apis");
 
+/**
+ *
+ *
+ * @param {*} data
+ * @param {*} salt
+ */
 function encrypt(data, salt) {
 
 }
 
+/**
+ *
+ *
+ * @param {*} hashData
+ * @param {*} salt
+ */
 function decrypt(hashData, salt) {
 
 }
 
+/**
+ *
+ *
+ * @param {*} data
+ * @param {*} key
+ */
 function encryptWithKey(data, key) {
 
 }
 
+/**
+ *
+ *
+ * @param {*} hashData
+ * @param {*} key
+ */
 function decryptWithKey(hashData, key) {
 
 }
 
+/**
+ *
+ *
+ * @param {*} data
+ * @param {*} key
+ */
 function encryptWithRSAKey(data, key) {
 
 }
 
+/**
+ *
+ *
+ * @param {*} hashData
+ * @param {*} key
+ */
 function decryptWithRSAKey(hashData, key) {
 
 }

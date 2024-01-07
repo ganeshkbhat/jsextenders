@@ -2016,7 +2016,10 @@ function take(a, indices, axis = null, out = null, mode = 'raise') {
     // https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
 }
 
-
+/**
+ *
+ *
+ */
 function choose() {
     // https://github.com/numpy/numpy/blob/main/numpy/core/fromnumeric.py
 }

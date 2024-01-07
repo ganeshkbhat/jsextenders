@@ -14,9 +14,14 @@
 
 /* eslint no-console: 0 */
 
-'use strict';
+// 'use strict';
 
-
+/**
+ *
+ *
+ * @param {*} ipaddress
+ * @return {*} 
+ */
 function isIP(ipaddress) {
     const net = require("net");
     // net.isIP('127.0.0.1'); // returns 4
@@ -26,7 +31,12 @@ function isIP(ipaddress) {
     // net.isIP('::1'); // returns 6
     return net.isIP(ipaddress);
 }
-
+/**
+ *
+ *
+ * @param {*} ipaddress
+ * @return {*} 
+ */
 function isIPv4(ipaddress) {
     const net = require("net");
     // net.isIPv4('127.0.0.1'); // returns true
@@ -36,6 +46,12 @@ function isIPv4(ipaddress) {
     return net.isIPv4(ipaddress);
 }
 
+/**
+ *
+ *
+ * @param {*} ipaddress
+ * @return {*} 
+ */
 function isIPv6(ipaddress) {
     const net = require("net");
     // net.isIPv6('::1'); // returns true
@@ -43,7 +59,12 @@ function isIPv6(ipaddress) {
     return net.isIPv6(ipaddress);
 }
 
-function utils() {
+/**
+ *
+ *
+ * @return {*} 
+ */
+function Utils() {
     let utils = {};
     Object.defineProperty(utils.prototype, 'isIP', { value: isIP, enumerable: true, });
     Object.defineProperty(utils.prototype, 'isIPv4', { value: isIPv4, enumerable: true, });
@@ -52,4 +73,4 @@ function utils() {
 }
 
 
-module.exports.UtilFunctions = utils;
+module.exports.UtilFunctions = Utils;

@@ -18,10 +18,18 @@
 
 const crypter = require("./cryptobase");
 
+/**
+ *
+ *
+ */
 function FunctionExtended() {
   Object.defineProperty(Function.prototype, 'MapperCopy', { value: MapperCopy, enumerable: true, });
 }
 
+/**
+ *
+ *
+ */
 function extendFunction() {
   Object.defineProperty(Function.prototype, 'MapperCopy', { value: MapperCopy, enumerable: true, });
 }

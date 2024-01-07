@@ -21,7 +21,7 @@ var { SubObjectExtender, Freeze, extender } = require("./extenders");
 
 
 function keyDef() {
-    esObject?
+    // esObject?
 }
 
 function map() { }

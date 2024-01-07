@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "gentypes": "npx -p typescript tsc --outDir types",
     "test": "mocha --require @babel/register --require @babel/polyfill --reporter spec --recursive  --timeout 60000",
     "testconfig": "mocha --reporter spec --recursive --config ./mocha.test.config.js --experimental-loader=./loader.mjs --timeout 60000"
   },
@@ -38,7 +39,6 @@
     "mocha": "^10.0.0",
     "safe-regex": "^2.1.1",
     "sinon": "^14.0.0",
-    "tsc": "^2.0.4",
     "typescript": "^5.3.3",
     "unimported": "^1.22.0"
   },
