@@ -23,7 +23,7 @@ import { SubArrayExtender, SubObjectExtender, SubStringExtender, Freeze, extende
 // import { ObjectExtended, extendObject } from "./src/object.js";
 import { StringExtended, extendString } from "./src/string.js";
 import { singleton } from "./src/singleton.js";
-import utils from "./src/utils.js";
+import utils from "./src/utilsjs.js";
 import math from "./src/math.js";
 
 

@@ -6,7 +6,7 @@
  * Install: npm i extenders --save
  * Github: https://github.com/ganeshkbhat/jsextenders
  * npmjs Link: https://www.npmjs.com/package/extenders
- * File: src/array.js
+ * File: src/cryptobase.js
  * File Description: 
  * 
  * 

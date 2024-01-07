@@ -1,4 +1,22 @@
 /**
+ * 
+ * Package: extenders
+ * Author: Ganesh B
+ * Description: Node module for Array, Object, String, Decorator extention Utils like for Python and more for Node.js
+ * Install: npm i extenders --save
+ * Github: https://github.com/ganeshkbhat/jsextenders
+ * npmjs Link: https://www.npmjs.com/package/extenders
+ * File: src/singleton.js
+ * File Description: 
+ * 
+ * 
+*/
+
+/* eslint no-console: 0 */
+
+'use strict';
+
+/**
  * Creates a global singleton
  * Takes `key` of the global variable and associated `object` to create if not there
  * Can force replace the object if `replace` TRUE
