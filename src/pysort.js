@@ -43,7 +43,6 @@ function merge_sort(array) {
     return merge(left, right);
 }
 
-
 function timsort(array) {
     var min_run = 32
     // == //
@@ -108,7 +107,6 @@ function timsort(array) {
     return array
 }
 
-
 function insertion_sort(array, left = 0, right = null) {
     if (right === null) {
         // == //
@@ -153,5 +151,4 @@ function insertion_sort(array, left = 0, right = null) {
 
     return array
 }
-
 

@@ -16,7 +16,8 @@
 
 'use strict';
 
-const cryptor = require("hasher-apis");
+const cryptor = require("safecookie");
+
 
 /**
  *
@@ -84,3 +85,5 @@ module.exports.encryptWithKey = encryptWithKey;
 module.exports.decryptWithKey = decryptWithKey;
 module.exports.encryptWithRSAKey = encryptWithRSAKey;
 module.exports.decryptWithRSAKey = decryptWithRSAKey;
+module.exports.encryptWith__Key = encryptWithRSAKey;
+module.exports.decryptWith__Key = decryptWithRSAKey;
