@@ -113,8 +113,7 @@ function insertion_sort(array, left = 0, right = null) {
         // right = len(array) - 1
         right = array.length - 1
     }
-
-
+    
     // # Loop from the element indicated by
     // # `left` until the element indicated by `right`
     // == //
@@ -147,8 +146,6 @@ function insertion_sort(array, left = 0, right = null) {
         // # the `key_item` in its correct location
         array[j + 1] = key_item
     }
-
-
     return array
 }
 
